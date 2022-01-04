@@ -5,22 +5,46 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/10_Home/HomeScene.unity
     guid: bfbc5d463cff04c49af66c40817d1aaf
-  - enabled: 1
+  - enabled: 0
+    path: Assets/11_EnhancementScreen/EnhancementScreenScene.unity
+    guid: a3df866b016ccbf4793545d0c8694a32
+  - enabled: 0
+    path: Assets/12_OrganizationScreen/OrganizationScreenScene.unity
+    guid: 76e57987e9a94404cba8032ca100f7b4
+  - enabled: 0
+    path: Assets/13_RecoveryOfBelongingsScreen/RecoveryOfBelongingsScreenScene.unity
+    guid: 46a589a600e2e9040bfad5c7f1fbbfa8
+  - enabled: 0
+    path: Assets/14_StoreScreen/StoreScreenScene.unity
+    guid: dc3ef0c737c26b2418852fc0885a80a9
+  - enabled: 0
+    path: Assets/15_SettingsScreen/SettingsScreenScene.unity
+    guid: 5b574bdf3a73119479744932e837ac69
+  - enabled: 0
+    path: Assets/16_MissionScreen/MissionScreenScene.unity
+    guid: cd6e4927d1e13554ead12704bdf20736
+  - enabled: 0
+    path: Assets/17_CapsuleToyScreen/CapsuleToyScreenScene.unity
+    guid: e88ae09bde40e2245bfa558b5d56391a
+  - enabled: 0
     path: Assets/20_Load/LoadScene.unity
     guid: 18b9eb0bd9444c74d904babee4299764
-  - enabled: 1
+  - enabled: 0
     path: Assets/80_MainGame/MainGameScene.unity
     guid: 7d3ab4bd47c0c2d46acb393ec4d87b7a
-  - enabled: 1
+  - enabled: 0
     path: Assets/70_StageSelect/StageSelectScene.unity
     guid: f05761c6013a87047b5a5edda4090bf4
-  - enabled: 1
+  - enabled: 0
     path: Assets/90_Story/StoryScene.unity
     guid: e3b9c121f7b493d45914295e02977fd7
-  - enabled: 1
+  - enabled: 0
     path: Assets/60_Title/TitleScene.unity
     guid: 4e51bda4a489c7a46ab33b046e02b95e
+  - enabled: 1
+    path: "Assets/T\uFF3FTest/Takesan/Takesan\uFF3FTestScene.unity"
+    guid: a27afc0c4af5ddc4088c357e5932cd72
   m_configObjects: {}

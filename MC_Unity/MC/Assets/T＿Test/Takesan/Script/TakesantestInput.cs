@@ -16,6 +16,7 @@ public class TakesantestInput : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 600;
         if (Application.isEditor == true)
         {
             iseditor = true;
@@ -46,21 +47,21 @@ public class TakesantestInput : MonoBehaviour
                 isTouch = true;
                 Touchbegan = true;
                 Touchposition = Input.mousePosition;
-                Debug.Log("押した");
+                //Debug.Log("押した");
             }
             if (Input.GetMouseButton(0) == true)
             {
                 isTouch = true;
                 Touchmoved = true;
                 Touchposition = Input.mousePosition;
-                Debug.Log("押している");
+                //Debug.Log("押している");
             }
             if (Input.GetMouseButtonUp(0) == true)
             {
                 isTouch = true;
                 Touchended = true;
                 Touchposition = Input.mousePosition;
-                Debug.Log("離した");
+                //Debug.Log("離した");
             }
         }
         else
@@ -73,19 +74,25 @@ public class TakesantestInput : MonoBehaviour
                 {
                     Touchbegan = true;
                     Touchposition = Input.mousePosition;
-                    Debug.Log("押した");
+                    //Debug.Log("押した");
                 }
                 if (touch.phase == TouchPhase.Moved)
                 {
                     Touchmoved = true;
                     Touchposition = Input.mousePosition;
-                    Debug.Log("押している");
+                    //Debug.Log("押している");
+                }
+                if (touch.phase == TouchPhase.Stationary)
+                {
+                    Touchmoved = true;
+                    Touchposition = Input.mousePosition;
+                    //Debug.Log("押している");
                 }
                 if (touch.phase == TouchPhase.Ended)
                 {
                     Touchended = true;
                     Touchposition = Input.mousePosition;
-                    Debug.Log("離した");
+                    //Debug.Log("離した");
                 }
             }
         }
