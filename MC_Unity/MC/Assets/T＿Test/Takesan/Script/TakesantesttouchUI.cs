@@ -28,7 +28,7 @@ public class TakesantesttouchUI : MonoBehaviour
         }
         else
         {
-            imageRect.anchoredPosition = new Vector2(-1300,0);
+            imageRect.anchoredPosition = new Vector2(-2000,0);
         }
         
     }
