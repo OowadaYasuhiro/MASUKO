@@ -1,0 +1,133 @@
+string PlayerName
+float Soundvolume
+String? NowSelectCharactor
+int PlayerLevel
+int PlayerExperience
+int Coin
+int Zyanryu-Sinen
+int MagaTamashi
+
+bool DailyMission1
+bool DailyMission2
+bool DailyMission3
+bool DailyMission4
+bool DailyMission5
+bool DailyMission6
+bool WeeklyMission1
+bool WeeklyMission2
+bool WeeklyMission3
+bool WeeklyMission4
+bool WeeklyMission5
+bool WeeklyMission6
+bool Achievements1
+Achievements2
+Achievements3
+Achievements4
+Achievements5
+Achievements6
+Achievements7
+Achievements8
+Achievements9
+Achievements10
+Achievements11
+Achievements12
+Achievements13
+Achievements14
+Achievements15
+Achievements16
+Achievements17
+Achievements18
+Achievements19
+Achievements20
+
+bool DaemonUnLocked
+int DaemonLevel
+int DaemonCredibility
+int DaemonSkill1Level
+int DaemonSkill2Level
+int DaemonSkill3Level
+int DaemonUltLevel
+int DaemonPotentialflowering
+int Daemonduplication
+bool PoltergeistUnLocked
+PoltergeistLevel
+PoltergeistCredibility
+PoltergeistSkill1Level
+PoltergeistSkill2Level
+PoltergeistSkill3Level
+PoltergeistUltLevel
+PoltergeistPotentialflowering
+Poltergeistduplication
+bool goreUnLocked
+goreLevel
+goreCredibility
+goreSkill1Level
+goreSkill2Level
+goreSkill3Level
+goreUltLevel
+gorePotentialflowering
+goreduplication
+bool Zashiki-warashiUnLocked
+Zashiki-warashiLevel
+Zashiki-warashiCredibility
+Zashiki-warashiSkill1Level
+Zashiki-warashiSkill2Level
+Zashiki-warashiSkill3Level
+Zashiki-warashiUltLevel
+Zashiki-warashiPotentialflowering
+Zashiki-warashiduplication
+bool GhostUnLocked
+GhostLevel
+GhostCredibility
+GhostSkill1Level
+GhostSkill2Level
+GhostSkill3Level
+GhostUltLevel
+GhostPotentialflowering
+Ghostduplication
+
+int Reikon
+int Reikessyou
+int Reikotu
+
+int Kosyo
+int Ikotu
+int Ningennnoti
+
+bool Stage1-1Clear
+bool Stage1-1Mission1
+bool Stage1-1Mission2
+bool Stage1-1Mission3
+Stage1-2Clear
+Stage1-2Mission1
+Stage1-2Mission2
+Stage1-2Mission3     めんどい
+Stage1-3Clear
+Stage1-4Clear
+Stage1-5Clear
+Stage2-1Clear
+Stage2-2Clear
+Stage2-3Clear
+Stage2-4Clear
+Stage2-5Clear
+Stage3-1Clear
+Stage3-2Clear
+Stage3-3Clear
+Stage3-4Clear
+Stage3-5Clear
+Stage4-1Clear
+Stage4-2Clear
+Stage4-3Clear
+Stage4-4Clear
+Stage4-5Clear
+Stage5-1Clear
+Stage5-2Clear
+Stage5-3Clear
+Stage5-4Clear
+Stage5-5Clear
+
+
+
+
+
+
