@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class TakesanTestSingletonMonoBehaviour<T> : MonoBehaviour where T: MonoBehaviour
 {
-   protected abstract bool dontDestroyOnLoad { get;}
+    protected abstract bool dontDestroyOnLoad { get;}
 
     private static T instance;
     public static T Instance
