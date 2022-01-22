@@ -1,3 +1,9 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerDeta
+{
     public string PlayerName;
     public float Soundvolume;
     public string NowSelectCharactor;
@@ -194,3 +200,5 @@
     public bool Stage5_5Mission1;
     public bool Stage5_5Mission2;
     public bool Stage5_5Mission3;
+
+}
