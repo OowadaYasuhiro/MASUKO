@@ -8,7 +8,7 @@ public class Master : SingletonMonoBehaviour<Master>
 {
     protected override bool dontDestroyOnLoad { get { return true; } }
 
-
+    public static PlayerDeta playerdeta = new PlayerDeta();
     
 
     private new void Awake()
