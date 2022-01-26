@@ -7,11 +7,21 @@ public class PlayerDeta
     //プレイヤーの名前
     public string PlayerName;
     //音量
-    public float Soundvolume;
+    //Master
+    private float mastersoundvolume;
+    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp01(value); } }
+    //BGM
+    private float bgmsoundvolume;
+    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp01(value); } }
+    //VOICE
+    private float voicesoundvolume;
+    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp01(value); } }
+    //ミュート
+    public bool mute;
     //選択しているキャラクター
     public string NowSelectCharactor;
     //プレイヤーのレベル
-    public int PlayerLevel { get{ return PlayerLevel;} set {int min = 1;int max = 100;PlayerLevel = Mathf.Clamp(PlayerLevel,min,max);} }
+    public int PlayerLevel { get{ return PlayerLevel;} set {int min = 1;int max = 100;PlayerLevel = Mathf.Clamp(value,min,max);} }
     //経験値
     public int PlayerExperience;
     //コイン
@@ -65,130 +75,130 @@ public class PlayerDeta
     //信頼度
     public int DaemonCredibility;
     //スキル１レベル
-    public int daemonskill1level;
+    private int daemonskill1level;
     public int DaemonSkill1Level { get { return daemonskill1level; } set { int min = 1; int max = 5; daemonskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    public int daemonskill2level;
+    private int daemonskill2level;
     public int DaemonSkill2Level { get { return daemonskill2level; } set { int min = 1; int max = 5; daemonskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    public int daemonskill3level;
+    private int daemonskill3level;
     public int DaemonSkill3Level { get { return daemonskill3level; } set { int min = 1; int max = 5; daemonskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    public int daemonultlevel;
+    private int daemonultlevel;
     public int DaemonUltLevel { get { return daemonultlevel; } set { int min = 1; int max = 5; daemonultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    public int deamonpassiveskilllevel;
+    private int deamonpassiveskilllevel;
     public int DaemonPassiveSkillLevel { get { return deamonpassiveskilllevel; } set { int min = 1; int max = 6; deamonpassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    public int deamonpotentialflowering;
+    private int deamonpotentialflowering;
     public int DaemonPotentialflowering { get { return deamonpotentialflowering; } set { int min = 0; int max = 4; deamonpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Daemonduplication;
     //ポルターガイスト解放
     public bool PoltergeistUnLocked;
     //レベル
-    public int poltergeistlevel;
+    private int poltergeistlevel;
     public int PoltergeistLevel { get { return poltergeistlevel; } set { int min = 1; int max = 2000000000; poltergeistlevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int PoltergeistCredibility;
     //スキル1レベル
-    public int poltergeistskill1level;
+    private int poltergeistskill1level;
     public int PoltergeistSkill1Level { get { return poltergeistskill1level; } set { int min = 1; int max = 5; poltergeistskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    public int poltergeistskill2level;
+    private int poltergeistskill2level;
     public int PoltergeistSkill2Level { get { return poltergeistskill2level; } set { int min = 1; int max = 5; poltergeistskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    public int poltergeistskill3level;
+    private int poltergeistskill3level;
     public int PoltergeistSkill3Level { get { return poltergeistskill3level; } set { int min = 1; int max = 5; poltergeistskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    public int poltergeistultlevel;
+    private int poltergeistultlevel;
     public int PoltergeistUltLevel { get { return poltergeistultlevel; } set { int min = 1; int max = 5; poltergeistultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    public int poltergeistpassiveskilllevel;
+    private int poltergeistpassiveskilllevel;
     public int PoltergeistPassiveSkillLevel { get { return poltergeistpassiveskilllevel; } set { int min = 1; int max = 6; poltergeistpassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    public int poltergeistpotentialflowering;
+    private int poltergeistpotentialflowering;
     public int PoltergeistPotentialflowering { get { return poltergeistpotentialflowering; } set { int min = 0; int max = 4; poltergeistpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Poltergeistduplication;
     //鬼開放
     public bool GoreUnLocked;
     //レベル
-    public int gorelevel;
+    private int gorelevel;
     public int GoreLevel { get { return gorelevel; } set { int min = 1; int max = 2000000000; gorelevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int goreCredibility;
     //スキル1レベル
-    public int goreskill1level;
+    private int goreskill1level;
     public int GoreSkill1Level { get { return goreskill1level; } set { int min = 1; int max = 5; goreskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    public int goreskill2level;
+    private int goreskill2level;
     public int GoreSkill2Level { get { return goreskill2level; } set { int min = 1; int max = 5; goreskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    public int goreskill3level;
+    private int goreskill3level;
     public int GoreSkill3Level { get { return goreskill3level; } set { int min = 1; int max = 5; goreskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    public int goreultlevel;
+    private int goreultlevel;
     public int GoreUltLevel { get { return goreultlevel; } set { int min = 1; int max = 5; goreultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    public int gorepassiveskilllevel;
+    private int gorepassiveskilllevel;
     public int GorePassiveSkillLevel { get { return gorepassiveskilllevel; } set { int min = 1; int max = 6; gorepassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    public int gorepotentialflowering;
+    private int gorepotentialflowering;
     public int GorePotentialflowering { get { return gorepotentialflowering; } set { int min = 0; int max = 4; gorepotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int goreduplication;
     //座敷童解放
     public bool Zashiki_warashiUnLocked;
     //レベル
-    public int zashiki_warashilevel;
+    private int zashiki_warashilevel;
     public int Zashiki_warashiLevel { get { return zashiki_warashilevel; } set { int min = 1; int max = 2000000000; zashiki_warashilevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int Zashiki_warashiCredibility;
     //スキル1レベル
-    public int zashiki_warashiskill1level;
+    private int zashiki_warashiskill1level;
     public int Zashiki_warashiSkill1Level { get { return zashiki_warashiskill1level; } set { int min = 1; int max = 5; zashiki_warashiskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    public int zashiki_warashiskill2level;
+    private int zashiki_warashiskill2level;
     public int Zashiki_warashiSkill2Level { get { return zashiki_warashiskill2level; } set { int min = 1; int max = 5; zashiki_warashiskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    public int zashiki_warashiskill3level;
+    private int zashiki_warashiskill3level;
     public int Zashiki_warashiSkill3Level { get { return zashiki_warashiskill3level; } set { int min = 1; int max = 5; zashiki_warashiskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    public int zashiki_warashiultlevel;
+    private int zashiki_warashiultlevel;
     public int Zashiki_warashiUltLevel { get { return zashiki_warashiultlevel; } set { int min = 1; int max = 5; zashiki_warashiultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    public int zashiki_warashipassiveskilllevel;
+    private int zashiki_warashipassiveskilllevel;
     public int Zashiki_warashiPassiveSkillLevel { get { return zashiki_warashipassiveskilllevel; } set { int min = 1; int max = 6; zashiki_warashipassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    public int zashiki_warashipotentialflowering;
+    private int zashiki_warashipotentialflowering;
     public int Zashiki_warashiPotentialflowering { get { return zashiki_warashipotentialflowering; } set { int min = 0; int max = 4; zashiki_warashipotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Zashiki_warashiduplication;
     //幽霊解放
     public bool GhostUnLocked;
     //レベル
-    public int ghostlevel;
+    private int ghostlevel;
     public int GhostLevel { get { return ghostlevel; } set { int min = 1; int max = 2000000000; ghostlevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int GhostCredibility;
     //スキル1レベル
-    public int ghostskill1level;
+    private int ghostskill1level;
     public int GhostSkill1Level { get { return ghostskill1level; } set { int min = 1; int max = 5; ghostskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    public int ghostskill2level;
+    private int ghostskill2level;
     public int GhostSkill2Level { get { return ghostskill2level; } set { int min = 1; int max = 5; ghostskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    public int ghostskill3level;
+    private int ghostskill3level;
     public int GhostSkill3Level { get { return ghostskill3level; } set { int min = 1; int max = 5; ghostskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    public int ghostultlevel;
+    private int ghostultlevel;
     public int GhostUltLevel { get { return ghostultlevel; } set { int min = 1; int max = 5; ghostultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    public int ghostpssiveskilllevel;
+    private int ghostpssiveskilllevel;
     public int GhostPassiveSkillLevel { get { return ghostpssiveskilllevel; } set { int min = 1; int max = 6; ghostpssiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    public int ghostpotentialflowering;
+    private int ghostpotentialflowering;
     public int GhostPotentialflowering { get { return ghostpotentialflowering; } set { int min = 0; int max = 4; ghostpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Ghostduplication;
@@ -319,7 +329,10 @@ public class PlayerDeta
     public PlayerDeta(string a)
     {
         PlayerLevel = 1;
-        Soundvolume = 1f;
+        MasterSoundvolume = 1f;
+        BGMSoundvolume = 1f;
+        VoiceSoundvolume = 1f;
+        mute = false;
         NowSelectCharactor = "Ghost";
         MagaTamashi = 1000;
         Zanryu_Sinen = 1000;

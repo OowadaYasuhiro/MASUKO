@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEditor;
 
 //一度生成されるとどこにでも存在し破壊されることがなく複製される事も無いためシーンの切り替えやリロードの影響を受けません
@@ -25,7 +26,10 @@ public class Master : SingletonMonoBehaviour<Master>
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     
