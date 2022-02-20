@@ -33,39 +33,71 @@ public class PlayerDeta
     
     //デイリーミッション
     public bool DailyMission1;
+    public bool isGetRewardDailyMission1;
     public bool DailyMission2;
+    public bool isGetRewardDailyMission2;
     public bool DailyMission3;
+    public bool isGetRewardDailyMission3;
     public bool DailyMission4;
+    public bool isGetRewardDailyMission4;
     public bool DailyMission5;
+    public bool isGetRewardDailyMission5;
     public bool DailyMission6;
+    public bool isGetRewardDailyMission6;
     //ウィークリーミッション
     public bool WeeklyMission1;
+    public bool isGetRewardWeeklyMission1;
     public bool WeeklyMission2;
+    public bool isGetRewardWeeklyMission2;
     public bool WeeklyMission3;
+    public bool isGetRewardWeeklyMission3;
     public bool WeeklyMission4;
+    public bool isGetRewardWeeklyMission4;
     public bool WeeklyMission5;
+    public bool isGetRewardWeeklyMission5;
     public bool WeeklyMission6;
+    public bool isGetRewardWeeklyMission6;
     //実績
     public bool Achievements1;
+    public bool isGetRewardAchievements1;
     public bool Achievements2;
+    public bool isGetRewardAchievements2;
     public bool Achievements3;
+    public bool isGetRewardAchievements3;
     public bool Achievements4;
+    public bool isGetRewardAchievements4;
     public bool Achievements5;
+    public bool isGetRewardAchievements5;
     public bool Achievements6;
+    public bool isGetRewardAchievements6;
     public bool Achievements7;
+    public bool isGetRewardAchievements7;
     public bool Achievements8;
+    public bool isGetRewardAchievements8;
     public bool Achievements9;
+    public bool isGetRewardAchievements9;
     public bool Achievements10;
+    public bool isGetRewardAchievements10;
     public bool Achievements11;
+    public bool isGetRewardAchievements11;
     public bool Achievements12;
+    public bool isGetRewardAchievements12;
     public bool Achievements13;
+    public bool isGetRewardAchievements13;
     public bool Achievements14;
+    public bool isGetRewardAchievements14;
     public bool Achievements15;
+    public bool isGetRewardAchievements15;
     public bool Achievements16;
+    public bool isGetRewardAchievements16;
     public bool Achievements17;
+    public bool isGetRewardAchievements17;
     public bool Achievements18;
+    public bool isGetRewardAchievements18;
     public bool Achievements19;
+    public bool isGetRewardAchievements19;
     public bool Achievements20;
+    public bool isGetRewardAchievements20;
 
     //デーモン解放
     public bool DaemonUnLocked;
@@ -203,8 +235,6 @@ public class PlayerDeta
     //キャラ重複数
     public int Ghostduplication;
 
-    //霊魂
-    public int Reikon;
     //希少な霊魂
     public int KisyounaReikon;
     //霊結石
@@ -216,8 +246,8 @@ public class PlayerDeta
     public int Kosyo;
     //遺骨
     public int Ikotu;
-    //人間の血
-    public int Ninkennnoti;
+    //人間の稀血
+    public int Ninkennnomareti;
 
     //進行度
     public bool Stage1_1Clear;
@@ -345,12 +375,24 @@ public class PlayerDeta
         DailyMission4 = false;
         DailyMission5 = false;
         DailyMission6 = false;
+        isGetRewardDailyMission1 = false;
+        isGetRewardDailyMission2 = false;
+        isGetRewardDailyMission3 = false;
+        isGetRewardDailyMission4 = false;
+        isGetRewardDailyMission5 = false;
+        isGetRewardDailyMission6 = false;
         WeeklyMission1 = false;
         WeeklyMission2 = false;
         WeeklyMission3 = false;
         WeeklyMission4 = false;
         WeeklyMission5 = false;
         WeeklyMission6 = false;
+        isGetRewardWeeklyMission1 = false;
+        isGetRewardWeeklyMission2 = false;
+        isGetRewardWeeklyMission3 = false;
+        isGetRewardWeeklyMission4 = false;
+        isGetRewardWeeklyMission5 = false;
+        isGetRewardWeeklyMission6 = false;
         Achievements1 = false;
         Achievements2 = false;
         Achievements3 = false;
@@ -371,6 +413,26 @@ public class PlayerDeta
         Achievements18 = false;
         Achievements19 = false;
         Achievements20 = false;
+        isGetRewardAchievements1 = false;
+        isGetRewardAchievements2 = false;
+        isGetRewardAchievements3 = false;
+        isGetRewardAchievements4 = false;
+        isGetRewardAchievements5 = false;
+        isGetRewardAchievements6 = false;
+        isGetRewardAchievements7 = false;
+        isGetRewardAchievements8 = false;
+        isGetRewardAchievements9 = false;
+        isGetRewardAchievements10 = false;
+        isGetRewardAchievements11 = false;
+        isGetRewardAchievements12 = false;
+        isGetRewardAchievements13 = false;
+        isGetRewardAchievements14 = false;
+        isGetRewardAchievements15 = false;
+        isGetRewardAchievements16 = false;
+        isGetRewardAchievements17 = false;
+        isGetRewardAchievements18 = false;
+        isGetRewardAchievements19 = false;
+        isGetRewardAchievements20 = false;
         Stage1_1Clear = false;
         Stage1_1Mission1 = false;
         Stage1_1Mission2 = false;
