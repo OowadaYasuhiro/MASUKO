@@ -10,6 +10,7 @@ public class Master : SingletonMonoBehaviour<Master>
     protected override bool dontDestroyOnLoad { get { return true; } }
 
     public static PlayerDeta playerdeta = new PlayerDeta();
+    public static FormationDeta formationdeta = new FormationDeta();
     
 
     private new void Awake()
@@ -26,10 +27,7 @@ public class Master : SingletonMonoBehaviour<Master>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        
     }
 
     
