@@ -8,9 +8,4 @@ public class Test_Mission_Main : MonoBehaviour
     {
         this.gameObject.GetComponent<Test_Misson_ButtonEvents>().OnClickDailyButton();
     }
-
-    void Update()
-    {
-        
-    }
 }

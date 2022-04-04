@@ -42,6 +42,9 @@ public class Hy_Test_Data : MonoBehaviour
     public static readonly string missionRewardKakonAndSinenLarge = "禍根×20\n残留思念×5000";
     public static readonly string missionRewardKakonAndMoney = "禍根×20\nコイン×5000";
 
+    public static int window1CharacterNum = 0;
+    public static int window2CharacterNum = 1;
+
     public static readonly int character1Level = 1;
     public static readonly string character1Name = "Red";
     public static readonly int character1Hp = 10;

@@ -17,20 +17,17 @@ public class Test_FormationButtonEvent : MonoBehaviour
 
     private bool isWindow1;
 
-    private int window1CharacterNum = 0;
-    private int window2CharacterNum = 1;
-
     private int armorPositionNum;
     private Color armorColor;
 
     void Start()
     {
         isWindow1 = true;
-        SetCharacterImage(window1CharacterNum);
-        SetCharacterStatus(window1CharacterNum, characterWindow1);
+        SetCharacterImage(Hy_Test_Data.window1CharacterNum);
+        SetCharacterStatus(Hy_Test_Data.window1CharacterNum, characterWindow1);
         isWindow1 = false;
-        SetCharacterImage(window2CharacterNum);
-        SetCharacterStatus(window2CharacterNum, characterWindow2);
+        SetCharacterImage(Hy_Test_Data.window2CharacterNum);
+        SetCharacterStatus(Hy_Test_Data.window2CharacterNum, characterWindow2);
 
         characterWindow1.SetActive(true);
         characterWindow2.SetActive(true);
@@ -57,33 +54,33 @@ public class Test_FormationButtonEvent : MonoBehaviour
         characterWindow1.SetActive(true);
         characterWindow2.SetActive(true);
 
-        if (isWindow1 && index == window2CharacterNum)
+        if (isWindow1 && index == Hy_Test_Data.window2CharacterNum)
         {
-            window2CharacterNum = window1CharacterNum;
+            Hy_Test_Data.window2CharacterNum = Hy_Test_Data.window1CharacterNum;
             SetCharacterImage(index);
             SetCharacterStatus(index, characterWindow1);
             isWindow1 = false;
-            SetCharacterImage(window2CharacterNum);
-            SetCharacterStatus(window2CharacterNum, characterWindow2);
+            SetCharacterImage(Hy_Test_Data.window2CharacterNum);
+            SetCharacterStatus(Hy_Test_Data.window2CharacterNum, characterWindow2);
         } 
-        else if (!isWindow1 && index == window1CharacterNum)
+        else if (!isWindow1 && index == Hy_Test_Data.window1CharacterNum)
         {
-            window1CharacterNum = window2CharacterNum;
+            Hy_Test_Data.window1CharacterNum = Hy_Test_Data.window2CharacterNum;
             SetCharacterImage(index);
             SetCharacterStatus(index, characterWindow2);
             isWindow1 = true;
-            SetCharacterImage(window1CharacterNum);
-            SetCharacterStatus(window1CharacterNum, characterWindow1);
+            SetCharacterImage(Hy_Test_Data.window1CharacterNum);
+            SetCharacterStatus(Hy_Test_Data.window1CharacterNum, characterWindow1);
         }
-        else if (isWindow1 && index == window1CharacterNum && window2CharacterNum != -1)
+        else if (isWindow1 && index == Hy_Test_Data.window1CharacterNum && Hy_Test_Data.window2CharacterNum != -1)
         {
-            window1CharacterNum = window2CharacterNum;
-            SetCharacterImage(window1CharacterNum);
-            SetCharacterStatus(window1CharacterNum, characterWindow1);
+            Hy_Test_Data.window1CharacterNum = Hy_Test_Data.window2CharacterNum;
+            SetCharacterImage(Hy_Test_Data.window1CharacterNum);
+            SetCharacterStatus(Hy_Test_Data.window1CharacterNum, characterWindow1);
             isWindow1 = false;
             SetCharacterImage(-1);
             SetCharacterStatus(-1, characterWindow2);
-        } else if (!isWindow1 && index == window2CharacterNum)
+        } else if (!isWindow1 && index == Hy_Test_Data.window2CharacterNum)
         {
             SetCharacterImage(-1);
             SetCharacterStatus(-1, characterWindow2);
@@ -103,7 +100,7 @@ public class Test_FormationButtonEvent : MonoBehaviour
         }
 
         characterSelectUi.SetActive(false);
-        Hy_Test_Data.imageNum = window1CharacterNum;
+        Hy_Test_Data.imageNum = Hy_Test_Data.window1CharacterNum;
     }
 
     public void OnClickArmorButton(int index)
@@ -200,56 +197,56 @@ public class Test_FormationButtonEvent : MonoBehaviour
             case 0:
                 if (isWindow1) { 
                     characterWindow1.transform.GetChild(3).GetComponent<Image>().color = Color.red;
-                    window1CharacterNum = 0;
+                    Hy_Test_Data.window1CharacterNum = 0;
                 }
                 else { 
                     characterWindow2.transform.GetChild(3).GetComponent<Image>().color = Color.red;
-                    window2CharacterNum = 0;
+                    Hy_Test_Data.window2CharacterNum = 0;
                 }
                 break;
             case 1:
                 if (isWindow1) { 
                     characterWindow1.transform.GetChild(3).GetComponent<Image>().color = Color.blue;
-                    window1CharacterNum = 1;
+                    Hy_Test_Data.window1CharacterNum = 1;
                 }
                 else { 
                     characterWindow2.transform.GetChild(3).GetComponent<Image>().color = Color.blue;
-                    window2CharacterNum = 1;
+                    Hy_Test_Data.window2CharacterNum = 1;
                 }
                 break;
             case 2:
                 if (isWindow1) { 
                     characterWindow1.transform.GetChild(3).GetComponent<Image>().color = Color.green;
-                    window1CharacterNum = 2;
+                    Hy_Test_Data.window1CharacterNum = 2;
                 }
                 else { 
                     characterWindow2.transform.GetChild(3).GetComponent<Image>().color = Color.green;
-                    window2CharacterNum = 2;
+                    Hy_Test_Data.window2CharacterNum = 2;
                 }
                 break;
             case 3:
                 if (isWindow1) { 
                     characterWindow1.transform.GetChild(3).GetComponent<Image>().color = Color.yellow;
-                    window1CharacterNum = 3;
+                    Hy_Test_Data.window1CharacterNum = 3;
                 }
                 else { 
                     characterWindow2.transform.GetChild(3).GetComponent<Image>().color = Color.yellow;
-                    window2CharacterNum = 3;
+                    Hy_Test_Data.window2CharacterNum = 3;
                 }
                 break;
             case 4:
                 if (isWindow1) { 
                     characterWindow1.transform.GetChild(3).GetComponent<Image>().color = Color.magenta;
-                    window1CharacterNum = 4;
+                    Hy_Test_Data.window1CharacterNum = 4;
                 }
                 else { 
                     characterWindow2.transform.GetChild(3).GetComponent<Image>().color = Color.magenta;
-                    window2CharacterNum = 4;
+                    Hy_Test_Data.window2CharacterNum = 4;
                 }
                 break;
             default:
                     characterWindow2.transform.GetChild(3).GetComponent<Image>().color = Color.white;
-                    window2CharacterNum = -1;
+                    Hy_Test_Data.window2CharacterNum = -1;
                 break;
         }
     }
@@ -312,7 +309,7 @@ public class Test_FormationButtonEvent : MonoBehaviour
                 characterWindow.transform.GetChild(13).GetComponent<Text>().text = "Void";
                 break;
         }
-        SetSynagySkill(window1CharacterNum, window2CharacterNum);
+        SetSynagySkill(Hy_Test_Data.window1CharacterNum, Hy_Test_Data.window2CharacterNum);
     }
 
     private void SetSynagySkill(int window1Num,int window2Num)
