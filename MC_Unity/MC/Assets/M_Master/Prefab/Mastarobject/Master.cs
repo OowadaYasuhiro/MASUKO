@@ -11,7 +11,8 @@ public class Master : SingletonMonoBehaviour<Master>
 
     public static PlayerDeta playerdeta = new PlayerDeta();
     public static FormationDeta formationdeta = new FormationDeta();
-    
+
+
 
     private new void Awake()
     {

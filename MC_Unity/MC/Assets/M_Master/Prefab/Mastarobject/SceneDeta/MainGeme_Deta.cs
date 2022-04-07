@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class MainGeme_Deta 
 {
-
+    public static bool clear;
 }
