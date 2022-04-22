@@ -664,10 +664,6 @@ MonoBehaviour:
   gatyaText: {fileID: 844622628}
   expText: {fileID: 1614500004}
   moneyText: {fileID: 2047256041}
-  messageWindow: {fileID: 1996847375}
-  characterName: {fileID: 248330838}
-  characterMessage: {fileID: 1826425876}
-  characterImage: {fileID: 1698266726}
 --- !u!1 &589889171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,6 +2711,7 @@ GameObject:
   - component: {fileID: 1698266730}
   - component: {fileID: 1698266729}
   - component: {fileID: 1698266728}
+  - component: {fileID: 1698266731}
   m_Layer: 5
   m_Name: Character-image
   m_TagString: Untagged
@@ -2784,7 +2781,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 565214391}
+      - m_Target: {fileID: 1698266731}
         m_MethodName: OnClickCharacter
         m_Mode: 1
         m_Arguments:
@@ -2832,6 +2829,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698266726}
   m_CullTransparentMesh: 0
+--- !u!114 &1698266731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698266726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79c61fc6169ed0f4e81b0131207cba6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageWindow: {fileID: 1996847375}
 --- !u!1 &1826425876
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Hy_Test_Data : MonoBehaviour
 {
-    public static int playerLevel;
-    public static string playerName;
-    public static float playerGauge;
-    public static int gatyaAmount = 0;
-    public static int expAmount = 0;
-    public static int moneyAmount = 0;
-    public static int imageNum = 0;
-    public static string characterName;
-    public static string characterMessage;
+    //ホームシーンで参照するもの
+    public static int playerLevel = 1;                      //プレイヤーの現在のレベル
+    public static string playerName = "Void";        //プレイヤーの現在の名前
+    public static float playerGauge = 0.2f;            //プレイヤーの経験値ゲージの量
+    public static int gatyaAmount = 0;                  //現在所持している禍根の量
+    public static int expAmount = 0;                     //現在所持している残留思念の量
+    public static int moneyAmount = 0;                //現在所持しているコインの量
+    public static int imageNum = 0;                      //現在セットされているキャラクターを示すもの
 
     public static readonly string[] dailyMissions = { "DailyA", "DailyB", "DailyC", "DailyD", "DailyE", "DailyF" };
     public static bool[] didGetRewardsDaily = { true, true, false, false, false, false };
@@ -96,15 +95,12 @@ public class Hy_Test_Data : MonoBehaviour
     public static readonly string synagy3and5 = "Green\nPurple";
     public static readonly string synagy4and5 = "Yellow\nPurple";
 
-    public static int[] armorLevels = { 1, 2, 3, 4, 5, 6 };
+    public static readonly Color[] armorColors = { Color.blue, Color.cyan, Color.gray, Color.green, Color.magenta, Color.red,Color.yellow,Color.white};
+    public static readonly int[] armorLevels = { 1, 2, 4, 4, 7, 10,6,6 };
 
     void Start()
     {
-        playerLevel = 1;
-        playerName = "void";
-        playerGauge = 0.2f;
-        characterName = "void";
-        characterMessage = "void\nvoid";
+        //デフォルト値
 
         acheiveMission1.Enqueue("AcheiveA1");
         acheiveMission1.Enqueue("AcheiveA2");

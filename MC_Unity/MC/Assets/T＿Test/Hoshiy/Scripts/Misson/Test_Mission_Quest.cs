@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//必要なもの
 using UnityEngine.UI;
 
 public class Test_Mission_Quest : MonoBehaviour
 {
+    /// <summary>
+    /// クエストミッションに関するメソッド群
+    /// </summary>
+
+    //クエストボタンを明るくし、それ以外を暗くする
     public static void SetButtonColors(GameObject[] buttons)
     {
         for (var i = 0; i < buttons.Length; i++)
@@ -18,6 +25,7 @@ public class Test_Mission_Quest : MonoBehaviour
         }
     }
 
+    //クエストミッションをテキストにセット
     public static void SetQuestMissions(GameObject[] details, GameObject title)
     {
         title.GetComponent<Text>().text = "Quest Missions";
@@ -36,6 +44,7 @@ public class Test_Mission_Quest : MonoBehaviour
         }
     }
 
+    //達成状況に応じて色を変える
     public static void SetDetailsColors(GameObject[] details)
     {
         for (var i = 0; i < details.Length; i++)

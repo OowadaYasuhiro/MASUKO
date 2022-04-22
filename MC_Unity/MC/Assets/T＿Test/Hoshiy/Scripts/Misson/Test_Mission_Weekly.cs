@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//必要なもの
 using UnityEngine.UI;
 
 public class Test_Mission_Weekly : MonoBehaviour
 {
+    /// <summary>
+    /// ウィークリーミッションに関するメソッド群
+    /// </summary>
+
+    //ウィークリーボタンを明るくし、それ以外を暗くする
     public static void SetButtonColors(GameObject[] buttons)
     {
         for (var i = 0; i < buttons.Length; i++)
@@ -18,6 +25,7 @@ public class Test_Mission_Weekly : MonoBehaviour
         }
     }
 
+    //ウィークリーミッションをテキストにセット
     public static void SetWeeklyMissions(GameObject[] details, GameObject title)
     {
         title.GetComponent<Text>().text = "Weekly Missions";
@@ -36,6 +44,7 @@ public class Test_Mission_Weekly : MonoBehaviour
         }
     }
 
+    //達成状況に応じて色を変える
     public static void SetDetailsColors(GameObject[] details)
     {
         for (var i = 0; i < details.Length; i++)

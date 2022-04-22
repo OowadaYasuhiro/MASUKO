@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//必要なもの
 using UnityEngine.UI;
 
 public class Test_Mission_Daily : MonoBehaviour
 {
+    /// <summary>
+    /// デイリーミッションに関するメソッド群
+    /// </summary>
+
+    //デイリーボタンを明るくし、それ以外を暗くする
     public static void SetButtonColors(GameObject[] buttons)
     {
         for (var i = 0; i < buttons.Length; i++)
@@ -18,6 +25,7 @@ public class Test_Mission_Daily : MonoBehaviour
         }
     }
 
+    //デイリーミッションの詳細をテキストにセット
     public static void SetDailyMissions(GameObject[] details,GameObject title)
     {
         title.GetComponent<Text>().text = "Daily Missions";
@@ -35,11 +43,12 @@ public class Test_Mission_Daily : MonoBehaviour
         }
     }
 
+    //達成状況に応じて色を変える
     public static void SetDetailsColors(GameObject[] details)
     {
         for (var i = 0; i < details.Length; i++)
         {
-            if (Hy_Test_Data.didGetRewardsDaily[i])
+            if (Hy_Test_Data.didGetRewardsDaily[i])　
             {
                 details[i].GetComponent<Image>().color = Color.gray;
                 details[i].GetComponent<Button>().enabled = false;

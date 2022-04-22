@@ -2932,7 +2932,6 @@ MonoBehaviour:
   - {fileID: 780355710}
   title: {fileID: 1976267559}
   rewardWindow: {fileID: 1493922556}
-  allGetButton: {fileID: 1764315833}
 --- !u!4 &1463734185
 Transform:
   m_ObjectHideFlags: 0
@@ -2971,6 +2970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59422f64df4d17340b85838201536cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rewardWindow: {fileID: 1493922556}
+  allGetButton: {fileID: 1764315833}
 --- !u!114 &1463734188
 MonoBehaviour:
   m_ObjectHideFlags: 0
