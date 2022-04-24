@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:MC_Unity/MC/Assets/T＿Test/Dezart00/test.txt.meta
+guid: ed602def2c51def44af13f917df75f91
+TextScriptImporter:
+=======
+guid: 6ec263f353a0ce7479084ba99be58dce
+PrefabImporter:
+>>>>>>> main:MC_Unity/MC/Assets/13_RecoveryOfBelongingsScreen/ArmorNode-Button.prefab.meta
+=======
 guid: ab647e2bd5c000649902a5764832110c
 TextScriptImporter:
+>>>>>>> main
   externalObjects: {}
   userData: 
   assetBundleName: 
