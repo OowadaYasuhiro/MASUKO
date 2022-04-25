@@ -250,6 +250,9 @@ public class PlayerDeta
     //人間の稀血
     public int Ninkennnomareti;
 
+    //遺物
+    Artifact[] artifacts;
+
     //進行度
     public bool Stage1_1Clear;
     public bool Stage1_1Mission1;
