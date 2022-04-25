@@ -36,6 +36,7 @@ public class EP : MonoBehaviour
     private string textTname;
     private int sNumber;
     private int lsNumber;
+    private int stageB_num;
     private int difficulty_num;
 
     //Dictionary<string, int> stagetest = new Dictionary<string, int>();
@@ -53,8 +54,10 @@ public class EP : MonoBehaviour
         {
             lstage_num[i] = 1;
         }
-        SelectstageEP();
+        Selectstage(0);
         //PlayerPrefs.GetInt("SCORE", 0);
+        difficulty_num = 1;
+        stageB_num = 1;
     }
 
     // Update is called once per frame
@@ -79,55 +82,54 @@ public class EP : MonoBehaviour
         Debug.Log(difficulty_num);
     }
 
-    //メインクエストの処理
-    public void SelectstageEP()
+    //クエストの処理
+    public void Selectstage(int sNumber)
     {
-        textTname = "メインクエスト";
-        textAbbreviation = "EP";
-        sNumber = 0;
-        lsNumber = 0;
-        Selectsateg();
-        Selecttext2();
-        Selecttext3();
-        Selecttext4();
-        Selecttext5();
-        Selecttext1();
-        Selectstage_num();
-        Selectlstage_num();
-    }
-
-    //デイリークエストの処理
-    public void SelectstageDay()
-    {
-        textTname = "デイリークエスト";
-        textAbbreviation = "Day";
-        sNumber = 1;
-        lsNumber = 1;
-        Selectsateg();
-        Selecttext2();
-        Selecttext3();
-        Selecttext4();
-        Selecttext5();
-        Selecttext1();
-        Selectstage_num();
-        Selectlstage_num();
-    }
-
-    //イベントクエストの処理
-    public void SelectstageEX()
-    {
-        textTname = "イベントクエスト";
-        textAbbreviation = "EX";
-        sNumber = 2;
-        lsNumber = 2;
-        Selectsateg();
-        Selecttext2();
-        Selecttext3();
-        Selecttext4();
-        Selecttext5();
-        Selecttext1();
-        Selectstage_num();
-        Selectlstage_num();
+        switch (sNumber)
+        {
+            case 0:
+                textTname = "メインクエスト";
+                textAbbreviation = "EP";
+                sNumber = 0;
+                lsNumber = 0;
+                Selectsateg();
+                Selecttext2();
+                Selecttext3();
+                Selecttext4();
+                Selecttext5();
+                Selecttext1();
+                Selectstage_num();
+                Selectlstage_num();
+                break;
+            case 1:
+                textTname = "デイリークエスト";
+                textAbbreviation = "Day";
+                sNumber = 1;
+                lsNumber = 1;
+                Selectsateg();
+                Selecttext2();
+                Selecttext3();
+                Selecttext4();
+                Selecttext5();
+                Selecttext1();
+                Selectstage_num();
+                Selectlstage_num();
+                break;
+            case 2:
+                textTname = "イベントクエスト";
+                textAbbreviation = "EX";
+                sNumber = 2;
+                lsNumber = 2;
+                Selectsateg();
+                Selecttext2();
+                Selecttext3();
+                Selecttext4();
+                Selecttext5();
+                Selecttext1();
+                Selectstage_num();
+                Selectlstage_num();
+                break;
+        }
     }
 
     //章選択のテキスト変更処理
@@ -196,26 +198,31 @@ public class EP : MonoBehaviour
     public void Selecttext1()
     {
         Selecttext(1);
+        //SelectOnClick(1);
     }
     
     public void Selecttext2()
     {
         Selecttext(2);
+        //SelectOnClick(2);
     }
 
     public void Selecttext3()
     {
         Selecttext(3);
+        //SelectOnClick(3);
     }
 
     public void Selecttext4()
     {
         Selecttext(4);
+        //SelectOnClick(4);
     }
 
     public void Selecttext5()
     {
         Selecttext(5);
+        //SelectOnClick(5);
     }
 
     //ステージ選択のテキスト変更処理
@@ -243,6 +250,35 @@ public class EP : MonoBehaviour
                 textStage[i].text = textAbbreviation + "." + st + "-" + (j - 3);
                 j++;
             }
+        }
+    }
+
+    public void SelectOnClick()
+    {
+        switch (textTname)
+        {
+            case "メインクエスト":
+            case "デイリークエスト":
+            case "イベントクエスト":
+                SelectStage1(1);
+                SelectStage1(2);
+                SelectStage1(3);
+                SelectStage1(4);
+                SelectStage1(5);
+                break;
+        }
+    }
+
+    public void SelectStage1(int st)
+    {
+        switch (st)
+        {
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                break;
         }
     }
 
@@ -319,21 +355,40 @@ public class EP : MonoBehaviour
         }
     }
 
-    public void DifEasy()
+    public void Difdifficulty_num(int difficulty_num)
     {
-        difficulty_num = 0;
+        switch (difficulty_num)
+        {
+            case 1:
+                Debug.Log("イージー");
+                break;
+            case　2:
+                Debug.Log("ノーマル");
+                break;
+            case 3:
+                Debug.Log("ハード");
+                break;
+        }
     }
 
-    public void DifNormal()
+    public void SelectStagestageB_num(int stageB_num)
     {
-        difficulty_num = 1;
+        switch (stageB_num)
+        {
+            case 1:
+                Debug.Log("ステージ1");
+                break;
+            case 2:
+                Debug.Log("ステージ２");
+                break;
+            case 3:
+                Debug.Log("ステージ３");
+                break;
+            case 4:
+                Debug.Log("ステージ４");
+                break;
+        }
     }
-
-    public void Difhard()
-    {
-        difficulty_num = 2;
-    }
-
 }
 
 //public GameObject data;
@@ -388,7 +443,16 @@ public class EP : MonoBehaviour
         case 5:
             break;
     }
-}*/
+}
+
+ switch (difficulty_num)
+                        {
+                            case 1:
+                            case 2:
+                            case 3:
+                                break;
+                        }
+                        break;*/
 /*[SerializeField]
 public Text[] textDifficulty;*/
 
