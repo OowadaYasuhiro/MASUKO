@@ -99,6 +99,12 @@ public class PlayerDeta
     public bool Achievements20;
     public bool isGetRewardAchievements20;
 
+    public bool isGetRewardQuest1;
+    public bool isGetRewardQuest2;
+    public bool isGetRewardQuest3;
+    public bool isGetRewardQuest4;
+    public bool isGetRewardQuest5;
+
     //デーモン解放
     public bool DaemonUnLocked;
     //レベル
@@ -434,18 +440,22 @@ public class PlayerDeta
         isGetRewardAchievements19 = false;
         isGetRewardAchievements20 = false;
         Stage1_1Clear = false;
+        isGetRewardQuest1 = false;
         Stage1_1Mission1 = false;
         Stage1_1Mission2 = false;
         Stage1_1Mission3 = false;
         Stage1_2Clear = false;
+        isGetRewardQuest2 = false;
         Stage1_2Mission1 = false;
         Stage1_2Mission2 = false;
         Stage1_2Mission3 = false;
         Stage1_3Clear = false;
+        isGetRewardQuest3 = false;
         Stage1_3Mission1 = false;
         Stage1_3Mission2 = false;
         Stage1_3Mission3 = false;
         Stage1_4Clear = false;
+        isGetRewardQuest4 = false;
         Stage1_4Mission1 = false;
         Stage1_4Mission2 = false;
         Stage1_4Mission3 = false;
@@ -453,6 +463,7 @@ public class PlayerDeta
         Stage1_5Mission1 = false;
         Stage1_5Mission2 = false;
         Stage1_5Mission3 = false;
+        isGetRewardQuest5 = false;
         Stage2_1Clear = false;
         Stage2_1Mission1 = false;
         Stage2_1Mission2 = false;
