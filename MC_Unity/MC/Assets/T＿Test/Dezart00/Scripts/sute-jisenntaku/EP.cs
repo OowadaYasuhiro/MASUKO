@@ -82,7 +82,7 @@ public class EP : MonoBehaviour
         Debug.Log(difficulty_num);
     }
 
-    //イベントクエストの処理
+    //クエストの処理
     public void Selectstage(int sNumber)
     {
         switch (sNumber)
