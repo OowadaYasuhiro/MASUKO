@@ -21,7 +21,8 @@ public class PlayerDeta
     //選択しているキャラクター
     public string NowSelectCharactor;
     //プレイヤーのレベル
-    public int PlayerLevel { get{ return PlayerLevel;} set {int min = 1;int max = 100;PlayerLevel = Mathf.Clamp(value,min,max);} }
+    private int playerlevel; 
+    public int PlayerLevel { get{ return playerlevel;} set {int min = 1;int max = 100;playerlevel = Mathf.Clamp(value,min,max);} }
     //経験値
     public int PlayerExperience;
     //コイン
@@ -254,6 +255,9 @@ public class PlayerDeta
     public int Ikotu;
     //人間の稀血
     public int Ninkennnomareti;
+
+    //遺物
+    Artifact[] artifacts;
 
     //進行度
     public bool Stage1_1Clear;

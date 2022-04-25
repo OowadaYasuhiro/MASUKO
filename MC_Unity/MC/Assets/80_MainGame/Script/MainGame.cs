@@ -13,12 +13,17 @@ public class MainGame : MonoBehaviour
     }
     public GameState gamestate;
 
+    //マスターオブジェクト
+    GameObject master;
+
     //ゲーム内時間軸
     float Game_Speed;
 
     //**イベント**
     //一時停止
     bool pause;
+    //スロウモード
+    bool slowMode;
     //キャラクター１を選択
     bool charactor1;
     //キャラクター１スキル１
@@ -49,6 +54,7 @@ public class MainGame : MonoBehaviour
     {
         gamestate = GameState.BeforeStart;
         Game_Speed = 1;
+        master = GameObject.Find("MasterObject");
     }
 
     // Update is called once per frame
@@ -72,5 +78,11 @@ public class MainGame : MonoBehaviour
 
                 break;
         }
+    }
+
+    void SlowCheck()
+    {
+        if (slowMode) Game_Speed = 0.25f;
+        else Game_Speed = 1f;
     }
 }

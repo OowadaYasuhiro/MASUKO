@@ -15,44 +15,42 @@ public class MainTestCharactor : MonoBehaviour
     double physicsDamageResistance = 0;
     Vector2[] attackRange;
 
+    public const string zyuGeki = "zyugeki";
+    public const string zyuRyoku = "zyuryoku";
+    public const string physics = "physics";
+
     public int HP { get; set;}
     public int MaxHP { get; set;}
     public float MoveSpeed { get;}
 
-    public void AddHP(int valu) 
+    public void AddDamage(Effect valu)
     {
-        hp += valu;
-    }
-
-    public void SubHP(int valu)
-    {
-        hp -= valu;
-    }
-
-    public void AddDamage(string type,int valu)
-    {
-        switch (type){
-            case "zyugeki":
+        switch (valu.type){
+            case zyuGeki:
 
                 break;
-            case "zyuryoku":
+            case zyuRyoku:
 
                 break;
-            case "physics":
+            case physics:
 
                 break;
         }
     }
 
-    /*public Damage Attack()
+    public void DOEffectEvent(Effect effect)
     {
-        return;
-    }*/
+        switch (effect.type){
+            case "":
+
+                break;
+        }
+    }
 
 }
 
-public class Damage
+public class Effect
 {
-    string type;
-    int valu;
+    public string type;
+    public int valu;
 }

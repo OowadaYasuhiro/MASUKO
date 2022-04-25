@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class FormationDeta
 {
-    Charactor? selectcharactor1;
-    string charactor1artifact1;
-    string charactor1artifact2;
-    string charactor1artifact3;
-    Charactor? selectcharactor2;
-    string charactor2artifact1;
-    string charactor2artifact2;
-    string charactor2artifact3;
-    Artifact[] artifacts;
+     Charactor? selectcharactor1;
+     string charactor1artifact1;
+     string charactor1artifact2;
+     string charactor1artifact3;
+     Charactor? selectcharactor2;
+     string charactor2artifact1;
+     string charactor2artifact2;
+     string charactor2artifact3;
+     Artifact[] artifacts;
 
-    public void Save() {
+    public  void Save() {
         PlayerPrefs.SetString("selectcharactor1", JsonUtility.ToJson(selectcharactor1));
         PlayerPrefs.SetString("charactor1artifact1", charactor1artifact1);
         PlayerPrefs.SetString("charactor1artifact2", charactor1artifact2);
@@ -27,7 +27,7 @@ public class FormationDeta
         PlayerPrefs.SetString("artifacts",JsonHelper.ToJson<Artifact>(artifacts));
     }
 
-    public void Load()
+    public  void Load()
     {
         selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
         charactor1artifact1 = PlayerPrefs.GetString("charactor1artifact1");
