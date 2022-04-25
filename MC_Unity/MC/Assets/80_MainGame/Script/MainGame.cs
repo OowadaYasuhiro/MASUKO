@@ -13,6 +13,9 @@ public class MainGame : MonoBehaviour
     }
     public GameState gamestate;
 
+    //マスターオブジェクト
+    GameObject master;
+
     //ゲーム内時間軸
     float Game_Speed;
 
@@ -51,6 +54,7 @@ public class MainGame : MonoBehaviour
     {
         gamestate = GameState.BeforeStart;
         Game_Speed = 1;
+        master = GameObject.Find("MasterObject");
     }
 
     // Update is called once per frame
@@ -74,5 +78,11 @@ public class MainGame : MonoBehaviour
 
                 break;
         }
+    }
+
+    void SlowCheck()
+    {
+        if (slowMode) Game_Speed = 0.25f;
+        else Game_Speed = 1f;
     }
 }
