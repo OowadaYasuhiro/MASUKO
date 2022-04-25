@@ -41,16 +41,16 @@ public class MainGame_StageDeta
                         break;
                     case 2:
                         map_grids_wall = new bool[,]{
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)},
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)},
-                            { true,true,true,false,new Map_Grid(true),new Map_Grid(true)},
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)},
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)},
-                            { true,false,false,true,new Map_Grid(true),new Map_Grid(true)},
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)},
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)},
-                            { true,true,true,false,new Map_Grid(true),new Map_Grid(true)},
-                            { true,false,false,false,new Map_Grid(false),new Map_Grid(true)}
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,true,true,false,true,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,true,true,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,true,true,false,true,true},
+                            { true,false,false,false,false,true}
                         };
                         enemy1_spawn_position = new Vector2(0, 1);
                         enemy2_spawn_position = new Vector2(0, 1);
@@ -58,17 +58,17 @@ public class MainGame_StageDeta
                         enemy2_target_object = new Vector2(9, 4);
                         break;
                     case 3:
-                        map_grids_wall = new Map_Grid[,]{
-                            { new Map_Grid(true),new Map_Grid(true),new Map_Grid(true),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true)},
-                            { new Map_Grid(true),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true)},
-                            { new Map_Grid(true),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true)},
-                            { new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false)},
-                            { new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false)},
-                            { new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false)},
-                            { new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false),new Map_Grid(false)},
-                            { new Map_Grid(true),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true)},
-                            { new Map_Grid(true),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true)},
-                            { new Map_Grid(true),new Map_Grid(true),new Map_Grid(true),new Map_Grid(true),new Map_Grid(false),new Map_Grid(true)}
+                        map_grids_wall = new bool[,]{
+                            { true,true,true,true,false,true},
+                            { true,true,false,true,false,true},
+                            { true,true,false,true,false,true},
+                            { false,false,false,false,false,false},
+                            { false,false,false,false,false,false},
+                            { false,false,false,false,false,false},
+                            { false,false,false,false,false,false},
+                            { true,true,false,true,false,true},
+                            { true,true,false,true,false,true},
+                            { true,true,true,true,false,true}
                         };
                         enemy1_spawn_position = new Vector2(0, 4);
                         enemy2_spawn_position = new Vector2(9, 4);

@@ -19,19 +19,9 @@ public class MainTestCharactor : MonoBehaviour
     public int MaxHP { get; set;}
     public float MoveSpeed { get;}
 
-    public void AddHP(int valu) 
+    public void AddDamage(Damage valu)
     {
-        hp += valu;
-    }
-
-    public void SubHP(int valu)
-    {
-        hp -= valu;
-    }
-
-    public void AddDamage(string type,int valu)
-    {
-        switch (type){
+        switch (valu.type){
             case "zyugeki":
 
                 break;
@@ -44,15 +34,10 @@ public class MainTestCharactor : MonoBehaviour
         }
     }
 
-    /*public Damage Attack()
-    {
-        return;
-    }*/
-
 }
 
 public class Damage
 {
-    string type;
-    int valu;
+    public string type;
+    public int valu;
 }

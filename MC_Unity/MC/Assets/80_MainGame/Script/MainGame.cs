@@ -19,6 +19,8 @@ public class MainGame : MonoBehaviour
     //**イベント**
     //一時停止
     bool pause;
+    //スロウモード
+    bool slowMode;
     //キャラクター１を選択
     bool charactor1;
     //キャラクター１スキル１
