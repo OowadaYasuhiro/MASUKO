@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class MissionAcheive : MonoBehaviour
 {
+    /// <summary>
+    /// 実績ミッションの処理
+    /// </summary>
+
     [SerializeField]
     private GameObject[] otherButtons;
     [SerializeField]
@@ -18,6 +22,8 @@ public class MissionAcheive : MonoBehaviour
     {
         DrawButtonColors();
         DrawAchieveDetails();
+
+        MissionScreen_Deta.stateNum = 2;
     }
 
     private void DrawButtonColors()

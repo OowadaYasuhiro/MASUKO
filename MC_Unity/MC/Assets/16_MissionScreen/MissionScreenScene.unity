@@ -360,13 +360,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658299356}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 658299358}
+        m_MethodName: OnClickDetailButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -491,13 +491,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658299356}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 658299358}
+        m_MethodName: OnClickDetailButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 497062893}
   - component: {fileID: 497062892}
   - component: {fileID: 497062891}
+  - component: {fileID: 497062894}
   m_Layer: 5
   m_Name: AllGet-Button
   m_TagString: Untagged
@@ -695,12 +696,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 497062889}
-        m_MethodName: 
+      - m_Target: {fileID: 497062894}
+        m_MethodName: OnClickAllGetButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -743,6 +744,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497062889}
   m_CullTransparentMesh: 0
+--- !u!114 &497062894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497062889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7e8dfc85df45634680b368b86be9301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardWindow: {fileID: 1399730110}
 --- !u!1 &531245287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 658299357}
+  - component: {fileID: 658299358}
   m_Layer: 5
   m_Name: MissionDetails
   m_TagString: Untagged
@@ -1090,6 +1105,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &658299358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658299356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c5676db71a1674ba20c16bcc103417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardWindow: {fileID: 1399730110}
 --- !u!1 &761612763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,7 +2253,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 0.7
+    m_LineSpacing: 2
   m_Text: 'Item1  1000
 
 
@@ -2560,13 +2588,14 @@ GameObject:
   - component: {fileID: 1399730111}
   - component: {fileID: 1399730113}
   - component: {fileID: 1399730112}
+  - component: {fileID: 1399730114}
   m_Layer: 5
   m_Name: RewardWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1399730111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2627,6 +2656,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399730110}
   m_CullTransparentMesh: 0
+--- !u!114 &1399730114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399730110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba811cdc651d3e4fa0ea4fcb9e79988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1446841047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,12 +2750,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 1399730114}
+        m_MethodName: OnClickCheckButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3001,13 +3042,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658299356}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 658299358}
+        m_MethodName: OnClickDetailButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3295,6 +3336,7 @@ GameObject:
   - component: {fileID: 1781070648}
   - component: {fileID: 1781070647}
   - component: {fileID: 1781070646}
+  - component: {fileID: 1781070649}
   m_Layer: 5
   m_Name: BackToHome-Button
   m_TagString: Untagged
@@ -3365,12 +3407,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1781070644}
-        m_MethodName: 
+      - m_Target: {fileID: 1781070649}
+        m_MethodName: OnClickBuckButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3413,6 +3455,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781070644}
   m_CullTransparentMesh: 0
+--- !u!114 &1781070649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781070644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593b7984d061dce41926c988669d4a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783749941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,13 +3628,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658299356}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 658299358}
+        m_MethodName: OnClickDetailButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3826,13 +3880,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658299356}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 658299358}
+        m_MethodName: OnClickDetailButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3957,12 +4011,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 658299356}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 658299358}
+        m_MethodName: OnClickDetailButton
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
