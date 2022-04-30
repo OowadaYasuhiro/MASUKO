@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class MissionDaily : MonoBehaviour
 {
+    /// <summary>
+    /// デイリーミッションの処理
+    /// </summary>
+
     [SerializeField]
     private GameObject[] otherButtons;
     [SerializeField]
@@ -24,6 +28,8 @@ public class MissionDaily : MonoBehaviour
         DrawDetailsColor(Master.playerdeta.DailyMission4, Master.playerdeta.isGetRewardDailyMission4, 3);
         DrawDetailsColor(Master.playerdeta.DailyMission5, Master.playerdeta.isGetRewardDailyMission5, 4);
         DrawDetailsColor(Master.playerdeta.DailyMission6, Master.playerdeta.isGetRewardDailyMission6, 5);
+
+        MissionScreen_Deta.stateNum = 0;
     }
 
     private void DrawButtonColors()

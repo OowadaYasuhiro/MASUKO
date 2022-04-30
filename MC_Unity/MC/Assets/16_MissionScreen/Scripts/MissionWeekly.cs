@@ -5,15 +5,21 @@ using UnityEngine.UI;
 
 public class MissionWeekly : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] otherButtons;
-    [SerializeField]
-    private GameObject titleText;
-    [SerializeField]
-    private GameObject details;
+    /// <summary>
+    /// ウィークリーに関する処理
+    /// </summary>
 
-    private MissionScreen_Deta data = new MissionScreen_Deta();
 
+    [SerializeField]
+    private GameObject[] otherButtons; //ウィークリー以外のボタン
+    [SerializeField]
+    private GameObject titleText; //タイトル
+    [SerializeField]
+    private GameObject details; //ミッションを示すオブジェクト
+
+    private MissionScreen_Deta data = new MissionScreen_Deta(); //ミッションのデータ
+
+    //OnClick用のメソッド
     public void OnClickWeeklyButton()
     {
         DrawButtonColors();
@@ -24,8 +30,11 @@ public class MissionWeekly : MonoBehaviour
         DrawDetailsColor(Master.playerdeta.WeeklyMission4, Master.playerdeta.isGetRewardWeeklyMission4, 3);
         DrawDetailsColor(Master.playerdeta.WeeklyMission5, Master.playerdeta.isGetRewardWeeklyMission5, 4);
         DrawDetailsColor(Master.playerdeta.WeeklyMission6, Master.playerdeta.isGetRewardWeeklyMission6, 5);
+
+        MissionScreen_Deta.stateNum = 1;
     }
 
+    //ウィークリーボタンを明るくし、それ以外のボタンを暗くする
     private void DrawButtonColors()
     {
         this.gameObject.GetComponent<Image>().color = Color.white;
@@ -37,6 +46,7 @@ public class MissionWeekly : MonoBehaviour
         }
     }
 
+    //ウィークリーミッション内容の取得
     private void DrawWeeklyDetails()
     {
         titleText.GetComponent<Text>().text = "Weekly Missions";
@@ -72,25 +82,26 @@ public class MissionWeekly : MonoBehaviour
 
     }
 
+    //達成状況の反映（テキスト）
     private void DrawGoalText(bool flag, int index)
     {
         string text = flag ? "達 成" : "未達成";
         details.transform.GetChild(index).transform.GetChild(0).GetComponent<Text>().text = text;
     }
-
+    //達成状況の反映（色）
     private void DrawDetailsColor(bool didMissionClearFlag, bool isGetRewardFlag, int index)
     {
-        if (didMissionClearFlag)
+        if (didMissionClearFlag) //達成済みで報酬も受け取っている
         {
             details.transform.GetChild(index).GetComponent<Image>().color = Color.gray;
             details.transform.GetChild(index).GetComponent<Button>().enabled = false;
         }
-        else if (isGetRewardFlag)
+        else if (isGetRewardFlag) //達成済みだが報酬をまだ受け取っていない
         {
             details.transform.GetChild(index).GetComponent<Image>().color = Color.red;
             details.transform.GetChild(index).GetComponent<Button>().enabled = true;
         }
-        else
+        else //達成していない
         {
             details.transform.GetChild(index).GetComponent<Image>().color = Color.white;
             details.transform.GetChild(index).GetComponent<Button>().enabled = false;

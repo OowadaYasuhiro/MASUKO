@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class MissionQuest : MonoBehaviour
 {
+    /// <summary>
+    /// クエストミッションの処理
+    /// </summary>
+    //todo: フラグ作成
+
+
     [SerializeField]
     private GameObject[] otherButtons;
     [SerializeField]
@@ -18,11 +24,13 @@ public class MissionQuest : MonoBehaviour
     {
         DrawButtonColors();
         DrawQuestDetails();
-        DrawDetailsColor(Master.playerdeta.WeeklyMission1, Master.playerdeta.isGetRewardQuest1, 0);
-        DrawDetailsColor(Master.playerdeta.WeeklyMission2, Master.playerdeta.isGetRewardQuest2, 1);
-        DrawDetailsColor(Master.playerdeta.WeeklyMission3, Master.playerdeta.isGetRewardQuest3, 2);
-        DrawDetailsColor(Master.playerdeta.WeeklyMission4, Master.playerdeta.isGetRewardQuest4, 3);
-        DrawDetailsColor(Master.playerdeta.WeeklyMission5, Master.playerdeta.isGetRewardQuest5, 4);
+        DrawDetailsColor(Master.playerdeta.isGetRewardQuest1, 0,Master.playerdeta.Stage1_1Mission1, Master.playerdeta.Stage1_1Mission2, Master.playerdeta.Stage1_1Mission3);
+        DrawDetailsColor(Master.playerdeta.isGetRewardQuest2, 1,Master.playerdeta.Stage1_2Mission1, Master.playerdeta.Stage1_2Mission2, Master.playerdeta.Stage1_2Mission3);
+        DrawDetailsColor(Master.playerdeta.isGetRewardQuest3, 2,Master.playerdeta.Stage1_3Mission1, Master.playerdeta.Stage1_3Mission2, Master.playerdeta.Stage1_3Mission3);
+        DrawDetailsColor(Master.playerdeta.isGetRewardQuest4, 3,Master.playerdeta.Stage1_4Mission1, Master.playerdeta.Stage1_4Mission2, Master.playerdeta.Stage1_4Mission3);
+        DrawDetailsColor(Master.playerdeta.isGetRewardQuest5, 4,Master.playerdeta.Stage1_5Mission1, Master.playerdeta.Stage1_5Mission2, Master.playerdeta.Stage1_5Mission3);
+
+        MissionScreen_Deta.stateNum = 3;
     }
 
     private void DrawButtonColors()
@@ -42,23 +50,23 @@ public class MissionQuest : MonoBehaviour
 
         for (var i = 0; i < data.GetQuestMissionLength(); i++)
         {
-            details.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text = data.GetWeeklyMissionData(i);
+            details.transform.GetChild(i).transform.GetChild(1).GetComponent<Text>().text = data.GetQuestMissionData(i);
             switch (i)
             {
                 case 0:
-                    DrawGoalText(Master.playerdeta.Stage1_1Clear, i);
+                    DrawGoalText(Master.playerdeta.isGetRewardQuest1, i);
                     break;
                 case 1:
-                    DrawGoalText(Master.playerdeta.Stage1_2Clear, i);
+                    DrawGoalText(Master.playerdeta.isGetRewardQuest2, i);
                     break;
                 case 2:
-                    DrawGoalText(Master.playerdeta.Stage1_3Clear, i);
+                    DrawGoalText(Master.playerdeta.isGetRewardQuest3, i);
                     break;
                 case 3:
-                    DrawGoalText(Master.playerdeta.Stage1_4Clear, i);
+                    DrawGoalText(Master.playerdeta.isGetRewardQuest4, i);
                     break;
                 case 4:
-                    DrawGoalText(Master.playerdeta.Stage1_5Clear, i);
+                    DrawGoalText(Master.playerdeta.isGetRewardQuest5, i);
                     break;
                 default:
                     Debug.LogError("Illegal value");
@@ -74,14 +82,14 @@ public class MissionQuest : MonoBehaviour
         details.transform.GetChild(index).transform.GetChild(0).GetComponent<Text>().text = text;
     }
 
-    private void DrawDetailsColor(bool didMissionClearFlag, bool isGetRewardFlag, int index)
+    private void DrawDetailsColor(bool isGetRewardFlag, int index,bool flag1,bool flag2,bool flag3)
     {
-        if (didMissionClearFlag)
+        if (isGetRewardFlag)
         {
             details.transform.GetChild(index).GetComponent<Image>().color = Color.gray;
             details.transform.GetChild(index).GetComponent<Button>().enabled = false;
         }
-        else if (isGetRewardFlag)
+        else if (flag1 && flag2 && flag3)
         {
             details.transform.GetChild(index).GetComponent<Image>().color = Color.red;
             details.transform.GetChild(index).GetComponent<Button>().enabled = true;
