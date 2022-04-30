@@ -16,6 +16,12 @@ public class MainGame : MonoBehaviour
     //マスターオブジェクト
     GameObject master;
 
+    //ステージ
+    string stage;
+
+    //現在のウェーブ
+    int waveNumber;
+
     //ゲーム内時間軸
     float Game_Speed;
 
@@ -55,6 +61,7 @@ public class MainGame : MonoBehaviour
         gamestate = GameState.BeforeStart;
         Game_Speed = 1;
         master = GameObject.Find("MasterObject");
+        
     }
 
     // Update is called once per frame
