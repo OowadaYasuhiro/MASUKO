@@ -49,9 +49,25 @@ public class HomeCharacterMain : MonoBehaviour
         //編成しているキャラクターに応じてセリフと画像をセット
         switch (Master.playerdeta.NowSelectCharactor)
         {
-            case "Ghost":
+            case "Ghost": //幽霊
                 this.gameObject.GetComponent<Image>().sprite = characterImages[0];
                 messageWindow.transform.GetChild(2).GetComponent<Text>().text = "Ghost";
+                break;
+            case "Zasikiwarasi": //座敷童
+                this.gameObject.GetComponent<Image>().sprite = characterImages[1];
+                messageWindow.transform.GetChild(2).GetComponent<Text>().text = "Zasikiwarasi";
+                break;
+            case "Oni": //鬼
+                this.gameObject.GetComponent<Image>().sprite = characterImages[2];
+                messageWindow.transform.GetChild(2).GetComponent<Text>().text = "Zasikiwarasi";
+                break;
+            case "Demon": //デーモン
+                this.gameObject.GetComponent<Image>().sprite = characterImages[3];
+                messageWindow.transform.GetChild(2).GetComponent<Text>().text = "Zasikiwarasi";
+                break;
+            case "Poltergeist": //ポルターガイスト
+                this.gameObject.GetComponent<Image>().sprite = characterImages[4];
+                messageWindow.transform.GetChild(2).GetComponent<Text>().text = "Zasikiwarasi";
                 break;
             default:
                 Debug.LogError("error");

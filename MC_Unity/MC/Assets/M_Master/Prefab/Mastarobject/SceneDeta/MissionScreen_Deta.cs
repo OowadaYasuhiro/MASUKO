@@ -22,6 +22,8 @@ public class MissionScreen_Deta
     private readonly string[] questMissiondata = { "1-1を星3条件でクリアする", "1-2を星3条件でクリアする", "1-3を星3条件でクリアする", "1-4を星3条件でクリアする", "1-5を星3条件でクリアする" };
     private readonly string questMissonReward = "禍魂×50";
 
+    public static int stateNum = 0;
+
     public string GetDailyMissionData(int index)
     {
         return this.dailyMissionData[index];
@@ -90,7 +92,7 @@ public class MissionScreen_Deta
     {
         return this.questMissiondata[index];
     }
-    public string GetMissionReward()
+    public string GetQuestMissionReward()
     {
         return this.questMissonReward;
     }
