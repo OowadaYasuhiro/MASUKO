@@ -18,6 +18,10 @@ public class EP : MonoBehaviour
     public Text[] textStage;
     [SerializeField]
     public Text[] textQ;
+    [SerializeField]
+    public Text[] textLQN;
+    [SerializeField]
+    public Text[] textQN;
     //ボタンオブジェクト
     [SerializeField]
     private GameObject[] stageDay;
@@ -34,6 +38,11 @@ public class EP : MonoBehaviour
 
     private string textAbbreviation;
     private string textTname;
+    private string textSname;
+    private string SelectStagestageB;
+    private string Difdifficulty;
+    private string SelectOn;
+    private string QuestOn;
     private int sNumber;
     private int lsNumber;
     private int stageB_num;
@@ -80,6 +89,12 @@ public class EP : MonoBehaviour
         Debug.Log(lstage_num[lsNumber]);
 
         Debug.Log(difficulty_num);
+
+        Debug.Log(Difdifficulty);
+
+        Debug.Log(SelectOn);
+
+        Debug.Log(QuestOn);
     }
 
     //クエストの処理
@@ -100,6 +115,7 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
+                Difdifficulty_num(1);
                 break;
             case 1:
                 textTname = "デイリークエスト";
@@ -114,6 +130,7 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
+                Difdifficulty_num(1);
                 break;
             case 2:
                 textTname = "イベントクエスト";
@@ -128,6 +145,7 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
+                Difdifficulty_num(1);
                 break;
         }
     }
@@ -183,6 +201,7 @@ public class EP : MonoBehaviour
                 j++;
             }
         }
+
     }
 
     /*public void Select()
@@ -251,9 +270,29 @@ public class EP : MonoBehaviour
                 j++;
             }
         }
+        switch (st)
+        {
+            case 1:
+                textSname = "破滅の始まり";
+                break;
+            case 2:
+                textSname = "破滅の始まり２";
+                break;
+            case 3:
+                textSname = "破滅の始まり３";
+                break;
+            case 4:
+                textSname = "破滅の始まり４";
+                break;
+            case 5:
+                textSname = "破滅の始まり５";
+                break;
+        }
+        textLQN[0].text = textTname;
+        textQN[0].text = textAbbreviation + "." + st + " " + textSname;
     }
 
-    public void SelectOnClick()
+    /*public void SelectOnClick()
     {
         switch (textTname)
         {
@@ -280,7 +319,7 @@ public class EP : MonoBehaviour
             case 5:
                 break;
         }
-    }
+    }*/
 
     public void SelectStage_numfalse()
     {
@@ -360,13 +399,16 @@ public class EP : MonoBehaviour
         switch (difficulty_num)
         {
             case 1:
-                Debug.Log("イージー");
+                Difdifficulty = "イージー";
+                Debug.Log(Difdifficulty);
                 break;
             case　2:
-                Debug.Log("ノーマル");
+                Difdifficulty = "ノーマル";
+                Debug.Log(Difdifficulty);
                 break;
             case 3:
-                Debug.Log("ハード");
+                Difdifficulty = "ハード";
+                Debug.Log(Difdifficulty);
                 break;
         }
     }
@@ -376,16 +418,56 @@ public class EP : MonoBehaviour
         switch (stageB_num)
         {
             case 1:
-                Debug.Log("ステージ1");
+                SelectStagestageB = "ステージ1";
+                Debug.Log(SelectStagestageB);
                 break;
             case 2:
-                Debug.Log("ステージ２");
+                SelectStagestageB = "ステージ２";
+                Debug.Log(SelectStagestageB);
                 break;
             case 3:
-                Debug.Log("ステージ３");
+                SelectStagestageB = "ステージ３";
+                Debug.Log(SelectStagestageB);
                 break;
             case 4:
-                Debug.Log("ステージ４");
+                SelectStagestageB = "ステージ４";
+                Debug.Log(SelectStagestageB);
+                break;
+        }
+    }
+    public void SelectOnClick(int st)
+    {
+        switch (st)
+        {
+            case 1:
+                SelectOn = "EP.1";
+                break;
+            case 2:
+                SelectOn = "EP.2";
+                break;
+            case 3:
+                SelectOn = "EP.3";
+                break;
+            case 4:
+                SelectOn = "EP.4";
+                break;
+            case 5:
+                SelectOn = "EP.5";
+                break;
+        }
+    }
+    public void QuestOnClick(int quest)
+    {
+        switch (quest)
+        {
+            case 1:
+                QuestOn = "メインクエスト";
+                break;
+            case 2:
+                QuestOn ="デイリークエスト";
+                break;
+            case 3:
+                QuestOn ="イベントクエスト";
                 break;
         }
     }
