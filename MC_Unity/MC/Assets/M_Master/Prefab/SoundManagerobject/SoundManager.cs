@@ -137,6 +137,11 @@ public class SoundManager : MonoBehaviour
         voiceAudioSource.Play();
     }
 
+    public void playVoiceByName(string name)
+    {
+        playVoice(GetVoiceIndex(name));
+    }
+
     public void MuteCheck()
     {
         if (mute)
