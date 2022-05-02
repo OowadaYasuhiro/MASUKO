@@ -10,7 +10,6 @@ public class SaveManager : MonoBehaviour
     {
         string deta = JsonUtility.ToJson(Master.playerdeta);
         PlayerPrefs.SetString("PlayerDeta",deta);
-        Master.formationdeta.Save();
     }
 
     public void DetaLoad()
@@ -24,6 +23,5 @@ public class SaveManager : MonoBehaviour
         {
             Master.playerdeta = JsonUtility.FromJson<PlayerDeta>(PlayerPrefs.GetString("PlayerDeta", "NoDeta"));
         }
-        Master.formationdeta.Load();
     }
 }
