@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    //体力管理
     DamageModelComponent damageModel;
 
+    //基本情報
+    EnemyData enemyData;
 
-    public Enemy()
+
+    public Enemy(EnemyData.EnemyName enemyName,string difficulty)
     {
-
+        enemyData = new EnemyData(enemyName,difficulty);
+        damageModel = new DamageModelComponent(enemyData.maxHp,enemyData.physicsDamageResistance,enemyData.zyuGekiResistance,enemyData.zyuRyokuResistance);
     }
 
 

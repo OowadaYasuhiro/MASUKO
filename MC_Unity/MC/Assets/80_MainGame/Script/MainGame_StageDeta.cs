@@ -14,15 +14,12 @@ public class MainGame_StageDeta
     Vector2?[] player1_position;
     Vector2?[] player2_position;
 
-    public MainGame_StageDeta(int ep,int st)
+    public MainGame_StageDeta(string stage)
     {
-        switch (ep)
+        switch (stage)
         {
-            case 1:
-                switch (st)
-                {
-                    case 1:
-                        map_grids_wall = new bool[,]{ 
+            case (StageSelect_Deta.main_ep1_1):
+                map_grids_wall = new bool[,]{
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
@@ -34,13 +31,13 @@ public class MainGame_StageDeta
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
                         };
-                        enemy1_spawn_position = new Vector2(0, 4);
-                        enemy2_spawn_position = new Vector2(0, 1);
-                        enemy1_target_object = new Vector2(9, 4);
-                        enemy2_target_object = new Vector2(9, 1);
-                        break;
-                    case 2:
-                        map_grids_wall = new bool[,]{
+                enemy1_spawn_position = new Vector2(0, 4);
+                enemy2_spawn_position = new Vector2(0, 1);
+                enemy1_target_object = new Vector2(9, 4);
+                enemy2_target_object = new Vector2(9, 1);
+                break;
+            case (StageSelect_Deta.main_ep1_2):
+                map_grids_wall = new bool[,]{
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
                             { true,true,true,false,true,true},
@@ -52,13 +49,13 @@ public class MainGame_StageDeta
                             { true,true,true,false,true,true},
                             { true,false,false,false,false,true}
                         };
-                        enemy1_spawn_position = new Vector2(0, 1);
-                        enemy2_spawn_position = new Vector2(0, 1);
-                        enemy1_target_object = new Vector2(9, 4);
-                        enemy2_target_object = new Vector2(9, 4);
-                        break;
-                    case 3:
-                        map_grids_wall = new bool[,]{
+                enemy1_spawn_position = new Vector2(0, 1);
+                enemy2_spawn_position = new Vector2(0, 1);
+                enemy1_target_object = new Vector2(9, 4);
+                enemy2_target_object = new Vector2(9, 4);
+                break;
+            case (StageSelect_Deta.main_ep1_3):
+                map_grids_wall = new bool[,]{
                             { true,true,true,true,false,true},
                             { true,true,false,true,false,true},
                             { true,true,false,true,false,true},
@@ -70,83 +67,44 @@ public class MainGame_StageDeta
                             { true,true,false,true,false,true},
                             { true,true,true,true,false,true}
                         };
-                        enemy1_spawn_position = new Vector2(0, 4);
-                        enemy2_spawn_position = new Vector2(9, 4);
-                        enemy1_target_object = new Vector2(4, 0);
-                        enemy2_target_object = new Vector2(5, 0);
-                        break;
-                    case 4:
-
-                        break;
-                }
+                enemy1_spawn_position = new Vector2(0, 4);
+                enemy2_spawn_position = new Vector2(9, 4);
+                enemy1_target_object = new Vector2(4, 0);
+                enemy2_target_object = new Vector2(5, 0);
                 break;
-            case 2:
-                switch (st)
-                {
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    case 4:
-
-                        break;
-                }
+            case (StageSelect_Deta.main_ep1_4):
                 break;
-            case 3:
-                switch (st)
-                {
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    case 4:
-
-                        break;
-                }
+            case (StageSelect_Deta.main_ep2_1):
                 break;
-            case 4:
-                switch (st)
-                {
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    case 4:
-
-                        break;
-                }
+            case (StageSelect_Deta.main_ep2_2):
                 break;
-            case 5:
-                switch (st)
-                {
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    case 4:
-
-                        break;
-                }
+            case (StageSelect_Deta.main_ep2_3):
+                break;
+            case (StageSelect_Deta.main_ep2_4):
+                break;
+            case (StageSelect_Deta.main_ep3_1):
+                break;
+            case (StageSelect_Deta.main_ep3_2):
+                break;
+            case (StageSelect_Deta.main_ep3_3):
+                break;
+            case (StageSelect_Deta.main_ep3_4):
+                break;
+            case (StageSelect_Deta.main_ep4_1):
+                break;
+            case (StageSelect_Deta.main_ep4_2):
+                break;
+            case (StageSelect_Deta.main_ep4_3):
+                break;
+            case (StageSelect_Deta.main_ep4_4):
+                break;
+            case (StageSelect_Deta.main_ep5_1):
+                break;
+            case (StageSelect_Deta.main_ep5_2):
+                break;
+            case (StageSelect_Deta.main_ep5_3):
+                break;
+            case (StageSelect_Deta.main_ep5_4):
                 break;
         }
     }

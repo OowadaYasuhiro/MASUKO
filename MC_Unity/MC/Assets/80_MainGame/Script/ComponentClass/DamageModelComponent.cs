@@ -12,9 +12,9 @@ public class DamageModelComponent
     int zyuGekiResistance;
     int zyuRyokuResistance;
 
-    public DamageModelComponent(int hp, int maxHp, int physicsDamageResistance, int zyuGekiResistance, int zyuRyokuResistance)
+    public DamageModelComponent(int maxHp, int physicsDamageResistance, int zyuGekiResistance, int zyuRyokuResistance)
     {
-        this.hp = hp;
+        hp = maxHp;
         this.maxHp = maxHp;
         this.physicsDamageResistance = physicsDamageResistance;
         this.zyuGekiResistance = zyuGekiResistance;
