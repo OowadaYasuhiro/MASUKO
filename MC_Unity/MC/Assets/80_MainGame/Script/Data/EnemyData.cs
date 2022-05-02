@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyData
 {
+    //名前
     public enum EnemyName
     {
         TUYOGARISYOUNEN,
@@ -14,31 +15,44 @@ public class EnemyData
         PIEKIN
     }
 
-    EnemyName enemyName;
+    public EnemyName enemyName;
 
-    public const string easy = "easy";
-    public const string normal = "normal";
-    public const string hard = "hard";
-
-    int attackDamage;
-    int speed;
-    Vector2[] attackRange;
-    DamageModelComponent enemyDamageModelComponent;
+    //攻撃力
+    public int attackDamage;
+    //移動速度
+    public int speed;
+    //攻撃範囲
+    public Vector2[] attackRange;
+    //体力
+    public int maxHp;
+    //耐性(カット率)
+    public int physicsDamageResistance;
+    public int zyuGekiResistance;
+    public int zyuRyokuResistance;
 
     public EnemyData(EnemyName eName,string difficulty)
     {
+        enemyName = eName;
         switch (eName)
         {
             case (EnemyName.TUYOGARISYOUNEN):
                 switch (difficulty)
                 {
-                    case(easy):
+                    case(StageSelect_Deta.easy):
+                        attackDamage = 0;
+                        speed = 0;
+                        attackRange = new Vector2[] {
+                            new Vector2(1,0)
+                        };
+                        maxHp = 0;
+                        physicsDamageResistance = 0;
+                        zyuGekiResistance = 0;
+                        zyuRyokuResistance = 0;
+                        break;
+                    case (StageSelect_Deta.normal):
 
                         break;
-                    case (normal):
-
-                        break;
-                    case (hard):
+                    case (StageSelect_Deta.hard):
 
                         break;
                 }
@@ -46,13 +60,13 @@ public class EnemyData
             case (EnemyName.NAMIKINASYOUZYO):
                 switch (difficulty)
                 {
-                    case (easy):
+                    case (StageSelect_Deta.easy):
 
                         break;
-                    case (normal):
+                    case (StageSelect_Deta.normal):
 
                         break;
-                    case (hard):
+                    case (StageSelect_Deta.hard):
 
                         break;
                 }
@@ -60,13 +74,13 @@ public class EnemyData
             case (EnemyName.KOISURUGYARU):
                 switch (difficulty)
                 {
-                    case (easy):
+                    case (StageSelect_Deta.easy):
 
                         break;
-                    case (normal):
+                    case (StageSelect_Deta.normal):
 
                         break;
-                    case (hard):
+                    case (StageSelect_Deta.hard):
 
                         break;
                 }
@@ -74,13 +88,13 @@ public class EnemyData
             case (EnemyName.KOWAMOTEYANKI):
                 switch (difficulty)
                 {
-                    case (easy):
+                    case (StageSelect_Deta.easy):
 
                         break;
-                    case (normal):
+                    case (StageSelect_Deta.normal):
 
                         break;
-                    case (hard):
+                    case (StageSelect_Deta.hard):
 
                         break;
                 }
@@ -88,13 +102,13 @@ public class EnemyData
             case (EnemyName.PIENNNAONNNANOKO):
                 switch (difficulty)
                 {
-                    case (easy):
+                    case (StageSelect_Deta.easy):
 
                         break;
-                    case (normal):
+                    case (StageSelect_Deta.normal):
 
                         break;
-                    case (hard):
+                    case (StageSelect_Deta.hard):
 
                         break;
                 }
@@ -102,13 +116,13 @@ public class EnemyData
             case (EnemyName.PIEKIN):
                 switch (difficulty)
                 {
-                    case (easy):
+                    case (StageSelect_Deta.easy):
 
                         break;
-                    case (normal):
+                    case (StageSelect_Deta.normal):
 
                         break;
-                    case (hard):
+                    case (StageSelect_Deta.hard):
 
                         break;
                 }

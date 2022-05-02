@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGame : MonoBehaviour
+public partial class MainGame : MonoBehaviour
 {
     public enum GameState{
         BeforeStart,
@@ -55,6 +55,9 @@ public class MainGame : MonoBehaviour
     //アイテム２
     bool item2;
 
+    //敵
+    Enemy[] enemies;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,4 +95,6 @@ public class MainGame : MonoBehaviour
         if (slowMode) Game_Speed = 0.25f;
         else Game_Speed = 1f;
     }
+
+
 }
