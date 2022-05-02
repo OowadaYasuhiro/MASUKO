@@ -505,7 +505,7 @@ MonoBehaviour:
   nodePrefab: {fileID: 742437896656736632, guid: 82a61731538a7fc4baab05552aebca31,
     type: 3}
   content: {fileID: 742545367}
-  testNodeAmount: 20
+  testNodeAmount: 6
 --- !u!4 &766680582
 Transform:
   m_ObjectHideFlags: 0
