@@ -18,13 +18,17 @@ public class EP : MonoBehaviour
     public Text[] textStage;
     [SerializeField]
     public Text[] textQ;
+    [SerializeField]
+    public Text[] textLQN;
+    [SerializeField]
+    public Text[] textQN;
     //ボタンオブジェクト
     [SerializeField]
-    private GameObject[] stageDay;
+    private GameObject[] stageC;
     [SerializeField]
-    private GameObject[] stageEX;
+    private GameObject[] stageSQ;
     [SerializeField]
-    private GameObject[] stageEP;
+    private GameObject[] stage;
     [SerializeField]
     private GameObject[] objGetStage;
     [SerializeField]
@@ -34,6 +38,11 @@ public class EP : MonoBehaviour
 
     private string textAbbreviation;
     private string textTname;
+    private string textSname;
+    private string SelectStagestageB;
+    private string Difdifficulty;
+    private string SelectOn;
+    private string QuestOn;
     private int sNumber;
     private int lsNumber;
     private int stageB_num;
@@ -55,6 +64,8 @@ public class EP : MonoBehaviour
             lstage_num[i] = 1;
         }
         Selectstage(0);
+        SelectOnClick(1);
+        QuestOnClick(1);
         //PlayerPrefs.GetInt("SCORE", 0);
         difficulty_num = 1;
         stageB_num = 1;
@@ -80,6 +91,12 @@ public class EP : MonoBehaviour
         Debug.Log(lstage_num[lsNumber]);
 
         Debug.Log(difficulty_num);
+
+        Debug.Log(Difdifficulty);
+
+        Debug.Log(SelectOn);
+
+        Debug.Log(QuestOn);
     }
 
     //クエストの処理
@@ -100,6 +117,8 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
+                Difdifficulty_num(1);
+                CColor();
                 break;
             case 1:
                 textTname = "デイリークエスト";
@@ -114,6 +133,8 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
+                Difdifficulty_num(1);
+                CColor();
                 break;
             case 2:
                 textTname = "イベントクエスト";
@@ -128,6 +149,8 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
+                Difdifficulty_num(1);
+                CColor();
                 break;
         }
     }
@@ -183,6 +206,7 @@ public class EP : MonoBehaviour
                 j++;
             }
         }
+
     }
 
     /*public void Select()
@@ -198,31 +222,31 @@ public class EP : MonoBehaviour
     public void Selecttext1()
     {
         Selecttext(1);
-        //SelectOnClick(1);
+        SelectOnClick(1);
     }
     
     public void Selecttext2()
     {
         Selecttext(2);
-        //SelectOnClick(2);
+        SelectOnClick(2);
     }
 
     public void Selecttext3()
     {
         Selecttext(3);
-        //SelectOnClick(3);
+        SelectOnClick(3);
     }
 
     public void Selecttext4()
     {
         Selecttext(4);
-        //SelectOnClick(4);
+        SelectOnClick(4);
     }
 
     public void Selecttext5()
     {
         Selecttext(5);
-        //SelectOnClick(5);
+        SelectOnClick(5);
     }
 
     //ステージ選択のテキスト変更処理
@@ -251,9 +275,12 @@ public class EP : MonoBehaviour
                 j++;
             }
         }
+        SQuestOnClick(st);
+        textLQN[0].text = textTname;
+        textQN[0].text = textAbbreviation + "." + st + " " + textSname;
     }
 
-    public void SelectOnClick()
+    /*public void SelectOnClick()
     {
         switch (textTname)
         {
@@ -280,7 +307,7 @@ public class EP : MonoBehaviour
             case 5:
                 break;
         }
-    }
+    }*/
 
     public void SelectStage_numfalse()
     {
@@ -360,13 +387,19 @@ public class EP : MonoBehaviour
         switch (difficulty_num)
         {
             case 1:
-                Debug.Log("イージー");
+                Difdifficulty = "イージー";
+                Debug.Log(Difdifficulty);
+                difficulty_num = 1;
                 break;
             case　2:
-                Debug.Log("ノーマル");
+                Difdifficulty = "ノーマル";
+                Debug.Log(Difdifficulty);
+                difficulty_num = 2;
                 break;
             case 3:
-                Debug.Log("ハード");
+                Difdifficulty = "ハード";
+                Debug.Log(Difdifficulty);
+                difficulty_num = 3;
                 break;
         }
     }
@@ -376,17 +409,328 @@ public class EP : MonoBehaviour
         switch (stageB_num)
         {
             case 1:
-                Debug.Log("ステージ1");
+                SelectStagestageB = "ステージ1";
+                Debug.Log(SelectStagestageB);
+                sColor();
                 break;
             case 2:
-                Debug.Log("ステージ２");
+                SelectStagestageB = "ステージ２";
+                Debug.Log(SelectStagestageB);
+                sColor();
                 break;
             case 3:
-                Debug.Log("ステージ３");
+                SelectStagestageB = "ステージ３";
+                Debug.Log(SelectStagestageB);
+                sColor();
                 break;
             case 4:
-                Debug.Log("ステージ４");
+                SelectStagestageB = "ステージ４";
+                Debug.Log(SelectStagestageB);
+                sColor();
                 break;
+        }
+    }
+    public void SelectOnClick(int st)
+    {
+        switch (st)
+        {
+            case 1:
+                SelectOn = "EP.1";
+                CQColor();
+                break;
+            case 2:
+                SelectOn = "EP.2";
+                CQColor();
+                break;
+            case 3:
+                SelectOn = "EP.3";
+                CQColor();
+                break;
+            case 4:
+                SelectOn = "EP.4";
+                CQColor();
+                break;
+            case 5:
+                SelectOn = "EP.5";
+                CQColor();
+                break;
+        }
+    }
+    public void QuestOnClick(int quest)
+    {
+        switch (quest)
+        {
+            case 1:
+                QuestOn = "メインクエスト";
+                break;
+            case 2:
+                QuestOn ="デイリークエスト";
+                break;
+            case 3:
+                QuestOn ="イベントクエスト";
+                break;
+        }
+    }
+    public void SQuestOnClick(int st)
+    {
+        switch (st)
+        {
+            case 1:
+                textSname = "破滅の始まり";
+                break;
+            case 2:
+                textSname = "破滅の始まり２";
+                break;
+            case 3:
+                textSname = "破滅の始まり３";
+                break;
+            case 4:
+                textSname = "破滅の始まり４";
+                break;
+            case 5:
+                textSname = "破滅の始まり５";
+                break;
+        }
+    }
+    //選択時のカラー変更
+    public void CColor()
+    {
+        switch (lsNumber)
+        {
+            case 0:
+                stageC[0].GetComponent<Image>().color = Color.red;
+                stageC[1].GetComponent<Image>().color = Color.white;
+                stageC[2].GetComponent<Image>().color = Color.white;
+                break;
+            case 1:
+                stageC[1].GetComponent<Image>().color = Color.green;
+                stageC[0].GetComponent<Image>().color = Color.white;
+                stageC[2].GetComponent<Image>().color = Color.white;
+                break;
+            case 2:
+                stageC[2].GetComponent<Image>().color = Color.blue;
+                stageC[0].GetComponent<Image>().color = Color.white;
+                stageC[1].GetComponent<Image>().color = Color.white;
+                break;
+        }
+    }
+    public void CQColor()
+    {
+        if(lsNumber == 0)
+        {
+            switch (SelectOn)
+            {
+                case "EP.1":
+                    stageSQ[0].GetComponent<Image>().color = Color.red;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.2":
+                    stageSQ[1].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.3":
+                    stageSQ[2].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.4":
+                    stageSQ[3].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.5":
+                    stageSQ[4].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+        else if(lsNumber == 1)
+        {
+            switch (SelectOn)
+            {
+                case "EP.1":
+                    stageSQ[0].GetComponent<Image>().color = Color.green;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.2":
+                    stageSQ[1].GetComponent<Image>().color = Color.green;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.3":
+                    stageSQ[2].GetComponent<Image>().color = Color.green;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.4":
+                    stageSQ[3].GetComponent<Image>().color = Color.green;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.5":
+                    stageSQ[4].GetComponent<Image>().color = Color.green;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+        else if(lsNumber == 2)
+        {
+            switch (SelectOn)
+            {
+                case "EP.1":
+                    stageSQ[0].GetComponent<Image>().color = Color.blue;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.2":
+                    stageSQ[1].GetComponent<Image>().color = Color.blue;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.3":
+                    stageSQ[2].GetComponent<Image>().color = Color.blue;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.4":
+                    stageSQ[3].GetComponent<Image>().color = Color.blue;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.5":
+                    stageSQ[4].GetComponent<Image>().color = Color.blue;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+    }
+    public void sColor()
+    {
+        if(lsNumber == 0)
+        {
+            switch (SelectStagestageB)
+            {
+                case "ステージ1":
+                    stage[0].GetComponent<Image>().color = Color.red;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ2":
+                    stage[1].GetComponent<Image>().color = Color.red;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ3":
+                    stage[2].GetComponent<Image>().color = Color.red;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ4":
+                    stage[3].GetComponent<Image>().color = Color.red;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+        else if(lsNumber == 1)
+        {
+            switch (SelectStagestageB)
+            {
+                case "ステージ1":
+                    stage[0].GetComponent<Image>().color = Color.green;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ2":
+                    stage[1].GetComponent<Image>().color = Color.green;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ3":
+                    stage[2].GetComponent<Image>().color = Color.green;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ4":
+                    stage[3].GetComponent<Image>().color = Color.green;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+        else if(lsNumber == 2) 
+        { 
+            switch (SelectStagestageB)
+            {
+                case "ステージ1":
+                    stage[0].GetComponent<Image>().color = Color.blue;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ2":
+                    stage[1].GetComponent<Image>().color = Color.blue;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ3":
+                    stage[2].GetComponent<Image>().color = Color.blue;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[3].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ステージ4":
+                    stage[3].GetComponent<Image>().color = Color.blue;
+                    stage[0].GetComponent<Image>().color = Color.white;
+                    stage[1].GetComponent<Image>().color = Color.white;
+                    stage[2].GetComponent<Image>().color = Color.white;
+                    break;
+            }
         }
     }
 }
@@ -452,7 +796,46 @@ public class EP : MonoBehaviour
                             case 3:
                                 break;
                         }
-                        break;*/
+                        break;
+
+ switch (SelectOn)
+            {
+                case "EP.1":
+                    stageSQ[0].GetComponent<Image>().color = Color.red;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.2":
+                    stageSQ[1].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.3":
+                    stageSQ[2].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.4":
+                    stageSQ[3].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[4].GetComponent<Image>().color = Color.white;
+                    break;
+                case "EP.5":
+                    stageSQ[4].GetComponent<Image>().color = Color.red;
+                    stageSQ[0].GetComponent<Image>().color = Color.white;
+                    stageSQ[1].GetComponent<Image>().color = Color.white;
+                    stageSQ[2].GetComponent<Image>().color = Color.white;
+                    stageSQ[3].GetComponent<Image>().color = Color.white;
+                    break;
+            }*/
 /*[SerializeField]
 public Text[] textDifficulty;*/
 

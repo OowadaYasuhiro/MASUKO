@@ -1,5 +1,5 @@
 ﻿//ダメージを表すクラス
-public class Damage
+public class Damage : Constant
 {
     //ダメージのタイプ
     string type;
@@ -35,9 +35,6 @@ public class Damage
             }
         }
     }
-    public const string physicsDamage = "physicsDamage";
-    public const string zyuGeki = "zyuGeki";
-    public const string zyuRyoku = "zyuRyoku";
 
     //ダメージ量
     public int value;
