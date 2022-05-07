@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage
+public class Stage : Constant
 {
 
     //選択されたステージ
@@ -12,64 +12,64 @@ public class Stage
     {
         switch (number)
         {
-            case (StageSelect_Deta.main_ep1_1):
+            case (main_ep1_1):
 
                 break;
-            case (StageSelect_Deta.main_ep1_2):
+            case (main_ep1_2):
 
                 break;
-            case (StageSelect_Deta.main_ep1_3):
+            case (main_ep1_3):
 
                 break;
-            case (StageSelect_Deta.main_ep1_4):
+            case (main_ep1_4):
 
                 break;
-            case (StageSelect_Deta.main_ep2_1):
+            case (main_ep2_1):
 
                 break;
-            case (StageSelect_Deta.main_ep2_2):
+            case (main_ep2_2):
 
                 break;
-            case (StageSelect_Deta.main_ep2_3):
+            case (main_ep2_3):
 
                 break;
-            case (StageSelect_Deta.main_ep2_4):
+            case (main_ep2_4):
 
                 break;
-            case (StageSelect_Deta.main_ep3_1):
+            case (main_ep3_1):
 
                 break;
-            case (StageSelect_Deta.main_ep3_2):
+            case (main_ep3_2):
 
                 break;
-            case (StageSelect_Deta.main_ep3_3):
+            case (main_ep3_3):
 
                 break;
-            case (StageSelect_Deta.main_ep3_4):
+            case (main_ep3_4):
 
                 break;
-            case (StageSelect_Deta.main_ep4_1):
+            case (main_ep4_1):
 
                 break;
-            case (StageSelect_Deta.main_ep4_2):
+            case (main_ep4_2):
 
                 break;
-            case (StageSelect_Deta.main_ep4_3):
+            case (main_ep4_3):
 
                 break;
-            case (StageSelect_Deta.main_ep4_4):
+            case (main_ep4_4):
 
                 break;
-            case (StageSelect_Deta.main_ep5_1):
+            case (main_ep5_1):
 
                 break;
-            case (StageSelect_Deta.main_ep5_2):
+            case (main_ep5_2):
 
                 break;
-            case (StageSelect_Deta.main_ep5_3):
+            case (main_ep5_3):
 
                 break;
-            case (StageSelect_Deta.main_ep5_4):
+            case (main_ep5_4):
 
                 break;
         }

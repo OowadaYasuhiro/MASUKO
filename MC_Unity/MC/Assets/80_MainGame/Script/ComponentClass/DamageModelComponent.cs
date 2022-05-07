@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageModelComponent
+public class DamageModelComponent : Constant
 {
     //体力
     int hp;
@@ -24,17 +24,17 @@ public class DamageModelComponent
     //受け取ったダメージから耐性の分引いてhpに適応
     public void AddDamage(Damage damage)
     {
-        if (damage.Type == Damage.physicsDamage)
+        if (damage.Type == physicsDamage)
         {
             double RPD = 100.0 - (double)physicsDamageResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
-        if (damage.Type == Damage.zyuGeki)
+        if (damage.Type == zyuGeki)
         {
             double RPD = 100.0 - (double)zyuGekiResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
-        if (damage.Type == Damage.zyuRyoku)
+        if (damage.Type == zyuRyoku)
         {
             double RPD = 100.0 - (double)zyuRyokuResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
