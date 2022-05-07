@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Constant
 {
     //体力管理
     DamageModelComponent damageModel;
@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     EnemyData enemyData;
 
 
-    public Enemy(EnemyData.EnemyName enemyName,string difficulty)
+    public Enemy(EnemyName enemyName,string difficulty)
     {
         enemyData = new EnemyData(enemyName,difficulty);
         damageModel = new DamageModelComponent(enemyData.maxHp,enemyData.physicsDamageResistance,enemyData.zyuGekiResistance,enemyData.zyuRyokuResistance);

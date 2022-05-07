@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class MainGame : MonoBehaviour
+public partial class MainGame : Constant
 {
     public enum GameState{
         BeforeStart,
