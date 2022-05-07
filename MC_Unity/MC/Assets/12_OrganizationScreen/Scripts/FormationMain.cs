@@ -20,6 +20,10 @@ public class FormationMain : MonoBehaviour
     {
         DrawSelectUITexts();
         EraseSelectWindow();
+        OrganizationScreen_Deta.isLeftCharacter = false;
+        DrawCharacterUITextsAndImage();
+
+        DrawArtifactsUI();
     }
 
     public void ShowSelectWindow()
@@ -53,8 +57,51 @@ public class FormationMain : MonoBehaviour
     }
 
     public void DrawCharacterUITextsAndImage()
+    { 
+        if (OrganizationScreen_Deta.isLeftCharacter)
+        {
+            SetCharacterStruct(OrganizationScreen_Deta.leftCharacterNum);
+            characterWindowLeft.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
+            characterWindowLeft.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
+            characterWindowLeft.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
+            characterWindowLeft.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
+            characterWindowLeft.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
+            characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
+            characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+        }
+        else
+        {
+            if (OrganizationScreen_Deta.rightCharacterNum == -1)
+            {
+                characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(2).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(8).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(9).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(10).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = "";
+                Master.formationdeta.SetSelectCharacter2(null);
+            }
+            else
+            {
+                SetCharacterStruct(OrganizationScreen_Deta.rightCharacterNum);
+                characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
+                characterWindowRight.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
+                characterWindowRight.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
+                characterWindowRight.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
+                characterWindowRight.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
+                characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
+                characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+            }
+        }
+
+        characterWindowLeft.transform.GetChild(15).GetComponent<Text>().text = data.GetSynagySkills();
+        characterWindowRight.transform.GetChild(15).GetComponent<Text>().text = data.GetSynagySkills();
+    }
+
+    private void SetCharacterStruct(int charaNum)
     {
-        switch (OrganizationScreen_Deta.selectCharacterNum)
+        switch (charaNum)
         {
             case 0:
                 chara = data.ghost;
@@ -78,23 +125,25 @@ public class FormationMain : MonoBehaviour
 
         if (OrganizationScreen_Deta.isLeftCharacter)
         {
-            characterWindowLeft.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
-            characterWindowLeft.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
-            characterWindowLeft.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
-            characterWindowLeft.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
-            characterWindowLeft.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
-            characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
-            characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+            Master.formationdeta.SetSelectCharacter1(chara);
         }
         else
         {
-            characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
-            characterWindowRight.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
-            characterWindowRight.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
-            characterWindowRight.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
-            characterWindowRight.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
-            characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
-            characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+            Master.formationdeta.SetSelectCharacter2(chara);
         }
+    }
+
+    private void DrawArtifactsUI()
+    {
+        characterWindowLeft.transform.GetChild(17).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(0).GetColor();
+        characterWindowLeft.transform.GetChild(18).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(1).GetColor();
+        characterWindowLeft.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor(); 
+        /*characterWindowRight.transform.GetChild(17).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(0).GetColor();
+        characterWindowRight.transform.GetChild(18).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(1).GetColor();
+        characterWindowRight.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor();*/
+
+        characterWindowLeft.transform.GetChild(17).GetComponentInChildren<Text>().text = Master.formationdeta.GetCharactor1Artifact(0).GetLevel().ToString();
+        characterWindowLeft.transform.GetChild(18).GetComponentInChildren<Text>().text = Master.formationdeta.GetCharactor1Artifact(1).GetLevel().ToString();
+        characterWindowLeft.transform.GetChild(19).GetComponentInChildren<Text>().text = Master.formationdeta.GetCharactor1Artifact(2).GetLevel().ToString();
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2199971549490209498}
   m_Layer: 5
   m_Name: ArmorNode-Button
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -12,7 +12,6 @@ public class NodeMain : MonoBehaviour
     {
         this.nodeIndex = index;
     }
-
     public int GetNodeIndex()
     {
         return this.nodeIndex;
@@ -20,6 +19,14 @@ public class NodeMain : MonoBehaviour
 
     public void OnClickNode()
     {
+        if (OrganizationScreen_Deta.armorNum == 0 || OrganizationScreen_Deta.armorNum == 1 || OrganizationScreen_Deta.armorNum == 2)
+        {
+            Master.formationdeta.SetCharactor1Artifact(OrganizationScreen_Deta.armorNum, ArmorNodeGeneretor.GetArtifact(this.nodeIndex));
+        }
+        else
+        {
+
+        }
         SceneManager.LoadScene("OrganizationScreenScene");
     }
 }
