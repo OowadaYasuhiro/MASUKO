@@ -118,6 +118,7 @@ public class EP : MonoBehaviour
                 Selectstage_num();
                 Selectlstage_num();
                 Difdifficulty_num(1);
+                SelectStagestageB_num(1);
                 CColor();
                 break;
             case 1:
@@ -134,6 +135,7 @@ public class EP : MonoBehaviour
                 Selectstage_num();
                 Selectlstage_num();
                 Difdifficulty_num(1);
+                SelectStagestageB_num(1);
                 CColor();
                 break;
             case 2:
@@ -150,6 +152,7 @@ public class EP : MonoBehaviour
                 Selectstage_num();
                 Selectlstage_num();
                 Difdifficulty_num(1);
+                SelectStagestageB_num(1);
                 CColor();
                 break;
         }
@@ -390,16 +393,19 @@ public class EP : MonoBehaviour
                 Difdifficulty = "イージー";
                 Debug.Log(Difdifficulty);
                 difficulty_num = 1;
+                DifColor();
                 break;
             case　2:
                 Difdifficulty = "ノーマル";
                 Debug.Log(Difdifficulty);
                 difficulty_num = 2;
+                DifColor();
                 break;
             case 3:
                 Difdifficulty = "ハード";
                 Debug.Log(Difdifficulty);
                 difficulty_num = 3;
+                DifColor();
                 break;
         }
     }
@@ -652,19 +658,19 @@ public class EP : MonoBehaviour
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ2":
+                case "ステージ２":
                     stage[1].GetComponent<Image>().color = Color.red;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ3":
+                case "ステージ３":
                     stage[2].GetComponent<Image>().color = Color.red;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ4":
+                case "ステージ４":
                     stage[3].GetComponent<Image>().color = Color.red;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
@@ -682,19 +688,19 @@ public class EP : MonoBehaviour
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ2":
+                case "ステージ２":
                     stage[1].GetComponent<Image>().color = Color.green;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ3":
+                case "ステージ３":
                     stage[2].GetComponent<Image>().color = Color.green;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ4":
+                case "ステージ４":
                     stage[3].GetComponent<Image>().color = Color.green;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
@@ -712,23 +718,47 @@ public class EP : MonoBehaviour
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ2":
+                case "ステージ２":
                     stage[1].GetComponent<Image>().color = Color.blue;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ3":
+                case "ステージ３":
                     stage[2].GetComponent<Image>().color = Color.blue;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ4":
+                case "ステージ４":
                     stage[3].GetComponent<Image>().color = Color.blue;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+    }
+    public void DifColor()
+    {
+        if(lsNumber == 0)
+        {
+            switch (Difdifficulty)
+            {
+                case "イージー":
+                    Difficulty[0].GetComponent<Image>().color = Color.red;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ノーマル":
+                    Difficulty[1].GetComponent<Image>().color = Color.red;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ハード":
+                    Difficulty[2].GetComponent<Image>().color = Color.red;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
                     break;
             }
         }
