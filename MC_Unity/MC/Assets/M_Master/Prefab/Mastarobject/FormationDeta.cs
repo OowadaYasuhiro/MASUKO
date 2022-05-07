@@ -2,18 +2,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FormationDeta
 {
-     Charactor? selectcharactor1;
-     string charactor1artifact1;
-     string charactor1artifact2;
-     string charactor1artifact3;
-     Charactor? selectcharactor2;
-     string charactor2artifact1;
-     string charactor2artifact2;
-     string charactor2artifact3;
-     Artifact[] artifacts;
+     private Charactor? selectcharactor1;
+     private string charactor1artifact1;
+     private string charactor1artifact2;
+     private string charactor1artifact3;
+
+     private Artifact[] charactor1Artifacts = {new Artifact("",-1,Color.white), new Artifact("", -1, Color.white), new Artifact("", -1, Color.white) };
+
+     private Charactor? selectcharactor2;
+     private string charactor2artifact1;
+     private string charactor2artifact2;
+     private string charactor2artifact3;
+     private Artifact[] artifacts;
+
+    public void SetSelectCharacter1(Charactor character)
+    {
+        this.selectcharactor1 = character;
+    }
+
+    public void SetSelectCharacter2(Charactor? character)
+    {
+        this.selectcharactor2 = character;
+    }
+
+    public void SetCharactor1Artifact(int index,Artifact artifact)
+    {
+        this.charactor1Artifacts[index] = artifact;
+    }
+    public Artifact GetCharactor1Artifact(int index)
+    {
+        return this.charactor1Artifacts[index];
+    }
 
     public  void Save() {
         PlayerPrefs.SetString("selectcharactor1", JsonUtility.ToJson(selectcharactor1));
@@ -220,6 +243,31 @@ public struct Charactor
 
 public class Artifact
 {
-    string name;
-    int level;
+    private string name;
+    private int level;
+    private Color testColor;
+
+    public string GetName()
+    {
+        return this.name;
+    }
+    public int GetLevel()
+    {
+        return this.level;
+    }
+    public void SetLevel(int artifactLevel)
+    {
+        this.level = artifactLevel;
+    }
+    public Color GetColor()
+    {
+        return this.testColor;
+    }
+
+    public Artifact(string name,int level,Color testColor)
+    {
+        this.name = name;
+        this.level = level;
+        this.testColor = testColor;
+    }
 }
