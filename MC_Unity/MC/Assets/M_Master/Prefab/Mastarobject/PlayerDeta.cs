@@ -133,6 +133,10 @@ public class PlayerDeta
     public int DaemonPotentialflowering { get { return deamonpotentialflowering; } set { int min = 0; int max = 4; deamonpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Daemonduplication;
+    //限界突破１
+    public bool DaemonbreakingThrough1;
+    //限界突破２
+    public bool DaemonbreakingThrough2; 
     //ポルターガイスト解放
     public bool PoltergeistUnLocked;
     //レベル
@@ -160,6 +164,10 @@ public class PlayerDeta
     public int PoltergeistPotentialflowering { get { return poltergeistpotentialflowering; } set { int min = 0; int max = 4; poltergeistpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Poltergeistduplication;
+    //限界突破１
+    public bool PoltergeistbreakingThrough1;
+    //限界突破２
+    public bool PoltergeistbreakingThrough2;
     //鬼開放
     public bool GoreUnLocked;
     //レベル
@@ -187,6 +195,10 @@ public class PlayerDeta
     public int GorePotentialflowering { get { return gorepotentialflowering; } set { int min = 0; int max = 4; gorepotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int goreduplication;
+    //限界突破１
+    public bool GorebreakingThrough1;
+    //限界突破２
+    public bool GorebreakingThrough2;
     //座敷童解放
     public bool Zashiki_warashiUnLocked;
     //レベル
@@ -214,6 +226,10 @@ public class PlayerDeta
     public int Zashiki_warashiPotentialflowering { get { return zashiki_warashipotentialflowering; } set { int min = 0; int max = 4; zashiki_warashipotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Zashiki_warashiduplication;
+    //限界突破１
+    public bool Zashiki_warashibreakingThrough1;
+    //限界突破２
+    public bool Zashiki_warashibreakingThrough2;
     //幽霊解放
     public bool GhostUnLocked;
     //レベル
@@ -241,6 +257,10 @@ public class PlayerDeta
     public int GhostPotentialflowering { get { return ghostpotentialflowering; } set { int min = 0; int max = 4; ghostpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Ghostduplication;
+    //限界突破１
+    public bool GhostbreakingThrough1;
+    //限界突破２
+    public bool GhostbreakingThrough2;
 
     //希少な霊魂
     public int KisyounaReikon;
@@ -253,8 +273,8 @@ public class PlayerDeta
     public int Kosyo;
     //遺骨
     public int Ikotu;
-    //人間の稀血
-    public int Ninkennnomareti;
+    //人間の血
+    public int Ningennnoti;
 
     //遺物
     Artifact[] artifacts;
