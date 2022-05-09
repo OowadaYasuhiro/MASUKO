@@ -862,8 +862,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1205638765}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1205638767}
+        m_MethodName: EP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2700,8 +2700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1205638765}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1205638767}
+        m_MethodName: EP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3265,8 +3265,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1205638765}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1205638767}
+        m_MethodName: EP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4197,8 +4197,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1205638765}
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1205638767}
+        m_MethodName: EP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5449,6 +5449,16 @@ MonoBehaviour:
   - {fileID: 872556830}
   - {fileID: 2126543327}
   - {fileID: 1180312684}
+  fcs: {fileID: 1528560975}
+  Difdifficulty: 
+  SelectOn: 
+  QuestOn: 
+  sNumber: 0
+  lsNumber: 0
+  stageB_num: 0
+  difficulty_num: 0
+  SelectStagestageB_num_num: 0
+  SelectOn_num: 0
 --- !u!4 &1205638766
 Transform:
   m_ObjectHideFlags: 0
@@ -5481,8 +5491,28 @@ MonoBehaviour:
   - {fileID: 1051096959}
   back:
   - {fileID: 1571997752}
-  FCSQtext: {fileID: 0}
-  FCRLtext: {fileID: 0}
+  stageimages:
+  - {fileID: 1730996435}
+  caractorimages:
+  - {fileID: 446531331}
+  - {fileID: 1592284835}
+  - {fileID: 2052028018}
+  - {fileID: 439145898}
+  - {fileID: 1398067942}
+  - {fileID: 928404215}
+  - {fileID: 1926754787}
+  - {fileID: 1430096224}
+  doropimages:
+  - {fileID: 1681356153}
+  - {fileID: 2091523303}
+  - {fileID: 865052023}
+  - {fileID: 2059857142}
+  - {fileID: 1278915177}
+  - {fileID: 1045965352}
+  FCSQtext: {fileID: 1829740452}
+  FCRLtext: {fileID: 827708196}
+  FCStext: {fileID: 1291111127}
+  ep: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1278915175
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,7 +6653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1528560976
 RectTransform:
   m_ObjectHideFlags: 0
