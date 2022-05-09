@@ -277,7 +277,7 @@ public class PlayerDeta
     public int Ningennnoti;
 
     //遺物
-    Artifact[] artifacts;
+    public Artifact[] artifacts;
 
     //進行度
     public bool Stage1_1Clear;
