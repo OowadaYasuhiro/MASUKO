@@ -432,7 +432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 540.4878}
+  m_AnchoredPosition: {x: 0, y: 540}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &742545368
@@ -505,7 +505,11 @@ MonoBehaviour:
   nodePrefab: {fileID: 742437896656736632, guid: 82a61731538a7fc4baab05552aebca31,
     type: 3}
   content: {fileID: 742545367}
-  testNodeAmount: 6
+  artifactsImages:
+  - {fileID: 21300000, guid: 81254d4b1aad02146a6da8bda372e55b, type: 3}
+  - {fileID: 21300000, guid: 4f2b076c2fb267b40a005df6a594e938, type: 3}
+  - {fileID: 21300000, guid: d1c7345dfb7b60d43943386971cff2c0, type: 3}
+  isDebug: 1
 --- !u!4 &766680582
 Transform:
   m_ObjectHideFlags: 0

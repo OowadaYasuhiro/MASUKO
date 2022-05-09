@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class FormationBuckButton : MonoBehaviour
 {
-    //todo:
+    /// <summary>
+    /// ホームシーンへ戻るボタンの処理
+    /// </summary>
+
+    //todo: ホームシーンにつなげる
+    //OnClick用メソッド
     public void OnClickBuckButton()
     {
-
+        //現在セットされているキャラクターを保存
         switch (OrganizationScreen_Deta.leftCharacterNum)
         {
             case 0:
@@ -31,6 +36,7 @@ public class FormationBuckButton : MonoBehaviour
                 break;
         }
 
-        Debug.Log("");
+        Debug.Log("back");
+        //SceneManager.LoadScene("");
     }
 }

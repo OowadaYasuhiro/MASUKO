@@ -11,7 +11,7 @@ public class FormationDeta
      private string charactor1artifact2;
      private string charactor1artifact3;
 
-     private Artifact[] charactor1Artifacts = {new Artifact("",-1,Color.white), new Artifact("", -1, Color.white), new Artifact("", -1, Color.white) };
+     private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
 
      private Charactor? selectcharactor2;
      private string charactor2artifact1;
@@ -19,7 +19,9 @@ public class FormationDeta
      private string charactor2artifact3;
      private Artifact[] artifacts;
 
-    public void SetSelectCharacter1(Charactor character)
+    private RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
+
+    public void SetSelectCharacter1(Charactor? character)
     {
         this.selectcharactor1 = character;
     }
@@ -246,6 +248,11 @@ public class Artifact
     private string name;
     private int level;
     private Color testColor;
+    private int rarity;
+    private string addStatus;
+    private int addValue;
+    private string seriesTag;
+    private Sprite icon;
 
     public string GetName()
     {
@@ -263,11 +270,63 @@ public class Artifact
     {
         return this.testColor;
     }
+    public int GetRarity()
+    {
+        return this.rarity;
+    }
+    public void SetRarity(int value)
+    {
+        this.rarity = value;
+    }
+    public string GetStaus()
+    {
+        return this.addStatus + "+" + this.addValue.ToString();
+    }
+    public string GetSeriesTag()
+    {
+        return this.seriesTag;
+    }
+    public Sprite GetIcon()
+    {
+        return this.icon;
+    }
+    public void SetIcon(Sprite image)
+    {
+        this.icon = image;
+    }
 
-    public Artifact(string name,int level,Color testColor)
+    public Artifact()
+    {
+        this.name = "noname";
+        this.level = 1;
+        this.testColor = Color.white;
+        this.rarity = 0;
+        this.addStatus = "";
+        this.addValue = 0;
+        this.seriesTag = "";
+    }
+
+    public Artifact(string name,Color testColor,int rarity,string status,int value,string series,Sprite image)
     {
         this.name = name;
-        this.level = level;
         this.testColor = testColor;
+        this.rarity = rarity;
+        this.addStatus = status;
+        this.addValue = value;
+        this.seriesTag = series;
+        this.icon = image;
+
+        this.level = 1;
+    }
+
+    public Artifact(string name,int rarity,string bonusStatus,int bonusValue,string tag,Sprite image)
+    {
+        this.name = name;
+        this.level = 1;
+        this.rarity = rarity;
+        this.addStatus = bonusStatus;
+        this.addValue = bonusValue;
+        this.seriesTag = tag;
+        this.icon = image;
     }
 }
