@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class FormationMain : MonoBehaviour
 {
+    /// <summary>
+    /// 編成画面の処理
+    /// </summary>
+
     [SerializeField]
-    private GameObject characterWindowLeft;
+    private GameObject characterWindowLeft;　
     [SerializeField]
     private GameObject characterWindowRight;
     [SerializeField]
@@ -18,6 +22,7 @@ public class FormationMain : MonoBehaviour
 
     void Start()
     {
+        //初期状態のセット
         DrawSelectUITexts();
         EraseSelectWindow();
         OrganizationScreen_Deta.isLeftCharacter = false;
@@ -42,6 +47,7 @@ public class FormationMain : MonoBehaviour
         DrawCharacterUITextsAndImage();
     }
 
+    //hack: ポルターガイストの文字列
     private void DrawSelectUITexts()
     {
         selectWindow.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = data.ghost.GetName();
@@ -56,10 +62,13 @@ public class FormationMain : MonoBehaviour
         selectWindow.transform.GetChild(4).transform.GetChild(1).GetComponent<Text>().text = "Lv" + data.demon.GetLevel().ToString();
     }
 
+    //todo キャラクター画像の設定
+    //キャラクターウィンドウのテキストのロード
     public void DrawCharacterUITextsAndImage()
     { 
         if (OrganizationScreen_Deta.isLeftCharacter)
         {
+            //選択されたキャラクターのデータを取得
             SetCharacterStruct(OrganizationScreen_Deta.leftCharacterNum);
             characterWindowLeft.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
             characterWindowLeft.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
@@ -69,8 +78,9 @@ public class FormationMain : MonoBehaviour
             characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
             characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
         }
-        else
+        else //右のキャラクターウィンドウ
         {
+            //何も選ばれていないときの処理
             if (OrganizationScreen_Deta.rightCharacterNum == -1)
             {
                 characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = "";
@@ -82,7 +92,7 @@ public class FormationMain : MonoBehaviour
                 characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = "";
                 Master.formationdeta.SetSelectCharacter2(null);
             }
-            else
+            else 
             {
                 SetCharacterStruct(OrganizationScreen_Deta.rightCharacterNum);
                 characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
@@ -95,10 +105,12 @@ public class FormationMain : MonoBehaviour
             }
         }
 
+        //シナジースキルの設定
         characterWindowLeft.transform.GetChild(15).GetComponent<Text>().text = data.GetSynagySkills();
         characterWindowRight.transform.GetChild(15).GetComponent<Text>().text = data.GetSynagySkills();
     }
 
+    //対応するキャラクターの構造体のセット
     private void SetCharacterStruct(int charaNum)
     {
         switch (charaNum)
@@ -123,6 +135,7 @@ public class FormationMain : MonoBehaviour
                 break;
         }
 
+        //セットされているキャラクターの保存
         if (OrganizationScreen_Deta.isLeftCharacter)
         {
             Master.formationdeta.SetSelectCharacter1(chara);
@@ -133,17 +146,24 @@ public class FormationMain : MonoBehaviour
         }
     }
 
+    //todo 右のキャラクターも同様に定義、遺物のステータスの反映
+    //遺物の反映を行う
     private void DrawArtifactsUI()
     {
+        //todo 実際の画像が来たら削除
         characterWindowLeft.transform.GetChild(17).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(0).GetColor();
         characterWindowLeft.transform.GetChild(18).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(1).GetColor();
-        characterWindowLeft.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor(); 
-        /*characterWindowRight.transform.GetChild(17).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(0).GetColor();
-        characterWindowRight.transform.GetChild(18).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(1).GetColor();
-        characterWindowRight.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor();*/
+        characterWindowLeft.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor();
 
+        //画像のセット
+        characterWindowLeft.transform.GetChild(17).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(0).GetIcon();
+        characterWindowLeft.transform.GetChild(18).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(1).GetIcon();
+        characterWindowLeft.transform.GetChild(19).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(2).GetIcon();
+
+        //レベルのセット
         characterWindowLeft.transform.GetChild(17).GetComponentInChildren<Text>().text = Master.formationdeta.GetCharactor1Artifact(0).GetLevel().ToString();
         characterWindowLeft.transform.GetChild(18).GetComponentInChildren<Text>().text = Master.formationdeta.GetCharactor1Artifact(1).GetLevel().ToString();
         characterWindowLeft.transform.GetChild(19).GetComponentInChildren<Text>().text = Master.formationdeta.GetCharactor1Artifact(2).GetLevel().ToString();
+
     }
 }
