@@ -588,4 +588,9 @@ public class FinalConfirmationScreen : MonoBehaviour
 
         Debug.Log(epScript.QuestOn);
     }
+    public void Snymber()
+    {
+        epScript.stage_num[epScript.sNumber]++;
+        return;
+    }
 }

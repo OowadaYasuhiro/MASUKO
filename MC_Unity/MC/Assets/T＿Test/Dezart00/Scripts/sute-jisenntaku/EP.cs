@@ -52,6 +52,7 @@ public class EP : MonoBehaviour
     public int SelectStagestageB_num_num;
     public int SelectOn_num;
 
+    FinalConfirmationScreen FCS;
 
     bool isCalledOnce = false;
     //Dictionary<string, int> stagetest = new Dictionary<string, int>();
@@ -127,6 +128,8 @@ public class EP : MonoBehaviour
                 Selectlstage_num();
                 SelectStagestageB_num(1);
                 CColor();
+                DifColor();
+                //this.FCS.EP();
                 break;
             case 1:
                 textTname = "デイリークエスト";
@@ -143,6 +146,7 @@ public class EP : MonoBehaviour
                 Selectlstage_num();
                 SelectStagestageB_num(1);
                 CColor();
+                DifColor();
                 break;
             case 2:
                 textTname = "イベントクエスト";
@@ -159,6 +163,7 @@ public class EP : MonoBehaviour
                 Selectlstage_num();
                 SelectStagestageB_num(1);
                 CColor();
+                DifColor();
                 break;
         }
     }
