@@ -19,6 +19,7 @@ public class Master : SingletonMonoBehaviour<Master>
     {
         saveManager.DetaLoad();
         SceneManager.sceneUnloaded += OnSceneUnloaded;
+        Application.targetFrameRate = 60;
     }
 
     private void OnSceneUnloaded(Scene current)

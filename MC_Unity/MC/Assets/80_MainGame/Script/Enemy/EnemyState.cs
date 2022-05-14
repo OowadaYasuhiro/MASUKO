@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class EnemyState : Constant
 {
-    enum State
+    public Enemystate state;
+
+    public void CheckState(DamageModelComponent dmc)
     {
-        Wait,
-        Run,
-        Fight,
-        RunAway,
-        Dead
-    } 
-
-    State state;
-
+        if (dmc.Hp <= 0)
+        {
+            state = Enemystate.Dead;
+        }
+    }
 
 }
