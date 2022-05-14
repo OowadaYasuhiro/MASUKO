@@ -35,19 +35,26 @@ public class EP : MonoBehaviour
     private GameObject[] objGetQ;
     [SerializeField]
     private GameObject[] Difficulty;
+    [SerializeField]
+    public GameObject fcs;
 
     private string textAbbreviation;
     private string textTname;
     private string textSname;
     private string SelectStagestageB;
-    private string Difdifficulty;
-    private string SelectOn;
-    private string QuestOn;
-    private int sNumber;
-    private int lsNumber;
-    private int stageB_num;
-    private int difficulty_num;
+    public string Difdifficulty;
+    public string SelectOn;
+    public string QuestOn;
+    public int sNumber;
+    public int lsNumber;
+    public int stageB_num;
+    public int difficulty_num;
+    public int SelectStagestageB_num_num;
+    public int SelectOn_num;
 
+    FinalConfirmationScreen FCS;
+
+    bool isCalledOnce = false;
     //Dictionary<string, int> stagetest = new Dictionary<string, int>();
 
     // Start is called before the first frame update
@@ -66,6 +73,7 @@ public class EP : MonoBehaviour
         Selectstage(0);
         SelectOnClick(1);
         QuestOnClick(1);
+        Difdifficulty_num(1);
         //PlayerPrefs.GetInt("SCORE", 0);
         difficulty_num = 1;
         stageB_num = 1;
@@ -99,10 +107,11 @@ public class EP : MonoBehaviour
         Debug.Log(QuestOn);
     }
 
+
     //クエストの処理
-    public void Selectstage(int sNumber)
+    public void Selectstage(int number)
     {
-        switch (sNumber)
+        switch (number)
         {
             case 0:
                 textTname = "メインクエスト";
@@ -117,8 +126,10 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
-                Difdifficulty_num(1);
+                SelectStagestageB_num(1);
                 CColor();
+                DifColor();
+                //this.FCS.EP();
                 break;
             case 1:
                 textTname = "デイリークエスト";
@@ -133,8 +144,9 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
-                Difdifficulty_num(1);
+                SelectStagestageB_num(1);
                 CColor();
+                DifColor();
                 break;
             case 2:
                 textTname = "イベントクエスト";
@@ -149,8 +161,9 @@ public class EP : MonoBehaviour
                 Selecttext1();
                 Selectstage_num();
                 Selectlstage_num();
-                Difdifficulty_num(1);
+                SelectStagestageB_num(1);
                 CColor();
+                DifColor();
                 break;
         }
     }
@@ -158,6 +171,7 @@ public class EP : MonoBehaviour
     //章選択のテキスト変更処理
     public void Selectsateg()
     {
+        //章選択の有無
         if (lstage_num[lsNumber] <= 1)
         {
             SelectLstage_numtrue();
@@ -252,6 +266,7 @@ public class EP : MonoBehaviour
     //ステージ選択のテキスト変更処理
     public void Selecttext(int st)
     {
+        //ステージ選択の有無
         if (lstage_num[lsNumber] <= st)
         {
             SelectStage_numtrue();
@@ -279,35 +294,6 @@ public class EP : MonoBehaviour
         textLQN[0].text = textTname;
         textQN[0].text = textAbbreviation + "." + st + " " + textSname;
     }
-
-    /*public void SelectOnClick()
-    {
-        switch (textTname)
-        {
-            case "メインクエスト":
-            case "デイリークエスト":
-            case "イベントクエスト":
-                SelectStage1(1);
-                SelectStage1(2);
-                SelectStage1(3);
-                SelectStage1(4);
-                SelectStage1(5);
-                break;
-        }
-    }
-
-    public void SelectStage1(int st)
-    {
-        switch (st)
-        {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-                break;
-        }
-    }*/
 
     public void SelectStage_numfalse()
     {
@@ -382,24 +368,27 @@ public class EP : MonoBehaviour
         }
     }
 
-    public void Difdifficulty_num(int difficulty_num)
+    public void Difdifficulty_num(int dif)
     {
-        switch (difficulty_num)
+        switch (dif)
         {
             case 1:
                 Difdifficulty = "イージー";
                 Debug.Log(Difdifficulty);
                 difficulty_num = 1;
+                DifColor();
                 break;
             case　2:
                 Difdifficulty = "ノーマル";
                 Debug.Log(Difdifficulty);
                 difficulty_num = 2;
+                DifColor();
                 break;
             case 3:
                 Difdifficulty = "ハード";
                 Debug.Log(Difdifficulty);
                 difficulty_num = 3;
+                DifColor();
                 break;
         }
     }
@@ -411,21 +400,25 @@ public class EP : MonoBehaviour
             case 1:
                 SelectStagestageB = "ステージ1";
                 Debug.Log(SelectStagestageB);
+                SelectStagestageB_num_num = 1;
                 sColor();
                 break;
             case 2:
                 SelectStagestageB = "ステージ２";
                 Debug.Log(SelectStagestageB);
+                SelectStagestageB_num_num = 2;
                 sColor();
                 break;
             case 3:
                 SelectStagestageB = "ステージ３";
                 Debug.Log(SelectStagestageB);
+                SelectStagestageB_num_num = 3;
                 sColor();
                 break;
             case 4:
                 SelectStagestageB = "ステージ４";
                 Debug.Log(SelectStagestageB);
+                SelectStagestageB_num_num = 4;
                 sColor();
                 break;
         }
@@ -436,22 +429,32 @@ public class EP : MonoBehaviour
         {
             case 1:
                 SelectOn = "EP.1";
+                SelectOn_num = 1;
+                SelectStagestageB_num(1);
                 CQColor();
                 break;
             case 2:
                 SelectOn = "EP.2";
+                SelectOn_num = 2;
+                SelectStagestageB_num(1);
                 CQColor();
                 break;
             case 3:
                 SelectOn = "EP.3";
+                SelectOn_num = 3;
+                SelectStagestageB_num(1);
                 CQColor();
                 break;
             case 4:
                 SelectOn = "EP.4";
+                SelectOn_num = 4;
+                SelectStagestageB_num(1);
                 CQColor();
                 break;
             case 5:
                 SelectOn = "EP.5";
+                SelectOn_num = 5;
+                SelectStagestageB_num(1);
                 CQColor();
                 break;
         }
@@ -652,19 +655,19 @@ public class EP : MonoBehaviour
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ2":
+                case "ステージ２":
                     stage[1].GetComponent<Image>().color = Color.red;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ3":
+                case "ステージ３":
                     stage[2].GetComponent<Image>().color = Color.red;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ4":
+                case "ステージ４":
                     stage[3].GetComponent<Image>().color = Color.red;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
@@ -682,19 +685,19 @@ public class EP : MonoBehaviour
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ2":
+                case "ステージ２":
                     stage[1].GetComponent<Image>().color = Color.green;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ3":
+                case "ステージ３":
                     stage[2].GetComponent<Image>().color = Color.green;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ4":
+                case "ステージ４":
                     stage[3].GetComponent<Image>().color = Color.green;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
@@ -712,19 +715,19 @@ public class EP : MonoBehaviour
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ2":
+                case "ステージ２":
                     stage[1].GetComponent<Image>().color = Color.blue;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[2].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ3":
+                case "ステージ３":
                     stage[2].GetComponent<Image>().color = Color.blue;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
                     stage[3].GetComponent<Image>().color = Color.white;
                     break;
-                case "ステージ4":
+                case "ステージ４":
                     stage[3].GetComponent<Image>().color = Color.blue;
                     stage[0].GetComponent<Image>().color = Color.white;
                     stage[1].GetComponent<Image>().color = Color.white;
@@ -733,110 +736,72 @@ public class EP : MonoBehaviour
             }
         }
     }
-}
-
-//public GameObject data;
-/*GameObject EP1 = GameObject.Find("GameObjectEP");
-        Debug.Log("target1 = " + EP1);*/
-/*public void OnClickEP1Button()
+    public void DifColor()
     {
-        for (var i = 0; i < buttons.Length; i++)
+        if(lsNumber == 0)
         {
-            if (i == 0)
+            switch (Difdifficulty)
             {
-                buttons[0].GetComponent<Image>().color = Color.white;
-                continue;
+                case "イージー":
+                    Difficulty[0].GetComponent<Image>().color = Color.red;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ノーマル":
+                    Difficulty[1].GetComponent<Image>().color = Color.red;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ハード":
+                    Difficulty[2].GetComponent<Image>().color = Color.red;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    break;
             }
-            buttons[i].GetComponent<Image>().color = Color.gray;
+        }
+        else if (lsNumber == 1)
+        {
+            switch (Difdifficulty)
+            {
+                case "イージー":
+                    Difficulty[0].GetComponent<Image>().color = Color.green;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ノーマル":
+                    Difficulty[1].GetComponent<Image>().color = Color.green;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ハード":
+                    Difficulty[2].GetComponent<Image>().color = Color.green;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    break;
+            }
+        }
+        else if (lsNumber == 2)
+        {
+            switch (Difdifficulty)
+            {
+                case "イージー":
+                    Difficulty[0].GetComponent<Image>().color = Color.blue;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ノーマル":
+                    Difficulty[1].GetComponent<Image>().color = Color.blue;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[2].GetComponent<Image>().color = Color.white;
+                    break;
+                case "ハード":
+                    Difficulty[2].GetComponent<Image>().color = Color.blue;
+                    Difficulty[0].GetComponent<Image>().color = Color.white;
+                    Difficulty[1].GetComponent<Image>().color = Color.white;
+                    break;
+            }
         }
     }
 
-    public void OnClick()
-    {
-        Debug.Log("EP1");
-    }*/
-
-/*public void Stage()
-    {
-        //stage_numが２以上のとき、ステージ２を解放する。以下同様
-        for (int i = 0; i <= objGetQ_.Length; i++)
-        {
-            for (int j = 2; j <= stage_num; j++)
-            {
-                Debug.Log(j);
-                if (stage_num >= 2)
-                {
-                    gameObject.AddComponent(objGetQ_[i].SetActive(false));
-                }
-                if (stage_num >= j)
-                {
-                    objGetQ_[i].SetActive(false);
-                }
-            }
-        }
-    }*/
-
-/*public void stageSelect()
-{
-    switch (lstage_num)
-    {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-            break;
-    }
 }
-
- switch (difficulty_num)
-                        {
-                            case 1:
-                            case 2:
-                            case 3:
-                                break;
-                        }
-                        break;
-
- switch (SelectOn)
-            {
-                case "EP.1":
-                    stageSQ[0].GetComponent<Image>().color = Color.red;
-                    stageSQ[1].GetComponent<Image>().color = Color.white;
-                    stageSQ[2].GetComponent<Image>().color = Color.white;
-                    stageSQ[3].GetComponent<Image>().color = Color.white;
-                    stageSQ[4].GetComponent<Image>().color = Color.white;
-                    break;
-                case "EP.2":
-                    stageSQ[1].GetComponent<Image>().color = Color.red;
-                    stageSQ[0].GetComponent<Image>().color = Color.white;
-                    stageSQ[2].GetComponent<Image>().color = Color.white;
-                    stageSQ[3].GetComponent<Image>().color = Color.white;
-                    stageSQ[4].GetComponent<Image>().color = Color.white;
-                    break;
-                case "EP.3":
-                    stageSQ[2].GetComponent<Image>().color = Color.red;
-                    stageSQ[0].GetComponent<Image>().color = Color.white;
-                    stageSQ[1].GetComponent<Image>().color = Color.white;
-                    stageSQ[3].GetComponent<Image>().color = Color.white;
-                    stageSQ[4].GetComponent<Image>().color = Color.white;
-                    break;
-                case "EP.4":
-                    stageSQ[3].GetComponent<Image>().color = Color.red;
-                    stageSQ[0].GetComponent<Image>().color = Color.white;
-                    stageSQ[1].GetComponent<Image>().color = Color.white;
-                    stageSQ[2].GetComponent<Image>().color = Color.white;
-                    stageSQ[4].GetComponent<Image>().color = Color.white;
-                    break;
-                case "EP.5":
-                    stageSQ[4].GetComponent<Image>().color = Color.red;
-                    stageSQ[0].GetComponent<Image>().color = Color.white;
-                    stageSQ[1].GetComponent<Image>().color = Color.white;
-                    stageSQ[2].GetComponent<Image>().color = Color.white;
-                    stageSQ[3].GetComponent<Image>().color = Color.white;
-                    break;
-            }*/
-/*[SerializeField]
-public Text[] textDifficulty;*/
-
 
