@@ -35,17 +35,26 @@ public class SoundManager : MonoBehaviour
         voicevolume = Master.playerdeta.VoiceSoundvolume;
         mute = Master.playerdeta.mute;
         MuteCheck();
-        for (int i = 0; i < bgm.Length; i++)
+        if (!(bgmIndex.Count == 0))
         {
-            bgmIndex.Add(bgm[i].name, i);
+            for (int i = 0; i < bgm.Length; i++)
+            {
+                bgmIndex.Add(bgm[i].name, i);
+            }
         }
-        for (int i = 0; i < se.Length; i++)
+        if (!(seIndex.Count == 0))
         {
-            seIndex.Add(se[i].name, i);
+            for (int i = 0; i < se.Length; i++)
+            {
+                seIndex.Add(se[i].name, i);
+            }
         }
-        for (int i = 0; i < voice.Length; i++)
+        if (!(voiceIndex.Count == 0))
         {
-            voiceIndex.Add(voice[i].name, i);
+            for (int i = 0; i < voice.Length; i++)
+            {
+                voiceIndex.Add(voice[i].name, i);
+            }
         }
     }
 

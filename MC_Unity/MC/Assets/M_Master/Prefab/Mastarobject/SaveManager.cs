@@ -16,13 +16,13 @@ public class SaveManager : MonoBehaviour
     public void DetaLoad()
     {
         //初ロード時は"NoDeta"が返されます
-        if (JsonUtility.FromJson<PlayerDeta>(PlayerPrefs.GetString("PlayerDeta", "NoDeta")).Equals("NoDeta"))
+        if (PlayerPrefs.GetString("PlayerDeta", "NoDeta").Equals("NoDeta"))
         {
             Master.playerdeta = new PlayerDeta("first");
         }
         else
         {
-            Master.playerdeta = JsonUtility.FromJson<PlayerDeta>(PlayerPrefs.GetString("PlayerDeta"));
+            Master.playerdeta = JsonUtility.FromJson<PlayerDeta>(PlayerPrefs.GetString("PlayerDeta","NoDeta"));
         }
         Master.formationdeta.Load();
     }

@@ -41,11 +41,25 @@ public class FormationDeta
     }
 
     public  void Save() {
-        PlayerPrefs.SetString("selectcharactor1", JsonUtility.ToJson(selectcharactor1));
+        if (selectcharactor1 == null)
+        {
+            PlayerPrefs.SetString("selectcharactor1", "unknown");
+        }
+        else
+        {
+            PlayerPrefs.SetString("selectcharactor1", JsonUtility.ToJson(selectcharactor1));
+        }
         PlayerPrefs.SetString("charactor1artifact1", charactor1artifact1);
         PlayerPrefs.SetString("charactor1artifact2", charactor1artifact2);
         PlayerPrefs.SetString("charactor1artifact3", charactor1artifact3);
-        PlayerPrefs.SetString("selectcharactor2", JsonUtility.ToJson(selectcharactor2));
+        if (selectcharactor1 == null)
+        {
+            PlayerPrefs.SetString("selectcharactor2", "unknown");
+        }
+        else
+        {
+            PlayerPrefs.SetString("selectcharactor2", JsonUtility.ToJson(selectcharactor2));
+        }
         PlayerPrefs.SetString("charactor2artifact1", charactor2artifact1);
         PlayerPrefs.SetString("charactor2artifact2", charactor2artifact2);
         PlayerPrefs.SetString("charactor2artifact3", charactor2artifact3);
@@ -54,15 +68,36 @@ public class FormationDeta
 
     public  void Load()
     {
-        selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
+        if (PlayerPrefs.GetString("selectcharactor1", "unknown").Equals("unknown"))
+        {
+            selectcharactor1 = null;
+        }
+        else
+        {
+            selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
+        }
         charactor1artifact1 = PlayerPrefs.GetString("charactor1artifact1");
         charactor1artifact2 = PlayerPrefs.GetString("charactor1artifact2");
         charactor1artifact3 = PlayerPrefs.GetString("charactor1artifact3");
-        selectcharactor2 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor2"));
+        if (PlayerPrefs.GetString("selectcharactor2", "unknown").Equals("unknown"))
+        {
+            selectcharactor2 = null;
+        }
+        else
+        {
+            selectcharactor2 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor2"));
+        }
         charactor2artifact1 = PlayerPrefs.GetString("charactor2artifact1");
         charactor2artifact2 = PlayerPrefs.GetString("charactor2artifact2");
         charactor2artifact3 = PlayerPrefs.GetString("charactor2artifact3");
-        artifacts = JsonHelper.FromJson<Artifact>(PlayerPrefs.GetString("artifacts"));
+        if (PlayerPrefs.GetString("artifacts", "unknown").Equals("unknown"))
+        {
+            
+        }
+        else
+        {
+            artifacts = JsonHelper.FromJson<Artifact>(PlayerPrefs.GetString("artifacts"));
+        }
     }
 }
 
