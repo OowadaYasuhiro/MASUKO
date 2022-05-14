@@ -56,7 +56,7 @@ public partial class MainGame : Constant
     //プレイヤー
     Player [] player;
 
-    // Start is called before the first frame update
+    //初期化
     void Start()
     {
         gamestate = GameState.BeforeStart;
@@ -90,12 +90,14 @@ public partial class MainGame : Constant
         }
     }
 
+    //ウェーブを次へ
     void ChengeWave()
     {
         waveNumber += 1;
         GeneratEnemy();
     }
 
+    //スロウモード
     void SlowCheck()
     {
         if (slowMode) Game_Speed = 0.25f;

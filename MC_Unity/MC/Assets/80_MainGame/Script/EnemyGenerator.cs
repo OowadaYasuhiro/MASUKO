@@ -4,6 +4,7 @@ using UnityEngine;
 
 partial class MainGame : Constant
 {
+    //自動で敵を生成
     void GeneratEnemy()
     {
         string difficulty = StageSelect_Deta.selectDifficulty;

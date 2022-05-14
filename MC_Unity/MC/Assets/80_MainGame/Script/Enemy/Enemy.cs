@@ -15,6 +15,7 @@ public class Enemy : Constant
 
     //スキルイベント
     SkillEvent gameEvent;
+    public SkillEvent SetGameEvent {set { gameEvent = value;} }
 
     //イベント管理
     MainGameSkillEvent mainGameSkillEvent;
@@ -58,14 +59,17 @@ public class Enemy : Constant
                 break;
             case Enemystate.Run:
 
+                gameEvent();
                 enemyState.CheckState(damageModel);
                 break;
             case Enemystate.Stan:
 
+                gameEvent();
                 enemyState.CheckState(damageModel);
                 break;
             case Enemystate.Fight:
 
+                gameEvent();
                 enemyState.CheckState(damageModel);
                 break;
             case Enemystate.RunAway:
@@ -78,5 +82,10 @@ public class Enemy : Constant
                 break;
         }
         gameEvent = new SkillEvent(mainGameSkillEvent.Null);
+    }
+
+    public void ChengeEnemyState(Enemystate valeState)
+    {
+        enemyState.state = valeState;
     }
 }

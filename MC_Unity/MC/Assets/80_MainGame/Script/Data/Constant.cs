@@ -47,7 +47,7 @@ public class Constant : MonoBehaviour
         End
     }
 
-    //名前
+    //敵の名前
     public enum EnemyName
     {
         TUYOGARISYOUNEN,
