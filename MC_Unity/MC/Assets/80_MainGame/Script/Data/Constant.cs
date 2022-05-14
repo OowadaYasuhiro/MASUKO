@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+public delegate void GameEvent();
+
 public class Constant : MonoBehaviour
 {
 
@@ -35,6 +37,16 @@ public class Constant : MonoBehaviour
     protected const string zyuGeki = "zyuGeki";
     protected const string zyuRyoku = "zyuRyoku";
 
+    //ゲームステート
+    public enum GameState
+    {
+        BeforeStart,
+        PreparationPhase,
+        GameRun,
+        Wait,
+        End
+    }
+
     //名前
     public enum EnemyName
     {
@@ -44,5 +56,15 @@ public class Constant : MonoBehaviour
         KOWAMOTEYANKI,
         PIENNNAONNNANOKO,
         PIEKIN
+    }
+
+    //敵ステート
+    public enum Enemystate
+    {
+        Wait,
+        Run,
+        Fight,
+        RunAway,
+        Dead
     }
 }

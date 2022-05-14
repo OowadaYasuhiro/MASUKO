@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EnemyData : Constant
 {
+    //名前
     EnemyName enemyName;
+
+    //時間軸
+    public float timeLine;
 
     //攻撃力
     public int attackDamage;
