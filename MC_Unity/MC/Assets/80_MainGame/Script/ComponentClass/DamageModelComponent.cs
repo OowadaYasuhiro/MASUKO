@@ -6,6 +6,7 @@ public class DamageModelComponent : Constant
 {
     //体力
     int hp;
+    public int Hp { get; private set;}
     int maxHp;
     //耐性(カット率)
     int physicsDamageResistance;

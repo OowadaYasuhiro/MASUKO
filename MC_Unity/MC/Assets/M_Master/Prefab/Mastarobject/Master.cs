@@ -11,12 +11,20 @@ public class Master : SingletonMonoBehaviour<Master>
 
     public static PlayerDeta playerdeta = new PlayerDeta();
     public static FormationDeta formationdeta = new FormationDeta();
+    public static SaveManager saveManager = new SaveManager();
 
 
 
     private new void Awake()
     {
-        Debug.Log("");
+        saveManager.DetaLoad();
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+        Application.targetFrameRate = 60;
+    }
+
+    private void OnSceneUnloaded(Scene current)
+    {
+        saveManager.DetaSave();
     }
 
     // Start is called before the first frame update
@@ -30,6 +38,4 @@ public class Master : SingletonMonoBehaviour<Master>
     {
         
     }
-
-    
 }

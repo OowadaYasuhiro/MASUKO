@@ -4,13 +4,7 @@ using UnityEngine;
 
 public partial class MainGame : Constant
 {
-    public enum GameState{
-        BeforeStart,
-        PreparationPhase,
-        GameRun,
-        Wait,
-        End
-    }
+    //ゲームステート
     public GameState gamestate;
 
     //マスターオブジェクト
