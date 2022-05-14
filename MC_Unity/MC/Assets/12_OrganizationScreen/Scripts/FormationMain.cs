@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FormationMain : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class FormationMain : MonoBehaviour
         EraseSelectWindow();
         OrganizationScreen_Deta.isLeftCharacter = false;
         DrawCharacterUITextsAndImage();
-
+        OrganizationScreen_Deta.isLeftCharacter = true;
         DrawArtifactsUI();
     }
 
@@ -36,6 +37,19 @@ public class FormationMain : MonoBehaviour
         selectWindow.SetActive(true);
         characterWindowLeft.SetActive(false);
         characterWindowRight.SetActive(false);
+
+        for (var i = 0; i < 5; i++)
+        {
+            selectWindow.transform.GetChild(i).GetComponent<Image>().color = Color.black;
+            selectWindow.transform.GetChild(i).GetComponent<Button>().enabled = true;
+        }
+
+        if (!OrganizationScreen_Deta.isLeftCharacter)
+        {
+            int index = OrganizationScreen_Deta.leftCharacterNum;
+            selectWindow.transform.GetChild(index).GetComponent<Image>().color = Color.gray;
+            selectWindow.transform.GetChild(index).GetComponent<Button>().enabled = false;
+        }
     }
 
     public void EraseSelectWindow()
@@ -66,15 +80,45 @@ public class FormationMain : MonoBehaviour
     //キャラクターウィンドウのテキストのロード
     public void DrawCharacterUITextsAndImage()
     { 
+        int sumAtk = 0;
+        int sumDef = 0;
+        int sumHp = 0;
         if (OrganizationScreen_Deta.isLeftCharacter)
         {
             //選択されたキャラクターのデータを取得
             SetCharacterStruct(OrganizationScreen_Deta.leftCharacterNum);
+
+            for (var i = 0; i < 3; i++)
+            {
+                if (Master.formationdeta.GetCharactor1Artifact(i).GetName() != "noname")
+                {
+                    switch (Master.formationdeta.GetCharactor1Artifact(i).GetStaus())
+                    {
+                        case "ATK":
+                            sumAtk += Master.formationdeta.GetCharactor1Artifact(i).GetAddValue();
+                            break;
+                        case "DEF":
+                            sumDef += Master.formationdeta.GetCharactor1Artifact(i).GetAddValue();
+                            break;
+                        case "HP":
+                            sumHp += Master.formationdeta.GetCharactor1Artifact(i).GetAddValue();
+                            break;
+                        default:
+                            Debug.LogError("");
+                            break;
+                    }
+                }
+            }
+
+            sumAtk += chara.GetAtk();
+            sumDef += chara.GetDef();
+            sumHp += chara.GetHp();
+
             characterWindowLeft.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
             characterWindowLeft.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
-            characterWindowLeft.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
-            characterWindowLeft.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
-            characterWindowLeft.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
+            characterWindowLeft.transform.GetChild(8).GetComponent<Text>().text = sumHp.ToString();
+            characterWindowLeft.transform.GetChild(9).GetComponent<Text>().text = sumAtk.ToString();
+            characterWindowLeft.transform.GetChild(10).GetComponent<Text>().text = sumDef.ToString();
             characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
             characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
         }

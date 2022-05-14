@@ -280,7 +280,11 @@ public class Artifact
     }
     public string GetStaus()
     {
-        return this.addStatus + "+" + this.addValue.ToString();
+        return this.addStatus;
+    }
+    public int GetAddValue()
+    {
+        return this.addValue;
     }
     public string GetSeriesTag()
     {
