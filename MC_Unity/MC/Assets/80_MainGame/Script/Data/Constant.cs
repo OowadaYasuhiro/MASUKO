@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public delegate void GameEvent();
+public delegate void SkillEvent();
 
 public class Constant : MonoBehaviour
 {
@@ -47,7 +47,7 @@ public class Constant : MonoBehaviour
         End
     }
 
-    //名前
+    //敵の名前
     public enum EnemyName
     {
         TUYOGARISYOUNEN,
@@ -63,6 +63,7 @@ public class Constant : MonoBehaviour
     {
         Wait,
         Run,
+        Stan,
         Fight,
         RunAway,
         Dead

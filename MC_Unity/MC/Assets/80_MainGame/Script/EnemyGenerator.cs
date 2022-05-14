@@ -4,6 +4,7 @@ using UnityEngine;
 
 partial class MainGame : Constant
 {
+    //自動で敵を生成
     void GeneratEnemy()
     {
         string difficulty = StageSelect_Deta.selectDifficulty;
@@ -13,11 +14,18 @@ partial class MainGame : Constant
                 switch (waveNumber)
                 {
                     case 1:
-
+                        enemies = null;
+                        enemies[0] = new Enemy(EnemyName.TUYOGARISYOUNEN,difficulty);
                         break;
                     case 2:
+                        enemies = null;
+                        enemies[0] = new Enemy(EnemyName.TUYOGARISYOUNEN, difficulty);
+                        enemies[1] = new Enemy(EnemyName.TUYOGARISYOUNEN, difficulty);
                         break;
                     case 3:
+                        enemies = null;
+                        enemies[0] = new Enemy(EnemyName.TUYOGARISYOUNEN, difficulty);
+                        enemies[1] = new Enemy(EnemyName.NAMIKINASYOUZYO, difficulty);
                         break;
                 }
                 break;

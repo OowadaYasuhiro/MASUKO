@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGameEvent : Constant
+public class CharactorDeta : Constant
 {
-    GameEvent gameEvent;
 
-    public void Null(){}
 }

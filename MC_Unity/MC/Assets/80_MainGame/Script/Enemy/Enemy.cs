@@ -14,16 +14,19 @@ public class Enemy : Constant
     EnemyState enemyState = new EnemyState();
 
     //スキルイベント
-    GameEvent gameEvent;
+    SkillEvent gameEvent;
+    public SkillEvent SetGameEvent {set { gameEvent = value;} }
 
     //イベント管理
-    MainGameEvent mainGameEvent;
+    MainGameSkillEvent mainGameSkillEvent;
 
     public Enemy(EnemyName enemyName,string difficulty)
     {
         enemyData = new EnemyData(enemyName,difficulty);
         damageModel = new DamageModelComponent(enemyData.maxHp,enemyData.physicsDamageResistance,enemyData.zyuGekiResistance,enemyData.zyuRyokuResistance);
     }
+
+    public int CheckHp { get => damageModel.Hp; private set{; } }
 
 
     // Start is called before the first frame update
@@ -35,10 +38,6 @@ public class Enemy : Constant
     //メインゲームの状態を受け取って行動を判断
     public void GetMainState(GameState gs)
     {
-        if (gs == GameState.Wait)
-        {
-            
-        }
         if (gs == GameState.BeforeStart || gs == GameState.End)
         {
             enemyState.state = Enemystate.Wait;
@@ -60,10 +59,17 @@ public class Enemy : Constant
                 break;
             case Enemystate.Run:
 
+                gameEvent();
+                enemyState.CheckState(damageModel);
+                break;
+            case Enemystate.Stan:
+
+                gameEvent();
                 enemyState.CheckState(damageModel);
                 break;
             case Enemystate.Fight:
 
+                gameEvent();
                 enemyState.CheckState(damageModel);
                 break;
             case Enemystate.RunAway:
@@ -75,6 +81,11 @@ public class Enemy : Constant
                 enemyState.CheckState(damageModel);
                 break;
         }
-        gameEvent = new GameEvent(mainGameEvent.Null);
+        gameEvent = new SkillEvent(mainGameSkillEvent.Null);
+    }
+
+    public void ChengeEnemyState(Enemystate valeState)
+    {
+        enemyState.state = valeState;
     }
 }

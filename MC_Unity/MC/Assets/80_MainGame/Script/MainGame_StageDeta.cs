@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class MainGame_StageDeta : Constant
 {
+    //壁
     bool[,] map_grids_wall = new bool[10,6];
+    //敵出現場所
     Vector2 enemy1_spawn_position;
     Vector2 enemy2_spawn_position;
     Vector2 enemy1_target_object;
     Vector2 enemy2_target_object;
+    //敵座標
     Vector2?[] enemy1_position;
     Vector2?[] enemy2_position;
+    //プレイヤー座標
     Vector2?[] player1_position;
     Vector2?[] player2_position;
 
+    //ステージ生成
     public MainGame_StageDeta(string stage)
     {
         switch (stage)

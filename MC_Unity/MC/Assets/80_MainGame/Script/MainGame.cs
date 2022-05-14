@@ -5,6 +5,7 @@ using UnityEngine;
 public partial class MainGame : Constant
 {
     //ゲームステート
+    [HideInInspector]
     public GameState gamestate;
 
     //マスターオブジェクト
@@ -52,13 +53,17 @@ public partial class MainGame : Constant
     //敵
     Enemy[] enemies;
 
-    // Start is called before the first frame update
+    //プレイヤー
+    Player [] player;
+
+    //初期化
     void Start()
     {
         gamestate = GameState.BeforeStart;
         Game_Speed = 1;
         master = GameObject.Find("MasterObject");
-        
+        waveNumber = 1;
+        GeneratEnemy();
     }
 
     // Update is called once per frame
@@ -74,6 +79,7 @@ public partial class MainGame : Constant
                 break;
             case GameState.GameRun:
 
+                WaveClearCheck();
                 break;
             case GameState.Wait:
 
@@ -84,10 +90,39 @@ public partial class MainGame : Constant
         }
     }
 
+    //ウェーブを次へ
+    void ChengeWave()
+    {
+        waveNumber += 1;
+        GeneratEnemy();
+    }
+
+    //スロウモード
     void SlowCheck()
     {
         if (slowMode) Game_Speed = 0.25f;
         else Game_Speed = 1f;
+    }
+
+    //ウェーブが終わったか判定
+    void WaveClearCheck()
+    {
+        bool allenemydead = false;
+        foreach (var i in enemies)
+        {
+            allenemydead = true;
+            if(i.CheckHp > 0)
+            {
+                allenemydead = false;
+                break;
+            }
+        }
+
+        if (allenemydead == true)
+        {
+            ChengeWave();
+        }
+
     }
 
 
