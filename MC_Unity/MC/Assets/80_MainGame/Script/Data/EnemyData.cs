@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class EnemyData : Constant
+public class EnemyData
 {
     //名前
     EnemyName enemyName;

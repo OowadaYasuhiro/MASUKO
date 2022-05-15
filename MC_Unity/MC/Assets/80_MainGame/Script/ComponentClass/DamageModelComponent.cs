@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class DamageModelComponent : Constant
+public class DamageModelComponent
 {
     //体力
     int hp;

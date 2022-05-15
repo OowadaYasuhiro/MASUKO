@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class MainGame_StageDeta : Constant
+public class MainGame_StageDeta
 {
     //壁
     bool[,] map_grids_wall = new bool[10,6];

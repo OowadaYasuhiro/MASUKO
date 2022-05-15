@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class Enemy : Constant
+public class Enemy
 {
     //体力管理
     DamageModelComponent damageModel;
@@ -10,12 +11,12 @@ public class Enemy : Constant
     //基本情報
     EnemyData enemyData;
 
-    //ステータス
+    //ステート
     EnemyState enemyState = new EnemyState();
 
     //スキルイベント
     SkillEvent gameEvent;
-    public SkillEvent SetGameEvent {set { gameEvent = value;} }
+    public SkillEvent SetGameEvent {get{ return gameEvent;} set { gameEvent = value;} }
 
     //イベント管理
     MainGameSkillEvent mainGameSkillEvent;

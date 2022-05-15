@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static Constant;
 
-public class StageSelect_Deta : Constant
+public class StageSelect_Deta
 {
     //選択されたステージをデータとして保管する変数
     public static string selectStageNumber;
