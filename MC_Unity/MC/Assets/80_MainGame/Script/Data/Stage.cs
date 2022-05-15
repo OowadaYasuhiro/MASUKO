@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class Stage : Constant
+public class Stage
 {
 
     //選択されたステージ

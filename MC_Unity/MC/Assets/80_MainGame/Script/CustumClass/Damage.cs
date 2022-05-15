@@ -1,5 +1,7 @@
-﻿//ダメージを表すクラス
-public class Damage : Constant
+﻿using static Constant;
+
+//ダメージを表すクラス
+public class Damage
 {
     //ダメージのタイプ
     string type;

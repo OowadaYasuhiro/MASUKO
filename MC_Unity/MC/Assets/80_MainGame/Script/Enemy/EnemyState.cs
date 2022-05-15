@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class EnemyState : Constant
+public class EnemyState
 {
     public Enemystate state;
 

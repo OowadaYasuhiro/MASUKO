@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-partial class MainGame : Constant
+partial class MainGame : MonoBehaviour
 {
     //自動で敵を生成
     void GeneratEnemy()

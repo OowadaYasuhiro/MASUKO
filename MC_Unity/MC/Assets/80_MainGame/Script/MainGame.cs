@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public partial class MainGame : Constant
+public partial class MainGame : MonoBehaviour
 {
     //ゲームステート
     [HideInInspector]
