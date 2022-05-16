@@ -6,18 +6,19 @@ using UnityEngine.UI;
 
 public class FormationDeta
 {
-     private Charactor? selectcharactor1;
-     private string charactor1artifact1;
-     private string charactor1artifact2;
-     private string charactor1artifact3;
+    private Charactor? selectcharactor1;
+    private string charactor1artifact1;
+    private string charactor1artifact2;
+    private string charactor1artifact3;
+    private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
 
-     private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
+    private Charactor? selectcharactor2 = null;
+    private string charactor2artifact1;
+    private string charactor2artifact2;
+    private string charactor2artifact3;
+    private Artifact[] charactor2Artifacts = { new Artifact(), new Artifact(), new Artifact() };
 
-     private Charactor? selectcharactor2;
-     private string charactor2artifact1;
-     private string charactor2artifact2;
-     private string charactor2artifact3;
-     private Artifact[] artifacts;
+    private Artifact[] artifacts;
 
     private RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
 
@@ -25,10 +26,18 @@ public class FormationDeta
     {
         this.selectcharactor1 = character;
     }
+    public Charactor? GetCharactor1()
+    {
+        return this.selectcharactor1;
+    }
 
     public void SetSelectCharacter2(Charactor? character)
     {
         this.selectcharactor2 = character;
+    }
+    public Charactor? GetCharactor2()
+    {
+        return this.selectcharactor2;
     }
 
     public void SetCharactor1Artifact(int index,Artifact artifact)
@@ -38,6 +47,15 @@ public class FormationDeta
     public Artifact GetCharactor1Artifact(int index)
     {
         return this.charactor1Artifacts[index];
+    }
+
+    public void SetCharactor2Artifact(int index,Artifact artifact)
+    {
+        this.charactor2Artifacts[index] = artifact;
+    }
+    public Artifact GetCharactor2Artifact(int index)
+    {
+        return this.charactor2Artifacts[index];
     }
 
     public  void Save() {
