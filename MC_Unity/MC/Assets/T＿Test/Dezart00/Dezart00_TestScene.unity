@@ -2700,8 +2700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1205638767}
-        m_MethodName: EP
+      - m_Target: {fileID: 1205638765}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5450,6 +5450,8 @@ MonoBehaviour:
   - {fileID: 2126543327}
   - {fileID: 1180312684}
   fcs: {fileID: 1528560975}
+  targetObj: {fileID: 0}
+  ep: 
   Difdifficulty: 
   SelectOn: 
   QuestOn: 

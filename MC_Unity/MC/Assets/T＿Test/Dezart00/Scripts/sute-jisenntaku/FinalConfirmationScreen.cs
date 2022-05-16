@@ -44,7 +44,7 @@ public class FinalConfirmationScreen : MonoBehaviour
         
     }
 
-    public void EP()
+    public void SS()
     {
         epScript.SelectOnClick(epScript.SelectOn_num);
         epScript.SelectStagestageB_num(epScript.SelectStagestageB_num_num);
