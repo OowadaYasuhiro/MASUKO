@@ -15,6 +15,9 @@ public class RecoveryOfBelongingsScreen_Deta
 
     private string[] seriesEffectText = {"再配置-2s","ATK+5","スキルCT-1s","DEF+13", "スキルCT-1s\nスキルを3回発動すると次の通常攻撃のダメージ1.2倍" };
 
+    public static readonly int bonusAtk = 5;
+    public static readonly int bonusDef = 13;
+
     public string GetSeriesEffects(string series)
     {
         string retText = "";

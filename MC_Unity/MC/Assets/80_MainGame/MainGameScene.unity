@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673367608}
   - component: {fileID: 673367607}
+  - component: {fileID: 673367609}
   m_Layer: 0
   m_Name: MainGame
   m_TagString: Untagged
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673367606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0840a08b3540e994cabb229efefabf3c, type: 3}
   m_Name: 
@@ -165,6 +166,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673367609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673367606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae0225b50bb624419603c02fbd1bf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &695960405
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,18 +409,33 @@ PrefabInstance:
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: bgm.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: se.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: voice.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: bgm.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ec076c250ad56d4b9a66a39549aaea6, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: bgm.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f7b581df229d0634f97538958465a92c, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: se.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b68fb6bfed4f6d4e88f8115315321d2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e164fc47152b7624c8154f62d6f2197b, type: 3}
 --- !u!1 &2124275765
