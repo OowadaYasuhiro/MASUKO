@@ -399,7 +399,7 @@ public class PlayerDeta
         Zanryu_Sinen = 1000;
         Coin = 10000;
         GhostUnLocked = true;
-        GhostLevel = 1;
+        GhostLevel = 49;
         DailyMission1 = false;
         DailyMission2 = false;
         DailyMission3 = false;
