@@ -35,25 +35,47 @@ public class SoundManager : MonoBehaviour
         voicevolume = Master.playerdeta.VoiceSoundvolume;
         mute = Master.playerdeta.mute;
         MuteCheck();
-        if (!(bgmIndex.Count == 0))
+        if (!(bgm.Length == 0))
         {
-            for (int i = 0; i < bgm.Length; i++)
+            try
             {
-                bgmIndex.Add(bgm[i].name, i);
+                for (int i = 0; i < bgm.Length; i++)
+                {
+                    bgmIndex.Add(bgm[i].name, i);
+                }
+            }
+            catch
+            {
+                Debug.LogError("インスペクター上のオーディオクリップ(BGM)配列サイズが挿入した以上になっています、余分を配列サイズから引いてください。");
+            }
+            
+        }
+        if (!(se.Length == 0))
+        {
+            try
+            {
+                for (int i = 0; i < se.Length; i++)
+                {
+                    seIndex.Add(se[i].name, i);
+                }
+            }
+            catch
+            {
+                Debug.LogError("インスペクター上のオーディオクリップ(BGM)配列サイズが挿入した以上になっています、余分を配列サイズから引いてください。");
             }
         }
-        if (!(seIndex.Count == 0))
+        if (!(voice.Length == 0))
         {
-            for (int i = 0; i < se.Length; i++)
+            try
             {
-                seIndex.Add(se[i].name, i);
+                for (int i = 0; i < voice.Length; i++)
+                {
+                    voiceIndex.Add(voice[i].name, i);
+                }
             }
-        }
-        if (!(voiceIndex.Count == 0))
-        {
-            for (int i = 0; i < voice.Length; i++)
+            catch
             {
-                voiceIndex.Add(voice[i].name, i);
+                Debug.LogError("インスペクター上のオーディオクリップ(BGM)配列サイズが挿入した以上になっています、余分を配列サイズから引いてください。");
             }
         }
     }
@@ -78,7 +100,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("指定された名前のBGMファイルが存在しません。");
+            Debug.LogError("指定された名前のSEファイルが存在しません。");
             return 0;
         }
     }
@@ -90,7 +112,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("指定された名前のBGMファイルが存在しません。");
+            Debug.LogError("指定された名前のVOICEファイルが存在しません。");
             return 0;
         }
     }
