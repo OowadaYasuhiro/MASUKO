@@ -5,6 +5,8 @@ using UnityEngine;
 public class MainSoundsTest : MonoBehaviour
 {
     GameObject sm;
+    [SerializeField]
+    GameObject tti;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +18,15 @@ public class MainSoundsTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            sm.SendMessage("PlaySeByName", "ぴえきん_出撃時");
+            sm.SendMessage("PlaySeByName", "あんたが私を誘ったんでしょ");
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             sm.SendMessage("PlayBgmByName", "StageSelect");
+        }
+        if (TakesantestInput.Touchbegan)
+        {
+
         }
     }
 }
