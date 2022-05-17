@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 public class SoundManager : MonoBehaviour
 {
@@ -94,15 +95,50 @@ public class SoundManager : MonoBehaviour
     }
     public int GetSEIndex(string name)
     {
-        if (seIndex.ContainsKey(name))
+        int index = 0;
+        foreach(KeyValuePair<string,int> item in seIndex)
         {
-            return seIndex[name];
+            Debug.Log(item.Key);
+            Debug.Log(name);
+            /*if (item.Key.Equals("name"))
+            {
+                index = item.Value;
+            }
+            else
+            {
+                Debug.LogError("指定された名前のSEファイルが存在しません。");
+                Debug.LogError("わざとエラーを出します");
+                index = -1;
+            }*/
+            byte[] data = Encoding.UTF8.GetBytes(item.Key);
+            byte[] valuedata = Encoding.UTF8.GetBytes(name);
+            Debug.Log(data[0]);
+            Debug.Log(data.Length);
+            Debug.Log(valuedata[0]);
+            Debug.Log(valuedata.Length);
+            StringBuilder datasb = new StringBuilder(20000);
+            StringBuilder valuedatasb = new StringBuilder(20000);
+            for (int i = 0;i < data.Length; i++)
+            {
+                datasb.Append(data[i]);
+            }
+            for (int i = 0;i < valuedata.Length; i++)
+            {
+                valuedatasb.Append(valuedata[i]);
+            }
+            
+            if (datasb.Equals(valuedatasb))
+            {
+                index = item.Value;
+            }
+            else
+            {
+                Debug.LogError("指定された名前のSEファイルが存在しません。");
+                Debug.LogError("わざとエラーを出します");
+                index = -1;
+            }
         }
-        else
-        {
-            Debug.LogError("指定された名前のSEファイルが存在しません。");
-            return 0;
-        }
+        return index;
     }
     public int GetVoiceIndex(string name)
     {
