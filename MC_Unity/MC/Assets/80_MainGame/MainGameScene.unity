@@ -485,17 +485,17 @@ PrefabInstance:
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: bgm.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: se.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: voice.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
@@ -511,7 +511,22 @@ PrefabInstance:
         type: 3}
       propertyPath: se.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 3325d7601c2b3d04986cc8078985f9b8, type: 3}
+      objectReference: {fileID: 8300000, guid: 8af1692a6cdf75c42831c3e15792a325, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 8af1692a6cdf75c42831c3e15792a325, type: 3}
+    - target: {fileID: 4361332588816655534, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081921502249721033, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e164fc47152b7624c8154f62d6f2197b, type: 3}
 --- !u!1 &2124275765

@@ -22,7 +22,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Master.playerdeta = JsonUtility.FromJson<PlayerDeta>(PlayerPrefs.GetString("PlayerDeta","NoDeta"));
+            Master.playerdeta = JsonUtility.FromJson<PlayerDeta>(PlayerPrefs.GetString("PlayerDeta"));
         }
         Master.formationdeta.Load();
     }

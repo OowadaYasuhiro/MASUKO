@@ -17,9 +17,10 @@ public class Master : SingletonMonoBehaviour<Master>
 
     private new void Awake()
     {
+        Application.targetFrameRate = 60;
         saveManager.DetaLoad();
         SceneManager.sceneUnloaded += OnSceneUnloaded;
-        Application.targetFrameRate = 60;
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().Initialize();
     }
 
     private void OnSceneUnloaded(Scene current)

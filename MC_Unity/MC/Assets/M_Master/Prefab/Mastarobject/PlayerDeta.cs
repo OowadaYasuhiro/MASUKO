@@ -10,13 +10,13 @@ public class PlayerDeta
     //音量
     //Master
     private float mastersoundvolume;
-    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp01(value); } }
+    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp(value,0f,1f); } }
     //BGM
     private float bgmsoundvolume;
-    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp01(value); } }
+    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //VOICE
     private float voicesoundvolume;
-    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp01(value); } }
+    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //ミュート
     public bool mute;
     //選択しているキャラクター

@@ -16,9 +16,17 @@ public class MainSoundsTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Master.playerdeta.MasterSoundvolume = 1f;
+            Master.playerdeta.BGMSoundvolume = 1f;
+            Master.playerdeta.VoiceSoundvolume = 1f;
+            sm.GetComponent("SoundManager").GetComponent<SoundManager>().SetVolume();
+            Master.saveManager.DetaSave();
+        }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            sm.SendMessage("PlaySeByName", "あんたが私を誘ったんでしょ");
+            sm.SendMessage("PlayVoiceByName", "ログイン");
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
