@@ -29,11 +29,14 @@ public class SoundManager : MonoBehaviour
     Dictionary<string, int> seIndex = new Dictionary<string, int>();
     Dictionary<string, int> voiceIndex = new Dictionary<string, int>();
 
-    private void Start()
+    public void Initialize()
     {
         mastervolume = Master.playerdeta.MasterSoundvolume;
+        Debug.Log(mastervolume);
         bgmvolume = Master.playerdeta.BGMSoundvolume;
+        Debug.Log(bgmvolume);
         voicevolume = Master.playerdeta.VoiceSoundvolume;
+        Debug.Log(voicevolume);
         mute = Master.playerdeta.mute;
         MuteCheck();
         if (!(bgm.Length == 0))
@@ -81,6 +84,17 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void SetVolume()
+    {
+        mastervolume = Master.playerdeta.MasterSoundvolume;
+        Debug.Log(mastervolume);
+        bgmvolume = Master.playerdeta.BGMSoundvolume;
+        Debug.Log(bgmvolume);
+        voicevolume = Master.playerdeta.VoiceSoundvolume;
+        Debug.Log(voicevolume);
+        mute = Master.playerdeta.mute;
+    }
+
     public int  GetBgmIndex(string name)
     {
         if (bgmIndex.ContainsKey(name))
@@ -98,24 +112,8 @@ public class SoundManager : MonoBehaviour
         int index = 0;
         foreach(KeyValuePair<string,int> item in seIndex)
         {
-            Debug.Log(item.Key);
-            Debug.Log(name);
-            /*if (item.Key.Equals("name"))
-            {
-                index = item.Value;
-            }
-            else
-            {
-                Debug.LogError("指定された名前のSEファイルが存在しません。");
-                Debug.LogError("わざとエラーを出します");
-                index = -1;
-            }*/
             byte[] data = Encoding.UTF8.GetBytes(item.Key);
             byte[] valuedata = Encoding.UTF8.GetBytes(name);
-            Debug.Log(data[0]);
-            Debug.Log(data.Length);
-            Debug.Log(valuedata[0]);
-            Debug.Log(valuedata.Length);
             StringBuilder datasb = new StringBuilder(20000);
             StringBuilder valuedatasb = new StringBuilder(20000);
             for (int i = 0;i < data.Length; i++)
@@ -142,15 +140,34 @@ public class SoundManager : MonoBehaviour
     }
     public int GetVoiceIndex(string name)
     {
-        if (voiceIndex.ContainsKey(name))
+        int index = 0;
+        foreach (KeyValuePair<string, int> item in seIndex)
         {
-            return voiceIndex[name];
+            byte[] data = Encoding.UTF8.GetBytes(item.Key);
+            byte[] valuedata = Encoding.UTF8.GetBytes(name);
+            StringBuilder datasb = new StringBuilder(20000);
+            StringBuilder valuedatasb = new StringBuilder(20000);
+            for (int i = 0; i < data.Length; i++)
+            {
+                datasb.Append(data[i]);
+            }
+            for (int i = 0; i < valuedata.Length; i++)
+            {
+                valuedatasb.Append(valuedata[i]);
+            }
+
+            if (datasb.Equals(valuedatasb))
+            {
+                index = item.Value;
+            }
+            else
+            {
+                Debug.LogError("指定された名前のSEファイルが存在しません。");
+                Debug.LogError("わざとエラーを出します");
+                index = -1;
+            }
         }
-        else
-        {
-            Debug.LogError("指定された名前のVOICEファイルが存在しません。");
-            return 0;
-        }
+        return index;
     }
 
     //BGM再生
@@ -194,19 +211,19 @@ public class SoundManager : MonoBehaviour
     }
 
     //ボイス再生
-    public void playVoice(int index)
+    public void PlayVoice(int index)
     {
         MuteCheck();
         index = Mathf.Clamp(index, 0, voice.Length);
 
-        voiceAudioSource.clip = bgm[index];
+        voiceAudioSource.clip = voice[index];
         voiceAudioSource.volume = voicevolume * mastervolume;
         voiceAudioSource.Play();
     }
 
-    public void playVoiceByName(string name)
+    public void PlayVoiceByName(string name)
     {
-        playVoice(GetVoiceIndex(name));
+        PlayVoice(GetVoiceIndex(name));
     }
 
     public void MuteCheck()
