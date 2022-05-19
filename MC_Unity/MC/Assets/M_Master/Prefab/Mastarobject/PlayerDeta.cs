@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerDeta
 {
@@ -9,19 +10,20 @@ public class PlayerDeta
     //音量
     //Master
     private float mastersoundvolume;
-    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp01(value); } }
+    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp(value,0f,1f); } }
     //BGM
     private float bgmsoundvolume;
-    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp01(value); } }
+    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //VOICE
     private float voicesoundvolume;
-    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp01(value); } }
+    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //ミュート
     public bool mute;
     //選択しているキャラクター
     public string NowSelectCharactor;
     //プレイヤーのレベル
-    public int PlayerLevel { get{ return PlayerLevel;} set {int min = 1;int max = 100;PlayerLevel = Mathf.Clamp(value,min,max);} }
+    private int playerlevel; 
+    public int PlayerLevel { get{ return playerlevel;} set {int min = 1;int max = 100;playerlevel = Mathf.Clamp(value,min,max);} }
     //経験値
     public int PlayerExperience;
     //コイン
@@ -99,6 +101,12 @@ public class PlayerDeta
     public bool Achievements20;
     public bool isGetRewardAchievements20;
 
+    public bool isGetRewardQuest1;
+    public bool isGetRewardQuest2;
+    public bool isGetRewardQuest3;
+    public bool isGetRewardQuest4;
+    public bool isGetRewardQuest5;
+
     //デーモン解放
     public bool DaemonUnLocked;
     //レベル
@@ -126,6 +134,10 @@ public class PlayerDeta
     public int DaemonPotentialflowering { get { return deamonpotentialflowering; } set { int min = 0; int max = 4; deamonpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Daemonduplication;
+    //限界突破１
+    public bool DaemonbreakingThrough1;
+    //限界突破２
+    public bool DaemonbreakingThrough2; 
     //ポルターガイスト解放
     public bool PoltergeistUnLocked;
     //レベル
@@ -153,6 +165,10 @@ public class PlayerDeta
     public int PoltergeistPotentialflowering { get { return poltergeistpotentialflowering; } set { int min = 0; int max = 4; poltergeistpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Poltergeistduplication;
+    //限界突破１
+    public bool PoltergeistbreakingThrough1;
+    //限界突破２
+    public bool PoltergeistbreakingThrough2;
     //鬼開放
     public bool GoreUnLocked;
     //レベル
@@ -180,6 +196,10 @@ public class PlayerDeta
     public int GorePotentialflowering { get { return gorepotentialflowering; } set { int min = 0; int max = 4; gorepotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int goreduplication;
+    //限界突破１
+    public bool GorebreakingThrough1;
+    //限界突破２
+    public bool GorebreakingThrough2;
     //座敷童解放
     public bool Zashiki_warashiUnLocked;
     //レベル
@@ -207,6 +227,10 @@ public class PlayerDeta
     public int Zashiki_warashiPotentialflowering { get { return zashiki_warashipotentialflowering; } set { int min = 0; int max = 4; zashiki_warashipotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Zashiki_warashiduplication;
+    //限界突破１
+    public bool Zashiki_warashibreakingThrough1;
+    //限界突破２
+    public bool Zashiki_warashibreakingThrough2;
     //幽霊解放
     public bool GhostUnLocked;
     //レベル
@@ -234,6 +258,10 @@ public class PlayerDeta
     public int GhostPotentialflowering { get { return ghostpotentialflowering; } set { int min = 0; int max = 4; ghostpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Ghostduplication;
+    //限界突破１
+    public bool GhostbreakingThrough1;
+    //限界突破２
+    public bool GhostbreakingThrough2;
 
     //希少な霊魂
     public int KisyounaReikon;
@@ -246,8 +274,11 @@ public class PlayerDeta
     public int Kosyo;
     //遺骨
     public int Ikotu;
-    //人間の稀血
-    public int Ninkennnomareti;
+    //人間の血
+    public int Ningennnoti;
+
+    //遺物
+    public Artifact[] artifacts;
 
     //進行度
     public bool Stage1_1Clear;
@@ -368,7 +399,7 @@ public class PlayerDeta
         Zanryu_Sinen = 1000;
         Coin = 10000;
         GhostUnLocked = true;
-        GhostLevel = 1;
+        GhostLevel = 49;
         DailyMission1 = false;
         DailyMission2 = false;
         DailyMission3 = false;
@@ -434,18 +465,22 @@ public class PlayerDeta
         isGetRewardAchievements19 = false;
         isGetRewardAchievements20 = false;
         Stage1_1Clear = false;
+        isGetRewardQuest1 = false;
         Stage1_1Mission1 = false;
         Stage1_1Mission2 = false;
         Stage1_1Mission3 = false;
         Stage1_2Clear = false;
+        isGetRewardQuest2 = false;
         Stage1_2Mission1 = false;
         Stage1_2Mission2 = false;
         Stage1_2Mission3 = false;
         Stage1_3Clear = false;
+        isGetRewardQuest3 = false;
         Stage1_3Mission1 = false;
         Stage1_3Mission2 = false;
         Stage1_3Mission3 = false;
         Stage1_4Clear = false;
+        isGetRewardQuest4 = false;
         Stage1_4Mission1 = false;
         Stage1_4Mission2 = false;
         Stage1_4Mission3 = false;
@@ -453,6 +488,7 @@ public class PlayerDeta
         Stage1_5Mission1 = false;
         Stage1_5Mission2 = false;
         Stage1_5Mission3 = false;
+        isGetRewardQuest5 = false;
         Stage2_1Clear = false;
         Stage2_1Mission1 = false;
         Stage2_1Mission2 = false;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hy_Test_Data : MonoBehaviour
 {
-    //ホームシーンで参照するもの
+    //ホームシーンで参照するもの 
     public static int playerLevel = 1;                      //プレイヤーの現在のレベル
     public static string playerName = "Void";        //プレイヤーの現在の名前
     public static float playerGauge = 0.2f;            //プレイヤーの経験値ゲージの量
