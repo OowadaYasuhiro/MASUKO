@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerDeta
 {
@@ -9,13 +10,13 @@ public class PlayerDeta
     //音量
     //Master
     private float mastersoundvolume;
-    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp01(value); } }
+    public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp(value,0f,1f); } }
     //BGM
     private float bgmsoundvolume;
-    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp01(value); } }
+    public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //VOICE
     private float voicesoundvolume;
-    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp01(value); } }
+    public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //ミュート
     public bool mute;
     //選択しているキャラクター
@@ -277,7 +278,7 @@ public class PlayerDeta
     public int Ningennnoti;
 
     //遺物
-    Artifact[] artifacts;
+    public Artifact[] artifacts;
 
     //進行度
     public bool Stage1_1Clear;
@@ -398,7 +399,7 @@ public class PlayerDeta
         Zanryu_Sinen = 1000;
         Coin = 10000;
         GhostUnLocked = true;
-        GhostLevel = 1;
+        GhostLevel = 49;
         DailyMission1 = false;
         DailyMission2 = false;
         DailyMission3 = false;

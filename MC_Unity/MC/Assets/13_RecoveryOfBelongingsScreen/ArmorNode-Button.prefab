@@ -16,10 +16,14 @@ GameObject:
   m_Layer: 5
   m_Name: ArmorNode-Button
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_TagString: Node
 =======
   m_TagString: Untagged
 >>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
+=======
+  m_TagString: Node
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
