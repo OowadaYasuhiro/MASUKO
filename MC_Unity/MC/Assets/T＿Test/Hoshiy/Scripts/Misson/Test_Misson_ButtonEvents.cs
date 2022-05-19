@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//必要なもの
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Test_Misson_ButtonEvents : MonoBehaviour
 {
+    /// <summary>
+    /// ボタンのOnClick用のメソッド群
+    /// </summary>
+
     [SerializeField]
     private GameObject[] buttons;
     [SerializeField]
@@ -14,22 +20,12 @@ public class Test_Misson_ButtonEvents : MonoBehaviour
     private GameObject title;
     [SerializeField]
     private GameObject rewardWindow;
-    [SerializeField]
-    private GameObject allGetButton;
 
     private int num = 0;
 
     private int kakon = 0;
     private int charaExp = 0;
     private int money = 0;
-
-    private bool[] canGetReward = {false,false,false,false };
-
-    void Start()
-    {
-        rewardWindow.SetActive(false);
-        setAllGetButtonState();
-    }
 
     public void OnClickBuckButton()
     {
@@ -199,7 +195,7 @@ public class Test_Misson_ButtonEvents : MonoBehaviour
     public void OnClickCloseRewardWindowButton()
     {
         rewardWindow.SetActive(false);
-        setAllGetButtonState();
+        this.gameObject.GetComponent<Test_Mission_Main>().SetAllGetButtonState();
     }
 
     public void OnClickAllGetButton()
@@ -359,71 +355,19 @@ public class Test_Misson_ButtonEvents : MonoBehaviour
         if (kakon != 0)
         {
             rewardWindow.transform.GetChild(2).GetComponent<Text>().text += "禍根　" + kakon.ToString() + "\n";
+            Hy_Test_Data.gatyaAmount = kakon;
         }
         if (charaExp != 0)
         {
             rewardWindow.transform.GetChild(2).GetComponent<Text>().text += "残留思念　" + charaExp.ToString() + "\n";
+            Hy_Test_Data.expAmount = charaExp;
         }
         if (money != 0)
         {
             rewardWindow.transform.GetChild(2).GetComponent<Text>().text = "コイン　" + money.ToString() + "\n";
+            Hy_Test_Data.moneyAmount = money;
         }
 
-        for (var i = 0; i < canGetReward.Length; i++)
-        {
-            canGetReward[i] = false;
-        }
-    }
-
-    private void setAllGetButtonState()
-    {
-        for (var i = 0; i < Hy_Test_Data.canGetRewardsDaily.Length; i++)
-        {
-            if (Hy_Test_Data.canGetRewardsDaily[i])
-            {
-                canGetReward[0] = true;
-                break;
-            }
-        }
-
-        for (var i = 0; i < Hy_Test_Data.canGetRewardsWeekly.Length; i++)
-        {
-            if (Hy_Test_Data.canGetRewardsWeekly[i])
-            {
-                canGetReward[1] = true;
-                break;
-            }
-        }
-
-        for (var i = 0; i < Hy_Test_Data.canGetRewardsAceheive.Length; i++)
-        {
-            if (Hy_Test_Data.canGetRewardsAceheive[i])
-            {
-                canGetReward[2] = true;
-                break;
-            }
-        }
-
-        for (var i = 0; i < Hy_Test_Data.canGetRewardsQuest.Length; i++)
-        {
-            if (Hy_Test_Data.canGetRewardsQuest[i])
-            {
-                canGetReward[3] = true;
-            }
-        }
-
-        for (var i = 0; i < canGetReward.Length; i++)
-        {
-            if (canGetReward[i])
-            {
-                allGetButton.GetComponent<Image>().color = Color.white;
-                allGetButton.GetComponentInChildren<Text>().color = Color.black;
-                allGetButton.GetComponent<Button>().enabled = true;
-                break;
-            }
-            allGetButton.GetComponent<Image>().color = Color.gray;
-            allGetButton.GetComponentInChildren<Text>().color = Color.white;
-            allGetButton.GetComponent<Button>().enabled = false;
-        }
+        this.gameObject.GetComponent<Test_Mission_Main>().SetCanGetReward(false);
     }
 }

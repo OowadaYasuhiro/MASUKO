@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class FormationCharacterButtons : MonoBehaviour
 {
+<<<<<<< HEAD
     /// <summary>
     /// キャラクターウィンドウにあるボタンの処理
     /// </summary>
@@ -47,6 +48,17 @@ public class FormationCharacterButtons : MonoBehaviour
         }
 
         //どのスロットをクリックしたかの保存
+=======
+    public void OnClickCharacter(bool isLeft)
+    {
+        GameObject director = GameObject.Find("UIDirector");
+        OrganizationScreen_Deta.isLeftCharacter = isLeft;
+        director.GetComponent<FormationMain>().ShowSelectWindow();
+    }
+
+    public void OnClickArmor(int posNum)
+    {
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
         OrganizationScreen_Deta.armorNum = posNum;
         SceneManager.LoadScene("RecoveryOfBelongingsScreenScene");
     }

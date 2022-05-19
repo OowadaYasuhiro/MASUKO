@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
 using UnityEngine.SceneManagement;
 
 public class FormationMain : MonoBehaviour
@@ -12,19 +13,30 @@ public class FormationMain : MonoBehaviour
 
     [SerializeField]
     private GameObject characterWindowLeft;　
+=======
+
+public class FormationMain : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject characterWindowLeft;
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     [SerializeField]
     private GameObject characterWindowRight;
     [SerializeField]
     private GameObject selectWindow;
+<<<<<<< HEAD
     [SerializeField]
     private GameObject alertWindow;
     [SerializeField]
     private Sprite defaultSprite;
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 
     private OrganizationScreen_Deta data = new OrganizationScreen_Deta();
 
     private Charactor chara;
 
+<<<<<<< HEAD
     private void Awake()
     {
         characterWindowLeft.transform.GetChild(17).GetComponentInChildren<Text>().text = "";
@@ -46,6 +58,12 @@ public class FormationMain : MonoBehaviour
         DrawCharacterUITextsAndImage();
         OrganizationScreen_Deta.isLeftCharacter = true;
         DrawArtifactsUI();
+=======
+    void Start()
+    {
+        DrawSelectUITexts();
+        EraseSelectWindow();
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 
     public void ShowSelectWindow()
@@ -53,6 +71,7 @@ public class FormationMain : MonoBehaviour
         selectWindow.SetActive(true);
         characterWindowLeft.SetActive(false);
         characterWindowRight.SetActive(false);
+<<<<<<< HEAD
 
         for (var i = 0; i < 5; i++)
         {
@@ -66,6 +85,8 @@ public class FormationMain : MonoBehaviour
             selectWindow.transform.GetChild(index).GetComponent<Image>().color = Color.gray;
             selectWindow.transform.GetChild(index).GetComponent<Button>().enabled = false;
         }
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 
     public void EraseSelectWindow()
@@ -77,7 +98,10 @@ public class FormationMain : MonoBehaviour
         DrawCharacterUITextsAndImage();
     }
 
+<<<<<<< HEAD
     //hack: ポルターガイストの文字列
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     private void DrawSelectUITexts()
     {
         selectWindow.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = data.ghost.GetName();
@@ -92,6 +116,7 @@ public class FormationMain : MonoBehaviour
         selectWindow.transform.GetChild(4).transform.GetChild(1).GetComponent<Text>().text = "Lv" + data.demon.GetLevel().ToString();
     }
 
+<<<<<<< HEAD
     //todo キャラクター画像の設定
     //キャラクターウィンドウのテキストのロード
     public void DrawCharacterUITextsAndImage()
@@ -242,6 +267,11 @@ public class FormationMain : MonoBehaviour
     private void SetCharacterStruct(int charaNum)
     {
         switch (charaNum)
+=======
+    public void DrawCharacterUITextsAndImage()
+    {
+        switch (OrganizationScreen_Deta.selectCharacterNum)
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
         {
             case 0:
                 chara = data.ghost;
@@ -263,6 +293,7 @@ public class FormationMain : MonoBehaviour
                 break;
         }
 
+<<<<<<< HEAD
         //セットされているキャラクターの保存
         if (OrganizationScreen_Deta.isLeftCharacter)
         {
@@ -330,4 +361,27 @@ public class FormationMain : MonoBehaviour
     {
         alertWindow.SetActive(true);
     }
+=======
+        if (OrganizationScreen_Deta.isLeftCharacter)
+        {
+            characterWindowLeft.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
+            characterWindowLeft.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
+            characterWindowLeft.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
+            characterWindowLeft.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
+            characterWindowLeft.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
+            characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
+            characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+        }
+        else
+        {
+            characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
+            characterWindowRight.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
+            characterWindowRight.transform.GetChild(8).GetComponent<Text>().text = chara.GetHp().ToString();
+            characterWindowRight.transform.GetChild(9).GetComponent<Text>().text = chara.GetAtk().ToString();
+            characterWindowRight.transform.GetChild(10).GetComponent<Text>().text = chara.GetDef().ToString();
+            characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
+            characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+        }
+    }
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 }

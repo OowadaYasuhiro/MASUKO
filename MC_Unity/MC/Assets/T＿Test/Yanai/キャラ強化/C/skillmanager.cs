@@ -369,10 +369,17 @@ public class skillmanager : MonoBehaviour
                     }
             }
             case 5: {
+<<<<<<< HEAD
                     if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 4 && Master.playerdeta.Ningennnoti >= 1 && Master.playerdeta.Coin >= 35000) {
                         Master.playerdeta.Kosyo -= 6;
                         Master.playerdeta.Ikotu -= 4;
                         Master.playerdeta.Ningennnoti -= 1;
+=======
+                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 4 && Master.playerdeta.Ninkennnoti >= 1 && Master.playerdeta.Coin >= 35000) {
+                        Master.playerdeta.Kosyo -= 6;
+                        Master.playerdeta.Ikotu -= 4;
+                        Master.playerdeta.Ninkennnoti -= 1;
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         Master.playerdeta.Coin -= 35000;
                         return true;
                     } else {

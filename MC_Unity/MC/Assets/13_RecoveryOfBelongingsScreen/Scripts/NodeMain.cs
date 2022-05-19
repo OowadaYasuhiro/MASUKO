@@ -6,22 +6,30 @@ using UnityEngine.SceneManagement;
 
 public class NodeMain : MonoBehaviour
 {
+<<<<<<< HEAD
     /// <summary>
     /// 遺物を表示するオブジェクトの処理
     /// </summary>
 
     //識別番号
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     private int nodeIndex;
 
     public void SetNodeIndex(int index)
     {
         this.nodeIndex = index;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     public int GetNodeIndex()
     {
         return this.nodeIndex;
     }
 
+<<<<<<< HEAD
     //todo 遺物が既に選択されているかの処理
     //OnClick用メソッド
     public void OnClickNode()
@@ -56,6 +64,10 @@ public class NodeMain : MonoBehaviour
                 Debug.LogError("Illegal Value");
                 break;
         }
+=======
+    public void OnClickNode()
+    {
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
         SceneManager.LoadScene("OrganizationScreenScene");
     }
 }

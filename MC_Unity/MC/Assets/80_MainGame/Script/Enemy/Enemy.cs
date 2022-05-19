@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using static Constant;
 
 public class Enemy
+=======
+
+public class Enemy : MonoBehaviour
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 {
     //体力管理
     DamageModelComponent damageModel;
@@ -11,6 +16,7 @@ public class Enemy
     //基本情報
     EnemyData enemyData;
 
+<<<<<<< HEAD
     //ステート
     EnemyState enemyState = new EnemyState();
 
@@ -22,17 +28,25 @@ public class Enemy
     MainGameSkillEvent mainGameSkillEvent;
 
     public Enemy(EnemyName enemyName,string difficulty)
+=======
+
+    public Enemy(EnemyData.EnemyName enemyName,string difficulty)
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     {
         enemyData = new EnemyData(enemyName,difficulty);
         damageModel = new DamageModelComponent(enemyData.maxHp,enemyData.physicsDamageResistance,enemyData.zyuGekiResistance,enemyData.zyuRyokuResistance);
     }
 
+<<<<<<< HEAD
     public int CheckHp { get => damageModel.Hp; private set{; } }
 
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
         enemyState.state = Enemystate.Wait;
     }
 
@@ -47,11 +61,15 @@ public class Enemy
         {
             enemyState.state = Enemystate.Run;
         }
+=======
+        
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         switch (enemyState.state)
         {
             case Enemystate.Wait:
@@ -88,5 +106,8 @@ public class Enemy
     public void ChengeEnemyState(Enemystate valeState)
     {
         enemyState.state = valeState;
+=======
+        
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 }

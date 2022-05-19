@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FormationSelectWindowButton : MonoBehaviour
 {
+<<<<<<< HEAD
     /// <summary>
     /// キャラクター選択ウィンドウの処理
     /// </summary>
@@ -70,5 +71,11 @@ public class FormationSelectWindowButton : MonoBehaviour
 
         //ウィンドウを閉じる
         director.GetComponent<FormationMain>().EraseSelectWindow();
+=======
+    public void OnClickSelectCharacter(int posNum)
+    {
+        OrganizationScreen_Deta.selectCharacterNum = posNum;
+        GameObject.Find("UIDirector").GetComponent<FormationMain>().EraseSelectWindow();
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 }

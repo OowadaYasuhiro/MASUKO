@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 ﻿using static Constant;
 
 //ダメージを表すクラス
+=======
+﻿//ダメージを表すクラス
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 public class Damage
 {
     //ダメージのタイプ
@@ -37,6 +41,12 @@ public class Damage
             }
         }
     }
+<<<<<<< HEAD
+=======
+    public const string physicsDamage = "physicsDamage";
+    public const string zyuGeki = "zyuGeki";
+    public const string zyuRyoku = "zyuRyoku";
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 
     //ダメージ量
     public int value;

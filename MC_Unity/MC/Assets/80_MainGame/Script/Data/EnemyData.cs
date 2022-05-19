@@ -1,20 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using static Constant;
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 
 public class EnemyData
 {
     //名前
+<<<<<<< HEAD
     EnemyName enemyName;
 
     //時間軸
     public float timeLine;
+=======
+    public enum EnemyName
+    {
+        TUYOGARISYOUNEN,
+        NAMIKINASYOUZYO,
+        KOISURUGYARU,
+        KOWAMOTEYANKI,
+        PIENNNAONNNANOKO,
+        PIEKIN
+    }
+
+    public EnemyName enemyName;
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 
     //攻撃力
     public int attackDamage;
     //移動速度
+<<<<<<< HEAD
     public float speed;
+=======
+    public int speed;
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     //攻撃範囲
     public Vector2[] attackRange;
     //体力
@@ -30,6 +51,7 @@ public class EnemyData
         switch (eName)
         {
             case (EnemyName.TUYOGARISYOUNEN):
+<<<<<<< HEAD
                 speed = 1;
                 attackRange = new Vector2[] {
                     new Vector2(1,0)
@@ -50,10 +72,31 @@ public class EnemyData
                     case (hard):
                         attackDamage = 50;
                         maxHp = 2000;
+=======
+                switch (difficulty)
+                {
+                    case(StageSelect_Deta.easy):
+                        attackDamage = 0;
+                        speed = 0;
+                        attackRange = new Vector2[] {
+                            new Vector2(1,0)
+                        };
+                        maxHp = 0;
+                        physicsDamageResistance = 0;
+                        zyuGekiResistance = 0;
+                        zyuRyokuResistance = 0;
+                        break;
+                    case (StageSelect_Deta.normal):
+
+                        break;
+                    case (StageSelect_Deta.hard):
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         break;
                 }
                 break;
             case (EnemyName.NAMIKINASYOUZYO):
+<<<<<<< HEAD
                 speed = 0.8f;
                 attackRange = new Vector2[] {
                     new Vector2(1,0),
@@ -75,10 +118,23 @@ public class EnemyData
                     case (hard):
                         attackDamage = 60;
                         maxHp = 4000;
+=======
+                switch (difficulty)
+                {
+                    case (StageSelect_Deta.easy):
+
+                        break;
+                    case (StageSelect_Deta.normal):
+
+                        break;
+                    case (StageSelect_Deta.hard):
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         break;
                 }
                 break;
             case (EnemyName.KOISURUGYARU):
+<<<<<<< HEAD
                 speed = 2;
                 attackRange = new Vector2[] {
                     new Vector2(1,0)
@@ -99,10 +155,23 @@ public class EnemyData
                     case (hard):
                         attackDamage = 40;
                         maxHp = 3000;
+=======
+                switch (difficulty)
+                {
+                    case (StageSelect_Deta.easy):
+
+                        break;
+                    case (StageSelect_Deta.normal):
+
+                        break;
+                    case (StageSelect_Deta.hard):
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         break;
                 }
                 break;
             case (EnemyName.KOWAMOTEYANKI):
+<<<<<<< HEAD
                 speed = 1;
                 attackRange = new Vector2[] {
                     new Vector2(1,0)
@@ -123,10 +192,23 @@ public class EnemyData
                     case (hard):
                         attackDamage = 30;
                         maxHp = 5000;
+=======
+                switch (difficulty)
+                {
+                    case (StageSelect_Deta.easy):
+
+                        break;
+                    case (StageSelect_Deta.normal):
+
+                        break;
+                    case (StageSelect_Deta.hard):
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         break;
                 }
                 break;
             case (EnemyName.PIENNNAONNNANOKO):
+<<<<<<< HEAD
                 speed = 0.8f;
                 attackRange = new Vector2[] {
                     new Vector2(1,0),
@@ -149,10 +231,23 @@ public class EnemyData
                     case (hard):
                         attackDamage = 60;
                         maxHp = 6000;
+=======
+                switch (difficulty)
+                {
+                    case (StageSelect_Deta.easy):
+
+                        break;
+                    case (StageSelect_Deta.normal):
+
+                        break;
+                    case (StageSelect_Deta.hard):
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         break;
                 }
                 break;
             case (EnemyName.PIEKIN):
+<<<<<<< HEAD
                 speed = 1.5f;
                 attackRange = new Vector2[] {
                     new Vector2(1,0),
@@ -174,6 +269,18 @@ public class EnemyData
                     case (hard):
                         attackDamage = 70;
                         maxHp = 6000;
+=======
+                switch (difficulty)
+                {
+                    case (StageSelect_Deta.easy):
+
+                        break;
+                    case (StageSelect_Deta.normal):
+
+                        break;
+                    case (StageSelect_Deta.hard):
+
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                         break;
                 }
                 break;

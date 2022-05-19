@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class FormationDeta
 {
-    Charactor? selectcharactor1;
-    string charactor1artifact1;
-    string charactor1artifact2;
-    string charactor1artifact3;
-    Charactor? selectcharactor2;
-    string charactor2artifact1;
-    string charactor2artifact2;
-    string charactor2artifact3;
-    Artifact[] artifacts;
+     Charactor? selectcharactor1;
+     string charactor1artifact1;
+     string charactor1artifact2;
+     string charactor1artifact3;
+     Charactor? selectcharactor2;
+     string charactor2artifact1;
+     string charactor2artifact2;
+     string charactor2artifact3;
+     Artifact[] artifacts;
 
-    public void Save() {
+    public  void Save() {
         PlayerPrefs.SetString("selectcharactor1", JsonUtility.ToJson(selectcharactor1));
         PlayerPrefs.SetString("charactor1artifact1", charactor1artifact1);
         PlayerPrefs.SetString("charactor1artifact2", charactor1artifact2);
@@ -27,7 +27,7 @@ public class FormationDeta
         PlayerPrefs.SetString("artifacts",JsonHelper.ToJson<Artifact>(artifacts));
     }
 
-    public void Load()
+    public  void Load()
     {
         selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
         charactor1artifact1 = PlayerPrefs.GetString("charactor1artifact1");
@@ -43,17 +43,23 @@ public class FormationDeta
 
 public struct Charactor
 {
-    string name;
-    int level;
-    int credibility;
-    int skill1level;
-    int skill2level;
-    int skill3level;
-    int ultlevel;
-    int pssiveskilllevel;
-    int potentialflowering;
+    private string name;
+    private int level;
+    private int credibility;
+    private int skill1level;
+    private int skill2level;
+    private int skill3level;
+    private int ultlevel;
+    private int passiveskilllevel;
+    private int potentialflowering;
 
-    public Charactor(string name,int level, int credibility, int skill1level, int skill2level, int skill3level, int ultlevel, int pssiveskilllevel, int potentialflowering)
+    private int hp;
+    private int atk;
+    private int def;
+    private string passiveSkillName;
+    private string passiveSkillEffect;
+
+    public Charactor(string name,int level, int credibility, int skill1level, int skill2level, int skill3level, int ultlevel, int passiveskilllevel, int potentialflowering,int hp,int atk,int def,string passiveNameText,string passiveSkillEffectText)
     {
         this.name = name;
         this.level = level;
@@ -62,8 +68,13 @@ public struct Charactor
         this.skill2level = skill2level;
         this.skill3level = skill3level;
         this.ultlevel = ultlevel;
-        this.pssiveskilllevel = pssiveskilllevel;
+        this.passiveskilllevel = passiveskilllevel;
         this.potentialflowering = potentialflowering;
+        this.hp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.passiveSkillName = passiveNameText;
+        this.passiveSkillEffect = passiveSkillEffectText;
     }
 
     public Charactor(string name)
@@ -75,8 +86,135 @@ public struct Charactor
         skill2level = 1;
         skill3level = 1;
         ultlevel = 1;
-        pssiveskilllevel = 1;
+        passiveskilllevel = 1;
         potentialflowering = 0;
+        hp = 0;
+        atk = 0;
+        def = 0;
+        passiveSkillName = "void";
+        passiveSkillEffect = "void";
+    }
+
+    public string GetName()
+    {
+        return this.name;
+    }
+
+    public int GetLevel()
+    {
+        return this.level;
+    }
+    public void SetLevel(int value)
+    {
+        this.level = value;
+    }
+
+    public int GetCredibility()
+    {
+        return this.credibility;
+    }
+    public void SetCredibility(int value)
+    {
+        this.credibility = value;
+    }
+
+    public int GetSkill1Level()
+    {
+        return this.skill1level;
+    }
+    public void SetSkillLevel(int value)
+    {
+        this.skill1level = value;
+    }
+
+    public int GetSkill2Level()
+    {
+        return this.skill2level;
+    }
+    public void SetSkill2Level(int value)
+    {
+        this.skill2level = value;
+    }
+
+    public int GetSkill3Level()
+    {
+        return this.skill3level;
+    }
+    public void SetSkill3Level(int value)
+    {
+        this.skill3level = value;
+    }
+
+    public int GetUltLevel()
+    {
+        return this.ultlevel;
+    }
+    public void SetUltLevel(int value)
+    {
+        this.ultlevel = value;
+    }
+
+    public int GetPassiveSkillLevel()
+    {
+        return this.passiveskilllevel;
+    }
+    public void SetPassiveSkillLevel(int value)
+    {
+        this.passiveskilllevel = value;
+    }
+
+    public int GetPotentialflowering()
+    {
+        return this.potentialflowering;
+    }
+    public void SetPotentialflowering(int value)
+    {
+        this.potentialflowering = value;
+    }
+
+    public int GetHp()
+    {
+        return this.hp;
+    }
+    public void SetHp(int value)
+    {
+        this.hp = value;
+    }
+
+    public int GetAtk()
+    {
+        return this.atk;
+    }
+    public void SetAtk(int value)
+    {
+        this.atk = value;
+    }
+
+    public int GetDef()
+    {
+        return this.def;
+    }
+    public void SetDef(int value)
+    {
+        this.def = value;
+    }
+
+    public string GetPassiveSkillName()
+    {
+        return this.passiveSkillName;
+    }
+    public void SetPassiveSkillName(string name)
+    {
+        this.passiveSkillName = name;
+    }
+
+    public string GetPassiveSkillEffect()
+    {
+        return this.passiveSkillEffect;
+    }
+    public void SetPassiveSkillEffect(string text)
+    {
+        this.passiveSkillEffect = text;
     }
 }
 

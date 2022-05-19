@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class overlevelup : MonoBehaviour
 {
     [SerializeField] Text level;
+<<<<<<< HEAD
     [SerializeField] Text levelup;
     [SerializeField] Text sozai1;
     [SerializeField] Text sozai2;
@@ -149,5 +150,34 @@ public class overlevelup : MonoBehaviour
         } else {
             level.color = Color.red;
         }
+=======
+    // Start is called before the first frame update
+    void Start()
+    {
+        switch (Master.playerdeta.NowSelectCharactor)
+        {
+            case "Ghost":
+                level.text = $"{Master.playerdeta.GhostLevel}/50";
+                break;
+            case "Zashiki_warashi":
+                level.text = $"{Master.playerdeta.Zashiki_warashiLevel}/50";
+                break;
+            case "Gore":
+                level.text = $"{Master.playerdeta.GoreLevel}/50";
+                break;
+            case "Poltergeist":
+                level.text = $"{Master.playerdeta.PoltergeistLevel}/50";
+                break;
+            case "Daemon":
+                level.text = $"{Master.playerdeta.DaemonLevel}/50"; 
+                break;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 }

@@ -47,13 +47,4 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/T\uFF3FTest/Takesan/Takesan\uFF3FTestScene.unity"
     guid: a27afc0c4af5ddc4088c357e5932cd72
-  - enabled: 1
-    path: "Assets/T\uFF3FTest/Hoshiy/Scenes/Hoshiy_TestFormationScene.unity"
-    guid: 0befbbc01aeb1a3458da932d7b217aba
-  - enabled: 1
-    path: "Assets/T\uFF3FTest/Hoshiy/Scenes/Hoshiy_TestMissonScene.unity"
-    guid: 64cf7179f58e89d42ab262124e91821f
-  - enabled: 1
-    path: "Assets/T\uFF3FTest/Hoshiy/Scenes/Hoshiy_TestScene.unity"
-    guid: a5bf4e202301a094f8d939fc3279b715
   m_configObjects: {}

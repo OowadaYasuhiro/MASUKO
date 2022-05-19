@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class ArmorNodeGeneretor : MonoBehaviour
 {
+<<<<<<< HEAD
     /// <summary>
     /// ノードの生成処理
     /// </summary>
 
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     [SerializeField]
     private GameObject nodePrefab;
     [SerializeField]
     private Transform content;
     [SerializeField]
+<<<<<<< HEAD
     private Sprite[] artifactsImages;
     [SerializeField]
     private bool isDebug;
@@ -87,6 +91,23 @@ public class ArmorNodeGeneretor : MonoBehaviour
     private void GenerateNodes(List<Artifact> artifacts,int selectedLeft,int selectedRight)
     {
         for (var i = 0; i < artifacts.Count; i++)
+=======
+    private int testNodeAmount;
+
+    private GameObject node;
+
+    private int atrifactAmount;
+
+    private List<GameObject> nodes = new List<GameObject>();
+
+    private Color[] testColors = {Color.red, Color.green,Color.blue,Color.cyan, Color.magenta, Color.yellow};
+
+    void Start()
+    {
+        //todo: 現在所持している遺物数の取得
+
+        for (var i = 0; i < testNodeAmount; i++)
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
         {
             node = Instantiate(nodePrefab);
             node.transform.SetParent(content);
@@ -95,6 +116,7 @@ public class ArmorNodeGeneretor : MonoBehaviour
             node.transform.localPosition = Vector3.zero;
             node.GetComponent<NodeMain>().SetNodeIndex(i);
 
+<<<<<<< HEAD
             node.GetComponentInChildren<Text>().text = "Lv" + artifacts[i].GetLevel().ToString();
             node.GetComponent<Image>().sprite = artifacts[i].GetIcon();
 
@@ -124,4 +146,11 @@ public class ArmorNodeGeneretor : MonoBehaviour
     {
         return testRingArtifacts[index];
     }
+=======
+            node.GetComponent<Image>().color = testColors[i];
+
+            nodes.Add(node);
+        }
+    }
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 }

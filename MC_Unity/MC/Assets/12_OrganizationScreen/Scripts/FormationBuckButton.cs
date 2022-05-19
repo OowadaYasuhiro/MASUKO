@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class FormationBuckButton : MonoBehaviour
 {
+<<<<<<< HEAD
     /// <summary>
     /// ホームシーンへ戻るボタンの処理
     /// </summary>
@@ -38,5 +39,11 @@ public class FormationBuckButton : MonoBehaviour
 
         Debug.Log("back");
         //SceneManager.LoadScene("");
+=======
+    //todo:
+    public void OnClickBuckButton()
+    {
+        Debug.Log("");
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class StageSelect_Deta
 {
     //選択されたステージをデータとして保管する変数
-    public static string select_stage_number;
+    public static string selectStageNumber;
 
     //上の変数に代入する定数
     public const string main_ep1_1 = "m11";
@@ -28,4 +29,12 @@ public class StageSelect_Deta
     public const string main_ep5_2 = "m52";
     public const string main_ep5_3 = "m53";
     public const string main_ep5_4 = "m54";
+
+    //選択された難易度
+    public static string selectDifficulty;
+
+    //難易度
+    public const string easy = "easy";
+    public const string normal = "normal";
+    public const string hard = "hard";
 }

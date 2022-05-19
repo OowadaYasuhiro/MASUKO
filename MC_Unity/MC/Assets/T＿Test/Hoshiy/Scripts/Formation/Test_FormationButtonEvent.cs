@@ -14,11 +14,17 @@ public class Test_FormationButtonEvent : MonoBehaviour
     private GameObject characterSelectUi;
     [SerializeField]
     private GameObject armorSelectUi;
+    [SerializeField]
+    private GameObject node;
+    [SerializeField]
+    private Transform content;
 
     private bool isWindow1;
 
     private int armorPositionNum;
-    private Color armorColor;
+
+    private GameObject generateNode;
+    private List<GameObject> armorNodes = new List<GameObject>();
 
     void Start()
     {
@@ -28,6 +34,14 @@ public class Test_FormationButtonEvent : MonoBehaviour
         isWindow1 = false;
         SetCharacterImage(Hy_Test_Data.window2CharacterNum);
         SetCharacterStatus(Hy_Test_Data.window2CharacterNum, characterWindow2);
+
+        for (var i = 0; i < Hy_Test_Data.armorColors.Length; i++)
+        {
+            generateNode = Instantiate(node, Vector3.zero, Quaternion.identity);
+            generateNode.transform.SetParent(content);
+            generateNode.GetComponent<Test_FormationNode>().SetNodeNum(i);
+            armorNodes.Add(generateNode);
+        }
 
         characterWindow1.SetActive(true);
         characterWindow2.SetActive(true);
@@ -109,86 +123,55 @@ public class Test_FormationButtonEvent : MonoBehaviour
         characterWindow1.SetActive(false);
         characterWindow2.SetActive(false);
         armorSelectUi.SetActive(true);
+
         ReferenceArmorData();
     }
 
-    public void OnClickSelectArmor(int index)
+    public void OnClickSelectArmor(int nodeNum)
     {
         characterWindow1.SetActive(true);
         characterWindow2.SetActive(true);
 
-        switch (index)
+        switch (armorPositionNum)
         {
             case 0:
-                armorColor = Color.red;
+                characterWindow1.transform.GetChild(17).GetComponent<Image>().color = armorNodes[nodeNum].GetComponent<Image>().color;
+                characterWindow1.transform.GetChild(17).GetComponentInChildren<Text>().text = armorNodes[nodeNum].GetComponentInChildren<Text>().text;
                 break;
             case 1:
-                armorColor = Color.blue;
+                characterWindow1.transform.GetChild(18).GetComponent<Image>().color = armorNodes[nodeNum].GetComponent<Image>().color;
+                characterWindow1.transform.GetChild(18).GetComponentInChildren<Text>().text = armorNodes[nodeNum].GetComponentInChildren<Text>().text;
                 break;
             case 2:
-                armorColor = Color.green;
+                characterWindow1.transform.GetChild(19).GetComponent<Image>().color = armorNodes[nodeNum].GetComponent<Image>().color;
+                characterWindow1.transform.GetChild(19).GetComponentInChildren<Text>().text = armorNodes[nodeNum].GetComponentInChildren<Text>().text;
                 break;
             case 3:
-                armorColor = Color.yellow;
+                characterWindow2.transform.GetChild(17).GetComponent<Image>().color = armorNodes[nodeNum].GetComponent<Image>().color;
+                characterWindow2.transform.GetChild(17).GetComponentInChildren<Text>().text = armorNodes[nodeNum].GetComponentInChildren<Text>().text;
                 break;
             case 4:
-                armorColor = Color.magenta;
+                characterWindow2.transform.GetChild(18).GetComponent<Image>().color = armorNodes[nodeNum].GetComponent<Image>().color;
+                characterWindow2.transform.GetChild(18).GetComponentInChildren<Text>().text = armorNodes[nodeNum].GetComponentInChildren<Text>().text;
                 break;
             case 5:
-                armorColor = Color.white;
-                break;
-            default:
-                Debug.Log("Error");
+                characterWindow2.transform.GetChild(19).GetComponent<Image>().color = armorNodes[nodeNum].GetComponent<Image>().color;
+                characterWindow2.transform.GetChild(19).GetComponentInChildren<Text>().text = armorNodes[nodeNum].GetComponentInChildren<Text>().text;
                 break;
         }
-        SetArmorImage(armorPositionNum, armorColor);
 
         armorSelectUi.SetActive(false);
     }
 
     private void ReferenceArmorData()
     {
-        armorSelectUi.transform.GetChild(1).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[0].ToString();
-        armorSelectUi.transform.GetChild(2).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[1].ToString();
-        armorSelectUi.transform.GetChild(3).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[2].ToString();
-        armorSelectUi.transform.GetChild(4).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[3].ToString();
-        armorSelectUi.transform.GetChild(5).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[4].ToString();
-        armorSelectUi.transform.GetChild(6).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[5].ToString();
-    }
-
-    private void SetArmorImage(int armorPos,Color color)
-    {
-        switch (armorPos)
+        for (var i = 0; i < Hy_Test_Data.armorColors.Length; i++)
         {
-            case 0:
-                characterWindow1.transform.GetChild(17).GetComponent<Image>().color = color;
-                characterWindow1.transform.GetChild(17).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[0].ToString();
-                break;
-            case 1:
-                characterWindow1.transform.GetChild(18).GetComponent<Image>().color = color;
-                characterWindow1.transform.GetChild(18).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[1].ToString();
-                break;
-            case 2:
-                characterWindow1.transform.GetChild(19).GetComponent<Image>().color = color;
-                characterWindow1.transform.GetChild(19).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[2].ToString();
-                break;
-            case 3:
-                characterWindow2.transform.GetChild(17).GetComponent<Image>().color = color;
-                characterWindow2.transform.GetChild(17).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[3].ToString();
-                break;
-            case 4:
-                characterWindow2.transform.GetChild(18).GetComponent<Image>().color = color;
-                characterWindow2.transform.GetChild(18).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[4].ToString();
-                break;
-            case 5:
-                characterWindow2.transform.GetChild(19).GetComponent<Image>().color = color;
-                characterWindow2.transform.GetChild(19).GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[5].ToString();
-                break;
-            default:
-                Debug.Log("Error");
-                break;
+            armorNodes[i].GetComponent<Image>().color = Hy_Test_Data.armorColors[i];
+            armorNodes[i].GetComponentInChildren<Text>().text = "Lv" + Hy_Test_Data.armorLevels[i];
         }
     }
+
 
     private void SetCharacterImage(int index)
     {

@@ -1,12 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< HEAD
 using static Constant;
 
 public partial class MainGame : MonoBehaviour
 {
     //ゲームステート
     [HideInInspector]
+=======
+
+public partial class MainGame : MonoBehaviour
+{
+    public enum GameState{
+        BeforeStart,
+        PreparationPhase,
+        GameRun,
+        Wait,
+        End
+    }
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     public GameState gamestate;
 
     //マスターオブジェクト
@@ -54,17 +67,25 @@ public partial class MainGame : MonoBehaviour
     //敵
     Enemy[] enemies;
 
+<<<<<<< HEAD
     //プレイヤー
     Player [] player;
 
     //初期化
+=======
+    // Start is called before the first frame update
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     void Start()
     {
         gamestate = GameState.BeforeStart;
         Game_Speed = 1;
         master = GameObject.Find("MasterObject");
+<<<<<<< HEAD
         waveNumber = 1;
         GeneratEnemy();
+=======
+        
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     }
 
     // Update is called once per frame
@@ -80,7 +101,10 @@ public partial class MainGame : MonoBehaviour
                 break;
             case GameState.GameRun:
 
+<<<<<<< HEAD
                 WaveClearCheck();
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
                 break;
             case GameState.Wait:
 
@@ -91,6 +115,7 @@ public partial class MainGame : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     //ウェーブを次へ
     void ChengeWave()
     {
@@ -99,12 +124,15 @@ public partial class MainGame : MonoBehaviour
     }
 
     //スロウモード
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
     void SlowCheck()
     {
         if (slowMode) Game_Speed = 0.25f;
         else Game_Speed = 1f;
     }
 
+<<<<<<< HEAD
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
@@ -126,5 +154,7 @@ public partial class MainGame : MonoBehaviour
 
     }
 
+=======
+>>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 
 }
