@@ -9,20 +9,20 @@ public class PlayerDeta
     public string PlayerName;
     //音量
     //Master
-    private float mastersoundvolume;
+    [SerializeField]private float mastersoundvolume;
     public float MasterSoundvolume { get { return mastersoundvolume; } set { mastersoundvolume = Mathf.Clamp(value,0f,1f); } }
     //BGM
-    private float bgmsoundvolume;
+    [SerializeField]private float bgmsoundvolume;
     public float BGMSoundvolume { get { return bgmsoundvolume; } set { bgmsoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //VOICE
-    private float voicesoundvolume;
+    [SerializeField]private float voicesoundvolume;
     public float VoiceSoundvolume { get { return voicesoundvolume; } set { voicesoundvolume = Mathf.Clamp(value, 0f, 1f); } }
     //ミュート
     public bool mute;
     //選択しているキャラクター
     public string NowSelectCharactor;
     //プレイヤーのレベル
-    private int playerlevel; 
+    [SerializeField]private int playerlevel; 
     public int PlayerLevel { get{ return playerlevel;} set {int min = 1;int max = 100;playerlevel = Mathf.Clamp(value,min,max);} }
     //経験値
     public int PlayerExperience;
@@ -110,27 +110,27 @@ public class PlayerDeta
     //デーモン解放
     public bool DaemonUnLocked;
     //レベル
-    private int daemonlevel;
+    [SerializeField]private int daemonlevel;
     public int DaemonLevel { get { return daemonlevel; } set { int min = 1; int max = 2000000000; daemonlevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int DaemonCredibility;
     //スキル１レベル
-    private int daemonskill1level;
+    [SerializeField]private int daemonskill1level;
     public int DaemonSkill1Level { get { return daemonskill1level; } set { int min = 1; int max = 5; daemonskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    private int daemonskill2level;
+    [SerializeField]private int daemonskill2level;
     public int DaemonSkill2Level { get { return daemonskill2level; } set { int min = 1; int max = 5; daemonskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    private int daemonskill3level;
+    [SerializeField]private int daemonskill3level;
     public int DaemonSkill3Level { get { return daemonskill3level; } set { int min = 1; int max = 5; daemonskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    private int daemonultlevel;
+    [SerializeField]private int daemonultlevel;
     public int DaemonUltLevel { get { return daemonultlevel; } set { int min = 1; int max = 5; daemonultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    private int deamonpassiveskilllevel;
+    [SerializeField]private int deamonpassiveskilllevel;
     public int DaemonPassiveSkillLevel { get { return deamonpassiveskilllevel; } set { int min = 1; int max = 6; deamonpassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    private int deamonpotentialflowering;
+    [SerializeField]private int deamonpotentialflowering;
     public int DaemonPotentialflowering { get { return deamonpotentialflowering; } set { int min = 0; int max = 4; deamonpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Daemonduplication;
@@ -141,27 +141,27 @@ public class PlayerDeta
     //ポルターガイスト解放
     public bool PoltergeistUnLocked;
     //レベル
-    private int poltergeistlevel;
+    [SerializeField]private int poltergeistlevel;
     public int PoltergeistLevel { get { return poltergeistlevel; } set { int min = 1; int max = 2000000000; poltergeistlevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int PoltergeistCredibility;
     //スキル1レベル
-    private int poltergeistskill1level;
+    [SerializeField]private int poltergeistskill1level;
     public int PoltergeistSkill1Level { get { return poltergeistskill1level; } set { int min = 1; int max = 5; poltergeistskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    private int poltergeistskill2level;
+    [SerializeField]private int poltergeistskill2level;
     public int PoltergeistSkill2Level { get { return poltergeistskill2level; } set { int min = 1; int max = 5; poltergeistskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    private int poltergeistskill3level;
+    [SerializeField]private int poltergeistskill3level;
     public int PoltergeistSkill3Level { get { return poltergeistskill3level; } set { int min = 1; int max = 5; poltergeistskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    private int poltergeistultlevel;
+    [SerializeField]private int poltergeistultlevel;
     public int PoltergeistUltLevel { get { return poltergeistultlevel; } set { int min = 1; int max = 5; poltergeistultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    private int poltergeistpassiveskilllevel;
+    [SerializeField]private int poltergeistpassiveskilllevel;
     public int PoltergeistPassiveSkillLevel { get { return poltergeistpassiveskilllevel; } set { int min = 1; int max = 6; poltergeistpassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    private int poltergeistpotentialflowering;
+    [SerializeField]private int poltergeistpotentialflowering;
     public int PoltergeistPotentialflowering { get { return poltergeistpotentialflowering; } set { int min = 0; int max = 4; poltergeistpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Poltergeistduplication;
@@ -172,27 +172,27 @@ public class PlayerDeta
     //鬼開放
     public bool GoreUnLocked;
     //レベル
-    private int gorelevel;
+    [SerializeField]private int gorelevel;
     public int GoreLevel { get { return gorelevel; } set { int min = 1; int max = 2000000000; gorelevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int goreCredibility;
     //スキル1レベル
-    private int goreskill1level;
+    [SerializeField]private int goreskill1level;
     public int GoreSkill1Level { get { return goreskill1level; } set { int min = 1; int max = 5; goreskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    private int goreskill2level;
+    [SerializeField]private int goreskill2level;
     public int GoreSkill2Level { get { return goreskill2level; } set { int min = 1; int max = 5; goreskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    private int goreskill3level;
+    [SerializeField]private int goreskill3level;
     public int GoreSkill3Level { get { return goreskill3level; } set { int min = 1; int max = 5; goreskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    private int goreultlevel;
+    [SerializeField]private int goreultlevel;
     public int GoreUltLevel { get { return goreultlevel; } set { int min = 1; int max = 5; goreultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    private int gorepassiveskilllevel;
+    [SerializeField]private int gorepassiveskilllevel;
     public int GorePassiveSkillLevel { get { return gorepassiveskilllevel; } set { int min = 1; int max = 6; gorepassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    private int gorepotentialflowering;
+    [SerializeField]private int gorepotentialflowering;
     public int GorePotentialflowering { get { return gorepotentialflowering; } set { int min = 0; int max = 4; gorepotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int goreduplication;
@@ -203,27 +203,27 @@ public class PlayerDeta
     //座敷童解放
     public bool Zashiki_warashiUnLocked;
     //レベル
-    private int zashiki_warashilevel;
+    [SerializeField]private int zashiki_warashilevel;
     public int Zashiki_warashiLevel { get { return zashiki_warashilevel; } set { int min = 1; int max = 2000000000; zashiki_warashilevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int Zashiki_warashiCredibility;
     //スキル1レベル
-    private int zashiki_warashiskill1level;
+    [SerializeField]private int zashiki_warashiskill1level;
     public int Zashiki_warashiSkill1Level { get { return zashiki_warashiskill1level; } set { int min = 1; int max = 5; zashiki_warashiskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    private int zashiki_warashiskill2level;
+    [SerializeField]private int zashiki_warashiskill2level;
     public int Zashiki_warashiSkill2Level { get { return zashiki_warashiskill2level; } set { int min = 1; int max = 5; zashiki_warashiskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    private int zashiki_warashiskill3level;
+    [SerializeField]private int zashiki_warashiskill3level;
     public int Zashiki_warashiSkill3Level { get { return zashiki_warashiskill3level; } set { int min = 1; int max = 5; zashiki_warashiskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    private int zashiki_warashiultlevel;
+    [SerializeField]private int zashiki_warashiultlevel;
     public int Zashiki_warashiUltLevel { get { return zashiki_warashiultlevel; } set { int min = 1; int max = 5; zashiki_warashiultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    private int zashiki_warashipassiveskilllevel;
+    [SerializeField]private int zashiki_warashipassiveskilllevel;
     public int Zashiki_warashiPassiveSkillLevel { get { return zashiki_warashipassiveskilllevel; } set { int min = 1; int max = 6; zashiki_warashipassiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    private int zashiki_warashipotentialflowering;
+    [SerializeField]private int zashiki_warashipotentialflowering;
     public int Zashiki_warashiPotentialflowering { get { return zashiki_warashipotentialflowering; } set { int min = 0; int max = 4; zashiki_warashipotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Zashiki_warashiduplication;
@@ -234,27 +234,27 @@ public class PlayerDeta
     //幽霊解放
     public bool GhostUnLocked;
     //レベル
-    private int ghostlevel;
+    [SerializeField]private int ghostlevel;
     public int GhostLevel { get { return ghostlevel; } set { int min = 1; int max = 2000000000; ghostlevel = Mathf.Clamp(value, min, max); } }
     //信頼度
     public int GhostCredibility;
     //スキル1レベル
-    private int ghostskill1level;
+    [SerializeField]private int ghostskill1level;
     public int GhostSkill1Level { get { return ghostskill1level; } set { int min = 1; int max = 5; ghostskill1level = Mathf.Clamp(value, min, max); } }
     //スキル2レベル
-    private int ghostskill2level;
+    [SerializeField]private int ghostskill2level;
     public int GhostSkill2Level { get { return ghostskill2level; } set { int min = 1; int max = 5; ghostskill2level = Mathf.Clamp(value, min, max); } }
     //スキル3レベル
-    private int ghostskill3level;
+    [SerializeField]private int ghostskill3level;
     public int GhostSkill3Level { get { return ghostskill3level; } set { int min = 1; int max = 5; ghostskill3level = Mathf.Clamp(value, min, max); } }
     //怨嗟
-    private int ghostultlevel;
+    [SerializeField]private int ghostultlevel;
     public int GhostUltLevel { get { return ghostultlevel; } set { int min = 1; int max = 5; ghostultlevel = Mathf.Clamp(value, min, max); } }
     //パッシブスキル
-    private int ghostpssiveskilllevel;
+    [SerializeField]private int ghostpssiveskilllevel;
     public int GhostPassiveSkillLevel { get { return ghostpssiveskilllevel; } set { int min = 1; int max = 6; ghostpssiveskilllevel = Mathf.Clamp(value, min, max); } }
     //潜在開花
-    private int ghostpotentialflowering;
+    [SerializeField]private int ghostpotentialflowering;
     public int GhostPotentialflowering { get { return ghostpotentialflowering; } set { int min = 0; int max = 4; ghostpotentialflowering = Mathf.Clamp(value, min, max); } }
     //キャラ重複数
     public int Ghostduplication;
