@@ -31,7 +31,7 @@ public class MainSoundsTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            sm.SendMessage("PlayBgmByName", "StageSelect");
+            sm.SendMessage("PlayBgmByName", "bgm_リザルト画面");
         }
         if (TakesantestInput.Touchbegan)
         {
