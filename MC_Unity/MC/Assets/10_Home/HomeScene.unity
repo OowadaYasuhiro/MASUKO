@@ -2307,6 +2307,8 @@ MonoBehaviour:
   playerLevelText: {fileID: 574655972}
   playerNameText: {fileID: 366751551}
   playerExpGauge: {fileID: 1045993305}
+  messageWindow: {fileID: 1640335647}
+  characterImages: []
 --- !u!1 &1593930979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,7 +2806,6 @@ GameObject:
   - component: {fileID: 1764162020}
   - component: {fileID: 1764162019}
   - component: {fileID: 1764162018}
-  - component: {fileID: 1764162021}
   m_Layer: 5
   m_Name: Character-Button
   m_TagString: Untagged
@@ -2874,8 +2875,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1764162021}
-        m_MethodName: OnClickCharacter
+      - m_Target: {fileID: 1534804693}
+        m_MethodName: OnClickCharacterImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2922,21 +2923,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764162016}
   m_CullTransparentMesh: 0
---- !u!114 &1764162021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764162016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3221e5701ef7bc840be9740aa1860925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageWindow: {fileID: 1640335647}
-  characterImages:
-  - {fileID: 21300000, guid: 72f5e5ffaf8b1c340a5e1d838e331a48, type: 3}
 --- !u!1001 &1857763632
 PrefabInstance:
   m_ObjectHideFlags: 0
