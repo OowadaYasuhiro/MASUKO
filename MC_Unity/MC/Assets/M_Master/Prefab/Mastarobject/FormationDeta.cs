@@ -12,7 +12,7 @@ public class FormationDeta
     [SerializeField]private string charactor1artifact3;
     [SerializeField]private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
 
-    [SerializeField]private Charactor? selectcharactor2 = null;
+    [SerializeField]private Charactor? selectcharactor2;
     [SerializeField]private string charactor2artifact1;
     [SerializeField]private string charactor2artifact2;
     [SerializeField]private string charactor2artifact3;
@@ -92,7 +92,14 @@ public class FormationDeta
         }
         else
         {
-            selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
+            if (PlayerPrefs.GetString("selectcharactor1").Equals(""))
+            {
+                selectcharactor1 = null;
+            }
+            else
+            {
+                selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
+            }
         }
         charactor1artifact1 = PlayerPrefs.GetString("charactor1artifact1");
         charactor1artifact2 = PlayerPrefs.GetString("charactor1artifact2");
@@ -103,7 +110,14 @@ public class FormationDeta
         }
         else
         {
-            selectcharactor2 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor2"));
+            if (PlayerPrefs.GetString("selectcharactor2").Equals(""))
+            {
+                selectcharactor2 = null;
+            }
+            else
+            {
+                selectcharactor2 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor2"));
+            }
         }
         charactor2artifact1 = PlayerPrefs.GetString("charactor2artifact1");
         charactor2artifact2 = PlayerPrefs.GetString("charactor2artifact2");
