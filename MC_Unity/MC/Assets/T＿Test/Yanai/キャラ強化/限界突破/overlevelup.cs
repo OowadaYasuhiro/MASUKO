@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class overlevelup : MonoBehaviour
 {
+    int sozaiok;
     [SerializeField] Text level;
     [SerializeField] Text levelup;
     [SerializeField] Text sozai1;
@@ -22,6 +23,7 @@ public class overlevelup : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        sozaiok = 0;
         levellow.SetActive(false);
         syokika(Master.playerdeta.NowSelectCharactor);
         if(nowlevel <= 50) {
@@ -43,24 +45,40 @@ public class overlevelup : MonoBehaviour
         
     }
    public void onclick() {
+        bool levelmax = false;
         //レベルがmaxか
         if(nowlevel == 50 || nowlevel == 70) {
-            //素材が足りているか
-            if(nowlevel <= 50) {
-                if(Master.playerdeta.KisyounaReikon >=3&& Master.playerdeta.Reikesseki >= 5&& Master.playerdeta.Reikotu>=10&& Master.playerdeta.Coin >= 10000) {
-                    levelupwindow.SetActive(true);
-                }else if(nowlevel <= 70) {
-                    if(Master.playerdeta.KisyounaReikon >= 5 && Master.playerdeta.Reikesseki >= 10 && Master.playerdeta.Reikotu >= 15 && Master.playerdeta.Coin >= 50000) {
-                    levelupwindow.SetActive(true);
-                    }
-                }
-                levellow.SetActive(true);
-                keikoku.text = "素材が不足しています";
-            }
+            levelmax = true;
         } else {
             levellow.SetActive(true);
             keikoku.text = "レベルが不足しています";
         }
+        //素材が足りているか
+            if(nowlevel == 50) {
+                if(Master.playerdeta.KisyounaReikon >=3&& Master.playerdeta.Reikesseki >= 5&& Master.playerdeta.Reikotu>=10&& Master.playerdeta.Coin >= 10000) {
+                    sozaiok = 1;
+                }
+            }
+            if(nowlevel == 70) {
+                    if(Master.playerdeta.KisyounaReikon >= 5 && Master.playerdeta.Reikesseki >= 10 && Master.playerdeta.Reikotu >= 15 && Master.playerdeta.Coin >= 50000) {
+                    sozaiok = 2;
+                    }
+            }
+        if(levelmax == true && sozaiok == 0) {
+            levellow.SetActive(true);
+            keikoku.text = "素材が不足しています";
+        }
+
+        if(levelmax == true&&sozaiok == 1) {
+            levelupwindow.SetActive(true);
+        }
+
+        if(levelmax == true && sozaiok == 2) {
+            levelupwindow.SetActive(true);
+        }
+
+
+
    }
 
 
@@ -149,5 +167,61 @@ public class overlevelup : MonoBehaviour
         } else {
             level.color = Color.red;
         }
+    }
+
+    public void YesClick() {
+        if(sozaiok == 1) {
+            Master.playerdeta.KisyounaReikon -= 3;
+            Master.playerdeta.Reikesseki -= 5;
+            Master.playerdeta.Reikotu -= 10;
+            Master.playerdeta.Coin -= 10000;
+            switch(Master.playerdeta.NowSelectCharactor) {
+                case "Ghost":
+                    Master.playerdeta.GhostbreakingThrough1 = true;
+                    break;
+                case "Zashiki_warashi":
+                    Master.playerdeta.Zashiki_warashibreakingThrough1 = true;
+                    break;
+                case "Gore":
+                    Master.playerdeta.GorebreakingThrough1 = true;
+                    break;
+                case "Poltergeist":
+                    Master.playerdeta.PoltergeistbreakingThrough1 = true;
+                    break;
+                case "Daemon":
+                    Master.playerdeta.DaemonbreakingThrough1 = true;
+                    break;
+            }
+            syokika(Master.playerdeta.NowSelectCharactor);
+            levelupwindow.SetActive(false);
+        }
+        if(sozaiok == 2) {
+            Master.playerdeta.KisyounaReikon -= 5;
+            Master.playerdeta.Reikesseki -= 10;
+            Master.playerdeta.Reikotu -= 15;
+            Master.playerdeta.Coin -= 50000;
+            switch(Master.playerdeta.NowSelectCharactor) {
+                case "Ghost":
+                    Master.playerdeta.GhostbreakingThrough2 = true;
+                    break;
+                case "Zashiki_warashi":
+                    Master.playerdeta.Zashiki_warashibreakingThrough2 = true;
+                    break;
+                case "Gore":
+                    Master.playerdeta.GorebreakingThrough2 = true;
+                    break;
+                case "Poltergeist":
+                    Master.playerdeta.PoltergeistbreakingThrough2 = true;
+                    break;
+                case "Daemon":
+                    Master.playerdeta.DaemonbreakingThrough2 = true;
+                    break;
+            }
+            syokika(Master.playerdeta.NowSelectCharactor);
+            levelupwindow.SetActive(false);
+        }
+    }
+    public void NoClick() {
+        levelupwindow.SetActive(false);
     }
 }
