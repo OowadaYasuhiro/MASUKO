@@ -24,6 +24,10 @@ public class MainGameCharactorModel : MainGameCharactorState
     protected Vector2[] viewRange;
     //接敵
     protected bool findEnemy;
+    //基本ステータス攻撃力
+    protected int baseAttackPower;
+    //攻撃力計算結果
+    protected int resultingAttackPower;
 
     //移動
     protected void Move(float timeLine)
