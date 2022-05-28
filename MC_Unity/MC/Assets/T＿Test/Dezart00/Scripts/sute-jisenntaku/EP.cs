@@ -22,6 +22,13 @@ public class EP : MonoBehaviour
     public Text[] textLQN;
     [SerializeField]
     public Text[] textQN;
+    
+    [SerializeField]
+    public Text FCSQtext;
+    [SerializeField]
+    public Text FCRLtext;
+    [SerializeField]
+    public Text FCStext;
     //ボタンオブジェクト
     [SerializeField]
     private GameObject[] stageC;
@@ -41,7 +48,11 @@ public class EP : MonoBehaviour
     public GameObject targetObj;
     FinalConfirmationScreen ss;
 
+
+    [SerializeField]
+    public Image stageimages;
     public int[] ep;
+    public Image[] imagesS;
 
     private string textAbbreviation;
     private string textTname;
@@ -54,8 +65,8 @@ public class EP : MonoBehaviour
     public int lsNumber;
     public int stageB_num;
     public int difficulty_num;
-    public int SelectStagestageB_num_num;
-    public int SelectOn_num;
+    private int SelectStagestageB_num_num;
+    private int SelectOn_num;
    // var colors;
 
     bool isCalledOnce = false;
@@ -67,7 +78,7 @@ public class EP : MonoBehaviour
         //現在のstage_numを呼び出す
         for (int i = 0; i < stage_num.Length; i++)
         {
-            stage_num[i] = 0;
+            stage_num[i] = 1;
         }
 
         for(int i = 0; i < lstage_num.Length; i++)
@@ -75,7 +86,7 @@ public class EP : MonoBehaviour
             lstage_num[i] = 1;
         }
         Selectstage(0);
-        SelectOnClick(1);
+        //SelectOnClick(1);
         QuestOnClick(1);
         Difdifficulty_num(1);
         //PlayerPrefs.GetInt("SCORE", 0);
@@ -133,10 +144,9 @@ public class EP : MonoBehaviour
                 SelectOnClick(1);
                 Selectstage_num();
                 Selectlstage_num();
-                SelectStagestageB_num(1);
+                //SelectStagestageB_num(1);
                 CColor();
                 DifColor();
-                SS();
                 break;
             case 1:
                 textTname = "デイリークエスト";
@@ -148,10 +158,9 @@ public class EP : MonoBehaviour
                 SelectOnClick(1);
                 Selectstage_num();
                 Selectlstage_num();
-                SelectStagestageB_num(1);
+                //SelectStagestageB_num(1);
                 CColor();
                 DifColor();
-                SS();
                 break;
             case 2:
                 textTname = "イベントクエスト";
@@ -163,10 +172,9 @@ public class EP : MonoBehaviour
                 SelectOnClick(1);
                 Selectstage_num();
                 Selectlstage_num();
-                SelectStagestageB_num(1);
+                //SelectStagestageB_num(1);
                 CColor();
                 DifColor();
-                SS();
                 break;
         }
     }
@@ -346,19 +354,16 @@ public class EP : MonoBehaviour
         {
             case 1:
                 Difdifficulty = "イージー";
-                Debug.Log(Difdifficulty);
                 difficulty_num = 1;
                 DifColor();
                 break;
             case　2:
                 Difdifficulty = "ノーマル";
-                Debug.Log(Difdifficulty);
                 difficulty_num = 2;
                 DifColor();
                 break;
             case 3:
                 Difdifficulty = "ハード";
-                Debug.Log(Difdifficulty);
                 difficulty_num = 3;
                 DifColor();
                 break;
@@ -371,31 +376,27 @@ public class EP : MonoBehaviour
         {
             case 1:
                 SelectStagestageB = "ステージ1";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 1;
                 sColor();
-                SS();
+                FCSText();
                 break;
             case 2:
                 SelectStagestageB = "ステージ２";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 2;
                 sColor();
-                SS();
+                FCSText();
                 break;
             case 3:
                 SelectStagestageB = "ステージ３";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 3;
                 sColor();
-                SS();
+                FCSText();
                 break;
             case 4:
                 SelectStagestageB = "ステージ４";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 4;
                 sColor();
-                SS();
+                FCSText();
                 break;
         }
     }
@@ -408,35 +409,31 @@ public class EP : MonoBehaviour
                 SelectOn_num = 1;
                 SelectStagestageB_num(1);
                 CQColor();
-                SS();
+                //SS();
                 break;
             case 2:
                 SelectOn = "EP.2";
                 SelectOn_num = 2;
                 SelectStagestageB_num(1);
                 CQColor();
-                SS();
                 break;
             case 3:
                 SelectOn = "EP.3";
                 SelectOn_num = 3;
                 SelectStagestageB_num(1);
                 CQColor();
-                SS();
                 break;
             case 4:
                 SelectOn = "EP.4";
                 SelectOn_num = 4;
                 SelectStagestageB_num(1);
                 CQColor();
-                SS();
                 break;
             case 5:
                 SelectOn = "EP.5";
                 SelectOn_num = 5;
                 SelectStagestageB_num(1);
                 CQColor();
-                SS();
                 break;
         }
     }
@@ -448,10 +445,10 @@ public class EP : MonoBehaviour
                 QuestOn = "メインクエスト";
                 break;
             case 2:
-                QuestOn ="デイリークエスト";
+                QuestOn = "デイリークエスト";
                 break;
             case 3:
-                QuestOn ="イベントクエスト";
+                QuestOn = "イベントクエスト";
                 break;
         }
     }
@@ -697,12 +694,6 @@ public class EP : MonoBehaviour
                         switch (SelectStagestageB_num_num)
                         {
                             case 1:
-                                ep[ss_num] += 1;
-                                if (ep[ss_num] == 1|| ep[ss_num] == 2)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
                             case 2:
                             case 3:
                             case 4:
@@ -711,6 +702,7 @@ public class EP : MonoBehaviour
                                 {
                                     stage_num[sNumber]++;
                                 }
+                                //stageimages.image = imagesS[ss_num];
                                 break;
                         }
                         break;
@@ -720,8 +712,16 @@ public class EP : MonoBehaviour
         if (stage_num[sNumber] % 5 == 0)
         {
             lstage_num[lsNumber]++;
-            stage_num[sNumber] = 0;
+            stage_num[sNumber] = 1;
         }
+        Debug.Log(Difdifficulty);
+    }
+
+    public void FCSText()
+    {
+        FCSQtext.text = textAbbreviation + "." + SelectOn_num + "-" + SelectStagestageB_num_num;
+        FCRLtext.text = "推奨レベル" + SelectStagestageB;
+        FCStext.text = "人間が2か所から出現するという情報を入手した人間の行動パターンも書類にまとめて送信するあとで眼を投資手おいてくれ　この地域は足の速い人間が多く出現するようだ気を付けて戦いに臨んでくれ" + SelectStagestageB_num_num;
     }
 }
 
