@@ -65,7 +65,7 @@ public partial class MainGame : MonoBehaviour
         gameSpeed = 1;
         master = GameObject.Find("MasterObject");
         waveNumber = 1;
-        GeneratEnemy();
+        //GeneratEnemy();
     }
 
     // Update is called once per frame
@@ -81,7 +81,7 @@ public partial class MainGame : MonoBehaviour
                 break;
             case GameState.GameRun:
 
-                WaveClearCheck();
+                //WaveClearCheck();
                 break;
             case GameState.Wait:
 
@@ -97,7 +97,7 @@ public partial class MainGame : MonoBehaviour
     void ChengeWave()
     {
         waveNumber += 1;
-        GeneratEnemy();
+        //GeneratEnemy();
     }
 
     //スロウモード
@@ -107,6 +107,7 @@ public partial class MainGame : MonoBehaviour
         else gameSpeed = 1f;
     }
 
+    /*
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
@@ -125,6 +126,6 @@ public partial class MainGame : MonoBehaviour
             ChengeWave();
         }
     }
-
+    */
 
 }
