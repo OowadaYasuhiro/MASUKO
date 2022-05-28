@@ -22,6 +22,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     protected Vector2[] viewRange;
     //接敵
     protected bool findEnemy;
+    protected MainGameCharactorModel[] targetEnemy;
     //基本ステータス攻撃力
     protected int baseAttackPower;
     //攻撃力計算結果
