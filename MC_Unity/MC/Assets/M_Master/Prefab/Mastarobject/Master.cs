@@ -12,6 +12,7 @@ public class Master : SingletonMonoBehaviour<Master>
     public static PlayerDeta playerdeta = new PlayerDeta();
     public static FormationDeta formationdeta = new FormationDeta();
     public static SaveManager saveManager = new SaveManager();
+    public static MastarInput mastarInput;
 
 
 

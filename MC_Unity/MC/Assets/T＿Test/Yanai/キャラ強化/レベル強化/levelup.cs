@@ -58,7 +58,7 @@ public class levelup : MonoBehaviour
         if (pushnow == true)
         {
             //ボタンを離すまで
-            if(Release == false&&nowlevel+i<90) { 
+            if(Release == false && nowlevel+i < genkai()) { 
 
             //レベルを上げる素材が足りているか
             if(exp[nowlevel+i]<= Master.playerdeta.Zanryu_Sinen )
@@ -320,5 +320,50 @@ public class levelup : MonoBehaviour
             exp[1+i]=(int)Math.Round(tmp, MidpointRounding.AwayFromZero);
             
         }
+    }
+    int genkai() {
+        switch(Master.playerdeta.NowSelectCharactor) {
+            case "Ghost":
+                if(Master.playerdeta.GhostbreakingThrough1 == false) {
+                    return 50;
+                }else if(Master.playerdeta.GhostbreakingThrough2 == false) {
+                    return 70;
+                } else {
+                    return 90;
+                }
+            case "Zashiki_warashi":
+                if(Master.playerdeta.Zashiki_warashibreakingThrough1 == false) {
+                    return 50;
+                } else if(Master.playerdeta.Zashiki_warashibreakingThrough2 == false) {
+                    return 70;
+                } else {
+                    return 90;
+                }
+            case "Gore":
+                if(Master.playerdeta.GorebreakingThrough1 == false) {
+                    return 50;
+                } else if(Master.playerdeta.GorebreakingThrough2 == false) {
+                    return 70;
+                } else {
+                    return 90;
+                }
+            case "Poltergeist":
+                if(Master.playerdeta.PoltergeistbreakingThrough1 == false) {
+                    return 50;
+                } else if(Master.playerdeta.PoltergeistbreakingThrough2 == false) {
+                    return 70;
+                } else {
+                    return 90;
+                }
+            case "Daemon":
+                if(Master.playerdeta.DaemonbreakingThrough1 == false) {
+                    return 50;
+                } else if(Master.playerdeta.DaemonbreakingThrough2 == false) {
+                    return 70;
+                } else {
+                    return 90;
+                }
+        }
+        return 90;
     }
 }

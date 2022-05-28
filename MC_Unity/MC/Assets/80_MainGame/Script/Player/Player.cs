@@ -1,29 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Constant;
 
-public class Player
+public class Player : MainGameCharactorModel
 {
-    //体力管理
-    PlayerDamageModelComponent playerDamageModelComponent;
+    //スキル
+    bool skill1;
+    bool skill2;
+    bool skill3;
+    //撤退
+    bool goback;
 
-    //基本情報
-    PlayerDeta playerDeta;
-
-    //ステート
-    Playerstate playerstate;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public Player(string name)
     {
-        
+        this.name = name;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        charactorState = CharactorState.Wait;
+        charactorAnimState = CharactorAnimState.Wait;
     }
 }
