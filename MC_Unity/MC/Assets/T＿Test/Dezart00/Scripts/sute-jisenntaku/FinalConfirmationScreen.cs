@@ -31,7 +31,6 @@ public class FinalConfirmationScreen : MonoBehaviour
     void Start()
     {
         source[0].SetActive(false);
-        epScript = GetComponent<EP>();
         for (int i = 0; i < ep.Length; i++)
         {
             ep[i] = 0;
@@ -44,10 +43,12 @@ public class FinalConfirmationScreen : MonoBehaviour
         
     }
 
-    public void SS()
+    /*public void SS()
     {
+        epScript = GetComponent<EP>();
         epScript.SelectOnClick(epScript.SelectOn_num);
         epScript.SelectStagestageB_num(epScript.SelectStagestageB_num_num);
+        epScript.Selectstage(epScript.sNumber);
         switch (epScript.sNumber)
         {
             case 0:
@@ -60,28 +61,28 @@ public class FinalConfirmationScreen : MonoBehaviour
                                 ep[0] += 1;
                                 if(ep[0] == 1)
                                 {
-                                    epScript.stage_num[epScript.sNumber]++;
+                                    Snymber();
                                 }
                                 break;
                             case 2:
                                 ep[1] += 1;
                                 if (ep[1] == 1)
                                 {
-                                    epScript.stage_num[epScript.sNumber]++;
+                                    Snymber();
                                 }
                                 break;
                             case 3:
                                 ep[2] += 1;
                                 if (ep[2] == 1)
                                 {
-                                    epScript.stage_num[epScript.sNumber]++;
+                                    Snymber();
                                 }
                                 break;
                             case 4:
                                 ep[3] += 1;
                                 if (ep[3] == 1)
                                 {
-                                    epScript.stage_num[epScript.sNumber]++;
+                                    Snymber();
                                 }
                                 break;
 
@@ -592,5 +593,5 @@ public class FinalConfirmationScreen : MonoBehaviour
     {
         epScript.stage_num[epScript.sNumber]++;
         return;
-    }
+    }*/
 }
