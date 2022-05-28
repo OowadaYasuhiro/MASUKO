@@ -5,6 +5,7 @@ using static Constant;
 
 partial class MainGame : MonoBehaviour
 {
+    /*
     //自動で敵を生成
     void GeneratEnemy()
     {
@@ -260,5 +261,6 @@ partial class MainGame : MonoBehaviour
                 break;
         }
     }
+    */
 }
 
