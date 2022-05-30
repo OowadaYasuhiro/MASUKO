@@ -720,6 +720,8 @@ public class EP : MonoBehaviour
             lstage_num[lsNumber]++;
             stage_num[sNumber] = 1;
         }
+        Debug.Log(SelectOn);
+        Debug.Log(SelectStagestageB);
         Debug.Log(Difdifficulty);
     }
 
