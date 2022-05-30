@@ -18,7 +18,7 @@ public class load : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        i += (Random.value*3);
+        i += (Random.value*2);
         loadSlider.value = i;
         if (loadSlider.value >= 95)
         {
