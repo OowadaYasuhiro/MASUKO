@@ -19,7 +19,8 @@ public partial class MainGame : MonoBehaviour
     int waveNumber;
 
     //ゲーム内時間軸
-    float Game_Speed;
+    float gameSpeed;
+    float timeLine;
 
     //**イベント**
     //一時停止
@@ -61,10 +62,10 @@ public partial class MainGame : MonoBehaviour
     void Start()
     {
         gamestate = GameState.BeforeStart;
-        Game_Speed = 1;
+        gameSpeed = 1;
         master = GameObject.Find("MasterObject");
         waveNumber = 1;
-        GeneratEnemy();
+        //GeneratEnemy();
     }
 
     // Update is called once per frame
@@ -80,7 +81,7 @@ public partial class MainGame : MonoBehaviour
                 break;
             case GameState.GameRun:
 
-                WaveClearCheck();
+                //WaveClearCheck();
                 break;
             case GameState.Wait:
 
@@ -89,22 +90,24 @@ public partial class MainGame : MonoBehaviour
 
                 break;
         }
+        timeLine = Time.deltaTime * gameSpeed;
     }
 
     //ウェーブを次へ
     void ChengeWave()
     {
         waveNumber += 1;
-        GeneratEnemy();
+        //GeneratEnemy();
     }
 
     //スロウモード
     void SlowCheck()
     {
-        if (slowMode) Game_Speed = 0.25f;
-        else Game_Speed = 1f;
+        if (slowMode) gameSpeed = 0.25f;
+        else gameSpeed = 1f;
     }
 
+    /*
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
@@ -118,13 +121,11 @@ public partial class MainGame : MonoBehaviour
                 break;
             }
         }
-
         if (allenemydead == true)
         {
             ChengeWave();
         }
-
     }
-
+    */
 
 }

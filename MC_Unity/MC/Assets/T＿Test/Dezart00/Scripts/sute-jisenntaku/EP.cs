@@ -38,6 +38,13 @@ public class EP : MonoBehaviour
     public Text[] textLQN;
     [SerializeField]
     public Text[] textQN;
+    
+    [SerializeField]
+    public Text FCSQtext;
+    [SerializeField]
+    public Text FCRLtext;
+    [SerializeField]
+    public Text FCStext;
     //ボタンオブジェクト
     [SerializeField]
     private GameObject[] stageC;
@@ -66,7 +73,11 @@ public class EP : MonoBehaviour
     public GameObject targetObj;
     FinalConfirmationScreen ss;
 
+
+    [SerializeField]
+    public Image stageimages;
     public int[] ep;
+    public Image[] imagesS;
 
     private string textAbbreviation;
     private string textTname;
@@ -79,8 +90,8 @@ public class EP : MonoBehaviour
     public int lsNumber;
     public int stageB_num;
     public int difficulty_num;
-    public int SelectStagestageB_num_num;
-    public int SelectOn_num;
+    private int SelectStagestageB_num_num;
+    private int SelectOn_num;
    // var colors;
 
     bool isCalledOnce = false;
@@ -105,7 +116,7 @@ public class EP : MonoBehaviour
         //PlayerPrefs.GetInt("SCORE", 0);
 =======
         Selectstage(0);
-        SelectOnClick(1);
+        //SelectOnClick(1);
         QuestOnClick(1);
         Difdifficulty_num(1);
         //PlayerPrefs.GetInt("SCORE", 0);
@@ -217,10 +228,9 @@ public class EP : MonoBehaviour
                 SelectOnClick(1);
                 Selectstage_num();
                 Selectlstage_num();
-                SelectStagestageB_num(1);
+                //SelectStagestageB_num(1);
                 CColor();
                 DifColor();
-                SS();
                 break;
             case 1:
                 textTname = "デイリークエスト";
@@ -232,10 +242,9 @@ public class EP : MonoBehaviour
                 SelectOnClick(1);
                 Selectstage_num();
                 Selectlstage_num();
-                SelectStagestageB_num(1);
+                //SelectStagestageB_num(1);
                 CColor();
                 DifColor();
-                SS();
                 break;
             case 2:
                 textTname = "イベントクエスト";
@@ -247,10 +256,9 @@ public class EP : MonoBehaviour
                 SelectOnClick(1);
                 Selectstage_num();
                 Selectlstage_num();
-                SelectStagestageB_num(1);
+                //SelectStagestageB_num(1);
                 CColor();
                 DifColor();
-                SS();
                 break;
         }
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
@@ -565,19 +573,16 @@ public class EP : MonoBehaviour
         {
             case 1:
                 Difdifficulty = "イージー";
-                Debug.Log(Difdifficulty);
                 difficulty_num = 1;
                 DifColor();
                 break;
             case　2:
                 Difdifficulty = "ノーマル";
-                Debug.Log(Difdifficulty);
                 difficulty_num = 2;
                 DifColor();
                 break;
             case 3:
                 Difdifficulty = "ハード";
-                Debug.Log(Difdifficulty);
                 difficulty_num = 3;
                 DifColor();
                 break;
@@ -590,31 +595,27 @@ public class EP : MonoBehaviour
         {
             case 1:
                 SelectStagestageB = "ステージ1";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 1;
                 sColor();
-                SS();
+                FCSText();
                 break;
             case 2:
                 SelectStagestageB = "ステージ２";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 2;
                 sColor();
-                SS();
+                FCSText();
                 break;
             case 3:
                 SelectStagestageB = "ステージ３";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 3;
                 sColor();
-                SS();
+                FCSText();
                 break;
             case 4:
                 SelectStagestageB = "ステージ４";
-                Debug.Log(SelectStagestageB);
                 SelectStagestageB_num_num = 4;
                 sColor();
-                SS();
+                FCSText();
                 break;
         }
     }
@@ -627,6 +628,7 @@ public class EP : MonoBehaviour
                 SelectOn_num = 1;
                 SelectStagestageB_num(1);
                 CQColor();
+                //SS();
                 break;
             case 2:
                 SelectOn = "EP.2";
@@ -662,10 +664,10 @@ public class EP : MonoBehaviour
                 QuestOn = "メインクエスト";
                 break;
             case 2:
-                QuestOn ="デイリークエスト";
+                QuestOn = "デイリークエスト";
                 break;
             case 3:
-                QuestOn ="イベントクエスト";
+                QuestOn = "イベントクエスト";
                 break;
         }
     }
@@ -892,551 +894,54 @@ public class EP : MonoBehaviour
             }
         }
     }
+
     public void SS()
     {
-    }
-        /*SelectOnClick(SelectOn_num);
-        SelectStagestageB_num(SelectStagestageB_num_num);
+        int ss_num = sNumber * 20 + (SelectOn_num - 1) * 4 + (SelectStagestageB_num_num - 1);
         switch (sNumber)
         {
             case 0:
-                switch (SelectOn_num)
-                {
-                    case 1:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[0] += 1;
-                                if (ep[0] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[1] += 1;
-                                if (ep[1] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[2] += 1;
-                                if (ep[2] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[3] += 1;
-                                if (ep[3] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                    case 2:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[4] += 1;
-                                if (ep[4] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[5] += 1;
-                                if (ep[5] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[6] += 1;
-                                if (ep[6] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[7] += 1;
-                                if (ep[7] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                    case 3:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[8] += 1;
-                                if (ep[8] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[9] += 1;
-                                if (ep[9] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[10] += 1;
-                                if (ep[10] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[11] += 1;
-                                if (ep[11] == 1)
-                                {
-                                   stage_num[sNumber]++;
-                                }
-                                break;
-                        }
-                        break;
-                    case 4:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[12] += 1;
-                                if (ep[12] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[13] += 1;
-                                if (ep[13] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[14] += 1;
-                                if (ep[14] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[15] += 1;
-                                if (ep[15] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                    case 5:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[16] += 1;
-                                if (ep[16] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[17] += 1;
-                                if (ep[17] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[18] += 1;
-                                if (ep[18] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[19] += 1;
-                                if (ep[19] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                }
-                break;
             case 1:
-                switch (SelectOn_num)
-                {
-                    case 1:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[20] += 1;
-                                if (ep[20] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[21] += 1;
-                                if (ep[21] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[22] += 1;
-                                if (ep[22] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[23] += 1;
-                                if (ep[23] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                    case 2:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[24] += 1;
-                                if (ep[24] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[25] += 1;
-                                if (ep[25] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[26] += 1;
-                                if (ep[26] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[27] += 1;
-                                if (ep[27] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                    case 3:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[28] += 1;
-                                if (ep[28] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[29] += 1;
-                                if (ep[29] == 1)
-                                {
-                                   stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[30] += 1;
-                                if (ep[30] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[31] += 1;
-                                if (ep[31] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                        }
-                        break;
-                    case 4:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[32] += 1;
-                                if (ep[32] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[33] += 1;
-                                if (ep[33] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[34] += 1;
-                                if (ep[34] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[35] += 1;
-                                if (ep[35] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                        }
-                        break;
-                    case 5:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[36] += 1;
-                                if (ep[36] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[37] += 1;
-                                if (ep[37] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[38] += 1;
-                                if (ep[38] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[39] += 1;
-                                if (ep[39] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
-                }
-                break;
             case 2:
-
                 switch (SelectOn_num)
                 {
                     case 1:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[40] += 1;
-                                if (ep[40] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[41] += 1;
-                                if (ep[41] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[42] += 1;
-                                if (ep[42] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[43] += 1;
-                                if (ep[43] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
                     case 2:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[44] += 1;
-                                if (ep[44] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[45] += 1;
-                                if (ep[45] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[46] += 1;
-                                if (ep[46] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[47] += 1;
-                                if (ep[47] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
                     case 3:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[48] += 1;
-                                if (ep[48] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[49] += 1;
-                                if (ep[49] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[50] += 1;
-                                if (ep[50] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[51] += 1;
-                                if (ep[51] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                        }
-                        break;
                     case 4:
-                        switch (SelectStagestageB_num_num)
-                        {
-                            case 1:
-                                ep[52] += 1;
-                                if (ep[52] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 2:
-                                ep[53] += 1;
-                                if (ep[53] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 3:
-                                ep[54] += 1;
-                                if (ep[54] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-                            case 4:
-                                ep[55] += 1;
-                                if (ep[55] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
-
-                        }
-                        break;
                     case 5:
                         switch (SelectStagestageB_num_num)
                         {
                             case 1:
-                                ep[56] += 1;
-                                if (ep[56] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
                             case 2:
-                                ep[57] += 1;
-                                if (ep[57] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
                             case 3:
-                                ep[58] += 1;
-                                if (ep[58] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
-                                break;
                             case 4:
-                                ep[59] += 1;
-                                if (ep[59] == 1)
+                                ep[ss_num] += 1;
+                                if (ep[ss_num] == 1)
                                 {
                                     stage_num[sNumber]++;
                                 }
+                                //stageimages.image = imagesS[ss_num];
                                 break;
                         }
                         break;
                 }
                 break;
         }
-        Debug.Log(stage_num[sNumber] + "成功！！");
         if (stage_num[sNumber] % 5 == 0)
         {
             lstage_num[lsNumber]++;
             stage_num[sNumber] = 1;
         }
-        Debug.Log(lstage_num[lsNumber]);
-
-        Debug.Log(difficulty_num);
-
         Debug.Log(Difdifficulty);
+    }
 
-        Debug.Log(SelectOn);
-
-        Debug.Log(QuestOn);
-    }*/
+    public void FCSText()
+    {
+        FCSQtext.text = textAbbreviation + "." + SelectOn_num + "-" + SelectStagestageB_num_num;
+        FCRLtext.text = "推奨レベル" + SelectStagestageB;
+        FCStext.text = "人間が2か所から出現するという情報を入手した人間の行動パターンも書類にまとめて送信するあとで眼を投資手おいてくれ　この地域は足の速い人間が多く出現するようだ気を付けて戦いに臨んでくれ" + SelectStagestageB_num_num;
+    }
 }
 
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a

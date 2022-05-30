@@ -332,7 +332,7 @@ public class skillmanager : MonoBehaviour
     bool kyoukaseikou(int i) {
         switch(i) {
             case 1: {
-                    if(Master.playerdeta.Kosyo >= 3&& Master.playerdeta.Coin >= 2500) {
+                    if(Master.playerdeta.Kosyo >= 3&& Master.playerdeta.Coin >= 2500 &&genkai(1) ) {
                         Master.playerdeta.Kosyo -=3;
                         Master.playerdeta.Coin -=2500;
                         return true;
@@ -341,7 +341,7 @@ public class skillmanager : MonoBehaviour
                     }
             }
             case 2: {
-                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Coin >= 5000) {
+                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Coin >= 5000 && genkai(2)) {
                         Master.playerdeta.Kosyo -= 6;
                         Master.playerdeta.Coin -= 5000;
                         return true;
@@ -349,7 +349,7 @@ public class skillmanager : MonoBehaviour
                     break;
             }
             case 3: {
-                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 2 && Master.playerdeta.Coin >= 10000) {
+                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 2 && Master.playerdeta.Coin >= 10000 && genkai(3)) {
                         Master.playerdeta.Kosyo -= 6;
                         Master.playerdeta.Ikotu -= 2;
                         Master.playerdeta.Coin -= 10000;
@@ -359,7 +359,7 @@ public class skillmanager : MonoBehaviour
                     }
             }
             case 4: {
-                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 4 && Master.playerdeta.Coin >= 20000) {
+                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 4 && Master.playerdeta.Coin >= 20000 && genkai(4)) {
                         Master.playerdeta.Kosyo -= 6;
                         Master.playerdeta.Ikotu -= 4;
                         Master.playerdeta.Coin -= 20000;
@@ -369,7 +369,7 @@ public class skillmanager : MonoBehaviour
                     }
             }
             case 5: {
-                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 4 && Master.playerdeta.Ningennnoti >= 1 && Master.playerdeta.Coin >= 35000) {
+                    if(Master.playerdeta.Kosyo >= 6 && Master.playerdeta.Ikotu >= 4 && Master.playerdeta.Ningennnoti >= 1 && Master.playerdeta.Coin >= 35000 && genkai(5)) {
                         Master.playerdeta.Kosyo -= 6;
                         Master.playerdeta.Ikotu -= 4;
                         Master.playerdeta.Ningennnoti -= 1;
@@ -602,6 +602,62 @@ public class skillmanager : MonoBehaviour
                         break;
                 }
                 break;
+        }
+    }
+    bool genkai(int i) {
+        int g;
+        g = 0;
+        switch(Master.playerdeta.NowSelectCharactor) {
+            case "Ghost":
+                if(Master.playerdeta.GhostbreakingThrough1 == false) {
+                    g= 1;
+                } else if(Master.playerdeta.GhostbreakingThrough2 == false) {
+                    g = 3;
+                } else {
+                    g = 5;
+                }
+                break;
+            case "Zashiki_warashi":
+                if(Master.playerdeta.Zashiki_warashibreakingThrough1 == false) {
+                    g = 1;
+                } else if(Master.playerdeta.Zashiki_warashibreakingThrough2 == false) {
+                    g = 3;
+                } else {
+                    g = 5;
+                }
+                break;
+            case "Gore":
+                if(Master.playerdeta.GorebreakingThrough1 == false) {
+                    g = 1;
+                } else if(Master.playerdeta.GorebreakingThrough2 == false) {
+                    g = 3;
+                } else {
+                    g = 5;
+                }
+                break;
+            case "Poltergeist":
+                if(Master.playerdeta.PoltergeistbreakingThrough1 == false) {
+                    g = 1;
+                } else if(Master.playerdeta.PoltergeistbreakingThrough2 == false) {
+                    g = 3;
+                } else {
+                    g = 5;
+                }
+                break;
+            case "Daemon":
+                if(Master.playerdeta.DaemonbreakingThrough1 == false) {
+                    g = 1;
+                } else if(Master.playerdeta.DaemonbreakingThrough2 == false) {
+                    g = 3;
+                } else {
+                    g = 5;
+                }
+                break;
+        }
+        if(i <g) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

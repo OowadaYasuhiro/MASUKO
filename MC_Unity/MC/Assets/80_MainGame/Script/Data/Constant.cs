@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-public delegate void SkillEvent();
-
 public static class Constant
 {
 

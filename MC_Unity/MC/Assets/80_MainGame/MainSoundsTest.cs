@@ -22,6 +22,7 @@ public class MainSoundsTest : MonoBehaviour
             Master.playerdeta.BGMSoundvolume = 1f;
             Master.playerdeta.VoiceSoundvolume = 1f;
             sm.GetComponent("SoundManager").GetComponent<SoundManager>().SetVolume();
+            Master.formationdeta.SetSelectCharacter1(new Charactor("Test"));
             Master.saveManager.DetaSave();
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -30,11 +31,13 @@ public class MainSoundsTest : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            sm.SendMessage("PlayBgmByName", "StageSelect");
+            sm.SendMessage("PlayBgmByName", "bgm_リザルト画面");
         }
         if (TakesantestInput.Touchbegan)
         {
-
+            Player p = new Player("a");
+            Enemy e = new Enemy("b");
+            StartCoroutine( new MainGameSkillEvent().DoSkillEvent(e,1,1,p.skillEvent1));
         }
     }
 }

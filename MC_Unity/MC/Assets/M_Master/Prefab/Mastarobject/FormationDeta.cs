@@ -6,21 +6,21 @@ using UnityEngine.UI;
 
 public class FormationDeta
 {
-    private Charactor? selectcharactor1;
-    private string charactor1artifact1;
-    private string charactor1artifact2;
-    private string charactor1artifact3;
-    private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
+    [SerializeField]private Charactor? selectcharactor1;
+    [SerializeField]private string charactor1artifact1;
+    [SerializeField]private string charactor1artifact2;
+    [SerializeField]private string charactor1artifact3;
+    [SerializeField]private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
 
-    private Charactor? selectcharactor2 = null;
-    private string charactor2artifact1;
-    private string charactor2artifact2;
-    private string charactor2artifact3;
-    private Artifact[] charactor2Artifacts = { new Artifact(), new Artifact(), new Artifact() };
+    [SerializeField]private Charactor? selectcharactor2;
+    [SerializeField]private string charactor2artifact1;
+    [SerializeField]private string charactor2artifact2;
+    [SerializeField]private string charactor2artifact3;
+    [SerializeField]private Artifact[] charactor2Artifacts = { new Artifact(), new Artifact(), new Artifact() };
 
-    private Artifact[] artifacts;
+    [SerializeField]private Artifact[] artifacts;
 
-    private RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
+    [SerializeField]private RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
 
     public void SetSelectCharacter1(Charactor? character)
     {
@@ -92,7 +92,14 @@ public class FormationDeta
         }
         else
         {
-            selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
+            if (PlayerPrefs.GetString("selectcharactor1").Equals(""))
+            {
+                selectcharactor1 = null;
+            }
+            else
+            {
+                selectcharactor1 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor1"));
+            }
         }
         charactor1artifact1 = PlayerPrefs.GetString("charactor1artifact1");
         charactor1artifact2 = PlayerPrefs.GetString("charactor1artifact2");
@@ -103,7 +110,14 @@ public class FormationDeta
         }
         else
         {
-            selectcharactor2 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor2"));
+            if (PlayerPrefs.GetString("selectcharactor2").Equals(""))
+            {
+                selectcharactor2 = null;
+            }
+            else
+            {
+                selectcharactor2 = JsonUtility.FromJson<Charactor>(PlayerPrefs.GetString("selectcharactor2"));
+            }
         }
         charactor2artifact1 = PlayerPrefs.GetString("charactor2artifact1");
         charactor2artifact2 = PlayerPrefs.GetString("charactor2artifact2");
@@ -119,23 +133,24 @@ public class FormationDeta
     }
 }
 
+[System.Serializable]
 public struct Charactor
 {
-    private string name;
-    private int level;
-    private int credibility;
-    private int skill1level;
-    private int skill2level;
-    private int skill3level;
-    private int ultlevel;
-    private int passiveskilllevel;
-    private int potentialflowering;
+    [SerializeField]private string name;
+    [SerializeField]private int level;
+    [SerializeField]private int credibility;
+    [SerializeField]private int skill1level;
+    [SerializeField]private int skill2level;
+    [SerializeField]private int skill3level;
+    [SerializeField]private int ultlevel;
+    [SerializeField]private int passiveskilllevel;
+    [SerializeField]private int potentialflowering;
 
-    private int hp;
-    private int atk;
-    private int def;
-    private string passiveSkillName;
-    private string passiveSkillEffect;
+    [SerializeField]private int hp;
+    [SerializeField]private int atk;
+    [SerializeField]private int def;
+    [SerializeField]private string passiveSkillName;
+    [SerializeField]private string passiveSkillEffect;
 
     public Charactor(string name,int level, int credibility, int skill1level, int skill2level, int skill3level, int ultlevel, int passiveskilllevel, int potentialflowering,int hp,int atk,int def,string passiveNameText,string passiveSkillEffectText)
     {
@@ -298,14 +313,14 @@ public struct Charactor
 
 public class Artifact
 {
-    private string name;
-    private int level;
-    private Color testColor;
-    private int rarity;
-    private string addStatus;
-    private int addValue;
-    private string seriesTag;
-    private Sprite icon;
+    [SerializeField]private string name;
+    [SerializeField]private int level;
+    [SerializeField]private Color testColor;
+    [SerializeField]private int rarity;
+    [SerializeField]private string addStatus;
+    [SerializeField]private int addValue;
+    [SerializeField]private string seriesTag;
+    [SerializeField]private Sprite icon;
 
     public string GetName()
     {

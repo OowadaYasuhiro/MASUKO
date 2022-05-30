@@ -97,15 +97,34 @@ public class SoundManager : MonoBehaviour
 
     public int  GetBgmIndex(string name)
     {
-        if (bgmIndex.ContainsKey(name))
+        int index = 0;
+        foreach (KeyValuePair<string, int> item in bgmIndex)
         {
-            return bgmIndex[name];
+            byte[] data = Encoding.UTF8.GetBytes(item.Key);
+            byte[] valuedata = Encoding.UTF8.GetBytes(name);
+            StringBuilder datasb = new StringBuilder(20000);
+            StringBuilder valuedatasb = new StringBuilder(20000);
+            for (int i = 0; i < data.Length; i++)
+            {
+                datasb.Append(data[i]);
+            }
+            for (int i = 0; i < valuedata.Length; i++)
+            {
+                valuedatasb.Append(valuedata[i]);
+            }
+
+            if (datasb.Equals(valuedatasb))
+            {
+                index = item.Value;
+            }
+            else
+            {
+                Debug.LogError("指定された名前のBGMファイルが存在しません。");
+                Debug.LogError("わざとエラーを出します");
+                index = -1;
+            }
         }
-        else
-        {
-            Debug.LogError("指定された名前のBGMファイルが存在しません。");
-            return 0;
-        }
+        return index;
     }
     public int GetSEIndex(string name)
     {
@@ -141,7 +160,7 @@ public class SoundManager : MonoBehaviour
     public int GetVoiceIndex(string name)
     {
         int index = 0;
-        foreach (KeyValuePair<string, int> item in seIndex)
+        foreach (KeyValuePair<string, int> item in voiceIndex)
         {
             byte[] data = Encoding.UTF8.GetBytes(item.Key);
             byte[] valuedata = Encoding.UTF8.GetBytes(name);
