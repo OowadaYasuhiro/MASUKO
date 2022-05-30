@@ -3,53 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HomeButtonEvent : MonoBehaviour
+namespace HomeScene
 {
-    /// <summary>
-    /// ホーム画面のボタンのOnClick用のメソッド群
-    /// </summary>
-
-    //todo: 対応するシーンに飛ばすように設定
-
-    //戦闘ボタン
-    public void OnClickFightButton()
+    public class HomeButtonEvent : MonoBehaviour
     {
-        Debug.Log("Fight");
-    }
+        /// <summary>
+        /// ホーム画面のボタンのOnClick用のメソッド群
+        /// </summary>
 
-    //編成ボタン
-    public void OnClickFormationButton()
-    {
-        Debug.Log("Formation");
-    }
+        //todo: 対応するシーンに飛ばすように設定
 
-    //強化ボタン
-    public void OnClickEnhanceButton()
-    {
-        Debug.Log("Enhance");
-    }
+        //戦闘ボタン
+        public void OnClickFightButton()
+        {
+            Debug.Log("Fight");
+        }
 
-    //ガチャボタン
-    public void OnClickGatyaButton()
-    {
-        Debug.Log("Gatya");
-    }
+        //編成ボタン
+        public void OnClickFormationButton()
+        {
+            Debug.Log("Formation");
+        }
 
-    //ショップボタン
-    public void OnClickShopButton()
-    {
-        Debug.Log("Shop");
-    }
+        //強化ボタン
+        public void OnClickEnhanceButton()
+        {
+            Debug.Log("Enhance");
+        }
 
-    //任務ボタン
-    public void OnClickMissionButton()
-    {
-        Debug.Log("Mission");
-    }
+        //ガチャボタン
+        public void OnClickGatyaButton()
+        {
+            Debug.Log("Gatya");
+        }
 
-    //設定ボタン
-    public void OnClickOptionButton()
-    {
-        Debug.Log("Option");
+        //ショップボタン
+        public void OnClickShopButton()
+        {
+            Debug.Log("Shop");
+        }
+
+        //任務ボタン
+        public void OnClickMissionButton()
+        {
+            Debug.Log("Mission");
+        }
+
+        //設定ボタン
+        public void OnClickOptionButton()
+        {
+            Debug.Log("Option");
+        }
     }
 }

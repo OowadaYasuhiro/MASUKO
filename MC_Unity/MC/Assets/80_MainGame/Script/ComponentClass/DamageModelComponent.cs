@@ -42,6 +42,7 @@ public class DamageModelComponent
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (damage.Type == physicsDamage)
 =======
         if (damage.Type == Damage.physicsDamage)
@@ -49,10 +50,14 @@ public class DamageModelComponent
 =======
         if (damage.Type == physicsDamage)
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+        if (damage.type == physicsDamage)
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
         {
             double RPD = 100.0 - (double)physicsDamageResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         if (damage.Type == zyuGeki)
@@ -62,10 +67,14 @@ public class DamageModelComponent
 =======
         if (damage.Type == zyuGeki)
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+        if (damage.type == zyuGeki)
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
         {
             double RPD = 100.0 - (double)zyuGekiResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         if (damage.Type == zyuRyoku)
@@ -75,6 +84,9 @@ public class DamageModelComponent
 =======
         if (damage.Type == zyuRyoku)
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+        if (damage.type == zyuRyoku)
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
         {
             double RPD = 100.0 - (double)zyuRyokuResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);

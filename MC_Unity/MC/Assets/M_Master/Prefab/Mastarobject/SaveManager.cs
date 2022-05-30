@@ -19,6 +19,8 @@ public class SaveManager : MonoBehaviour
         if (PlayerPrefs.GetString("PlayerDeta", "NoDeta").Equals("NoDeta"))
         {
             Master.playerdeta = new PlayerDeta("first");
+            string deta = JsonUtility.ToJson(Master.playerdeta);
+            PlayerPrefs.SetString("PlayerDeta", deta);
         }
         else
         {

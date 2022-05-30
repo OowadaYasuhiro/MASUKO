@@ -41,7 +41,8 @@ public partial class MainGame : MonoBehaviour
     int waveNumber;
 
     //ゲーム内時間軸
-    float Game_Speed;
+    float gameSpeed;
+    float timeLine;
 
     //**イベント**
     //一時停止
@@ -93,11 +94,12 @@ public partial class MainGame : MonoBehaviour
     void Start()
     {
         gamestate = GameState.BeforeStart;
-        Game_Speed = 1;
+        gameSpeed = 1;
         master = GameObject.Find("MasterObject");
 <<<<<<< HEAD
 <<<<<<< HEAD
         waveNumber = 1;
+<<<<<<< HEAD
         GeneratEnemy();
 =======
         
@@ -106,6 +108,9 @@ public partial class MainGame : MonoBehaviour
         waveNumber = 1;
         GeneratEnemy();
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+        //GeneratEnemy();
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
     }
 
     // Update is called once per frame
@@ -123,12 +128,16 @@ public partial class MainGame : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 WaveClearCheck();
 =======
 >>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 =======
                 WaveClearCheck();
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+                //WaveClearCheck();
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
                 break;
             case GameState.Wait:
 
@@ -137,6 +146,7 @@ public partial class MainGame : MonoBehaviour
 
                 break;
         }
+        timeLine = Time.deltaTime * gameSpeed;
     }
 
 <<<<<<< HEAD
@@ -147,7 +157,7 @@ public partial class MainGame : MonoBehaviour
     void ChengeWave()
     {
         waveNumber += 1;
-        GeneratEnemy();
+        //GeneratEnemy();
     }
 
     //スロウモード
@@ -158,14 +168,18 @@ public partial class MainGame : MonoBehaviour
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     void SlowCheck()
     {
-        if (slowMode) Game_Speed = 0.25f;
-        else Game_Speed = 1f;
+        if (slowMode) gameSpeed = 0.25f;
+        else gameSpeed = 1f;
     }
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+    /*
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
@@ -179,18 +193,20 @@ public partial class MainGame : MonoBehaviour
                 break;
             }
         }
-
         if (allenemydead == true)
         {
             ChengeWave();
         }
-
     }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
 >>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 =======
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+    */
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
 
 }

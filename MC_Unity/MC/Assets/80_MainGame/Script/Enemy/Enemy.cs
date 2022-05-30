@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 using static Constant;
 
 public class Enemy
@@ -15,13 +16,18 @@ using static Constant;
 
 public class Enemy
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+using UnityEngine.UIElements;
+
+public class Enemy : MainGameCharactorModel
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
 {
-    //体力管理
-    DamageModelComponent damageModel;
+    //戦闘時間
+    const float maxFightTime = 10f;
+    float fightTime;
 
-    //基本情報
-    EnemyData enemyData;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     //ステート
@@ -52,11 +58,14 @@ public class Enemy
 
     public Enemy(EnemyName enemyName,string difficulty)
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+    public Enemy(string name)
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
     {
-        enemyData = new EnemyData(enemyName,difficulty);
-        damageModel = new DamageModelComponent(enemyData.maxHp,enemyData.physicsDamageResistance,enemyData.zyuGekiResistance,enemyData.zyuRyokuResistance);
+        this.name = name;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public int CheckHp { get => damageModel.Hp; private set{; } }
@@ -76,18 +85,22 @@ public class Enemy
 =======
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
         enemyState.state = Enemystate.Wait;
+=======
+    private void Start()
+    {
+        charactorState = CharactorState.Standby;
+        charactorAnimState = CharactorAnimState.Wait;
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
     }
 
-    //メインゲームの状態を受け取って行動を判断
-    public void GetMainState(GameState gs)
+    //情報収集
+    public void FastUpDate()
     {
-        if (gs == GameState.BeforeStart || gs == GameState.End)
+        switch (charactorState)
         {
-            enemyState.state = Enemystate.Wait;
-        }
-        if (gs == GameState.GameRun)
-        {
-            enemyState.state = Enemystate.Run;
+            case CharactorState.Run:
+
+                break;
         }
 <<<<<<< HEAD
 =======
@@ -97,9 +110,10 @@ public class Enemy
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
-    // Update is called once per frame
-    void Update()
+    //計算
+    public void UpDate()
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -135,10 +149,17 @@ public class Enemy
                 break;
         }
         gameEvent = new SkillEvent(mainGameSkillEvent.Null);
+=======
+        //スキルの反映とリセット
+        skillEvent();
+        ReMoveAllEvents();
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
     }
 
-    public void ChengeEnemyState(Enemystate valeState)
+    //結果
+    public void LateUpDate()
     {
+<<<<<<< HEAD
         enemyState.state = valeState;
 <<<<<<< HEAD
 =======
@@ -146,5 +167,8 @@ public class Enemy
 >>>>>>> a6ceb9a119109db116ebcae5a9a2088efa6b8b03
 =======
 >>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
+=======
+
+>>>>>>> 93495dbe741ce2cc33748768ef72a24be66db350
     }
 }
