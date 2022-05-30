@@ -15,6 +15,22 @@ public class EP : MonoBehaviour
     public int[] lstage_num; 
     //テキスト
     [SerializeField]
+<<<<<<< HEAD
+    public Text[] textQ_;
+    [SerializeField]
+    public Text[] textQ;
+    [SerializeField]
+    public Text[] textDifficulty;
+    //ボタンオブジェクト
+    [SerializeField]
+    private GameObject[] stageDay;
+    [SerializeField]
+    private GameObject[] stageEX;
+    [SerializeField]
+    private GameObject[] stageEP;
+    [SerializeField]
+    private GameObject[] objGetQ_;
+=======
     public Text[] textStage;
     [SerializeField]
     public Text[] textQ;
@@ -38,10 +54,19 @@ public class EP : MonoBehaviour
     private GameObject[] stage;
     [SerializeField]
     private GameObject[] objGetStage;
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     [SerializeField]
     private GameObject[] objGetQ;
     [SerializeField]
     private GameObject[] Difficulty;
+<<<<<<< HEAD
+
+    private string textAbbreviation;
+    private string textTname;
+    private int sNumber;
+    private int lsNumber;
+
+=======
     [SerializeField]
     public GameObject fcs;
     [SerializeField]
@@ -70,6 +95,7 @@ public class EP : MonoBehaviour
    // var colors;
 
     bool isCalledOnce = false;
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     //Dictionary<string, int> stagetest = new Dictionary<string, int>();
 
     // Start is called before the first frame update
@@ -85,6 +111,10 @@ public class EP : MonoBehaviour
         {
             lstage_num[i] = 1;
         }
+<<<<<<< HEAD
+        SelectstageEP();
+        //PlayerPrefs.GetInt("SCORE", 0);
+=======
         Selectstage(0);
         //SelectOnClick(1);
         QuestOnClick(1);
@@ -98,6 +128,7 @@ public class EP : MonoBehaviour
         {
             ep[i] = 0;
         }
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
     // Update is called once per frame
@@ -118,6 +149,59 @@ public class EP : MonoBehaviour
             stage_num[sNumber] = 1;
         }
         Debug.Log(lstage_num[lsNumber]);
+<<<<<<< HEAD
+    }
+
+    //メインクエストの処理
+    public void SelectstageEP()
+    {
+        textTname = "メインクエスト";
+        textAbbreviation = "EP";
+        sNumber = 0;
+        lsNumber = 0;
+        Selectsateg();
+        Selecttext2();
+        Selecttext3();
+        Selecttext4();
+        Selecttext5();
+        Selecttext1();
+        Selectstage_num();
+        Selectlstage_num();
+    }
+
+    //デイリークエストの処理
+    public void SelectstageDay()
+    {
+        textTname = "デイリークエスト";
+        textAbbreviation = "Day";
+        sNumber = 1;
+        lsNumber = 1;
+        Selectsateg();
+        Selecttext2();
+        Selecttext3();
+        Selecttext4();
+        Selecttext5();
+        Selecttext1();
+        Selectstage_num();
+        Selectlstage_num();
+    }
+
+    //イベントクエストの処理
+    public void SelectstageEX()
+    {
+        textTname = "イベントクエスト";
+        textAbbreviation = "EX";
+        sNumber = 2;
+        lsNumber = 2;
+        Selectsateg();
+        Selecttext2();
+        Selecttext3();
+        Selecttext4();
+        Selecttext5();
+        Selecttext1();
+        Selectstage_num();
+        Selectlstage_num();
+=======
 
         Debug.Log(difficulty_num);
 
@@ -177,12 +261,16 @@ public class EP : MonoBehaviour
                 DifColor();
                 break;
         }
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
     //章選択のテキスト変更処理
     public void Selectsateg()
     {
+<<<<<<< HEAD
+=======
         //章選択の有無
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
         if (lstage_num[lsNumber] <= 1)
         {
             SelectLstage_numtrue();
@@ -231,7 +319,10 @@ public class EP : MonoBehaviour
                 j++;
             }
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
     /*public void Select()
@@ -243,10 +334,41 @@ public class EP : MonoBehaviour
         }
     }*/
 
+<<<<<<< HEAD
+    public void Selecttext1()
+    {
+        Selecttext(1);
+    }
+    
+    public void Selecttext2()
+    {
+        Selecttext(2);
+    }
+
+    public void Selecttext3()
+    {
+        Selecttext(3);
+    }
+
+    public void Selecttext4()
+    {
+        Selecttext(4);
+    }
+
+    public void Selecttext5()
+    {
+        Selecttext(5);
+    }
+
+    //ステージ選択のテキスト変更処理
+    public void Selecttext(int st)
+    {
+=======
     //ステージ選択のテキスト変更処理
     public void Selecttext(int st)
     {
         //ステージ選択の有無
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
         if (lstage_num[lsNumber] <= st)
         {
             SelectStage_numtrue();
@@ -257,15 +379,29 @@ public class EP : MonoBehaviour
         }
 
         int j = 1;
+<<<<<<< HEAD
+        for (int i = 0; i <= textQ_.Length; i++)
+        {
+            if (i <= 3)
+            {
+                textQ_[i].text = textAbbreviation + "." + st + "-" + j;
+=======
         for (int i = 0; i <= textStage.Length; i++)
         {
             if (i <= 3)
             {
                 textStage[i].text = textAbbreviation + "." + st + "-" + j;
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
                 j++;
             }
             else if (i >= 4 && i <= 6)
             {
+<<<<<<< HEAD
+                textQ_[i].text = textAbbreviation + "." + st + "-" + (j - 3);
+                j++;
+            }
+        }
+=======
                 textStage[i].text = textAbbreviation + "." + st + "-" + (j - 3);
                 j++;
             }
@@ -273,20 +409,33 @@ public class EP : MonoBehaviour
         SQuestOnClick(st);
         textLQN[0].text = textTname;
         textQN[0].text = textAbbreviation + "." + st + " " + textSname;
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
     public void SelectStage_numfalse()
     {
+<<<<<<< HEAD
+        objGetQ_[0].SetActive(false);
+        objGetQ_[1].SetActive(false);
+        objGetQ_[2].SetActive(false);
+=======
         objGetStage[0].SetActive(false);
         objGetStage[1].SetActive(false);
         objGetStage[2].SetActive(false);
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
     public void SelectStage_numtrue()
     {
+<<<<<<< HEAD
+        objGetQ_[0].SetActive(true);
+        objGetQ_[1].SetActive(true);
+        objGetQ_[2].SetActive(true);
+=======
         objGetStage[0].SetActive(true);
         objGetStage[1].SetActive(true);
         objGetStage[2].SetActive(true);
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
     }
 
     public void SelectLstage_numfalse()
@@ -310,17 +459,29 @@ public class EP : MonoBehaviour
     {
         if (stage_num[sNumber] >= 2)
         {
+<<<<<<< HEAD
+            objGetQ_[0].SetActive(false);
+=======
             objGetStage[0].SetActive(false);
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
         }
 
         if (stage_num[sNumber] >= 3)
         {
+<<<<<<< HEAD
+            objGetQ_[1].SetActive(false);
+=======
             objGetStage[1].SetActive(false);
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
         }
 
         if (stage_num[sNumber] >= 4)
         {
+<<<<<<< HEAD
+            objGetQ_[2].SetActive(false);
+=======
             objGetStage[2].SetActive(false);
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
         }
     }
 
@@ -348,6 +509,64 @@ public class EP : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+
+}
+
+//public GameObject data;
+/*GameObject EP1 = GameObject.Find("GameObjectEP");
+        Debug.Log("target1 = " + EP1);*/
+/*public void OnClickEP1Button()
+    {
+        for (var i = 0; i < buttons.Length; i++)
+        {
+            if (i == 0)
+            {
+                buttons[0].GetComponent<Image>().color = Color.white;
+                continue;
+            }
+            buttons[i].GetComponent<Image>().color = Color.gray;
+        }
+    }
+
+    public void OnClick()
+    {
+        Debug.Log("EP1");
+    }*/
+
+/*public void Stage()
+    {
+        //stage_numが２以上のとき、ステージ２を解放する。以下同様
+        for (int i = 0; i <= objGetQ_.Length; i++)
+        {
+            for (int j = 2; j <= stage_num; j++)
+            {
+                Debug.Log(j);
+                if (stage_num >= 2)
+                {
+                    gameObject.AddComponent(objGetQ_[i].SetActive(false));
+                }
+                if (stage_num >= j)
+                {
+                    objGetQ_[i].SetActive(false);
+                }
+            }
+        }
+    }*/
+
+/*public void stageSelect()
+{
+    switch (lstage_num)
+    {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            break;
+    }
+}*/
+=======
     public void Difdifficulty_num(int dif)
     {
         switch (dif)
@@ -725,3 +944,4 @@ public class EP : MonoBehaviour
     }
 }
 
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
