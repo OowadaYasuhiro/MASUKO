@@ -69,11 +69,11 @@ public class overlevelup : MonoBehaviour
             keikoku.text = "素材が不足しています";
         }
 
-        if(levelmax == true&&sozaiok == 1) {
+        if(levelmax == true&&sozaiok == 1&& nowselectover50 == false && nowselectover70 == false) {
             levelupwindow.SetActive(true);
         }
 
-        if(levelmax == true && sozaiok == 2) {
+        if(levelmax == true && sozaiok == 2 && nowselectover70 == false && nowselectover50 == true) {
             levelupwindow.SetActive(true);
         }
 
@@ -98,6 +98,7 @@ public class overlevelup : MonoBehaviour
                 if(Master.playerdeta.GhostbreakingThrough1 == false) {
                     levelup.text = "/50";
                     nowselectover50 = false;
+                    nowselectover70 = false;
                 } else if(Master.playerdeta.GhostbreakingThrough2 == false) {
                     levelup.text = "/70";
                     nowselectover70 = false;
@@ -111,6 +112,7 @@ public class overlevelup : MonoBehaviour
                 if(Master.playerdeta.Zashiki_warashibreakingThrough1 == false) {
                     levelup.text = "/50";
                     nowselectover50 = false;
+                    nowselectover70 = false;
                 } else if(Master.playerdeta.Zashiki_warashibreakingThrough2 == false) {
                     levelup.text = "/70";
                     nowselectover70 = false;
@@ -124,6 +126,7 @@ public class overlevelup : MonoBehaviour
                 if(Master.playerdeta.GorebreakingThrough1 == false) {
                     levelup.text = "/50";
                     nowselectover50 = false;
+                    nowselectover70 = false;
                 } else if(Master.playerdeta.GorebreakingThrough2 == false) {
                     levelup.text = "/70";
                     nowselectover70 = false;
@@ -137,6 +140,7 @@ public class overlevelup : MonoBehaviour
                 if(Master.playerdeta.PoltergeistbreakingThrough1 == false) {
                     levelup.text = "/50";
                     nowselectover50 = false;
+                    nowselectover70 = false;
                 } else if(Master.playerdeta.PoltergeistbreakingThrough2 == false) {
                     levelup.text = "/70";
                     nowselectover70 = false;
@@ -150,6 +154,7 @@ public class overlevelup : MonoBehaviour
                 if(Master.playerdeta.DaemonbreakingThrough1 == false) {
                     levelup.text = "/50";
                     nowselectover50 = false;
+                    nowselectover70 = false;
                 } else if(Master.playerdeta.DaemonbreakingThrough2 == false) {
                     levelup.text = "/70";
                     nowselectover70 = false;
@@ -160,9 +165,12 @@ public class overlevelup : MonoBehaviour
                 break;
         }
         if(C == true) {
-            level.text = $"{nowlevel}/90";
+            levelup.text = "/90";
+            nowselectover50 = false;
+            nowselectover70 = false;
+            level.text = $"{nowlevel}";
         }
-        if((nowlevel ==50&&nowselectover50 ==false) || (nowlevel == 70&&nowselectover70 == false)) {
+        if((nowlevel ==50&&nowselectover50 ==false) || (nowlevel == 70&&nowselectover70 == false) || (nowselectover50 == false && nowselectover70 == false)) {
             level.color = Color.white;
         } else {
             level.color = Color.red;
@@ -175,6 +183,7 @@ public class overlevelup : MonoBehaviour
             Master.playerdeta.Reikesseki -= 5;
             Master.playerdeta.Reikotu -= 10;
             Master.playerdeta.Coin -= 10000;
+            nowselectover50 = true;
             switch(Master.playerdeta.NowSelectCharactor) {
                 case "Ghost":
                     Master.playerdeta.GhostbreakingThrough1 = true;

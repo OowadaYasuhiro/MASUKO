@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 0
     path: "Assets/T\uFF3FTest/Takesan/Takesan\uFF3FTestScene.unity"
     guid: a27afc0c4af5ddc4088c357e5932cd72
+  - enabled: 1
+    path: "Assets/T\uFF3FTest/Yanai/Yanai_TestScene.unity"
+    guid: 8442c871d9ed4d5439a7cb7d1cd6dea4
+  - enabled: 1
+    path: "Assets/T\uFF3FTest/Yanai/\u30AD\u30E3\u30E9\u5F37\u5316/yanai_test2.unity"
+    guid: b5cee230900df4d479b7d7d5cf9e1cfb
   m_configObjects: {}
