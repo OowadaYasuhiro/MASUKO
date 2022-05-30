@@ -54,10 +54,5 @@ namespace HomeScene
         {
             Debug.Log("Option");
         }
-
-        public void OnClickCharacterImage()
-        {
-            this.gameObject.GetComponent<HomeMain>().ShowMessage();
-        }
     }
 }

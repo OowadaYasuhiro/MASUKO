@@ -21,7 +21,7 @@ public class charactevalue : MonoBehaviour
         switch (Master.playerdeta.NowSelectCharactor)
         {
             case "Ghost":
-               // Lv.text = $"Lv {Master.playerdeta.GhostLevel}";
+                //Lv.text = $"Lv {Master.playerdeta.GhostLevel}";
                 HP.text = $"{hairetu.GhostHP[Master.playerdeta.GhostLevel]}";
                 Atk.text = $"{hairetu.GhostAtk[Master.playerdeta.GhostLevel]}";
                 Def.text = $"{hairetu.GhostDef[Master.playerdeta.GhostLevel]}";

@@ -389,17 +389,20 @@ public class PlayerDeta
     //現状これが呼ばれるのはまだ一度もセーブされたことが無い時だけ
     public PlayerDeta(string a)
     {
+        GhostbreakingThrough1 = false;
+        GhostbreakingThrough2 = false;
+        GhostSkill1Level = 1;
         PlayerLevel = 1;
         MasterSoundvolume = 1f;
         BGMSoundvolume = 1f;
         VoiceSoundvolume = 1f;
         mute = false;
         NowSelectCharactor = "Ghost";
-        MagaTamashi = 1000;
-        Zanryu_Sinen = 1000;
-        Coin = 10000;
+        MagaTamashi = 100000;
+        Zanryu_Sinen = 100000;
+        Coin = 1000000;
         GhostUnLocked = true;
-        GhostLevel = 49;
+        GhostLevel = 1;
         DailyMission1 = false;
         DailyMission2 = false;
         DailyMission3 = false;

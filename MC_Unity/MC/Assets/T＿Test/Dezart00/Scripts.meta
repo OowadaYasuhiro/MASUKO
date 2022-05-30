@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:MC_Unity/MC/Assets/T＿Test/Dezart00/Scripts.meta
+<<<<<<< HEAD
+guid: 90bf722a465aef441ba1414045855f28
+=======
+guid: 62c2ffa851f73ca43aba65f48205023c
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a:MC_Unity/MC/Assets/16_MissionScreen/Scripts.meta
+=======
 guid: 505055048f9cc84409ac3451c9f0051a
 =======
 guid: f86f199481cab454e9bd173c61931d5b
 >>>>>>> main:MC_Unity/MC/Assets/10_Home/Scripts.meta
+>>>>>>> 24bfaa1b23e9c3e385b48701e5a3e1278d8bee4a
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

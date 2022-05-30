@@ -27,6 +27,8 @@ public class MainGameCharactorModel : MainGameCharactorState
     protected int baseAttackPower;
     //攻撃力計算結果
     protected int resultingAttackPower;
+    //スキル
+    protected SkillEvent skillEvent;
 
     //移動
     protected void Move(float timeLine)
@@ -62,6 +64,19 @@ public class MainGameCharactorModel : MainGameCharactorState
         {
             position = targetPosition[moveTargetPointer - 1];
             next = false;
+        }
+    }
+
+    public void AddSkillEvent(SkillEvent skillEvent)
+    {
+        this.skillEvent += skillEvent;
+    }
+
+    protected void ReMoveAllEvents()
+    {
+        foreach (var d in skillEvent.GetInvocationList())
+        {
+            skillEvent -= (SkillEvent)d;
         }
     }
 }

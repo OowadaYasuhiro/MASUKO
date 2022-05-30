@@ -654,7 +654,7 @@ public class skillmanager : MonoBehaviour
                 }
                 break;
         }
-        if(i >g) {
+        if(i <g) {
             return true;
         } else {
             return false;

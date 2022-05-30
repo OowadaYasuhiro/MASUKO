@@ -15,9 +15,21 @@ public class EP : MonoBehaviour
     public int[] lstage_num; 
     //テキスト
     [SerializeField]
-    public Text[] textStage;
+    public Text[] textQ_;
     [SerializeField]
     public Text[] textQ;
+    //[SerializeField]
+    //public Text[] textDifficulty;
+    //ボタンオブジェクト
+    [SerializeField]
+    private GameObject[] stageDay;
+    [SerializeField]
+    private GameObject[] stageEX;
+    [SerializeField]
+    private GameObject[] stageEP;
+    [SerializeField]
+    private GameObject[] objGetQ_;
+    public Text[] textStage;
     [SerializeField]
     public Text[] textLQN;
     [SerializeField]
@@ -42,6 +54,7 @@ public class EP : MonoBehaviour
     private GameObject[] objGetQ;
     [SerializeField]
     private GameObject[] Difficulty;
+
     [SerializeField]
     public GameObject fcs;
     [SerializeField]
@@ -85,6 +98,7 @@ public class EP : MonoBehaviour
         {
             lstage_num[i] = 1;
         }
+        //PlayerPrefs.GetInt("SCORE", 0);
         Selectstage(0);
         //SelectOnClick(1);
         QuestOnClick(1);
@@ -118,14 +132,6 @@ public class EP : MonoBehaviour
             stage_num[sNumber] = 1;
         }
         Debug.Log(lstage_num[lsNumber]);
-
-        Debug.Log(difficulty_num);
-
-        Debug.Log(Difdifficulty);
-
-        Debug.Log(SelectOn);
-
-        Debug.Log(QuestOn);
     }
 
 
@@ -182,7 +188,6 @@ public class EP : MonoBehaviour
     //章選択のテキスト変更処理
     public void Selectsateg()
     {
-        //章選択の有無
         if (lstage_num[lsNumber] <= 1)
         {
             SelectLstage_numtrue();
@@ -243,10 +248,10 @@ public class EP : MonoBehaviour
         }
     }*/
 
+
     //ステージ選択のテキスト変更処理
     public void Selecttext(int st)
     {
-        //ステージ選択の有無
         if (lstage_num[lsNumber] <= st)
         {
             SelectStage_numtrue();
@@ -257,36 +262,35 @@ public class EP : MonoBehaviour
         }
 
         int j = 1;
-        for (int i = 0; i <= textStage.Length; i++)
+        for (int i = 0; i <= textQ_.Length; i++)
         {
+
             if (i <= 3)
             {
-                textStage[i].text = textAbbreviation + "." + st + "-" + j;
+                textQ_[i].text = textAbbreviation + "." + st + "-" + j;
                 j++;
             }
             else if (i >= 4 && i <= 6)
             {
-                textStage[i].text = textAbbreviation + "." + st + "-" + (j - 3);
+                textQ_[i].text = textAbbreviation + "." + st + "-" + (j - 3);
                 j++;
             }
+
         }
-        SQuestOnClick(st);
-        textLQN[0].text = textTname;
-        textQN[0].text = textAbbreviation + "." + st + " " + textSname;
     }
 
     public void SelectStage_numfalse()
     {
-        objGetStage[0].SetActive(false);
-        objGetStage[1].SetActive(false);
-        objGetStage[2].SetActive(false);
+        objGetQ_[0].SetActive(false);
+        objGetQ_[1].SetActive(false);
+        objGetQ_[2].SetActive(false);
     }
 
     public void SelectStage_numtrue()
     {
-        objGetStage[0].SetActive(true);
-        objGetStage[1].SetActive(true);
-        objGetStage[2].SetActive(true);
+        objGetQ_[0].SetActive(true);
+        objGetQ_[1].SetActive(true);
+        objGetQ_[2].SetActive(true);
     }
 
     public void SelectLstage_numfalse()
@@ -310,17 +314,17 @@ public class EP : MonoBehaviour
     {
         if (stage_num[sNumber] >= 2)
         {
-            objGetStage[0].SetActive(false);
+            objGetQ_[0].SetActive(false);
         }
 
         if (stage_num[sNumber] >= 3)
         {
-            objGetStage[1].SetActive(false);
+            objGetQ_[1].SetActive(false);
         }
 
         if (stage_num[sNumber] >= 4)
         {
-            objGetStage[2].SetActive(false);
+            objGetQ_[2].SetActive(false);
         }
     }
 
@@ -347,6 +351,8 @@ public class EP : MonoBehaviour
             objGetQ[3].SetActive(false);
         }
     }
+
+
 
     public void Difdifficulty_num(int dif)
     {
@@ -727,3 +733,58 @@ public class EP : MonoBehaviour
     }
 }
 
+
+
+//public GameObject data;
+/*GameObject EP1 = GameObject.Find("GameObjectEP");
+        Debug.Log("target1 = " + EP1);*/
+/*public void OnClickEP1Button()
+    {
+        for (var i = 0; i < buttons.Length; i++)
+        {
+            if (i == 0)
+            {
+                buttons[0].GetComponent<Image>().color = Color.white;
+                continue;
+            }
+            buttons[i].GetComponent<Image>().color = Color.gray;
+        }
+    }
+
+    public void OnClick()
+    {
+        Debug.Log("EP1");
+    }*/
+
+/*public void Stage()
+    {
+        //stage_numが２以上のとき、ステージ２を解放する。以下同様
+        for (int i = 0; i <= objGetQ_.Length; i++)
+        {
+            for (int j = 2; j <= stage_num; j++)
+            {
+                Debug.Log(j);
+                if (stage_num >= 2)
+                {
+                    gameObject.AddComponent(objGetQ_[i].SetActive(false));
+                }
+                if (stage_num >= j)
+                {
+                    objGetQ_[i].SetActive(false);
+                }
+            }
+        }
+    }*/
+
+/*public void stageSelect()
+{
+    switch (lstage_num)
+    {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            break;
+    }
+}*/

@@ -9,9 +9,6 @@ public class Enemy : MainGameCharactorModel
     const float maxFightTime = 10f;
     float fightTime;
 
-    //スキル
-    SkillEvent skillEvent;
-
 
     public Enemy(string name)
     {
@@ -22,11 +19,6 @@ public class Enemy : MainGameCharactorModel
     {
         charactorState = CharactorState.Standby;
         charactorAnimState = CharactorAnimState.Wait;
-    }
-
-    public void AddSkillEvent(SkillEvent skillEvent)
-    {
-        this.skillEvent += skillEvent; 
     }
 
     //情報収集
@@ -52,13 +44,5 @@ public class Enemy : MainGameCharactorModel
     public void LateUpDate()
     {
 
-    }
-
-    void ReMoveAllEvents()
-    {
-        foreach (var d in skillEvent.GetInvocationList())
-        {
-            skillEvent -= (SkillEvent)d;
-        }
     }
 }

@@ -2258,7 +2258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1534804692}
   - component: {fileID: 1534804693}
-  - component: {fileID: 1534804694}
+  - component: {fileID: 1534804695}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2292,7 +2292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3bf32b6fea00a48974bd5c65ad5513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1534804694
+--- !u!114 &1534804695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2301,14 +2301,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1534804691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5daf4e9b431e794ba9713790c6565bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 86c95a501a332c54f97ece618b3a5f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLevelText: {fileID: 574655972}
-  playerNameText: {fileID: 366751551}
-  playerExpGauge: {fileID: 1045993305}
-  messageWindow: {fileID: 1640335647}
-  characterImages: []
+  playerLevelUI: {fileID: 574655972}
+  playerNameUI: {fileID: 366751551}
+  playerExpUI: {fileID: 1045993305}
+  isDebug: 0
 --- !u!1 &1593930979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +2805,7 @@ GameObject:
   - component: {fileID: 1764162020}
   - component: {fileID: 1764162019}
   - component: {fileID: 1764162018}
+  - component: {fileID: 1764162021}
   m_Layer: 5
   m_Name: Character-Button
   m_TagString: Untagged
@@ -2875,8 +2875,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1534804693}
-        m_MethodName: OnClickCharacterImage
+      - m_Target: {fileID: 1764162021}
+        m_MethodName: OnClickCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2923,6 +2923,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764162016}
   m_CullTransparentMesh: 0
+--- !u!114 &1764162021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764162016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97606b761eec904897ee91db731fed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageWindow: {fileID: 1640335647}
+  characterImages:
+  - {fileID: 21300000, guid: 34f62b866ceb2044fbef35f698f71d14, type: 3}
+  - {fileID: 21300000, guid: 141d9f89e0d4af449bb64b1c9f3f7042, type: 3}
+  - {fileID: 21300000, guid: 879368087559ec44c9dd9200cc06276e, type: 3}
+  - {fileID: 21300000, guid: 66473f6c00c826a4ca0de0734cfb2cb0, type: 3}
+  - {fileID: 21300000, guid: 27a5944c499fab943b8f05679e3ad113, type: 3}
+  isDebug: 1
 --- !u!1001 &1857763632
 PrefabInstance:
   m_ObjectHideFlags: 0
