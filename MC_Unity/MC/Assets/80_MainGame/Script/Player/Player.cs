@@ -8,10 +8,9 @@ public class Player : MainGameCharactorModel
     bool skill1;
     bool skill2;
     bool skill3;
-    SkillEvent skillEvent1;
+    public SkillEvent skillEvent1;
     SkillEvent skillEvent2;
     SkillEvent skillEvent3;
-    SkillEvent skillEvent;
     //撤退
     bool goback;
 
@@ -24,11 +23,6 @@ public class Player : MainGameCharactorModel
     {
         charactorState = CharactorState.Wait;
         charactorAnimState = CharactorAnimState.Wait;
-    }
-
-    public void AddSkillEvent(SkillEvent skillEvent)
-    {
-        this.skillEvent += skillEvent;
     }
 
     //情報収集
@@ -60,13 +54,5 @@ public class Player : MainGameCharactorModel
     public void LateUpDate()
     {
         
-    }
-
-    void ReMoveAllEvents()
-    {
-        foreach (var d in skillEvent.GetInvocationList())
-        {
-            skillEvent -= (SkillEvent)d;
-        }
     }
 }
