@@ -46,6 +46,12 @@ public static class Constant
     }
 
     //敵の名前
+    public const string Tuyogarisyounen = "Tuyogarisyounen";
+    public const string Namikinasyouzyo = "Namikinasyouzyo";
+    public const string Koisurugyaru = "Koisurugyaru";
+    public const string Kowamoteyanki = "Kowamoteyanki";
+    public const string Piennnaonnnanoko = "Piennnaonnnanoko";
+    public const string Piekin = "Piekin";
     public enum EnemyName
     {
         TUYOGARISYOUNEN,
@@ -66,6 +72,13 @@ public static class Constant
         RunAway,
         Dead
     }
+
+    //プレイヤーキャラクターの名前
+    public const string Daemon = "Daemon";
+    public const string Poltergeist = "Poltergeist";
+    public const string Gore = "Gore";
+    public const string Zashiki_warashi = "Zashiki_warashi";
+    public const string Ghost = "Ghost";
 
     //プレイヤーのステート
     public enum Playerstate

@@ -3,7 +3,7 @@
 public class MainGameCharactorModel : MainGameCharactorState
 {
     //名前
-    protected string name;
+    protected string Charactorname;
     //向き
     protected bool directionRight;
     //座標
