@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Enemy : MainGameCharactorModel
+public partial class Enemy : MainGameCharactorModel
 {
     //戦闘時間
     const float maxFightTime = 10f;
     float fightTime;
 
 
-    public Enemy(string name)
+    public Enemy(string difficulty)
     {
         this.name = name;
+        Setting(difficulty);
     }
 
     private void Start()

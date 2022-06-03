@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MainGameCharactorModel
+public partial class Player : MainGameCharactorModel
 {
     //スキル
-    bool skill1;
-    bool skill2;
-    bool skill3;
+    public bool skill1;
+    public bool skill2;
+    public bool skill3;
     public SkillEvent skillEvent1;
-    SkillEvent skillEvent2;
-    SkillEvent skillEvent3;
+    public SkillEvent skillEvent2;
+    public SkillEvent skillEvent3;
     //撤退
-    bool goback;
+    public bool goback;
+    //遺物
+    Artifact artifact1;
+    Artifact artifact2;
+    Artifact artifact3;
 
-    public Player(string name)
+    public Player(int number)
     {
-        this.name = name;
+        Setting(number);
     }
 
     private void Start()

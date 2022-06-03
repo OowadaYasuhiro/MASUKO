@@ -66,6 +66,7 @@ public partial class MainGame : MonoBehaviour
         master = GameObject.Find("MasterObject");
         waveNumber = 1;
         //GeneratEnemy();
+        GeneratPlayer();
     }
 
     // Update is called once per frame
@@ -127,5 +128,32 @@ public partial class MainGame : MonoBehaviour
         }
     }
     */
+
+    //セーブデータの情報からプレイヤーキャラクターを生成
+    void GeneratPlayer()
+    {
+        if (Master.formationdeta.GetCharactor1() != null)
+        {
+            if (Master.formationdeta.GetCharactor2() != null)
+            {
+                player = new Player[] { new Player(1),new Player(2) };
+            }
+            else
+            {
+                player = new Player[] { new Player(1) };
+            }
+        }
+        else
+        {
+            if (Master.formationdeta.GetCharactor2() != null)
+            {
+                player = new Player[] { new Player(2) };
+            }
+            else
+            {
+                //ありえない
+            }
+        }
+    }
 
 }
