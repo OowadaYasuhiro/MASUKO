@@ -35,7 +35,7 @@ public class MainSoundsTest : MonoBehaviour
         }
         if (TakesantestInput.Touchbegan)
         {
-            Player p = new Player("a");
+            Player p = new Player(1);
             Enemy e = new Enemy("b");
             StartCoroutine( new MainGameSkillEvent().DoSkillEvent(e,1,1,p.skillEvent1));
         }
