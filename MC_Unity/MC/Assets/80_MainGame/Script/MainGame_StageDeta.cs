@@ -24,7 +24,7 @@ public class MainGame_StageDeta
     {
         switch (stage)
         {
-            case (main_ep1_1):
+            case main_ep1_1:
                 map_grids_wall = new bool[,]{
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
@@ -42,7 +42,7 @@ public class MainGame_StageDeta
                 enemy1_target_object = new Vector2(9, 4);
                 enemy2_target_object = new Vector2(9, 1);
                 break;
-            case (main_ep1_2):
+            case main_ep1_2:
                 map_grids_wall = new bool[,]{
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
@@ -60,7 +60,7 @@ public class MainGame_StageDeta
                 enemy1_target_object = new Vector2(9, 4);
                 enemy2_target_object = new Vector2(9, 4);
                 break;
-            case (main_ep1_3):
+            case main_ep1_3:
                 map_grids_wall = new bool[,]{
                             { true,true,true,true,false,true},
                             { true,true,false,true,false,true},
@@ -78,39 +78,39 @@ public class MainGame_StageDeta
                 enemy1_target_object = new Vector2(4, 0);
                 enemy2_target_object = new Vector2(5, 0);
                 break;
-            case (main_ep1_4):
+            case main_ep1_4:
                 break;
-            case (main_ep2_1):
+            case main_ep2_1:
                 break;
-            case (main_ep2_2):
+            case main_ep2_2:
                 break;
-            case (main_ep2_3):
+            case main_ep2_3:
                 break;
-            case (main_ep2_4):
+            case main_ep2_4:
                 break;
-            case (main_ep3_1):
+            case main_ep3_1:
                 break;
-            case (main_ep3_2):
+            case main_ep3_2:
                 break;
-            case (main_ep3_3):
+            case main_ep3_3:
                 break;
-            case (main_ep3_4):
+            case main_ep3_4:
                 break;
-            case (main_ep4_1):
+            case main_ep4_1:
                 break;
-            case (main_ep4_2):
+            case main_ep4_2:
                 break;
-            case (main_ep4_3):
+            case main_ep4_3:
                 break;
-            case (main_ep4_4):
+            case main_ep4_4:
                 break;
-            case (main_ep5_1):
+            case main_ep5_1:
                 break;
-            case (main_ep5_2):
+            case main_ep5_2:
                 break;
-            case (main_ep5_3):
+            case main_ep5_3:
                 break;
-            case (main_ep5_4):
+            case main_ep5_4:
                 break;
         }
     }
