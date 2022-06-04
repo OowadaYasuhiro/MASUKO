@@ -46,7 +46,7 @@ public class RecoveryOfBelongingsScreen_Deta
         return retText;
     }
 
-    public Artifact InstantiateCrown(Sprite image,Color color,string series)
+    public Artifact InstantiateCrown(Sprite image,string series)
     {
         int rarety = 0;
         int bonusValue = 0;
@@ -72,10 +72,10 @@ public class RecoveryOfBelongingsScreen_Deta
                 break;
         }
 
-        return new Artifact(series + "の冠",color,rarety,"ATK",bonusValue,series,image);
+        return new Artifact(series + "の冠",rarety,"ATK",bonusValue,series,image);
     }
 
-    public Artifact InstantiateBangle(Sprite image, Color color, string series)
+    public Artifact InstantiateBangle(Sprite image, string series)
     {
         int rarety = 0;
         int bonusValue = 0;
@@ -101,10 +101,10 @@ public class RecoveryOfBelongingsScreen_Deta
                 break;
         }
 
-        return new Artifact(series + "の腕輪", color, rarety, "DEF", bonusValue, series, image);
+        return new Artifact(series + "の腕輪", rarety, "DEF", bonusValue, series, image);
     }
 
-    public Artifact InstantiateRing(Sprite image, Color color, string series)
+    public Artifact InstantiateRing(Sprite image, string series)
     {
         int rarety = 0;
         int bonusValue = 0;
@@ -130,6 +130,6 @@ public class RecoveryOfBelongingsScreen_Deta
                 break;
         }
 
-        return new Artifact(series + "の指輪", color, rarety, "HP", bonusValue, series, image);
+        return new Artifact(series + "の指輪", rarety, "HP", bonusValue, series, image);
     }
 }

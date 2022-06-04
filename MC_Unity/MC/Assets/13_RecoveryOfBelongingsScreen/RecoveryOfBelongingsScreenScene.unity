@@ -505,10 +505,26 @@ MonoBehaviour:
   nodePrefab: {fileID: 742437896656736632, guid: 82a61731538a7fc4baab05552aebca31,
     type: 3}
   content: {fileID: 742545367}
-  artifactsImages:
-  - {fileID: 21300000, guid: 81254d4b1aad02146a6da8bda372e55b, type: 3}
-  - {fileID: 21300000, guid: 4f2b076c2fb267b40a005df6a594e938, type: 3}
-  - {fileID: 21300000, guid: d1c7345dfb7b60d43943386971cff2c0, type: 3}
+  huaImages:
+  - {fileID: 21300000, guid: d09bd2407385d6446998c4b11a601ccb, type: 3}
+  - {fileID: 21300000, guid: 1e364c1c949f71f4880a6b137f7efe5e, type: 3}
+  - {fileID: 21300000, guid: f0ade32dba5a3de439651508b935bcbe, type: 3}
+  onnnenImages:
+  - {fileID: 21300000, guid: 0d5f07608f44a0e47988ca4629493a49, type: 3}
+  - {fileID: 21300000, guid: 7fe7141aeced2ff4d84c4026e7c0ef00, type: 3}
+  - {fileID: 21300000, guid: 9103d8155d5299b489925af5b798e18c, type: 3}
+  rekisenImages:
+  - {fileID: 21300000, guid: 552918d8d0085f44ab6fb0e2f5d20e33, type: 3}
+  - {fileID: 21300000, guid: b8b4929383d76f349806203dbbca0869, type: 3}
+  - {fileID: 21300000, guid: c98dca87abe97404f9e80297d5904d35, type: 3}
+  yujyouImages:
+  - {fileID: 21300000, guid: a14bc52cf09a10545ab26006c61ef8ca, type: 3}
+  - {fileID: 21300000, guid: 61438e1f1b9800347a023396580b3259, type: 3}
+  - {fileID: 21300000, guid: 412bc02f46164e545bfc232acad702c9, type: 3}
+  akatukiImages:
+  - {fileID: 21300000, guid: e8d88c1c4483784439436f19f2073b47, type: 3}
+  - {fileID: 21300000, guid: accbb78d00824314eac879575eccb9b8, type: 3}
+  - {fileID: 21300000, guid: 583b3d0a660b0134ab854eb7b5c4f950, type: 3}
   isDebug: 1
 --- !u!4 &766680582
 Transform:

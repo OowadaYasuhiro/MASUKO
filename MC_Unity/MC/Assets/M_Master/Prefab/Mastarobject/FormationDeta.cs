@@ -400,5 +400,6 @@ public class Artifact
         this.addValue = bonusValue;
         this.seriesTag = tag;
         this.icon = image;
+        this.testColor = Color.white;
     }
 }
