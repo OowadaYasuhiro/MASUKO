@@ -6,21 +6,21 @@ using UnityEngine.UI;
 
 public class FormationDeta
 {
-    [SerializeField]private Charactor? selectcharactor1;
-    [SerializeField]private string charactor1artifact1;
-    [SerializeField]private string charactor1artifact2;
-    [SerializeField]private string charactor1artifact3;
-    [SerializeField]private Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
+    public Charactor? selectcharactor1;
+    public string charactor1artifact1;
+    public string charactor1artifact2;
+    public string charactor1artifact3;
+    public Artifact[] charactor1Artifacts = {new Artifact(),new Artifact(),new Artifact()};
 
-    [SerializeField]private Charactor? selectcharactor2;
-    [SerializeField]private string charactor2artifact1;
-    [SerializeField]private string charactor2artifact2;
-    [SerializeField]private string charactor2artifact3;
-    [SerializeField]private Artifact[] charactor2Artifacts = { new Artifact(), new Artifact(), new Artifact() };
+    public Charactor? selectcharactor2;
+    public string charactor2artifact1;
+    public string charactor2artifact2;
+    public string charactor2artifact3;
+    public Artifact[] charactor2Artifacts = { new Artifact(), new Artifact(), new Artifact() };
 
-    [SerializeField]private Artifact[] artifacts;
+    public Artifact[] artifacts;
 
-    [SerializeField]private RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
+    public RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
 
     public void SetSelectCharacter1(Charactor? character)
     {
@@ -133,24 +133,24 @@ public class FormationDeta
     }
 }
 
-[System.Serializable]
+//[System.Serializable]
 public struct Charactor
 {
-    [SerializeField]private string name;
-    [SerializeField]private int level;
-    [SerializeField]private int credibility;
-    [SerializeField]private int skill1level;
-    [SerializeField]private int skill2level;
-    [SerializeField]private int skill3level;
-    [SerializeField]private int ultlevel;
-    [SerializeField]private int passiveskilllevel;
-    [SerializeField]private int potentialflowering;
+    public string name;
+    public int level;
+    public int credibility;
+    public int skill1level;
+    public int skill2level;
+    public int skill3level;
+    public int ultlevel;
+    public int passiveskilllevel;
+    public int potentialflowering;
 
-    [SerializeField]private int hp;
-    [SerializeField]private int atk;
-    [SerializeField]private int def;
-    [SerializeField]private string passiveSkillName;
-    [SerializeField]private string passiveSkillEffect;
+    public int hp;
+    public int atk;
+    public int def;
+    public string passiveSkillName;
+    public string passiveSkillEffect;
 
     public Charactor(string name,int level, int credibility, int skill1level, int skill2level, int skill3level, int ultlevel, int passiveskilllevel, int potentialflowering,int hp,int atk,int def,string passiveNameText,string passiveSkillEffectText)
     {
@@ -313,14 +313,14 @@ public struct Charactor
 
 public class Artifact
 {
-    [SerializeField]private string name;
-    [SerializeField]private int level;
-    [SerializeField]private Color testColor;
-    [SerializeField]private int rarity;
-    [SerializeField]private string addStatus;
-    [SerializeField]private int addValue;
-    [SerializeField]private string seriesTag;
-    [SerializeField]private Sprite icon;
+    public string name;
+    public int level;
+    public Color testColor;
+    public int rarity;
+    public string addStatus;
+    public int addValue;
+    public string seriesTag;
+    public Sprite icon;
 
     public string GetName()
     {

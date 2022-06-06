@@ -12,6 +12,8 @@
         Stan,
         //戦闘
         Fight,
+        //スキル使用
+        DoSkill,
         //帰る
         RunAway,
         //撤退

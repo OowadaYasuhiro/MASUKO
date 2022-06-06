@@ -11,4 +11,9 @@ public class Damage
     //ダメージ量
     public int value;
 
+    public Damage(string type,int value)
+    {
+        this.type = type;
+        this.value = value;
+    }
 }
