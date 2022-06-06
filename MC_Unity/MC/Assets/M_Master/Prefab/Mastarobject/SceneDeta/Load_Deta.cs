@@ -10,7 +10,6 @@ public class Load_Deta
 /*使い方
 ①シーン変更
 //次のシーンの名前を代入
-
 */
 
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class kaikai : MonoBehaviour
 {
     int tmp;
+    int nowduplication;
     [SerializeField] GameObject u1;
     [SerializeField] GameObject u2;
     [SerializeField] GameObject u3;
@@ -39,6 +40,7 @@ public class kaikai : MonoBehaviour
     void zyougen(string i){
         switch(i) {
             case "Ghost":
+                nowduplication = Master.playerdeta.Ghostduplication;
                 a(Master.playerdeta.GhostPotentialflowering);
                 switch(tmp) {
                     case 0:
@@ -64,6 +66,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Zashiki_warashi":
+                nowduplication = Master.playerdeta.Zashiki_warashiduplication;
                 a(Master.playerdeta.Zashiki_warashiPotentialflowering);
                 switch(tmp) {
                     case 0:
@@ -89,6 +92,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Gore":
+                nowduplication = Master.playerdeta.goreduplication;
                 a(Master.playerdeta.GorePotentialflowering);
                 switch(tmp) {
                     case 0:
@@ -114,6 +118,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Poltergeist":
+                nowduplication = Master.playerdeta.Poltergeistduplication;
                 a(Master.playerdeta.PoltergeistPotentialflowering);
                 switch(tmp) {
                     case 0:
@@ -139,6 +144,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Daemon":
+                nowduplication = Master.playerdeta.Daemonduplication;
                 a(Master.playerdeta.DaemonPotentialflowering);
                 switch(tmp) {
                     case 0:
@@ -208,7 +214,33 @@ public class kaikai : MonoBehaviour
                         break;
         }
     }
-    
+    public void OnClick() {
+        if(tmp <4 && nowduplication <= 1) {
+            switch(Master.playerdeta.NowSelectCharactor) {
+                case "Ghost":
+                    Master.playerdeta.Ghostduplication--;
+                    Master.playerdeta.GhostPotentialflowering++;
+                    break;
+                case "Zashiki_warashi":
+                    Master.playerdeta.Zashiki_warashiduplication--;
+                    Master.playerdeta.Zashiki_warashiPotentialflowering++;
+                    break;
+                case "Gore":
+                    Master.playerdeta.goreduplication--;
+                    Master.playerdeta.GorePotentialflowering++;
+                    break;
+                case "Poltergeist":
+                    Master.playerdeta.Poltergeistduplication--;
+                    Master.playerdeta.PoltergeistPotentialflowering++;
+                    break;
+                case "Daemon":
+                    Master.playerdeta.Daemonduplication --;
+                    Master.playerdeta.DaemonPotentialflowering ++;
+                    break;
+            }
+            zyougen(Master.playerdeta.NowSelectCharactor);
+        }
+    }
 }
 
 
