@@ -5,6 +5,63 @@ using static Constant;
 
 partial class MainGame : MonoBehaviour
 {
+    List<MainGameCharactorModel> subjectList;
+    //範囲内の対象を取得
+    //検索対象の選択が必要
+    public MainGameCharactorModel[] SearchCharactor(Vector2[] area,bool player,bool enemy,bool summonsCharactor)
+    {
+        subjectList.Clear();
+        //受け取った座標を検索
+        foreach (Vector2 place in area)
+        {
+            if (player == true)
+            {
+                foreach (Player targetplayer in this.players)
+                {
+                    if (targetplayer.position.x >= (place.x - 0.5) && targetplayer.position.x < (place.x + 0.5))
+                    {
+                        if (targetplayer.position.y >= (place.y - 0.5) && targetplayer.position.y < (place.y + 0.5))
+                        {
+                            subjectList.Add(targetplayer);
+                        }
+                    }
+                }
+            }
+            if (enemy == true)
+            {
+                foreach (Enemy targetenemy in this.enemies)
+                {
+                    if (targetenemy.position.x >= (place.x - 0.5) && targetenemy.position.x < (place.x + 0.5))
+                    {
+                        if (targetenemy.position.y >= (place.y - 0.5) && targetenemy.position.y < (place.y + 0.5))
+                        {
+                            subjectList.Add(targetenemy);
+                        }
+                    }
+                }
+            }
+            if (summonsCharactor == true)
+            {
+                foreach (SummonsCharactor targetsummonsCharactor in this.summonsCharactor)
+                {
+                    if (targetsummonsCharactor.position.x >= (place.x - 0.5) && targetsummonsCharactor.position.x < (place.x + 0.5))
+                    {
+                        if (targetsummonsCharactor.position.y >= (place.y - 0.5) && targetsummonsCharactor.position.y < (place.y + 0.5))
+                        {
+                            subjectList.Add(targetsummonsCharactor);
+                        }
+                    }
+                }
+            }
+        }
+        MainGameCharactorModel[] subject = new MainGameCharactorModel[subjectList.Count];
+        for (int i = 0;i < subjectList.Count;i++)
+        {
+            subject[i] = subjectList[i];
+        }
+        return subject;
+    }
+
     /*
     //自動で敵を生成
     void GeneratEnemy()

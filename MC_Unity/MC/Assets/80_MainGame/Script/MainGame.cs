@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static Constant;
+using UnityEngine.SceneManagement;
 
 public partial class MainGame : MonoBehaviour
 {
@@ -59,7 +60,10 @@ public partial class MainGame : MonoBehaviour
     Enemy[] enemies;
 
     //プレイヤー
-    Player [] player;
+    Player [] players;
+
+    //召喚
+    SummonsCharactor[] summonsCharactor = new SummonsCharactor[4];
 
     //初期化
     void Start()
@@ -92,6 +96,9 @@ public partial class MainGame : MonoBehaviour
 
                 break;
             case GameState.End:
+
+                break;
+            case GameState.Result:
 
                 break;
         }
@@ -140,18 +147,18 @@ public partial class MainGame : MonoBehaviour
         {
             if (Master.formationdeta.GetCharactor2() != null)
             {
-                player = new Player[] { new Player(1),new Player(2) };
+                players = new Player[] { new Player(1),new Player(2) };
             }
             else
             {
-                player = new Player[] { new Player(1) };
+                players = new Player[] { new Player(1) };
             }
         }
         else
         {
             if (Master.formationdeta.GetCharactor2() != null)
             {
-                player = new Player[] { new Player(2) };
+                players = new Player[] { new Player(2) };
             }
             else
             {
@@ -160,10 +167,11 @@ public partial class MainGame : MonoBehaviour
         }
     }
 
-    //リザルト画面へ
-    void GoResult()
+    //メインゲーム終了
+    void Exit()
     {
-
+        Load_Deta.Nextscenename = "StageSelectScene";
+        SceneManager.LoadScene("Yanai_TestScene");
     }
 
 }

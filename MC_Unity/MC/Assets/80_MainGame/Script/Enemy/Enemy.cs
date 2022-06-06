@@ -27,6 +27,9 @@ public partial class Enemy : MainGameCharactorModel
     {
         switch (charactorState)
         {
+            case CharactorState.Stan:
+                charactorState = CharactorState.Run;
+                break;
             case CharactorState.Run:
 
                 break;
