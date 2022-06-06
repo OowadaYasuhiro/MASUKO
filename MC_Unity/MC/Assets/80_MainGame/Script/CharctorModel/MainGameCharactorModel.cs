@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+
+public delegate void SkillEvent();
 
 public class MainGameCharactorModel : MainGameCharactorState
 {
@@ -7,7 +10,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     //向き
     protected bool directionRight;
     //座標
-    protected Vector2 position;
+    internal Vector2 position;
     //移動用
     protected Vector2[] targetPosition;
     protected Vector2 latePosition;
@@ -77,6 +80,29 @@ public class MainGameCharactorModel : MainGameCharactorState
         foreach (var d in skillEvent.GetInvocationList())
         {
             skillEvent -= (SkillEvent)d;
+        }
+    }
+
+    //何フレーム実行するか(0で1回)、何フレーム毎に実行するか(1で毎フレーム)、
+    protected IEnumerator DoSkillEvent(MainGameCharactorModel target, int time, int doTick, /*MainGameCharactorModel coller*/ SkillEvent skillEvent)
+    {
+        int passedTime = 0;
+    POINT:
+
+        //SkillEvent skillEvent = 
+
+        if (passedTime >= doTick)
+        {
+            target.AddSkillEvent(skillEvent);
+            passedTime = 0;
+        }
+        time--;
+        passedTime++;
+
+        yield return new WaitForEndOfFrame();
+        if (time >= 0)
+        {
+            goto POINT;
         }
     }
 }

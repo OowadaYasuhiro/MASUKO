@@ -42,7 +42,8 @@ public static class Constant
         PreparationPhase,
         GameRun,
         Wait,
-        End
+        End,
+        Result
     }
 
     //敵の名前

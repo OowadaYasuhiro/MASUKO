@@ -20,7 +20,7 @@
         this.zyuRyokuResistance = zyuRyokuResistance;
     }*/
 
-    protected void AddDamage(Damage damage)
+    internal void AddDamage(Damage damage)
     {
         if (damage.type == Damage.physicsDamage)
         {

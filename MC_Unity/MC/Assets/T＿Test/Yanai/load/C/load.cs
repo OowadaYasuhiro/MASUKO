@@ -30,17 +30,7 @@ public class load : MonoBehaviour
         //ロード完了した時
         if(loadSlider.value >= 100) {
             //Load_Deta.Nextscrnrnumberに対応した次のシーンに飛ばす。
-            switch(Load_Deta.nextscenenumber) {
-                case Nextscenenumber.Kyouka:
-                    //強化画面
-                    SceneManager.LoadScene("yanai_test2");
-                    break;
-              /*case Nextscenenumber.(任意の列挙型) :
-                    //強化画面
-                    SceneManager.LoadScene("任意のシーン");
-                    break;
-              */
-            }
+                    SceneManager.LoadScene(Load_Deta.Nextscenename);
         }
     }
 }
