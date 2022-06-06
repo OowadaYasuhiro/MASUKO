@@ -22,6 +22,9 @@ public partial class MainGame : MonoBehaviour
     float gameSpeed;
     float timeLine;
 
+    //勝敗
+    bool playerWin;
+
     //**イベント**
     //一時停止
     bool pause;
@@ -65,6 +68,7 @@ public partial class MainGame : MonoBehaviour
         gameSpeed = 1;
         master = GameObject.Find("MasterObject");
         waveNumber = 1;
+        playerWin = false;
         //GeneratEnemy();
         GeneratPlayer();
     }
@@ -154,6 +158,12 @@ public partial class MainGame : MonoBehaviour
                 //ありえない
             }
         }
+    }
+
+    //リザルト画面へ
+    void GoResult()
+    {
+
     }
 
 }
