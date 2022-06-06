@@ -14,7 +14,17 @@ public class ArmorNodeGeneretor : MonoBehaviour
     [SerializeField]
     private Transform content;
     [SerializeField]
-    private Sprite[] artifactsImages;
+    private Sprite[] huaImages;
+    [SerializeField]
+    private Sprite[] onnnenImages;
+    [SerializeField]
+    private Sprite[] rekisenImages;
+    [SerializeField]
+    private Sprite[] yujyouImages;
+    [SerializeField]
+    private Sprite[] akatukiImages;
+
+
     [SerializeField]
     private bool isDebug;
 
@@ -41,21 +51,21 @@ public class ArmorNodeGeneretor : MonoBehaviour
         {
             if (!isLoad)
             {
-                testCrownArtifacts.Add(data.InstantiateCrown(artifactsImages[0], Color.red, "Akatuki"));
-                testBangleArtifacts.Add(data.InstantiateBangle(artifactsImages[1],Color.red,"Akatuki"));
-                testRingArtifacts.Add(data.InstantiateRing(artifactsImages[2],Color.red,"Akatuki"));
-                testCrownArtifacts.Add(data.InstantiateCrown(artifactsImages[0], Color.green, "Yujyou"));
-                testBangleArtifacts.Add(data.InstantiateBangle(artifactsImages[1], Color.green, "Yujyou"));
-                testRingArtifacts.Add(data.InstantiateRing(artifactsImages[2], Color.green, "Yujyou"));
-                testCrownArtifacts.Add(data.InstantiateCrown(artifactsImages[0], Color.blue, "Rekisen"));
-                testBangleArtifacts.Add(data.InstantiateBangle(artifactsImages[1], Color.blue, "Rekisen"));
-                testRingArtifacts.Add(data.InstantiateRing(artifactsImages[2], Color.blue, "Rekisen"));
-                testCrownArtifacts.Add(data.InstantiateCrown(artifactsImages[0], Color.magenta, "Onnnen"));
-                testBangleArtifacts.Add(data.InstantiateBangle(artifactsImages[1], Color.magenta, "Onnnen"));
-                testRingArtifacts.Add(data.InstantiateRing(artifactsImages[2], Color.magenta, "Onnnen"));
-                testCrownArtifacts.Add(data.InstantiateCrown(artifactsImages[0], Color.yellow, "Hua"));
-                testBangleArtifacts.Add(data.InstantiateBangle(artifactsImages[1], Color.yellow, "Hua"));
-                testRingArtifacts.Add(data.InstantiateRing(artifactsImages[2], Color.yellow, "Hua"));
+                testCrownArtifacts.Add(data.InstantiateCrown(huaImages[0], "Hua"));
+                testBangleArtifacts.Add(data.InstantiateBangle(huaImages[1], "Hua"));
+                testRingArtifacts.Add(data.InstantiateRing(huaImages[2], "Hua"));
+                testCrownArtifacts.Add(data.InstantiateCrown(onnnenImages[0], "Onnnen"));
+                testBangleArtifacts.Add(data.InstantiateBangle(onnnenImages[1], "Onnnen"));
+                testRingArtifacts.Add(data.InstantiateRing(onnnenImages[2], "Onnnen"));
+                testCrownArtifacts.Add(data.InstantiateCrown(rekisenImages[0], "Rekisen"));
+                testBangleArtifacts.Add(data.InstantiateBangle(rekisenImages[1], "Rekisen"));
+                testRingArtifacts.Add(data.InstantiateRing(rekisenImages[2], "Rekisen"));
+                testCrownArtifacts.Add(data.InstantiateCrown(yujyouImages[0], "Yujyou"));
+                testBangleArtifacts.Add(data.InstantiateBangle(yujyouImages[1], "Yujyou"));
+                testRingArtifacts.Add(data.InstantiateRing(yujyouImages[2], "Yujyou"));
+                testCrownArtifacts.Add(data.InstantiateCrown(akatukiImages[0], "Akatuki"));
+                testBangleArtifacts.Add(data.InstantiateBangle(akatukiImages[1], "Akatuki"));
+                testRingArtifacts.Add(data.InstantiateRing(akatukiImages[2], "Akatuki"));
 
                 isLoad = true;
             }
@@ -105,7 +115,7 @@ public class ArmorNodeGeneretor : MonoBehaviour
             }
             else
             {
-                node.GetComponent<Image>().color = artifacts[i].GetColor();
+                node.GetComponent<Image>().color = Color.white;
             }
         }
     }

@@ -4,12 +4,12 @@
     protected bool alive { get; set;}
 
     //体力
-    int hp;
-    int maxHp;
+    protected int hp;
+    protected int maxHp;
     //耐性(カット率)
-    int physicsDamageResistance;
-    int zyuGekiResistance;
-    int zyuRyokuResistance;
+    protected int physicsDamageResistance;
+    protected int zyuGekiResistance;
+    protected int zyuRyokuResistance;
 
     /*protected MainGameCharactorDamageModel(int maxHp, int physicsDamageResistance, int zyuGekiResistance, int zyuRyokuResistance)
     {
