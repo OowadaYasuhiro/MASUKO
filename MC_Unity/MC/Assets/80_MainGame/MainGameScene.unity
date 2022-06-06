@@ -1762,6 +1762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e8a6849d4450641b6207920c9d1b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backGround: {fileID: 0}
+  stage: {fileID: 0}
 --- !u!1 &685366603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4531,7 +4533,7 @@ GameObject:
   - component: {fileID: 1899691541}
   - component: {fileID: 1899691540}
   m_Layer: 5
-  m_Name: BackGround
+  m_Name: StageBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4899,7 +4901,7 @@ GameObject:
   - component: {fileID: 1993499108}
   - component: {fileID: 1993499107}
   m_Layer: 5
-  m_Name: BackGround (1)
+  m_Name: StageBackGround (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
