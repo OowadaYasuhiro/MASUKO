@@ -8,11 +8,16 @@ public partial class Enemy : MainGameCharactorModel
     //戦闘時間
     const float maxFightTime = 10f;
     float fightTime;
+    //通常攻撃
+    Damage damage;
+    //MainGameのアドレス
+    MainGame mainGame;
 
 
-    public Enemy(string difficulty)
+    public Enemy( MainGame mainGame, string difficulty)
     {
-        this.name = name;
+        this.mainGame = mainGame;
+        //this.name = name;
         Setting(difficulty);
     }
 
@@ -31,8 +36,12 @@ public partial class Enemy : MainGameCharactorModel
                 charactorState = CharactorState.Run;
                 break;
             case CharactorState.Run:
-
+                if (findEnemy == true)
+                {
+                    charactorState = CharactorState.Fight;
+                }
                 break;
+            
         }
     }
 
@@ -42,6 +51,12 @@ public partial class Enemy : MainGameCharactorModel
         //スキルの反映とリセット
         skillEvent();
         ReMoveAllEvents();
+        switch (charactorState)
+        {
+            case CharactorState.Fight:
+                targetEnemy[0].AddDamage(damage);
+                break;
+        }
     }
 
     //結果
