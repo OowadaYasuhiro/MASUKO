@@ -20,12 +20,12 @@ public class MainGameCharactorModel : MainGameCharactorState
     //移動速度
     protected float moveSpeed;
     //攻撃範囲
-    protected Vector2[] attackRange;
+    internal Vector2[] attackRange;
     //視界範囲
     protected Vector2[] viewRange;
     //接敵
-    protected bool findEnemy;
-    protected MainGameCharactorModel[] targetEnemy;
+    internal bool findEnemy;
+    internal MainGameCharactorModel[] targetEnemy;
     //基本ステータス攻撃力
     protected int baseAttackPower;
     //攻撃力計算結果

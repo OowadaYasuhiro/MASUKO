@@ -147,18 +147,18 @@ public partial class MainGame : MonoBehaviour
         {
             if (Master.formationdeta.GetCharactor2() != null)
             {
-                players = new Player[] { new Player(1),new Player(2) };
+                players = new Player[] { new Player(this, 1),new Player(this, 2) };
             }
             else
             {
-                players = new Player[] { new Player(1) };
+                players = new Player[] { new Player(this, 1) };
             }
         }
         else
         {
             if (Master.formationdeta.GetCharactor2() != null)
             {
-                players = new Player[] { new Player(2) };
+                players = new Player[] { new Player(this, 2) };
             }
             else
             {

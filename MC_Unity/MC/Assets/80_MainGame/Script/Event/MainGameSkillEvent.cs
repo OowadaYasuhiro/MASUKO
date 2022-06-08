@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 public class MainGameSkillEvent : MainGameCharactorModel
 {
     //何フレーム実行するか(0で1回)、何フレーム毎に実行するか(1で毎フレーム)、
-    public IEnumerator DoSkillEvent(MainGameCharactorModel target, int time, int doTick, MainGameCharactorModel coller/*, SkillEvent skillEvent*/ )
+    public IEnumerator DoSkillEvent(MainGameCharactorModel target, int time, int doTick, /*MainGameCharactorModel coller/*,*/ SkillEvent skillEvent )
     {
         int passedTime = 0;
         POINT:

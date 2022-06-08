@@ -36,11 +36,11 @@ public partial class Player
                             AddDamage(new Damage(Damage.physicsDamage,(int)(resultingAttackPower * 0.1)));
                         }
                         //攻撃範囲内の敵を取得
-                        MainGameCharactorModel[] target = GameObject.Find("MainGame").GetComponent<MainGame>().SearchCharactor(attackRange,false,true,false);
+                        MainGameCharactorModel[] target = mainGame.SearchCharactor(attackRange,false,true,false);
                         //ターゲット全員に対しスキルを発動
                         foreach (MainGameCharactorModel targetCharactor in target)
                         {
-                            StartCoroutine(DoSkillEvent( targetCharactor, 180, 1, EnemyStan));
+                            StartCoroutine(DoSkillEvent( targetCharactor, 180, 1, Stan));
                             StartCoroutine(DoSkillEvent( targetCharactor, 300, 72,SkillAttack));
                         }
 

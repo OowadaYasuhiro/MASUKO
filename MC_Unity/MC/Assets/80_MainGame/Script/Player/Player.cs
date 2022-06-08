@@ -17,9 +17,12 @@ public partial class Player : MainGameCharactorModel
     Artifact artifact1;
     Artifact artifact2;
     Artifact artifact3;
+    //MainGameのアドレス
+    MainGame mainGame;
 
-    public Player(int number)
+    public Player(MainGame mainGame, int number)
     {
+        this.mainGame = mainGame;
         Setting(number);
     }
 
