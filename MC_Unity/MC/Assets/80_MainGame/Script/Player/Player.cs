@@ -28,7 +28,7 @@ public partial class Player : MainGameCharactorModel
 
     private void Start()
     {
-        charactorState = CharactorState.Wait;
+        charactorState = CharactorState.Resting;
         charactorAnimState = CharactorAnimState.Wait;
     }
 

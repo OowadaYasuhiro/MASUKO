@@ -40,8 +40,8 @@ public partial class Player
                         //ターゲット全員に対しスキルを発動
                         foreach (MainGameCharactorModel targetCharactor in target)
                         {
-                            StartCoroutine(DoSkillEvent( targetCharactor, 180, 1, Stan));
-                            StartCoroutine(DoSkillEvent( targetCharactor, 300, 72,SkillAttack));
+                            StartCoroutine(new MainGameSkillEvent().DoSkillEvent(targetCharactor, 180, 1, Stan));
+                            StartCoroutine(new MainGameSkillEvent().DoSkillEvent(targetCharactor, 300, 72, SkillAttack));
                         }
 
                         
