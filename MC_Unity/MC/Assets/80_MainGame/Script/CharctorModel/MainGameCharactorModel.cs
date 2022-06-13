@@ -14,6 +14,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     //移動用
     protected Vector2[] targetPosition;
     protected Vector2 latePosition;
+    protected Vector2 targetObject;
     Vector2 arrow;
     int moveTargetPointer = 0;
     bool next = true;
@@ -48,6 +49,10 @@ public class MainGameCharactorModel : MainGameCharactorState
             if (!(arrow.Equals(compareArrow.normalized)) || position == targetPosition[moveTargetPointer])
             {
                 position = targetPosition[moveTargetPointer];
+                if (position == targetObject)
+                {
+                    charactorState = CharactorState.RunAway;
+                }
                 moveTargetPointer++;
                 next = true;
             }
@@ -80,29 +85,6 @@ public class MainGameCharactorModel : MainGameCharactorState
         foreach (var d in skillEvent.GetInvocationList())
         {
             skillEvent -= (SkillEvent)d;
-        }
-    }
-
-    //何フレーム実行するか(0で1回)、何フレーム毎に実行するか(1で毎フレーム)、
-    protected IEnumerator DoSkillEvent(MainGameCharactorModel target, int time, int doTick, /*MainGameCharactorModel coller*/ SkillEvent skillEvent)
-    {
-        int passedTime = 0;
-    POINT:
-
-        //SkillEvent skillEvent = 
-
-        if (passedTime >= doTick)
-        {
-            target.AddSkillEvent(skillEvent);
-            passedTime = 0;
-        }
-        time--;
-        passedTime++;
-
-        yield return new WaitForEndOfFrame();
-        if (time >= 0)
-        {
-            goto POINT;
         }
     }
 }

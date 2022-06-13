@@ -16,6 +16,9 @@ public partial class MainGame : MonoBehaviour
     //ステージ
     string stage;
 
+    //ステージデータ
+    MainGame_StageDeta mainGame_StageDeta;
+
     //現在のウェーブ
     int waveNumber;
 

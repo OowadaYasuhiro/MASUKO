@@ -12,6 +12,8 @@ public partial class Enemy : MainGameCharactorModel
     Damage damage;
     //MainGameのアドレス
     MainGame mainGame;
+    //最後の移動状態
+    CharactorState lastRunType;
 
 
     public Enemy( MainGame mainGame, string difficulty)
@@ -33,15 +35,22 @@ public partial class Enemy : MainGameCharactorModel
         switch (charactorState)
         {
             case CharactorState.Stan:
-                charactorState = CharactorState.Run;
+                charactorState = lastRunType;
                 break;
             case CharactorState.Run:
+                lastRunType = CharactorState.Run;
                 if (findEnemy == true)
                 {
                     charactorState = CharactorState.Fight;
                 }
                 break;
-            
+            case CharactorState.RunAway:
+                lastRunType = CharactorState.RunAway;
+                if (findEnemy == true)
+                {
+                    charactorState = CharactorState.Fight;
+                }
+                break;
         }
     }
 
