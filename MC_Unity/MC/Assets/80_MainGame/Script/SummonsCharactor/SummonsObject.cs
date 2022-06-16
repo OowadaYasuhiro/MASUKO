@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
-public class SummonsCharactor : MainGameCharactorModel
+public class SummonsObject : MainGameCharactorModel
 {
 
     //MainGameのアドレス
@@ -11,28 +12,38 @@ public class SummonsCharactor : MainGameCharactorModel
     //攻撃するかどうか
     bool attackable;
 
+    //攻撃
+    Damage damage;
+
     //スキルを発動するかどうか
     bool skillble;
 
     //スキル
     SkillEvent skill;
 
-    //
-    public SummonsCharactor(MainGame mainGame, int attackDamage, SkillEvent skillEvent, Vector2[] attackRange)
+    //DaemonSkill2,
+    public SummonsObject(MainGame mainGame, SkillEvent skillEvent, Vector2[] attackRange)
     {
         this.mainGame = mainGame;
-        baseAttackPower = attackDamage;
         skill = skillEvent;
         this.attackRange = attackRange;
         attackable = true;
+        skillble = true;
     }
 
     //情報収集
     public void FastUpDate()
     {
-        if (attackable == true)
+        if (attackable == true && findEnemy == true)
         {
-
+            foreach (MainGameCharactorModel target in targetEnemy)
+            {
+                target.AddDamage(damage);
+            }
+        }
+        if (skillble == true)
+        {
+            skill();
         }
     }
 
@@ -49,4 +60,5 @@ public class SummonsCharactor : MainGameCharactorModel
     {
 
     }
+
 }

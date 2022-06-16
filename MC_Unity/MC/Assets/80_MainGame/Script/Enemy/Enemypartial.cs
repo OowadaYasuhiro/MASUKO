@@ -7,19 +7,30 @@ public partial class Enemy
 {
     void Setting(string difficulty)
     {
-        switch (name)
+        switch (Charactorname)
         {
             case Tuyogarisyounen:
+                moveSpeed = 1.0f;
+                attackRange = new Vector2[] { new Vector2(0,0), new Vector2(1,0)};
+                physicsDamageResistance = 0;
+                zyuGekiResistance = 0;
+                zyuRyokuResistance = 0;
                 switch (difficulty)
                 {
                     case easy:
-                        
+                        maxHp = 1000;
+                        hp = 1000;
+                        baseAttackPower = 30;
                         break;
                     case normal:
-
+                        maxHp = 1500;
+                        hp = 1500;
+                        baseAttackPower = 40;
                         break;
                     case hard:
-
+                        maxHp = 2000;
+                        hp = 2000;
+                        baseAttackPower = 50;
                         break;
                 }
                 break;

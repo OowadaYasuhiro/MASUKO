@@ -31,7 +31,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     protected int baseAttackPower;
     //攻撃力計算結果
     protected int resultingAttackPower;
-    //スキル
+    //スキルイベント
     protected SkillEvent skillEvent;
 
     //移動

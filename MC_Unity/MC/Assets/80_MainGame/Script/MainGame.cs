@@ -23,7 +23,7 @@ public partial class MainGame : MonoBehaviour
     int waveNumber;
 
     //ゲーム内時間軸
-    float gameSpeed;
+    internal float gameSpeed { get; private set;}
     float timeLine;
 
     //勝敗
@@ -66,7 +66,7 @@ public partial class MainGame : MonoBehaviour
     Player [] players;
 
     //召喚
-    SummonsCharactor[] summonsCharactor = new SummonsCharactor[4];
+    SummonsCharactor[] summonsCharactor = new SummonsCharactor[8];
 
     //初期化
     void Start()
