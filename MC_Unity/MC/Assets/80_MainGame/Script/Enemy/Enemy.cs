@@ -6,21 +6,30 @@ using UnityEngine.UIElements;
 public partial class Enemy : MainGameCharactorModel
 {
     //戦闘時間
-    const float maxFightTime = 10f;
-    float fightTime;
+    const int maxFightTime = 600;
+    int fightTime;
+
+    //戦闘無視時間
+    bool fightThrough;
+    int maxThroughTime;
+    int throughTime;
+
     //通常攻撃
     Damage damage;
+
     //MainGameのアドレス
     MainGame mainGame;
+
     //最後の移動状態
     CharactorState lastRunType;
 
 
-    public Enemy( MainGame mainGame, string difficulty)
+    public Enemy( MainGame mainGame, string difficulty, string name)
     {
         this.mainGame = mainGame;
-        //this.name = name;
+        this.Charactorname = name;
         Setting(difficulty);
+        directionRight = true;
     }
 
     private void Start()
@@ -39,14 +48,16 @@ public partial class Enemy : MainGameCharactorModel
                 break;
             case CharactorState.Run:
                 lastRunType = CharactorState.Run;
-                if (findEnemy == true)
+                //攻撃範囲に敵がいて戦闘無視状態で無い場合
+                if (findEnemy == true && fightThrough == false)
                 {
                     charactorState = CharactorState.Fight;
                 }
                 break;
             case CharactorState.RunAway:
                 lastRunType = CharactorState.RunAway;
-                if (findEnemy == true)
+                //攻撃範囲に敵がいて戦闘無視状態で無い場合
+                if (findEnemy == true && fightThrough == false)
                 {
                     charactorState = CharactorState.Fight;
                 }
@@ -63,7 +74,15 @@ public partial class Enemy : MainGameCharactorModel
         switch (charactorState)
         {
             case CharactorState.Fight:
-                targetEnemy[0].AddDamage(damage);
+                foreach (MainGameCharactorModel target in targetEnemy)
+                {
+                    target.AddDamage(damage);
+                }
+                fightTime++;
+                if (fightTime >= maxFightTime)
+                {
+                    fightThrough = true;
+                }
                 break;
         }
     }
