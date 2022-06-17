@@ -114,6 +114,14 @@ public partial class Player : MainGameCharactorModel
             ultSkillEvent();
             ultStack = 0;
         }
+
+        switch (charactorState)
+        {
+            case CharactorState.Fight:
+
+                break;
+        }
+
     }
 
     //計算
@@ -124,6 +132,15 @@ public partial class Player : MainGameCharactorModel
         ReMoveAllEvents();
         //パッシブスキル
         passiveSkill();
+        switch (charactorState)
+        {
+            case CharactorState.Fight:
+                foreach (MainGameCharactorModel target in targetEnemy)
+                {
+                    target.AddDamage(new Damage(Damage.physicsDamage, resultingAttackPower));
+                }
+                break;
+        }
     }
 
     //結果

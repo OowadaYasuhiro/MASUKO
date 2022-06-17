@@ -16,6 +16,9 @@ public partial class MainGame : MonoBehaviour
     //ステージ
     string stage;
 
+    //難易度
+    string difficulty;
+
     //ステージデータ
     MainGame_StageDeta mainGame_StageDeta;
 
@@ -66,7 +69,10 @@ public partial class MainGame : MonoBehaviour
     Player [] players;
 
     //召喚
-    SummonsCharactor[] summonsCharactor = new SummonsCharactor[8];
+    internal SummonsCharactor[] summonsCharactor = new SummonsCharactor[8];
+
+    //召喚
+    internal SummonsObject[] summonsobject = new SummonsObject[8];
 
     //初期化
     void Start()
@@ -74,6 +80,9 @@ public partial class MainGame : MonoBehaviour
         gamestate = GameState.BeforeStart;
         gameSpeed = 1;
         master = GameObject.Find("MasterObject");
+        stage = StageSelect_Deta.selectStageNumber;
+        difficulty = StageSelect_Deta.selectDifficulty;
+        mainGame_StageDeta = new MainGame_StageDeta(stage);
         waveNumber = 1;
         playerWin = false;
         //GeneratEnemy();
