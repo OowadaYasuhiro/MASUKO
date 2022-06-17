@@ -41,5 +41,7 @@ public class MainGameSkillEvent : MainGameCharactorModel
         {
             goto POINT;
         }
+
+        Destroy(this);
     }
 }

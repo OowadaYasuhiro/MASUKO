@@ -55,12 +55,14 @@ public partial class Player
                 skillEvent1 = DaemonSkill1;
                 void DaemonSkill1()
                 {
-                    SkillEvent Stan = EnemyStan;
+                    goto Skip0;
                     //ステートをスタンに移行
                     void EnemyStan()
                     {
                         charactorState = CharactorState.Stan;
                     }
+                    Skip0:
+                    SkillEvent Stan = EnemyStan;
                     double damageMagnification = 0;
                     switch (FDC.skill1level)
                     {
@@ -80,47 +82,86 @@ public partial class Player
                             damageMagnification = 0.3;
                             break;
                     }
+                    goto Skip1;
                     //攻撃力のn%の物理ダメージ(要検討)
                     void PlayerSkillAttack()
                     {
                         AddDamage(new Damage(Damage.physicsDamage, (int)(resultingAttackPower * damageMagnification)));
                     }
+                    Skip1:
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
                     MainGameCharactorModel[] target = mainGame.SearchCharactor(attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharactorModel targetCharactor in target)
                     {
-                        StartCoroutine(new MainGameSkillEvent().DoSkillEvent(mainGame, targetCharactor, 180, 1, Stan));
-                        StartCoroutine(new MainGameSkillEvent().DoSkillEvent(mainGame, targetCharactor, 300, 72, SkillAttack));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 180, 1, Stan));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 300, 72, SkillAttack));
                     }
                 }
                 //最大スタック数設定
                 maxSkill2Stack = 1;
                 skill2Stack = maxSkill2Stack;
+                //スキル２のダメージ
+                int Skill2Damage = 0;
                 //クールダウン設定
                 switch (FDC.skill2level)
                 {
                     case 1:
                         skill2CoolDown = 720;
+                        Skill2Damage = (int)(baseAttackPower * 1.05);
                         break;
                     case 2:
                         skill2CoolDown = 720;
+                        Skill2Damage = (int)(baseAttackPower * 1.15);
                         break;
                     case 3:
                         skill2CoolDown = 660;
+                        Skill2Damage = (int)(baseAttackPower * 1.25);
                         break;
                     case 4:
                         skill2CoolDown = 660;
+                        Skill2Damage = (int)(baseAttackPower * 1.35);
                         break;
                     case 5:
                         skill2CoolDown = 600;
+                        Skill2Damage = (int)(baseAttackPower * 1.45);
                         break;
                 }
                 skillEvent2 = DaemonSkill2;
                 void DaemonSkill2()
                 {
-
+                    goto Skip0;
+                    //ステートをスタンに移行
+                    void EnemyStan()
+                    {
+                        charactorState = CharactorState.Stan;
+                    }
+                    Skip0:
+                    SkillEvent Stan = EnemyStan;
+                    goto Skip1;
+                    //攻撃力のn%の物理ダメージ(要検討)
+                    void PlayerSkillAttack()
+                    {
+                        AddDamage(new Damage(Damage.physicsDamage, Skill2Damage));
+                    }
+                    Skip1:
+                    SkillEvent SkillAttack = PlayerSkillAttack;
+                    goto Skip2;
+                    void ObjectSkill()
+                    {
+                        //攻撃範囲内の敵を取得
+                        MainGameCharactorModel[] target = mainGame.SearchCharactor(new Vector2[] { new Vector2(0,0)}, false, true, false);
+                        //ターゲット全員に対しスキルを発動
+                        foreach (MainGameCharactorModel targetCharactor in target)
+                        {
+                            StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 300, 1, Stan));
+                            StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 0, 1, SkillAttack));
+                        }
+                    }
+                    Skip2:
+                    SkillEvent ObjectSkillEvent = ObjectSkill;
+                    mainGame.summonsobject[mainGame.summonsobject.Length] = new SummonsObject(mainGame,ObjectSkillEvent);
                 }
                 //最大スタック数設定
                 maxSkill3Stack = 3;
@@ -242,7 +283,7 @@ public partial class Player
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharactorModel targetCharactor in target)
                     {
-                        StartCoroutine(new MainGameSkillEvent().DoSkillEvent(mainGame, targetCharactor, 300, 72, SkillAttack));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 300, 72, SkillAttack));
                     }
                 }
                 //最大スタック数設定
@@ -284,15 +325,7 @@ public partial class Player
                 passiveSkill = PassiveSkill;
                 void PassiveSkill()
                 {
-                    switch (charactorState)
-                    {
-                        case CharactorState.Fight:
-                            foreach (MainGameCharactorModel target in targetEnemy)
-                            {
-                                target.AddDamage(new Damage(physicsDamage,(int)(baseAttackPower * (0.03 * ultStack))));
-                            }
-                            break;
-                    }
+                    resultingAttackPower = baseAttackPower + (int)(baseAttackPower * (0.03 * ultStack));
                 }
                 break;
             case Poltergeist:
