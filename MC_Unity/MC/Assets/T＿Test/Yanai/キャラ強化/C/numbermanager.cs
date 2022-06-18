@@ -10,6 +10,10 @@ public class numbermanager : MonoBehaviour
     [SerializeField] GameObject Coin;
     [SerializeField] GameObject Zanryu_Sinen;
     [SerializeField] GameObject MagaTamashi;
+    [SerializeField] Image Sinrai1;
+    [SerializeField] Image Sinrai2;
+    [SerializeField] Image Sinrai3;
+    [SerializeField] Image Sinrai4;
 
     // Start is called before the first frame update
     void Start()
@@ -54,33 +58,50 @@ public class numbermanager : MonoBehaviour
     }
 
     void Sinrai() {
+        float Sinraivalue = 0;
         Text Sinrai = sinrai.GetComponent<Text>();
         switch(Master.playerdeta.NowSelectCharactor) {
             case "Ghost":
-                if(Master.playerdeta.GhostCredibility < 50) {
-                    Sinrai.text = "0";
-                }else if(Master.playerdeta.GhostCredibility < 150) {
-                    Sinrai.text = "1";
-                } else if(Master.playerdeta.GhostCredibility < 250) {
-                    Sinrai.text = "2";
-                }else if(Master.playerdeta.GhostCredibility < 450) {
-                    Sinrai.text = "3";
-                } else {
-                    Sinrai.text = "4";
-                }
+                Sinraivalue = Master.playerdeta.GhostCredibility;
                 break;
             case "Zashiki_warashi":
-                Sinrai.text = $"{Master.playerdeta.Zashiki_warashiCredibility}";
+                Sinraivalue = Master.playerdeta.Zashiki_warashiCredibility;
                 break;
             case "Gore":
-                Sinrai.text = $"{Master.playerdeta.goreCredibility}";
+                Sinraivalue = Master.playerdeta.goreCredibility;
                 break;
             case "Poltergeist":
-                Sinrai.text = $"{Master.playerdeta.PoltergeistCredibility}";
+                Sinraivalue = Master.playerdeta.PoltergeistCredibility;
                 break;
             case "Daemon":
-                Sinrai.text = $"{Master.playerdeta.DaemonCredibility}";
+                Sinraivalue = Master.playerdeta.DaemonCredibility;
                 break;
         }
+        if(Sinraivalue < 50) {
+                    Sinrai.text = "0";
+            Sinrai1.fillAmount = Sinraivalue/50f;
+        } else if(Sinraivalue < 150) {
+                    Sinrai.text = "1";
+            Sinrai1.fillAmount = 1;
+            Sinrai2.fillAmount =(Sinraivalue-50) / 100f;
+        } else if(Sinraivalue < 250) {
+                    Sinrai.text = "2";
+            Sinrai1.fillAmount = 1;
+            Sinrai2.fillAmount = 1;
+            Sinrai3.fillAmount = (Sinraivalue - 150) / 200f;
+        } else if(Sinraivalue < 450) {
+                    Sinrai.text = "3";
+            Sinrai1.fillAmount = 1;
+            Sinrai2.fillAmount = 1;
+            Sinrai3.fillAmount = 1;
+            Sinrai4.fillAmount = (Sinraivalue - 250) / 450f;
+        } else {
+                    Sinrai.text = "4";
+            Sinrai1.fillAmount = 1;
+            Sinrai2.fillAmount = 1;
+            Sinrai3.fillAmount = 1;
+            Sinrai4.fillAmount = 1;
+        }
+        
     }
 }

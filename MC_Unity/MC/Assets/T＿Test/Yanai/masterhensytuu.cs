@@ -26,7 +26,9 @@ public class masterhensytuu : MonoBehaviour
         Master.playerdeta.Ikotu=100;
         //人間の血
         Master.playerdeta.Ningennnoti=100;
-}
+        //信頼度
+        Master.playerdeta.GhostCredibility = 210;
+    }
 
     // Update is called once per frame
     void Update()
