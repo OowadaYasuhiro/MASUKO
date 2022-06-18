@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Constant;
 using UnityEngine.SceneManagement;
+using static System.Convert;
+using System;
 
 public partial class MainGame : MonoBehaviour
 {
@@ -16,11 +18,14 @@ public partial class MainGame : MonoBehaviour
     //ステージ
     string stage;
 
+    //ステージUI
+    MainGame_StageUI mainGame_StageUI;
+
     //難易度
     string difficulty;
 
     //ステージデータ
-    MainGame_StageDeta mainGame_StageDeta;
+    internal MainGame_StageDeta mainGame_StageDeta;
 
     //現在のウェーブ
     int waveNumber;
@@ -80,9 +85,14 @@ public partial class MainGame : MonoBehaviour
         gamestate = GameState.BeforeStart;
         gameSpeed = 1;
         master = GameObject.Find("MasterObject");
+        StageSelect_Deta.selectStageNumber = Constant.main_ep1_1;
         stage = StageSelect_Deta.selectStageNumber;
+        
         difficulty = StageSelect_Deta.selectDifficulty;
         mainGame_StageDeta = new MainGame_StageDeta(stage);
+        mainGame_StageUI = GetComponent<MainGame_StageUI>();
+        mainGame_StageUI.SendMessage("SetBackGround", Int32.Parse(stage.Substring(1,2)));
+        mainGame_StageUI.SendMessage("SetObstacle", Int32.Parse(stage.Substring(1, 2)));
         waveNumber = 1;
         playerWin = false;
         //GeneratEnemy();

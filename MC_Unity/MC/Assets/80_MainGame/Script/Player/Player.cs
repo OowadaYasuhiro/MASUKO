@@ -4,6 +4,8 @@ using UnityEngine;
 
 public partial class Player : MainGameCharactorModel
 {
+    //自分の番号
+    int myNumber;
     //スキル
     //使用されたかどうか
     internal bool skill1;
@@ -117,6 +119,9 @@ public partial class Player : MainGameCharactorModel
 
         switch (charactorState)
         {
+            case CharactorState.Resting:
+                
+                break;
             case CharactorState.Fight:
 
                 break;
