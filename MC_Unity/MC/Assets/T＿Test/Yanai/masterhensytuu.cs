@@ -10,7 +10,7 @@ public class masterhensytuu : MonoBehaviour
         Master.playerdeta.GhostbreakingThrough1 = true;
         Master.playerdeta.GhostbreakingThrough2 = false;
         Master.playerdeta.GhostSkill1Level = 1;
-        Master.playerdeta.NowSelectCharactor = "Ghost";
+        Master.playerdeta.NowSelectCharactor = "Daemon";
         Master.playerdeta.MagaTamashi = 100000;
         Master.playerdeta.Zanryu_Sinen = 100000;
         Master.playerdeta.Coin = 1000000;
