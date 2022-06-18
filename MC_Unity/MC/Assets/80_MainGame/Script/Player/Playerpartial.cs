@@ -9,6 +9,7 @@ public partial class Player
     //コンストラクターから呼び出し、フィールドの情報を埋めていく
     void Setting(int number)
     {
+        myNumber = number;
         player = true;
         Charactor FDC = new Charactor();
         if (number == 1)

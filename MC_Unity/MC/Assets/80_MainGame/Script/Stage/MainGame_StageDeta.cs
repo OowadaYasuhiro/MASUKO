@@ -114,6 +114,11 @@ public class MainGame_StageDeta
                 break;
         }
     }
+
+    internal bool[,] GetMap()
+    {
+        return map_grids_wall;
+    }
 }
 
 public struct Map_Grid

@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: 1436082185091823125, guid: 7ef827eb299a3574483dfb9a23340b7a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4527492822684464099, guid: 7ef827eb299a3574483dfb9a23340b7a,
         type: 3}
@@ -330,6 +330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2071092653442830520, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3025106873407943553, guid: e164fc47152b7624c8154f62d6f2197b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -500,7 +505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &923779161
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5424,6 +5429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMasteCreater
       objectReference: {fileID: 0}
+    - target: {fileID: 3893564689592022582, guid: 820b3d98b6902bc419b02f4e505e842e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6966620466851375267, guid: 820b3d98b6902bc419b02f4e505e842e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5570,7 +5580,7 @@ PrefabInstance:
     - target: {fileID: 6747126721616906130, guid: 449d09583dc482640a0f61123d5cdd34,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6747126721616906141, guid: 449d09583dc482640a0f61123d5cdd34,
         type: 3}
@@ -5821,7 +5831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2638953985791840577
 MonoBehaviour:
   m_ObjectHideFlags: 0
