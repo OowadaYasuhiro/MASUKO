@@ -91,8 +91,8 @@ public partial class MainGame : MonoBehaviour
         difficulty = StageSelect_Deta.selectDifficulty;
         mainGame_StageDeta = new MainGame_StageDeta(stage);
         mainGame_StageUI = GetComponent<MainGame_StageUI>();
-        mainGame_StageUI.SendMessage("SetBackGround", Int32.Parse(stage.Substring(1,2)));
-        mainGame_StageUI.SendMessage("SetObstacle", Int32.Parse(stage.Substring(1, 2)));
+        mainGame_StageUI.SendMessage("SetBackGround", int.Parse(stage.Substring(1,2)));
+        mainGame_StageUI.SendMessage("SetObstacle", int.Parse(stage.Substring(1, 2)));
         waveNumber = 1;
         playerWin = false;
         //GeneratEnemy();

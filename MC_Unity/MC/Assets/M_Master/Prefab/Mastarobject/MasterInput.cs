@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MastarInput : MonoBehaviour
+public class MasterInput : MonoBehaviour
 {
     bool iseditor;
 
