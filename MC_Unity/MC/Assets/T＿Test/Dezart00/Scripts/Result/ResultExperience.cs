@@ -3,32 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class Texttest : MonoBehaviour
+public class ResultExperience : MonoBehaviour
 {
     [SerializeField]
-    public GameObject TextLvel = null;
+    public GameObject TextLvel;
     [SerializeField]
-    public GameObject TextTotalExperience = null;
+    public GameObject TextTotalExperience;
     /*[SerializeField]
     public GameObject Item_object = null;
     [SerializeField]
     public int Item_num = 0;*/
     [SerializeField]
-    public int TotalExperience = 0;
+    public int TotalExperience;
     [SerializeField]
-    public int Lv_num = 0;
+    public int Lv_num;
 
+    void Awake()
+    {
+        /*TextLvel = null;
+        TextTotalExperience = null;*/
+        TotalExperience = 0;
+        Lv_num = 1;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A)) { //Down
+        if (Input.GetKey(KeyCode.A))
+        { //Down
             TotalExperience += 100;
             if (Lv_num * 1000 == TotalExperience)
             {
@@ -37,7 +44,7 @@ public class Texttest : MonoBehaviour
             }
         }
         Text TE_Lv = TextTotalExperience.GetComponent<Text>();
-        TE_Lv.text =TotalExperience + "/" + Lv_num * 1000;
+        TE_Lv.text = TotalExperience + "/" + Lv_num * 1000;
         Text Lv_text = TextLvel.GetComponent<Text>();
         Lv_text.text = Lv_num + "";
 

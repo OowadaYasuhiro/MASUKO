@@ -23,7 +23,7 @@ public class Imagetest : MonoBehaviour
         {
             text1.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
+        else if (Input.GetKeyDown(KeyCode.Keypad4))
         {
             text1.SetActive(false);
         }
@@ -32,7 +32,7 @@ public class Imagetest : MonoBehaviour
         {
             text2.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
+        else if (Input.GetKeyDown(KeyCode.Keypad5))
         {
             text2.SetActive(false);
         }
@@ -41,7 +41,7 @@ public class Imagetest : MonoBehaviour
         {
             text3.SetActive(true);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad6))
+        else if (Input.GetKeyDown(KeyCode.Keypad6))
         {
             text3.SetActive(false);
         }
