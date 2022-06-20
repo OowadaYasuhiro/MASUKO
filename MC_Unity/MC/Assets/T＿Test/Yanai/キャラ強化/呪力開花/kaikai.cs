@@ -17,6 +17,7 @@ public class kaikai : MonoBehaviour
     [SerializeField] GameObject s4;
     [SerializeField] Text ut1;
     [SerializeField] Text st1;
+    [SerializeField] Text sozai;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -170,6 +171,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
         }
+        sozai.text = $"{nowduplication}/1";
     }
     void a(int i) {
         switch(i){
@@ -215,7 +217,7 @@ public class kaikai : MonoBehaviour
         }
     }
     public void OnClick() {
-        if(tmp <4 && nowduplication <= 1) {
+        if(tmp <4 && nowduplication >= 1) {
             switch(Master.playerdeta.NowSelectCharactor) {
                 case "Ghost":
                     Master.playerdeta.Ghostduplication--;
