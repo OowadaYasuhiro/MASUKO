@@ -172,7 +172,7 @@ public class skillmanager : MonoBehaviour
                     levelmaxtext.gameObject.SetActive(false);
                     material1.gameObject.SetActive(true);
                         Text text1 = material1t.gameObject.GetComponent<Text>();
-                        text1.text = "×3";
+                        text1.text = $"{Master.playerdeta.Kosyo}/3";
                         material2.gameObject.SetActive(false);
                         material3.gameObject.SetActive(false);
                         CoinCom.text = "2500";
@@ -184,8 +184,8 @@ public class skillmanager : MonoBehaviour
                     levelmaxtext.gameObject.SetActive(false);
                     material1.gameObject.SetActive(true);
                         Text text2 = material1t.gameObject.GetComponent<Text>();
-                        text2.text = "×6";
-                        material2.gameObject.SetActive(false);
+                        text2.text = $"{Master.playerdeta.Kosyo}/6";
+                    material2.gameObject.SetActive(false);
                         material3.gameObject.SetActive(false);
                         CoinCom.text = "5000";
                           break;
@@ -196,10 +196,10 @@ public class skillmanager : MonoBehaviour
                     levelmaxtext.gameObject.SetActive(false);
                     material1.gameObject.SetActive(true);
                         Text text3 = material1t.gameObject.GetComponent<Text>();
-                        text3.text = "×6";
+                        text3.text = $"{Master.playerdeta.Kosyo}/6";
                         material2.gameObject.SetActive(true);
                         Text text4 = material2t.gameObject.GetComponent<Text>();
-                        text4.text = "×2";
+                        text4.text = $"{ Master.playerdeta.Ikotu}/2";
                         material3.gameObject.SetActive(false);
                         CoinCom.text = "10000";
                        break;
@@ -210,10 +210,10 @@ public class skillmanager : MonoBehaviour
                     levelmaxtext.gameObject.SetActive(false);
                     material1.gameObject.SetActive(true);
                         Text text31 = material1t.gameObject.GetComponent<Text>();
-                        text31.text = "×6";
-                        material2.gameObject.SetActive(true);
+                        text31.text = $"{Master.playerdeta.Kosyo}/6";
+                    material2.gameObject.SetActive(true);
                         Text text41 = material2t.gameObject.GetComponent<Text>();
-                        text41.text = "×4";
+                        text41.text = $"{Master.playerdeta.Ikotu}/4";
                         material3.gameObject.SetActive(false);
                         CoinCom.text = "20000";
                         break;
@@ -224,14 +224,14 @@ public class skillmanager : MonoBehaviour
                     levelmaxtext.gameObject.SetActive(false);
                     material1.gameObject.SetActive(true);
                         Text text32 = material1t.gameObject.GetComponent<Text>();
-                        text32.text = "×6";
-                        material2.gameObject.SetActive(true);
+                        text32.text = $"{Master.playerdeta.Kosyo}/6";
+                    material2.gameObject.SetActive(true);
                         Text text42 = material2t.gameObject.GetComponent<Text>();
-                        text42.text = "×4";
-                        material3.gameObject.SetActive(true);
+                        text42.text = $"{Master.playerdeta.Ikotu}/4";
+                    material3.gameObject.SetActive(true);
                         Text text43 = material3t.gameObject.GetComponent<Text>();
-                        text43.text = "×1";
-                        CoinCom.text = "35000";
+                        text43.text = $"{Master.playerdeta.Ningennnoti}/1";
+                    CoinCom.text = "35000";
                         break;
                     }
                 case 6: 

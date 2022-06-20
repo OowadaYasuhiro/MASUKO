@@ -27,14 +27,14 @@ public class overlevelup : MonoBehaviour
         levellow.SetActive(false);
         syokika(Master.playerdeta.NowSelectCharactor);
         if(nowlevel <= 50) {
-            sozai1.text = "×3";
-            sozai2.text = "×5";
-            sozai3.text = "×10";
+            sozai1.text = $"{Master.playerdeta.KisyounaReikon}/3";
+            sozai2.text = $"{Master.playerdeta.Reikesseki}/5";
+            sozai3.text = $"{Master.playerdeta.Reikotu}/10";
             coin.text = "10000QP";
         }else {
-            sozai1.text = "×5";
-            sozai2.text = "×10";
-            sozai3.text = "×15";
+            sozai1.text = $"{Master.playerdeta.KisyounaReikon}/5";
+            sozai2.text = $"{Master.playerdeta.Reikesseki}/10";
+            sozai3.text = $"{Master.playerdeta.Reikotu}/15";
             coin.text = "50000QP";
         }
     }

@@ -14,6 +14,7 @@ public class numbermanager : MonoBehaviour
     [SerializeField] Image Sinrai2;
     [SerializeField] Image Sinrai3;
     [SerializeField] Image Sinrai4;
+    [SerializeField]Text text5;
 
     // Start is called before the first frame update
     void Start()
@@ -79,24 +80,29 @@ public class numbermanager : MonoBehaviour
         }
         if(Sinraivalue < 50) {
                     Sinrai.text = "0";
+            text5.text ="";
             Sinrai1.fillAmount = Sinraivalue/50f;
         } else if(Sinraivalue < 150) {
                     Sinrai.text = "1";
+            text5.text = "HP+15..";
             Sinrai1.fillAmount = 1;
             Sinrai2.fillAmount =(Sinraivalue-50) / 100f;
         } else if(Sinraivalue < 250) {
                     Sinrai.text = "2";
+            text5.text = "HP+15..";
             Sinrai1.fillAmount = 1;
             Sinrai2.fillAmount = 1;
             Sinrai3.fillAmount = (Sinraivalue - 150) / 200f;
         } else if(Sinraivalue < 450) {
                     Sinrai.text = "3";
+            text5.text = "HP+15..";
             Sinrai1.fillAmount = 1;
             Sinrai2.fillAmount = 1;
             Sinrai3.fillAmount = 1;
             Sinrai4.fillAmount = (Sinraivalue - 250) / 450f;
         } else {
                     Sinrai.text = "4";
+            text5.text = "HP+45..";
             Sinrai1.fillAmount = 1;
             Sinrai2.fillAmount = 1;
             Sinrai3.fillAmount = 1;
