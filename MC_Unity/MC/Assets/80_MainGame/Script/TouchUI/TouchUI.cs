@@ -10,7 +10,7 @@ public class TouchUI : MonoBehaviour
     //対象のキャンバス
     [SerializeField] Canvas canvas;
     RectTransform canvasRect;
-    internal Vector2 InputPosition;
+    public Vector2 InputPosition;
     RectTransform imageRect;
 
     // Start is called before the first frame update

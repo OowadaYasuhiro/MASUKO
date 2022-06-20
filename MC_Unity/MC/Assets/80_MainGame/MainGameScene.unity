@@ -7831,6 +7831,7 @@ GameObject:
   - component: {fileID: 5153066623192453020}
   - component: {fileID: 5023334546251093956}
   - component: {fileID: 5011940407415153016}
+  - component: {fileID: 5011940407415153017}
   m_Layer: 0
   m_Name: UICamera
   m_TagString: Untagged
@@ -7852,6 +7853,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 1199295264}
   canvas: {fileID: 8019812402555497670}
+  InputPosition: {x: 0, y: 0}
+--- !u!114 &5011940407415153017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011940407415153015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422945a69f00f1b449989576857b0c27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &5023334546251093956
 Camera:
   m_ObjectHideFlags: 0
