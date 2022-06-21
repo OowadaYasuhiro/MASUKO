@@ -10,7 +10,9 @@ public class TouchUI : MonoBehaviour
     //対象のキャンバス
     [SerializeField] Canvas canvas;
     RectTransform canvasRect;
-    public Vector2 InputPosition;
+    Vector2 InputPosition;
+    //保管アクセス用
+    public Vector2 cursorPotision;
     RectTransform imageRect;
 
     // Start is called before the first frame update
@@ -32,10 +34,12 @@ public class TouchUI : MonoBehaviour
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, MasterInput.Touchposition, canvas.worldCamera, out InputPosition);
             imageRect.anchoredPosition = InputPosition;
+            cursorPotision = InputPosition;
         }
         else
         {
             imageRect.anchoredPosition = new Vector2(-2000, 0);
+            cursorPotision = new Vector2(-2000, 0);
         }
 
     }

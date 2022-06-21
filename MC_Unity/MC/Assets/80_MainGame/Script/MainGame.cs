@@ -39,33 +39,33 @@ public partial class MainGame : MonoBehaviour
 
     //**イベント**
     //一時停止
-    bool pause;
+    internal bool pause;
     //スロウモード
     bool slowMode;
     //キャラクター１を選択
-    bool charactor1;
+    internal bool charactor1;
     //キャラクター１スキル１
-    bool charactor1skil1;
+    internal bool charactor1skil1;
     //キャラクター１スキル２
-    bool charactor1skil2;
+    internal bool charactor1skil2;
     //キャラクター１スキル３
-    bool charactor1skil3;
+    internal bool charactor1skil3;
     //キャラクター１撤退
-    bool charactor1goback;
+    internal bool charactor1goback;
     //キャラクター２を選択
-    bool charactor2;
+    internal bool charactor2;
     //キャラクター２スキル１
-    bool charactor2skil1;
+    internal bool charactor2skil1;
     //キャラクター２スキル２
-    bool charactor2skil2;
+    internal bool charactor2skil2;
     //キャラクター２スキル３
-    bool charactor2skil3;
+    internal bool charactor2skil3;
     //キャラクター２撤退
-    bool charactor2goback;
+    internal bool charactor2goback;
     //アイテム１
-    bool item1;
+    internal bool item1;
     //アイテム２
-    bool item2;
+    internal bool item2;
 
     //敵
     Enemy[] enemies;
@@ -141,26 +141,25 @@ public partial class MainGame : MonoBehaviour
         else gameSpeed = 1f;
     }
 
-    /*
+    
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
-        bool allenemydead = false;
+        bool allenemyalive = false;
         foreach (var i in enemies)
         {
-            allenemydead = true;
-            if(i.CheckHp > 0)
+            if(i.alive == true)
             {
-                allenemydead = false;
+                allenemyalive = true;
                 break;
             }
         }
-        if (allenemydead == true)
+        if (allenemyalive == false)
         {
             ChengeWave();
         }
     }
-    */
+    
 
     //セーブデータの情報からプレイヤーキャラクターを生成
     void GeneratPlayer()

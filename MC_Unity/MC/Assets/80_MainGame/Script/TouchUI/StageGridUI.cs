@@ -11,7 +11,7 @@ public class StageGridUI : MonoBehaviour
     readonly Vector2 downLeft = new Vector2(-850f, -215f);
     readonly Vector2 downRight = new Vector2(850f, -215f);
 
-    //カーソル位置のグリッド
+    //カーソル位置のグリッド　(-1,-1)を範囲外とする
     Vector2Int selectGrid;
 
     //グリッドの横線
@@ -24,17 +24,17 @@ public class StageGridUI : MonoBehaviour
     const float depth6 = -215;
 
     //グリッドの縦線
-    QuadraticIndex quadraticIndex_left0 = new QuadraticIndex(-0.1583f, -816f);
-    QuadraticIndex quadraticIndex_left1 = new QuadraticIndex(-0.1266f, -707.23f);
-    QuadraticIndex quadraticIndex_left2 = new QuadraticIndex(-0.095f, -489.575f);
-    QuadraticIndex quadraticIndex_left3 = new QuadraticIndex(-0.063f, -326.384f);
-    QuadraticIndex quadraticIndex_left4 = new QuadraticIndex(-0.0316f, -163.206f);
+    QuadraticIndex quadraticIndex_left0 = new QuadraticIndex(0.1583f, -816f);
+    QuadraticIndex quadraticIndex_left1 = new QuadraticIndex(0.1266f, -707.23f);
+    QuadraticIndex quadraticIndex_left2 = new QuadraticIndex(0.095f, -489.575f);
+    QuadraticIndex quadraticIndex_left3 = new QuadraticIndex(0.063f, -326.384f);
+    QuadraticIndex quadraticIndex_left4 = new QuadraticIndex(0.0316f, -163.206f);
     QuadraticIndex quadraticIndex_left5 = new QuadraticIndex(0, 0);
-    QuadraticIndex quadraticIndex_left6 = new QuadraticIndex(0.0316f, 163.206f);
-    QuadraticIndex quadraticIndex_left7 = new QuadraticIndex(0.063f, 326.384f);
-    QuadraticIndex quadraticIndex_left8 = new QuadraticIndex(0.095f, 489.575f);
-    QuadraticIndex quadraticIndex_left9 = new QuadraticIndex(0.1266f, 707.23f);
-    QuadraticIndex quadraticIndex_left10 = new QuadraticIndex(0.1583f, 816f);
+    QuadraticIndex quadraticIndex_left6 = new QuadraticIndex(-0.0316f, 163.206f);
+    QuadraticIndex quadraticIndex_left7 = new QuadraticIndex(-0.063f, 326.384f);
+    QuadraticIndex quadraticIndex_left8 = new QuadraticIndex(-0.095f, 489.575f);
+    QuadraticIndex quadraticIndex_left9 = new QuadraticIndex(-0.1266f, 707.23f);
+    QuadraticIndex quadraticIndex_left10 = new QuadraticIndex(-0.1583f, 816f);
 
     Vector2 cursorPosition;
     //[SerializeField] GameObject Camera;
@@ -42,14 +42,14 @@ public class StageGridUI : MonoBehaviour
 
     private void Start()
     {
-        //cursorPosition = GameObject.Find("UICamera").GetComponent<TouchUI>().InputPosition; 
+        cursorPosition = GameObject.Find("UICamera").GetComponent<TouchUI>().cursorPotision; 
         //cursorPosition = new Vector2(Image.transform.position.x, Image.transform.position.y);
         selectGrid = new Vector2Int(-1,-1);
     }
 
     private void Update()
     {
-        cursorPosition = GameObject.Find("UICamera").GetComponent<TouchUI>().InputPosition;
+        cursorPosition = GameObject.Find("UICamera").GetComponent<TouchUI>().cursorPotision;
         CursorGrid();
     }
 
@@ -110,6 +110,12 @@ public class StageGridUI : MonoBehaviour
             {
                 selectGrid.x = 9;
             }
+            else
+            {
+                //範囲外
+                selectGrid.x = -1;
+                selectGrid.y = -1;
+            }
         }
         else if (cursorPosition.y > depth2)
         {
@@ -159,6 +165,12 @@ public class StageGridUI : MonoBehaviour
             else if (cursorPosition.x < quadraticIndex_left10.BoundaryCalculation(cursorPosition))
             {
                 selectGrid.x = 9;
+            }
+            else
+            {
+                //範囲外
+                selectGrid.x = -1;
+                selectGrid.y = -1;
             }
         }
         else if (cursorPosition.y > depth3)
@@ -210,6 +222,12 @@ public class StageGridUI : MonoBehaviour
             {
                 selectGrid.x = 9;
             }
+            else
+            {
+                //範囲外
+                selectGrid.x = -1;
+                selectGrid.y = -1;
+            }
         }
         else if (cursorPosition.y > depth4)
         {
@@ -259,6 +277,12 @@ public class StageGridUI : MonoBehaviour
             else if (cursorPosition.x < quadraticIndex_left10.BoundaryCalculation(cursorPosition))
             {
                 selectGrid.x = 9;
+            }
+            else
+            {
+                //範囲外
+                selectGrid.x = -1;
+                selectGrid.y = -1;
             }
         }
         else if (cursorPosition.y > depth5)
@@ -310,6 +334,12 @@ public class StageGridUI : MonoBehaviour
             {
                 selectGrid.x = 9;
             }
+            else
+            {
+                //範囲外
+                selectGrid.x = -1;
+                selectGrid.y = -1;
+            }
         }
         else if (cursorPosition.y > depth6)
         {
@@ -360,9 +390,21 @@ public class StageGridUI : MonoBehaviour
             {
                 selectGrid.x = 9;
             }
+            else
+            {
+                //範囲外
+                selectGrid.x = -1;
+                selectGrid.y = -1;
+            }
+        }
+        else
+        {
+            //範囲外
+            selectGrid.x = -1;
+            selectGrid.y = -1;
         }
         Debug.Log(selectGrid);
-        Debug.Log(cursorPosition);
+        //Debug.Log(cursorPosition);
     }
 }
 
