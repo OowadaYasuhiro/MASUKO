@@ -845,6 +845,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardWindow: {fileID: 1399730110}
+  gatyaAmount: 0
+  expAmount: 0
+  moneyAmount: 0
 --- !u!1 &531245287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c5676db71a1674ba20c16bcc103417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  num: 0
   rewardWindow: {fileID: 1399730110}
 --- !u!1 &688966776
 GameObject:
@@ -4114,7 +4118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1781070649}
-        m_MethodName: OnClickBuckButton
+        m_MethodName: OnClickBuck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4305,49 +4309,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802847506}
   m_CullTransparentMesh: 0
---- !u!1 &1816636449
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1816636450}
-  - component: {fileID: 1816636451}
-  m_Layer: 0
-  m_Name: UIDirector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1816636450
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816636449}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1816636451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816636449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00353a402ba2b1c45a51e7c730f6772d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1875105893
 GameObject:
   m_ObjectHideFlags: 0
@@ -4908,7 +4869,7 @@ PrefabInstance:
     - target: {fileID: 1806833891283655001, guid: fa45b69430bc9014fbad1121cb9c28d9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1806833891283655001, guid: fa45b69430bc9014fbad1121cb9c28d9,
         type: 3}
@@ -5023,7 +4984,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2130054060}
-        m_MethodName: OnClickDailyButton
+        m_MethodName: OnClickDaily
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5082,9 +5043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1d98340670424409ab59daf1dad780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherButtons:
-  - {fileID: 772426298}
-  - {fileID: 761612763}
-  - {fileID: 531245287}
-  titleText: {fileID: 1299352510}
-  details: {fileID: 658299356}
+  buttonImages:
+  - {fileID: 21300000, guid: 4f0a1527a1db1ab4ca2b364fdec1be15, type: 3}
+  - {fileID: 21300000, guid: 90fd2a27cb4bd8443b4ad485f8150083, type: 3}
+  missonDetail: {fileID: 658299356}

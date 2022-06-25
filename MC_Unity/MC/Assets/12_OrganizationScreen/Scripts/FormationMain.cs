@@ -27,12 +27,12 @@ public class FormationMain : MonoBehaviour
 
     private void Awake()
     {
-        characterWindowLeft.transform.GetChild(17).GetComponentInChildren<Text>().text = "";
-        characterWindowLeft.transform.GetChild(18).GetComponentInChildren<Text>().text = "";
-        characterWindowLeft.transform.GetChild(19).GetComponentInChildren<Text>().text = "";
-        characterWindowRight.transform.GetChild(17).GetComponentInChildren<Text>().text = "";
-        characterWindowRight.transform.GetChild(18).GetComponentInChildren<Text>().text = "";
-        characterWindowRight.transform.GetChild(19).GetComponentInChildren<Text>().text = "";
+        characterWindowLeft.transform.GetChild(8).GetComponentInChildren<Text>().text = "";
+        characterWindowLeft.transform.GetChild(9).GetComponentInChildren<Text>().text = "";
+        characterWindowLeft.transform.GetChild(10).GetComponentInChildren<Text>().text = "";
+        characterWindowRight.transform.GetChild(8).GetComponentInChildren<Text>().text = "";
+        characterWindowRight.transform.GetChild(9).GetComponentInChildren<Text>().text = "";
+        characterWindowRight.transform.GetChild(10).GetComponentInChildren<Text>().text = "";
 
         this.alertWindow.SetActive(false);
     }
@@ -143,37 +143,30 @@ public class FormationMain : MonoBehaviour
                 sumDef += RecoveryOfBelongingsScreen_Deta.bonusDef;
             }
 
-            characterWindowLeft.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
-            characterWindowLeft.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
+            characterWindowLeft.transform.GetChild(4).GetComponent<Text>().text = chara.GetLevel().ToString();
+            characterWindowLeft.transform.GetChild(6).GetComponent<Text>().text = chara.GetName();
             characterWindowLeft.transform.GetChild(8).GetComponent<Text>().text = sumHp.ToString();
             characterWindowLeft.transform.GetChild(9).GetComponent<Text>().text = sumAtk.ToString();
             characterWindowLeft.transform.GetChild(10).GetComponent<Text>().text = sumDef.ToString();
-            characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
-            characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+            characterWindowLeft.transform.GetChild(11).GetComponent<Text>().text = chara.GetPassiveSkillName();
+            characterWindowLeft.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
         }
         else //右のキャラクターウィンドウ
         {
             //何も選ばれていないときの処理
             if (OrganizationScreen_Deta.rightCharacterNum == -1)
             {
-                characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = "";
-                characterWindowRight.transform.GetChild(2).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(4).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(6).GetComponent<Text>().text = "";
                 characterWindowRight.transform.GetChild(8).GetComponent<Text>().text = "";
                 characterWindowRight.transform.GetChild(9).GetComponent<Text>().text = "";
                 characterWindowRight.transform.GetChild(10).GetComponent<Text>().text = "";
+                characterWindowRight.transform.GetChild(11).GetComponent<Text>().text = "";
                 characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = "";
-                characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = "";
-                characterWindowRight.transform.GetChild(17).GetComponent<Image>().color = Color.white;
-                characterWindowRight.transform.GetChild(18).GetComponent<Image>().color = Color.white;
-                characterWindowRight.transform.GetChild(19).GetComponent<Image>().color = Color.white;
 
-                characterWindowRight.transform.GetChild(17).GetComponent<Image>().sprite = defaultSprite;
-                characterWindowRight.transform.GetChild(18).GetComponent<Image>().sprite = defaultSprite;
-                characterWindowRight.transform.GetChild(19).GetComponent<Image>().sprite = defaultSprite;
-
-                characterWindowRight.transform.GetChild(17).GetComponentInChildren<Text>().text = "";
-                characterWindowRight.transform.GetChild(18).GetComponentInChildren<Text>().text = "";
-                characterWindowRight.transform.GetChild(19).GetComponentInChildren<Text>().text = "";
+                characterWindowRight.transform.GetChild(14).GetComponentInChildren<Text>().text = "";
+                characterWindowRight.transform.GetChild(15).GetComponentInChildren<Text>().text = "";
+                characterWindowRight.transform.GetChild(16).GetComponentInChildren<Text>().text = "";
 
                 ArmorNodeGeneretor.character2SelectedCrownNum = -1;
                 ArmorNodeGeneretor.character2SelectedBangleNum = -1;
@@ -223,19 +216,19 @@ public class FormationMain : MonoBehaviour
                     sumDef += RecoveryOfBelongingsScreen_Deta.bonusDef;
                 }
 
-                characterWindowRight.transform.GetChild(1).GetComponent<Text>().text = chara.GetLevel().ToString();
-                characterWindowRight.transform.GetChild(2).GetComponent<Text>().text = chara.GetName();
+                characterWindowRight.transform.GetChild(4).GetComponent<Text>().text = chara.GetLevel().ToString();
+                characterWindowRight.transform.GetChild(6).GetComponent<Text>().text = chara.GetName();
                 characterWindowRight.transform.GetChild(8).GetComponent<Text>().text = sumHp.ToString();
                 characterWindowRight.transform.GetChild(9).GetComponent<Text>().text = sumAtk.ToString();
                 characterWindowRight.transform.GetChild(10).GetComponent<Text>().text = sumDef.ToString();
-                characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillName();
-                characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
+                characterWindowRight.transform.GetChild(11).GetComponent<Text>().text = chara.GetPassiveSkillName();
+                characterWindowRight.transform.GetChild(12).GetComponent<Text>().text = chara.GetPassiveSkillEffect();
             }
         }
 
         //シナジースキルの設定
-        characterWindowLeft.transform.GetChild(15).GetComponent<Text>().text = data.GetSynagySkills();
-        characterWindowRight.transform.GetChild(15).GetComponent<Text>().text = data.GetSynagySkills();
+        characterWindowLeft.transform.GetChild(13).GetComponent<Text>().text = data.GetSynagySkills();
+        characterWindowRight.transform.GetChild(13).GetComponent<Text>().text = data.GetSynagySkills();
     }
 
     //対応するキャラクターの構造体のセット
@@ -278,50 +271,50 @@ public class FormationMain : MonoBehaviour
     private void DrawArtifactsUI()
     {
         //todo 実際の画像が来たら削除
-        characterWindowLeft.transform.GetChild(17).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(0).GetColor();
-        characterWindowLeft.transform.GetChild(18).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(1).GetColor();
-        characterWindowLeft.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor();
+        characterWindowLeft.transform.GetChild(14).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(0).GetColor();
+        characterWindowLeft.transform.GetChild(15).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(1).GetColor();
+        characterWindowLeft.transform.GetChild(16).GetComponent<Image>().color = Master.formationdeta.GetCharactor1Artifact(2).GetColor();
 
         //画像のセット
-        characterWindowLeft.transform.GetChild(17).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(0).GetIcon();
-        characterWindowLeft.transform.GetChild(18).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(1).GetIcon();
-        characterWindowLeft.transform.GetChild(19).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(2).GetIcon();
+        characterWindowLeft.transform.GetChild(14).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(0).GetIcon();
+        characterWindowLeft.transform.GetChild(15).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(1).GetIcon();
+        characterWindowLeft.transform.GetChild(16).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor1Artifact(2).GetIcon();
 
         //レベルのセット
         if (Master.formationdeta.GetCharactor1Artifact(0).GetName() != "noname")
         {
-            characterWindowLeft.transform.GetChild(17).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor1Artifact(0).GetLevel().ToString();
+            characterWindowLeft.transform.GetChild(14).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor1Artifact(0).GetLevel().ToString();
         } 
         if (Master.formationdeta.GetCharactor1Artifact(1).GetName() != "noname")
         {
-            characterWindowLeft.transform.GetChild(18).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor1Artifact(1).GetLevel().ToString();
+            characterWindowLeft.transform.GetChild(15).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor1Artifact(1).GetLevel().ToString();
         }
         if (Master.formationdeta.GetCharactor1Artifact(2).GetName() != "noname")
         {
-            characterWindowLeft.transform.GetChild(19).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor1Artifact(2).GetLevel().ToString();
+            characterWindowLeft.transform.GetChild(16).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor1Artifact(2).GetLevel().ToString();
         }
         
         if (Master.formationdeta.GetCharactor2() != null)
         {
-            characterWindowRight.transform.GetChild(17).GetComponent<Image>().color = Master.formationdeta.GetCharactor2Artifact(0).GetColor();
-            characterWindowRight.transform.GetChild(18).GetComponent<Image>().color = Master.formationdeta.GetCharactor2Artifact(1).GetColor();
-            characterWindowRight.transform.GetChild(19).GetComponent<Image>().color = Master.formationdeta.GetCharactor2Artifact(2).GetColor();
+            characterWindowRight.transform.GetChild(14).GetComponent<Image>().color = Master.formationdeta.GetCharactor2Artifact(0).GetColor();
+            characterWindowRight.transform.GetChild(15).GetComponent<Image>().color = Master.formationdeta.GetCharactor2Artifact(1).GetColor();
+            characterWindowRight.transform.GetChild(16).GetComponent<Image>().color = Master.formationdeta.GetCharactor2Artifact(2).GetColor();
 
-            characterWindowRight.transform.GetChild(17).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor2Artifact(0).GetIcon();
-            characterWindowRight.transform.GetChild(18).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor2Artifact(1).GetIcon();
-            characterWindowRight.transform.GetChild(19).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor2Artifact(2).GetIcon();
+            characterWindowRight.transform.GetChild(14).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor2Artifact(0).GetIcon();
+            characterWindowRight.transform.GetChild(15).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor2Artifact(1).GetIcon();
+            characterWindowRight.transform.GetChild(16).GetComponent<Image>().sprite = Master.formationdeta.GetCharactor2Artifact(2).GetIcon();
 
             if (Master.formationdeta.GetCharactor2Artifact(0).GetName() != "noname")
             {
-                characterWindowRight.transform.GetChild(17).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor2Artifact(0).GetLevel().ToString();
+                characterWindowRight.transform.GetChild(14).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor2Artifact(0).GetLevel().ToString();
             }
             if (Master.formationdeta.GetCharactor2Artifact(1).GetName() != "noname")
             {
-                characterWindowRight.transform.GetChild(18).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor2Artifact(1).GetLevel().ToString();
+                characterWindowRight.transform.GetChild(15).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor2Artifact(1).GetLevel().ToString();
             }
             if (Master.formationdeta.GetCharactor2Artifact(2).GetName() != "noname")
             {
-                characterWindowRight.transform.GetChild(19).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor2Artifact(2).GetLevel().ToString();
+                characterWindowRight.transform.GetChild(16).GetComponentInChildren<Text>().text = "Lv " + Master.formationdeta.GetCharactor2Artifact(2).GetLevel().ToString();
             }
         }
     }

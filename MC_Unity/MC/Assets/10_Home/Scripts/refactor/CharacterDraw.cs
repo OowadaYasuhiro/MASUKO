@@ -12,7 +12,7 @@ namespace HomeScene
         [SerializeField]
         private Sprite[] characterImages = new Sprite[5]; 
         [SerializeField]
-        private bool isDebug = true;
+        private bool isDebug = false;
 
         private string characterName;
         private string characterSpeech;

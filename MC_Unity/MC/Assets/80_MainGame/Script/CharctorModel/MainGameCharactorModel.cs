@@ -5,10 +5,10 @@ public delegate void SkillEvent();
 
 public class MainGameCharactorModel : MainGameCharactorState
 {
-    //名前
-    protected string Charactorname;
+    //名前(名前で中身の有無を確認)
+    protected string Charactorname = "";
     //向き
-    protected bool directionRight;
+    internal bool directionRight;
     //座標
     internal Vector2 position;
     //移動用
@@ -23,7 +23,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     //攻撃範囲
     internal Vector2[] attackRange;
     //視界範囲
-    protected Vector2[] viewRange;
+    internal Vector2[] viewRange;
     //接敵
     internal bool findEnemy;
     internal MainGameCharactorModel[] targetEnemy;
@@ -33,6 +33,12 @@ public class MainGameCharactorModel : MainGameCharactorState
     protected int resultingAttackPower;
     //スキルイベント
     protected SkillEvent skillEvent;
+
+    //名前取得
+    internal string GetName()
+    {
+        return Charactorname;
+    }
 
     //移動
     protected void Move(float timeLine)

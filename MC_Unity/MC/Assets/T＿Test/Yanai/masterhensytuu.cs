@@ -15,7 +15,7 @@ public class masterhensytuu : MonoBehaviour
         Master.playerdeta.Zanryu_Sinen = 100000;
         Master.playerdeta.Coin = 1000000;
         Master.playerdeta.GhostUnLocked = true;
-        Master.playerdeta.GhostLevel = 70;
+        Master.playerdeta.GhostLevel = 1;
         Master.playerdeta.KisyounaReikon = 100;
         //霊結石
         Master.playerdeta.Reikesseki=100;
@@ -31,9 +31,5 @@ public class masterhensytuu : MonoBehaviour
         Master.playerdeta.Ghostduplication =2;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

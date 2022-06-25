@@ -18,6 +18,11 @@ public class kaikai : MonoBehaviour
     [SerializeField] Text ut1;
     [SerializeField] Text st1;
     [SerializeField] Text sozai;
+    [SerializeField] GameObject kaika1;
+    [SerializeField] GameObject kaika2;
+    [SerializeField] GameObject kaika3;
+    [SerializeField] GameObject kaika4;
+    [SerializeField] GameObject kaika5;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -29,18 +34,18 @@ public class kaikai : MonoBehaviour
         s2.gameObject.SetActive(false);
         s3.gameObject.SetActive(false);
         s4.gameObject.SetActive(false);
+        kaika1.gameObject.SetActive(false);
+        kaika2.gameObject.SetActive(false);
+        kaika3.gameObject.SetActive(false);
+        kaika4.gameObject.SetActive(false);
+        kaika5.gameObject.SetActive(false);
         zyougen(Master.playerdeta.NowSelectCharactor);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void zyougen(string i){
         switch(i) {
             case "Ghost":
+                kaika1.gameObject.SetActive(true);
                 nowduplication = Master.playerdeta.Ghostduplication;
                 a(Master.playerdeta.GhostPotentialflowering);
                 switch(tmp) {
@@ -67,6 +72,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Zashiki_warashi":
+                kaika2.gameObject.SetActive(true);
                 nowduplication = Master.playerdeta.Zashiki_warashiduplication;
                 a(Master.playerdeta.Zashiki_warashiPotentialflowering);
                 switch(tmp) {
@@ -93,6 +99,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Gore":
+                kaika3.gameObject.SetActive(true);
                 nowduplication = Master.playerdeta.goreduplication;
                 a(Master.playerdeta.GorePotentialflowering);
                 switch(tmp) {
@@ -119,6 +126,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Poltergeist":
+                kaika4.gameObject.SetActive(true);
                 nowduplication = Master.playerdeta.Poltergeistduplication;
                 a(Master.playerdeta.PoltergeistPotentialflowering);
                 switch(tmp) {
@@ -145,6 +153,7 @@ public class kaikai : MonoBehaviour
                 }
                 break;
             case "Daemon":
+                kaika5.gameObject.SetActive(true);
                 nowduplication = Master.playerdeta.Daemonduplication;
                 a(Master.playerdeta.DaemonPotentialflowering);
                 switch(tmp) {

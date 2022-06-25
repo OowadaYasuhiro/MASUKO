@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MissionKind
+{
+    DAILY,
+    WEEKLY,
+    ACHEIVEMENT,
+    QUEST
+}
+
 public class MissionScreen_Deta 
 {
     private readonly string[] dailyMissionData = { "ゲームにログインする", "クエストを3回クリアする", "1回遺品収集を行う", "キャラクターを1回強化する", "装備を1回強化する", "全てのデイリーミッションをクリアする"};
@@ -22,7 +30,7 @@ public class MissionScreen_Deta
     private readonly string[] questMissiondata = { "1-1を星3条件でクリアする", "1-2を星3条件でクリアする", "1-3を星3条件でクリアする", "1-4を星3条件でクリアする", "1-5を星3条件でクリアする" };
     private readonly string questMissonReward = "禍魂×50";
 
-    public static int stateNum = 0;
+    public static MissionKind kinds = MissionKind.DAILY;
 
     public string GetDailyMissionData(int index)
     {

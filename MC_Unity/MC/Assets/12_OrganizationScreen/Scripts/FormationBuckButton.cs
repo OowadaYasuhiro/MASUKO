@@ -35,8 +35,8 @@ public class FormationBuckButton : MonoBehaviour
                 Debug.LogError("Illegal Value");
                 break;
         }
-
-        Debug.Log("back");
-        //SceneManager.LoadScene("");
+        
+        Load_Deta.Nextscenename = "HomeScene";
+        SceneManager.LoadScene("Yanai_TestScene");
     }
 }
