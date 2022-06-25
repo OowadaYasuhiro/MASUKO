@@ -8,16 +8,14 @@ public class MainGame_StageDeta
     //壁
     bool[,] map_grids_wall = new bool[10,6];
     //敵出現場所
-    Vector2 enemy1_spawn_position;
-    Vector2 enemy2_spawn_position;
-    Vector2 enemy1_target_object;
-    Vector2 enemy2_target_object;
-    //敵座標
-    Vector2?[] enemy1_position;
-    Vector2?[] enemy2_position;
-    //プレイヤー座標
-    Vector2?[] player1_position;
-    Vector2?[] player2_position;
+    internal Vector2 enemy1_spawn_position;
+    internal Vector2 enemy2_spawn_position;
+    //敵の目標
+    internal Vector2 enemy1_target_object;
+    internal Vector2 enemy2_target_object;
+    
+    //視界
+    internal View view = new View();
 
     //ステージ生成
     public MainGame_StageDeta(string stage)
@@ -41,6 +39,18 @@ public class MainGame_StageDeta
                 enemy2_spawn_position = new Vector2(0, 1);
                 enemy1_target_object = new Vector2(9, 4);
                 enemy2_target_object = new Vector2(9, 1);
+                view.viewArray = new bool[,]{
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                            { true,false,false,false,false,true},
+                };
                 break;
             case main_ep1_2:
                 map_grids_wall = new bool[,]{
@@ -132,7 +142,7 @@ public struct Map_Grid
 
 public class View
 {
-    bool[,] view = new bool[10,6]{
+    public bool[,] viewArray = new bool[10,6]{
             { false,false,false,false,false,false },
             { false,false,false,false,false,false },
             { false,false,false,false,false,false },

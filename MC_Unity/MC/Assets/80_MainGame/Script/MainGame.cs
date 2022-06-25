@@ -21,6 +21,9 @@ public partial class MainGame : MonoBehaviour
     //ステージUI
     MainGame_StageUI mainGame_StageUI;
 
+    //影
+    ShadowMesh shadowMesh;
+
     //難易度
     string difficulty;
 
@@ -71,7 +74,7 @@ public partial class MainGame : MonoBehaviour
     Enemy[] enemies;
 
     //プレイヤー
-    Player [] players;
+    Player[] players;
 
     //召喚
     internal SummonsCharactor[] summonsCharactor = new SummonsCharactor[8];
@@ -95,6 +98,8 @@ public partial class MainGame : MonoBehaviour
         mainGame_StageUI.SendMessage("SetObstacle", int.Parse(stage.Substring(1, 2)));
         waveNumber = 1;
         playerWin = false;
+        shadowMesh = GameObject.Find("ShadowObject").GetComponent<ShadowMesh>();
+        shadowMesh.Initialize();
         //GeneratEnemy();
         GeneratPlayer();
     }
@@ -112,7 +117,8 @@ public partial class MainGame : MonoBehaviour
                 break;
             case GameState.GameRun:
 
-                //WaveClearCheck();
+                ChangeView();
+                WaveClearCheck();
                 break;
             case GameState.Wait:
 
@@ -186,6 +192,115 @@ public partial class MainGame : MonoBehaviour
                 //ありえない
             }
         }
+    }
+
+    //Viewの変更
+    void ChangeView()
+    {
+        //障害物を避けて影を生成
+        mainGame_StageDeta.view.viewArray = mainGame_StageDeta.GetMap();
+
+        //キャラクターの視界を確保
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].GetName() == "")
+            {
+                goto PlayerViewExit;
+            }
+            if (players[i].directionRight == true)
+            {
+                for (int j = 0; j < players[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(players[i].position.x + players[i].viewRange[i].x), (int)(players[i].position.y + players[i].viewRange[i].y)] = true;
+                }
+            }
+            else
+            {
+                for (int j = 0; j < players[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(players[i].position.x + (players[i].viewRange[i].x * -1)), (int)(players[i].position.y + players[i].viewRange[i].y)] = true;
+                }
+            }
+        }
+        PlayerViewExit:
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i].GetName() == "")
+            {
+                goto EnemyViewExit;
+            }
+            if (enemies[i].directionRight == true)
+            {
+                for (int j = 0; j < enemies[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(enemies[i].position.x + enemies[i].viewRange[i].x), (int)(enemies[i].position.y + enemies[i].viewRange[i].y)] = true;
+                }
+            }
+            else
+            {
+                for (int j = 0; j < enemies[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(enemies[i].position.x + (enemies[i].viewRange[i].x * -1)), (int)(enemies[i].position.y + enemies[i].viewRange[i].y)] = true;
+                }
+            }
+        }
+        EnemyViewExit:
+
+        for (int i = 0; i < summonsCharactor.Length; i++)
+        {
+            if (summonsCharactor[i].GetName() == "")
+            {
+                goto SummonCharactorViewExit;
+            }
+            if (summonsCharactor[i].directionRight == true)
+            {
+                for (int j = 0; j < summonsCharactor[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(summonsCharactor[i].position.x + summonsCharactor[i].viewRange[i].x), (int)(summonsCharactor[i].position.y + summonsCharactor[i].viewRange[i].y)] = true;
+                }
+            }
+            else
+            {
+                for (int j = 0; j < summonsCharactor[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(summonsCharactor[i].position.x + (summonsCharactor[i].viewRange[i].x * -1)), (int)(summonsCharactor[i].position.y + summonsCharactor[i].viewRange[i].y)] = true;
+                }
+            }
+        }
+        SummonCharactorViewExit:
+
+        for (int i = 0; i < summonsobject.Length; i++)
+        {
+            if (summonsobject[i].GetName() == "")
+            {
+                goto SummonObjectExitViewExit;
+            }
+            if (summonsobject[i].directionRight == true)
+            {
+                for (int j = 0; j < summonsobject[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + summonsobject[i].viewRange[i].x), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[i].y)] = true;
+                }
+            }
+            else
+            {
+                for (int j = 0; j < summonsobject[i].viewRange.Length; j++)
+                {
+                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + (summonsobject[i].viewRange[i].x * -1)), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[i].y)] = true;
+                }
+            }
+        }
+        SummonObjectExitViewExit:
+
+        //出現場所と目標を見えるように
+        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy1_spawn_position.x), (int)(mainGame_StageDeta.enemy1_spawn_position.x)] = true;
+        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy2_spawn_position.x), (int)(mainGame_StageDeta.enemy2_spawn_position.x)] = true;
+        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy1_target_object.x), (int)(mainGame_StageDeta.enemy1_target_object.x)] = true;
+        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy2_target_object.x), (int)(mainGame_StageDeta.enemy2_target_object.x)] = true;
+
+        //表示
+        shadowMesh.SetMesh(mainGame_StageDeta.view.viewArray);
     }
 
     //メインゲーム終了
