@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class charactevalue : MonoBehaviour
 {
-    [SerializeField] Text Lv;
     [SerializeField] Text HP;
     [SerializeField] Text Atk;
     [SerializeField] Text Def;
