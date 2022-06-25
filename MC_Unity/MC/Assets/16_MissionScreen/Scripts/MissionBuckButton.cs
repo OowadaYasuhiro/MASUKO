@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MissionBuckButton : MonoBehaviour
-{
-    //todo: シーン遷移設定
-    public void OnClickBuckButton()
+namespace Mission {
+    public class MissionBuckButton : MonoBehaviour
     {
-        Debug.Log("Buck");
+        public void OnClickBuck()
+        {
+            Debug.Log("Buck");
+        }
     }
 }
