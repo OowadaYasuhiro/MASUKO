@@ -2948,14 +2948,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 697739890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 975267d639038f24795e03c3cf3f3b3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 49623ec7e1d9e5042a3f966acad59918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchor:
-  - {x: -7.9, y: -2, z: -0.1}
-  - {x: -6.31, y: -2, z: -0.1}
-  - {x: -7.73, y: -0.975, z: -0.1}
-  - {x: -6.18, y: -0.975, z: -0.1}
 --- !u!23 &697739892
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3011,7 +3006,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697739890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.01, y: 3.56, z: 10}
+  m_LocalPosition: {x: 7.9, y: -2, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
