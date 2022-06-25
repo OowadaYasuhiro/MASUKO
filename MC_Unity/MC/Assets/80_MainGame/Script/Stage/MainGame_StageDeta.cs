@@ -40,6 +40,7 @@ public class MainGame_StageDeta
                 enemy1_target_object = new Vector2(9, 4);
                 enemy2_target_object = new Vector2(9, 1);
                 view.viewArray = new bool[,]{
+                            { true,true,false,false,true,true},
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
@@ -48,8 +49,7 @@ public class MainGame_StageDeta
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
                             { true,false,false,false,false,true},
-                            { true,false,false,false,false,true},
-                            { true,false,false,false,false,true},
+                            { true,true,false,false,true,true},
                 };
                 break;
             case main_ep1_2:

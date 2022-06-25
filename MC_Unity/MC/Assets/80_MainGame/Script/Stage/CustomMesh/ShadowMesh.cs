@@ -53,7 +53,6 @@ public class ShadowMesh : MonoBehaviour
 
     public void Initialize()
     {
-        //meshFilter = gameObject.GetComponent<MeshFilter>();
         mesh = new Mesh();
 
 
@@ -96,7 +95,7 @@ public class ShadowMesh : MonoBehaviour
         //サブメッシュの上限設定
         mesh.subMeshCount = 60;
 
-        //mainGame = GameObject.Find("MainGame").GetComponent<MainGame>();
+        mainGame = GameObject.Find("MainGame").GetComponent<MainGame>();
 
         int loopNumber = 0;
         for (int i = 0; i < width; i++)
@@ -152,5 +151,12 @@ public class ShadowMesh : MonoBehaviour
 
         //フィルターにメッシュを渡す
         meshFilter.mesh = mesh;
+    }
+
+    public void SetColor(bool[,] target,Material material)
+    {
+
+        //左下から上に
+        //for (int i = 0; i < target.)
     }
 }
