@@ -48,7 +48,7 @@ public static class Constant
 
     //敵の名前
     public const string Tuyogarisyounen = "Tuyogarisyounen";
-    public const string Namikinasyouzyo = "Namikinasyouzyo";
+    public const string Namaikinasyouzyo = "Namaikinasyouzyo";
     public const string Koisurugyaru = "Koisurugyaru";
     public const string Kowamoteyanki = "Kowamoteyanki";
     public const string Piennnaonnnanoko = "Piennnaonnnanoko";

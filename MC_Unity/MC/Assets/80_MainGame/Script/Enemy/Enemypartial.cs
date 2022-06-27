@@ -7,11 +7,12 @@ public partial class Enemy
 {
     void Setting(string difficulty)
     {
-        switch (Charactorname)
+        switch (Charactername)
         {
             case Tuyogarisyounen:
                 moveSpeed = 1.0f;
                 attackRange = new Vector2[] { new Vector2(0,0), new Vector2(1,0)};
+                viewRange = new Vector2[] { new Vector2(0, 0), new Vector2(1,0)};
                 physicsDamageResistance = 0;
                 zyuGekiResistance = 0;
                 zyuRyokuResistance = 0;
@@ -34,7 +35,7 @@ public partial class Enemy
                         break;
                 }
                 break;
-            case Namikinasyouzyo:
+            case Namaikinasyouzyo:
                 switch (difficulty)
                 {
                     case easy:

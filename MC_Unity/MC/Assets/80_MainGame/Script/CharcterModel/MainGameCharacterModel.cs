@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public delegate void SkillEvent();
 
-public class MainGameCharactorModel : MainGameCharactorState
+public class MainGameCharacterModel : MainGameCharacterState
 {
     //名前(名前で中身の有無を確認)
-    protected string Charactorname = "";
+    protected string Charactername = "";
     //向き
     internal bool directionRight;
     //座標
@@ -26,7 +25,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     internal Vector2[] viewRange;
     //接敵
     internal bool findEnemy;
-    internal MainGameCharactorModel[] targetEnemy;
+    internal MainGameCharacterModel[] targetEnemy;
     //基本ステータス攻撃力
     protected int baseAttackPower;
     //攻撃力計算結果
@@ -37,7 +36,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     //名前取得
     internal string GetName()
     {
-        return Charactorname;
+        return Charactername;
     }
 
     //移動
@@ -57,7 +56,7 @@ public class MainGameCharactorModel : MainGameCharactorState
                 position = targetPosition[moveTargetPointer];
                 if (position == targetObject)
                 {
-                    charactorState = CharactorState.RunAway;
+                    charactorState = CharacterState.RunAway;
                 }
                 moveTargetPointer++;
                 next = true;
@@ -68,7 +67,7 @@ public class MainGameCharactorModel : MainGameCharactorState
     //ノックバック
     protected void Knockback(bool[,] map)
     {
-        if (map[(int)(targetPosition[moveTargetPointer - 1] + (-arrow)).x , (int)(targetPosition[moveTargetPointer - 1] + (-arrow)).y] == true)
+        if (map[(int)(targetPosition[moveTargetPointer - 1] + (-arrow)).x, (int)(targetPosition[moveTargetPointer - 1] + (-arrow)).y] == true)
         {
             position = position + (-arrow);
             moveTargetPointer--;

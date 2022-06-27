@@ -32,11 +32,11 @@ public class SoundManager : MonoBehaviour
     public void Initialize()
     {
         mastervolume = Master.playerdeta.MasterSoundvolume;
-        Debug.Log(mastervolume);
+        //Debug.Log(mastervolume);
         bgmvolume = Master.playerdeta.BGMSoundvolume;
-        Debug.Log(bgmvolume);
+        //Debug.Log(bgmvolume);
         voicevolume = Master.playerdeta.VoiceSoundvolume;
-        Debug.Log(voicevolume);
+        //Debug.Log(voicevolume);
         mute = Master.playerdeta.mute;
         MuteCheck();
         if (!(bgm.Length == 0))

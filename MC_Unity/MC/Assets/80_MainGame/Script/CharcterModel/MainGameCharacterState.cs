@@ -1,6 +1,6 @@
-﻿public class MainGameCharactorState : MainGameCharactorDamageModel
+﻿public class MainGameCharacterState : MainGameCharacterDamageModel
 {
-    protected enum CharactorState
+    internal enum CharacterState
     {
         //出撃可能
         Standby,
@@ -23,9 +23,9 @@
         //死亡
         Dead,
     }
-    protected CharactorState charactorState = new CharactorState();
+    internal CharacterState charactorState = new CharacterState();
 
-    protected enum CharactorAnimState
+    internal enum CharacterAnimState
     {
         Wait,
         Fait,
@@ -36,5 +36,5 @@
         Die,
         PickUp
     }
-    protected CharactorAnimState charactorAnimState = new CharactorAnimState();
+    internal CharacterAnimState charactorAnimState = new CharacterAnimState();
 }

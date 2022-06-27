@@ -24,6 +24,16 @@ public partial class MainGame : MonoBehaviour
     //影
     ShadowMesh shadowMesh;
 
+    //マテリアル
+    [SerializeField]
+    Material shadow;
+    [SerializeField]
+    Material voidmaterial;
+    [SerializeField]
+    Material deployable;
+    [SerializeField]
+    Material notAllowed;
+
     //難易度
     string difficulty;
 
@@ -46,29 +56,27 @@ public partial class MainGame : MonoBehaviour
     //スロウモード
     bool slowMode;
     //キャラクター１を選択
-    internal bool charactor1;
+    internal bool character1UI;
     //キャラクター１スキル１
-    internal bool charactor1skil1;
+    internal bool character1skil1;
     //キャラクター１スキル２
-    internal bool charactor1skil2;
+    internal bool character1skil2;
     //キャラクター１スキル３
-    internal bool charactor1skil3;
+    internal bool character1skil3;
     //キャラクター１撤退
-    internal bool charactor1goback;
+    internal bool character1goback;
     //キャラクター２を選択
-    internal bool charactor2;
+    internal bool character2UI;
     //キャラクター２スキル１
-    internal bool charactor2skil1;
+    internal bool character2skil1;
     //キャラクター２スキル２
-    internal bool charactor2skil2;
+    internal bool character2skil2;
     //キャラクター２スキル３
-    internal bool charactor2skil3;
+    internal bool character2skil3;
     //キャラクター２撤退
-    internal bool charactor2goback;
-    //アイテム１
-    internal bool item1;
-    //アイテム２
-    internal bool item2;
+    internal bool character2goback;
+    //キャラクター配置中
+    bool beingCharacterDeploy;
 
     //敵
     Enemy[] enemies;
@@ -77,7 +85,7 @@ public partial class MainGame : MonoBehaviour
     Player[] players;
 
     //召喚
-    internal SummonsCharactor[] summonsCharactor = new SummonsCharactor[8];
+    internal SummonsCharacter[] summonsCharacter = new SummonsCharacter[8];
 
     //召喚
     internal SummonsObject[] summonsobject = new SummonsObject[8];
@@ -100,8 +108,9 @@ public partial class MainGame : MonoBehaviour
         playerWin = false;
         shadowMesh = GameObject.Find("ShadowObject").GetComponent<ShadowMesh>();
         shadowMesh.Initialize();
-        //GeneratEnemy();
+        GeneratEnemy();
         GeneratPlayer();
+        ChangeView();
     }
 
     // Update is called once per frame
@@ -113,10 +122,11 @@ public partial class MainGame : MonoBehaviour
 
                 break;
             case GameState.PreparationPhase:
-
+                GameInputCheck();
                 break;
             case GameState.GameRun:
 
+                GameInputCheck();
                 ChangeView();
                 WaveClearCheck();
                 break;
@@ -137,7 +147,7 @@ public partial class MainGame : MonoBehaviour
     void ChengeWave()
     {
         waveNumber += 1;
-        //GeneratEnemy();
+        GeneratEnemy();
     }
 
     //スロウモード
@@ -147,7 +157,56 @@ public partial class MainGame : MonoBehaviour
         else gameSpeed = 1f;
     }
 
-    
+    //ゲーム入力確認
+    void GameInputCheck()
+    {
+        if (pause == true)
+        {
+            gamestate = GameState.Wait;
+        }
+        if (character1UI == true)
+        {
+            slowMode = true;
+            beingCharacterDeploy = true;
+        }
+        if (character1skil1 == true)
+        {
+
+        }
+        if (character1skil2 == true)
+        {
+
+        }
+        if (character1skil3 == true)
+        {
+
+        }
+        if (character2UI == true)
+        {
+            slowMode = true;
+            beingCharacterDeploy = true;
+        }
+        if (character2skil1 == true)
+        {
+
+        }
+        if (character2skil2 == true)
+        {
+
+        }
+        if (character2skil3 == true)
+        {
+
+        }
+    }
+
+    //キャラクターを配置
+    void CharacterDeployMode()
+    {
+
+    }
+
+
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
@@ -203,7 +262,7 @@ public partial class MainGame : MonoBehaviour
         //キャラクターの視界を確保
         for (int i = 0; i < players.Length; i++)
         {
-            if (players[i].GetName() == "")
+            if (players[i].GetName() == "" || players[i].charactorState == MainGameCharacterState.CharacterState.Standby || players[i].charactorState == MainGameCharacterState.CharacterState.Resting || players[i].charactorState == MainGameCharacterState.CharacterState.Dead)
             {
                 goto PlayerViewExit;
             }
@@ -247,32 +306,32 @@ public partial class MainGame : MonoBehaviour
         }
         EnemyViewExit:
 
-        for (int i = 0; i < summonsCharactor.Length; i++)
+        for (int i = 0; i < summonsCharacter.Length; i++)
         {
-            if (summonsCharactor[i].GetName() == "")
+            if (summonsCharacter[i] == null || summonsCharacter[i].GetName() == "")
             {
-                goto SummonCharactorViewExit;
+                goto SummoncharacterViewExit;
             }
-            if (summonsCharactor[i].directionRight == true)
+            if (summonsCharacter[i].directionRight == true)
             {
-                for (int j = 0; j < summonsCharactor[i].viewRange.Length; j++)
+                for (int j = 0; j < summonsCharacter[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(summonsCharactor[i].position.x + summonsCharactor[i].viewRange[i].x), (int)(summonsCharactor[i].position.y + summonsCharactor[i].viewRange[i].y)] = true;
+                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[i].x), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[i].y)] = true;
                 }
             }
             else
             {
-                for (int j = 0; j < summonsCharactor[i].viewRange.Length; j++)
+                for (int j = 0; j < summonsCharacter[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(summonsCharactor[i].position.x + (summonsCharactor[i].viewRange[i].x * -1)), (int)(summonsCharactor[i].position.y + summonsCharactor[i].viewRange[i].y)] = true;
+                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + (summonsCharacter[i].viewRange[i].x * -1)), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[i].y)] = true;
                 }
             }
         }
-        SummonCharactorViewExit:
+        SummoncharacterViewExit:
 
         for (int i = 0; i < summonsobject.Length; i++)
         {
-            if (summonsobject[i].GetName() == "")
+            if (summonsobject[i] == null || summonsobject[i].GetName() == "")
             {
                 goto SummonObjectExitViewExit;
             }
@@ -294,13 +353,13 @@ public partial class MainGame : MonoBehaviour
         SummonObjectExitViewExit:
 
         //出現場所と目標を見えるように
-        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy1_spawn_position.x), (int)(mainGame_StageDeta.enemy1_spawn_position.x)] = true;
-        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy2_spawn_position.x), (int)(mainGame_StageDeta.enemy2_spawn_position.x)] = true;
-        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy1_target_object.x), (int)(mainGame_StageDeta.enemy1_target_object.x)] = true;
-        mainGame_StageDeta.view.viewArray[(int)(mainGame_StageDeta.enemy2_target_object.x), (int)(mainGame_StageDeta.enemy2_target_object.x)] = true;
+        mainGame_StageDeta.view.viewArray[(int)mainGame_StageDeta.enemy1_spawn_position.x, (int)mainGame_StageDeta.enemy1_spawn_position.y] = true;
+        mainGame_StageDeta.view.viewArray[(int)mainGame_StageDeta.enemy2_spawn_position.x, (int)mainGame_StageDeta.enemy2_spawn_position.y] = true;
+        mainGame_StageDeta.view.viewArray[(int)mainGame_StageDeta.enemy1_target_object.x, (int)mainGame_StageDeta.enemy1_target_object.y] = true;
+        mainGame_StageDeta.view.viewArray[(int)mainGame_StageDeta.enemy2_target_object.x, (int)mainGame_StageDeta.enemy2_target_object.y] = true;
 
         //表示
-        shadowMesh.SetMesh(mainGame_StageDeta.view.viewArray);
+        shadowMesh.SetColor(mainGame_StageDeta.view.viewArray,voidmaterial);
     }
 
     //メインゲーム終了

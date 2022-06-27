@@ -103,16 +103,13 @@ public class ShadowMesh : MonoBehaviour
         {
             for (int j = 0; j < height; j++)
             {
-                if (mainGame.mainGame_StageDeta.view.viewArray[i, j] == false)
+                int[] subtriangles = new int[6];
+                for (int n = 0; n < 6; n++)
                 {
-                    int[] subtriangles = new int[6];
-                    for (int n = 0; n < 6; n++)
-                    {
-                        subtriangles[n] = triangles[i, j, n];
-                    }
-                    //三角形設定
-                    mesh.SetTriangles(subtriangles, loopNumber);
+                    subtriangles[n] = triangles[i, j, n];
                 }
+                //三角形設定
+                mesh.SetTriangles(subtriangles, loopNumber);
                 loopNumber++;
             }
         }
@@ -129,6 +126,7 @@ public class ShadowMesh : MonoBehaviour
         
     }
 
+    /*
     //影の再設定
     public void SetMesh(bool[,] view)
     {
@@ -154,10 +152,12 @@ public class ShadowMesh : MonoBehaviour
         //フィルターにメッシュを渡す
         meshFilter.mesh = mesh;
     }
+    */
 
     //マテリアル変更
     public void SetColor(bool[,] target,Material material)
     {
+        Material[] mats = meshRenderer.materials;
         //左下から上に
         for (int i = 0; i < target.GetLength(0); i++)
         {
@@ -165,9 +165,10 @@ public class ShadowMesh : MonoBehaviour
             {
                 if (target[i,j] == true)
                 {
-                    meshRenderer.materials[target.GetLength(0) * i + j] = material;
+                    mats[target.GetLength(1) * i + j] = material;
                 }
             }
         }
+        meshRenderer.materials = mats;
     }
 }
