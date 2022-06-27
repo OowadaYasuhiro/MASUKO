@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ShadowMesh : MonoBehaviour
 {
-    [SerializeField]
     MeshFilter meshFilter;
     Mesh mesh;
-    [SerializeField]
+    MeshRenderer meshRenderer;
     MainGame mainGame;
 
     //ステージ4隅
@@ -55,6 +54,9 @@ public class ShadowMesh : MonoBehaviour
     {
         mesh = new Mesh();
 
+        mainGame = GameObject.Find("MainGame").GetComponent<MainGame>();
+        meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
 
         //頂点の生成
         int number = 0;
@@ -95,8 +97,7 @@ public class ShadowMesh : MonoBehaviour
         //サブメッシュの上限設定
         mesh.subMeshCount = 60;
 
-        mainGame = GameObject.Find("MainGame").GetComponent<MainGame>();
-
+        //viewと影を付ける部分を合わせる
         int loopNumber = 0;
         for (int i = 0; i < width; i++)
         {
@@ -128,6 +129,7 @@ public class ShadowMesh : MonoBehaviour
         
     }
 
+    //影の再設定
     public void SetMesh(bool[,] view)
     {
         int loopNumber = 0;
@@ -153,10 +155,19 @@ public class ShadowMesh : MonoBehaviour
         meshFilter.mesh = mesh;
     }
 
+    //マテリアル変更
     public void SetColor(bool[,] target,Material material)
     {
-
         //左下から上に
-        //for (int i = 0; i < target.)
+        for (int i = 0; i < target.GetLength(0); i++)
+        {
+            for (int j = 0; j < target.GetLength(1); j++)
+            {
+                if (target[i,j] == true)
+                {
+                    meshRenderer.materials[target.GetLength(0) * i + j] = material;
+                }
+            }
+        }
     }
 }
