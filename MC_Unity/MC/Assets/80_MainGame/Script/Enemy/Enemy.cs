@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public partial class Enemy : MainGameCharactorModel
+public partial class Enemy : MainGameCharacterModel
 {
     //戦闘時間
     const int maxFightTime = 600;
@@ -21,21 +21,21 @@ public partial class Enemy : MainGameCharactorModel
     MainGame mainGame;
 
     //最後の移動状態
-    CharactorState lastRunType;
+    CharacterState lastRunType;
 
 
     public Enemy( MainGame mainGame, string difficulty, string name)
     {
         this.mainGame = mainGame;
-        this.Charactorname = name;
+        this.Charactername = name;
         Setting(difficulty);
         directionRight = true;
     }
 
     private void Start()
     {
-        charactorState = CharactorState.Standby;
-        charactorAnimState = CharactorAnimState.Wait;
+        charactorState = CharacterState.Standby;
+        charactorAnimState = CharacterAnimState.Wait;
     }
 
     //情報収集
@@ -43,23 +43,23 @@ public partial class Enemy : MainGameCharactorModel
     {
         switch (charactorState)
         {
-            case CharactorState.Stan:
+            case CharacterState.Stan:
                 charactorState = lastRunType;
                 break;
-            case CharactorState.Run:
-                lastRunType = CharactorState.Run;
+            case CharacterState.Run:
+                lastRunType = CharacterState.Run;
                 //攻撃範囲に敵がいて戦闘無視状態で無い場合
                 if (findEnemy == true && fightThrough == false)
                 {
-                    charactorState = CharactorState.Fight;
+                    charactorState = CharacterState.Fight;
                 }
                 break;
-            case CharactorState.RunAway:
-                lastRunType = CharactorState.RunAway;
+            case CharacterState.RunAway:
+                lastRunType = CharacterState.RunAway;
                 //攻撃範囲に敵がいて戦闘無視状態で無い場合
                 if (findEnemy == true && fightThrough == false)
                 {
-                    charactorState = CharactorState.Fight;
+                    charactorState = CharacterState.Fight;
                 }
                 break;
         }
@@ -73,8 +73,8 @@ public partial class Enemy : MainGameCharactorModel
         ReMoveAllEvents();
         switch (charactorState)
         {
-            case CharactorState.Fight:
-                foreach (MainGameCharactorModel target in targetEnemy)
+            case CharacterState.Fight:
+                foreach (MainGameCharacterModel target in targetEnemy)
                 {
                     target.AddDamage(damage);
                 }

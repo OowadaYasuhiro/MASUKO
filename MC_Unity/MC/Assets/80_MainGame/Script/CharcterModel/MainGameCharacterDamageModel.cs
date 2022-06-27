@@ -1,7 +1,7 @@
-﻿public class MainGameCharactorDamageModel : MainGameCharactorTag
+﻿public class MainGameCharacterDamageModel : MainGameCharacterTag
 {
     //生死
-    internal bool alive { get; set;}
+    internal bool alive { get; set; }
 
     //体力
     protected int hp;

@@ -5,10 +5,10 @@ using static Constant;
 
 partial class MainGame : MonoBehaviour
 {
-    List<MainGameCharactorModel> subjectList;
+    List<MainGameCharacterModel> subjectList;
     //範囲内の対象を取得
     //検索対象の選択が必要
-    public MainGameCharactorModel[] SearchCharactor(Vector2[] area,bool player,bool enemy,bool summonsCharactor)
+    public MainGameCharacterModel[] SearchCharacter(Vector2[] area,bool player,bool enemy,bool summonsCharacter)
     {
         subjectList.Clear();
         //受け取った座標を検索
@@ -40,21 +40,21 @@ partial class MainGame : MonoBehaviour
                     }
                 }
             }
-            if (summonsCharactor == true)
+            if (summonsCharacter == true)
             {
-                foreach (SummonsCharactor targetsummonsCharactor in this.summonsCharactor)
+                foreach (SummonsCharacter targetsummonsCharacter in this.summonsCharacter)
                 {
-                    if (targetsummonsCharactor.position.x >= (place.x - 0.5) && targetsummonsCharactor.position.x < (place.x + 0.5))
+                    if (targetsummonsCharacter.position.x >= (place.x - 0.5) && targetsummonsCharacter.position.x < (place.x + 0.5))
                     {
-                        if (targetsummonsCharactor.position.y >= (place.y - 0.5) && targetsummonsCharactor.position.y < (place.y + 0.5))
+                        if (targetsummonsCharacter.position.y >= (place.y - 0.5) && targetsummonsCharacter.position.y < (place.y + 0.5))
                         {
-                            subjectList.Add(targetsummonsCharactor);
+                            subjectList.Add(targetsummonsCharacter);
                         }
                     }
                 }
             }
         }
-        MainGameCharactorModel[] subject = new MainGameCharactorModel[subjectList.Count];
+        MainGameCharacterModel[] subject = new MainGameCharacterModel[subjectList.Count];
         for (int i = 0;i < subjectList.Count;i++)
         {
             subject[i] = subjectList[i];
@@ -62,7 +62,7 @@ partial class MainGame : MonoBehaviour
         return subject;
     }
 
-    /*
+    
     //自動で敵を生成
     void GeneratEnemy()
     {
@@ -74,17 +74,15 @@ partial class MainGame : MonoBehaviour
                 {
                     case 1:
                         enemies = null;
-                        enemies[0] = new Enemy(EnemyName.TUYOGARISYOUNEN,difficulty);
+                        enemies = new Enemy[1] {new Enemy(this, difficulty, Tuyogarisyounen)};
                         break;
                     case 2:
                         enemies = null;
-                        enemies[0] = new Enemy(EnemyName.TUYOGARISYOUNEN, difficulty);
-                        enemies[1] = new Enemy(EnemyName.TUYOGARISYOUNEN, difficulty);
+                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen), new Enemy(this, difficulty, Tuyogarisyounen) };
                         break;
                     case 3:
                         enemies = null;
-                        enemies[0] = new Enemy(EnemyName.TUYOGARISYOUNEN, difficulty);
-                        enemies[1] = new Enemy(EnemyName.NAMIKINASYOUZYO, difficulty);
+                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen), new Enemy(this, difficulty, Namaikinasyouzyo) };
                         break;
                 }
                 break;
@@ -318,6 +316,5 @@ partial class MainGame : MonoBehaviour
                 break;
         }
     }
-    */
 }
 

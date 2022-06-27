@@ -6,10 +6,10 @@ using System.Runtime.CompilerServices;
 
 //public delegate void SkillEvent();
 
-public class MainGameSkillEvent : MainGameCharactorModel
+public class MainGameSkillEvent : MainGameCharacterModel
 {
     //何フレーム実行するか(0で1回)、何フレーム毎に実行するか(1で毎フレーム)、
-    public IEnumerator DoSkillEvent(MainGame maingame, MainGameCharactorModel target, int time, int doTick, SkillEvent skillEvent )
+    public IEnumerator DoSkillEvent(MainGame maingame, MainGameCharacterModel target, int time, int doTick, SkillEvent skillEvent )
     {
         int passedTime = 0;
         POINT:

@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SummonsCharactor : MainGameCharactorModel
+public class SummonsCharacter : MainGameCharacterModel
 {
-
     //MainGameのアドレス
     MainGame mainGame;
 
@@ -18,7 +15,7 @@ public class SummonsCharactor : MainGameCharactorModel
     SkillEvent skill;
 
     //
-    public SummonsCharactor(MainGame mainGame, int attackDamage, SkillEvent skillEvent, Vector2[] attackRange)
+    public SummonsCharacter(MainGame mainGame, int attackDamage, SkillEvent skillEvent, Vector2[] attackRange)
     {
         this.mainGame = mainGame;
         baseAttackPower = attackDamage;

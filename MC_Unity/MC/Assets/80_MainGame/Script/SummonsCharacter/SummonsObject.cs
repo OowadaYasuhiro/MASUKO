@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Constant;
 
-public class SummonsObject : MainGameCharactorModel
+public class SummonsObject : MainGameCharacterModel
 {
 
     //MainGameのアドレス

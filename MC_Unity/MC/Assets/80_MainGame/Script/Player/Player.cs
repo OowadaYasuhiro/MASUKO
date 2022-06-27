@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Player : MainGameCharactorModel
+public partial class Player : MainGameCharacterModel
 {
     //自分の番号
     int myNumber;
@@ -76,8 +76,8 @@ public partial class Player : MainGameCharactorModel
 
     private void Start()
     {
-        charactorState = CharactorState.Resting;
-        charactorAnimState = CharactorAnimState.Wait;
+        charactorState = CharacterState.Resting;
+        charactorAnimState = CharacterAnimState.Wait;
         skill1Cool = true;
         skill2Cool = true;
         skill3Cool = true;
@@ -119,10 +119,10 @@ public partial class Player : MainGameCharactorModel
 
         switch (charactorState)
         {
-            case CharactorState.Resting:
+            case CharacterState.Resting:
                 
                 break;
-            case CharactorState.Fight:
+            case CharacterState.Fight:
 
                 break;
         }
@@ -139,8 +139,8 @@ public partial class Player : MainGameCharactorModel
         passiveSkill();
         switch (charactorState)
         {
-            case CharactorState.Fight:
-                foreach (MainGameCharactorModel target in targetEnemy)
+            case CharacterState.Fight:
+                foreach (MainGameCharacterModel target in targetEnemy)
                 {
                     target.AddDamage(new Damage(Damage.physicsDamage, resultingAttackPower));
                 }

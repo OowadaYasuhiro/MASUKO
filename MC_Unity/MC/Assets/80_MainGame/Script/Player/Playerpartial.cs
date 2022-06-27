@@ -26,9 +26,9 @@ public partial class Player
             artifact2 = Master.formationdeta.charactor2Artifacts[1];
             artifact3 = Master.formationdeta.charactor2Artifacts[2];
         }
-        Charactorname = FDC.name;
+        Charactername = FDC.name;
 
-        switch (Charactorname)
+        switch (Charactername)
         {
             case Daemon:
                 //最大スタック数設定
@@ -60,7 +60,7 @@ public partial class Player
                     //ステートをスタンに移行
                     void EnemyStan()
                     {
-                        charactorState = CharactorState.Stan;
+                        charactorState = CharacterState.Stan;
                     }
                     Skip0:
                     SkillEvent Stan = EnemyStan;
@@ -92,12 +92,12 @@ public partial class Player
                     Skip1:
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharactorModel[] target = mainGame.SearchCharactor(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
-                    foreach (MainGameCharactorModel targetCharactor in target)
+                    foreach (MainGameCharacterModel targetCharacter in target)
                     {
-                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 180, 1, Stan));
-                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 300, 72, SkillAttack));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 180, 1, Stan));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 300, 72, SkillAttack));
                     }
                 }
                 //最大スタック数設定
@@ -136,7 +136,7 @@ public partial class Player
                     //ステートをスタンに移行
                     void EnemyStan()
                     {
-                        charactorState = CharactorState.Stan;
+                        charactorState = CharacterState.Stan;
                     }
                     Skip0:
                     SkillEvent Stan = EnemyStan;
@@ -152,12 +152,12 @@ public partial class Player
                     void ObjectSkill()
                     {
                         //攻撃範囲内の敵を取得
-                        MainGameCharactorModel[] target = mainGame.SearchCharactor(new Vector2[] { new Vector2(0,0)}, false, true, false);
+                        MainGameCharacterModel[] target = mainGame.SearchCharacter(new Vector2[] { new Vector2(0,0)}, false, true, false);
                         //ターゲット全員に対しスキルを発動
-                        foreach (MainGameCharactorModel targetCharactor in target)
+                        foreach (MainGameCharacterModel targetCharacter in target)
                         {
-                            StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 300, 1, Stan));
-                            StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 0, 1, SkillAttack));
+                            StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 300, 1, Stan));
+                            StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 0, 1, SkillAttack));
                         }
                     }
                     Skip2:
@@ -280,11 +280,11 @@ public partial class Player
                     }
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharactorModel[] target = mainGame.SearchCharactor(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
-                    foreach (MainGameCharactorModel targetCharactor in target)
+                    foreach (MainGameCharacterModel targetCharacter in target)
                     {
-                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharactor, 300, 72, SkillAttack));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 300, 72, SkillAttack));
                     }
                 }
                 //最大スタック数設定
@@ -313,11 +313,11 @@ public partial class Player
                 {
 
                     //攻撃範囲内の敵を取得
-                    MainGameCharactorModel[] target = mainGame.SearchCharactor(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
-                    foreach (MainGameCharactorModel targetCharactor in target)
+                    foreach (MainGameCharacterModel targetCharacter in target)
                     {
-                        //StartCoroutine(new MainGameSkillEvent().DoSkillEvent(targetCharactor, 300, 72, ));
+                        //StartCoroutine(new MainGameSkillEvent().DoSkillEvent(targetCharacter, 300, 72, ));
                     }
                 }
                 //最大スタック数設定

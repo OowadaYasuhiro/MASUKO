@@ -9,7 +9,7 @@ public class MainGame_StageUI : MonoBehaviour
 {
     [Space(15)]
     //ステージ背景
-    [SerializeField] GameObject BackGround;
+    //[SerializeField] GameObject BackGround;
     //ステージ
     [SerializeField] GameObject GameScreen;
 
@@ -27,7 +27,7 @@ public class MainGame_StageUI : MonoBehaviour
     //バックグラウンドをセット
     internal void SetBackGround(int number)
     {
-        BackGround.SendMessage("SetBackGround",number);
+        //BackGround.SendMessage("SetBackGround",number);
     }
 
     internal void SetObstacle(int number)
