@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TouchUI : MonoBehaviour
 {
-    //表示画像
+    //表示画像(メッシュの都合により表示は子が行う)
     [SerializeField] internal Image cursor;
     //対象のキャンバス
     [SerializeField] Canvas canvas;

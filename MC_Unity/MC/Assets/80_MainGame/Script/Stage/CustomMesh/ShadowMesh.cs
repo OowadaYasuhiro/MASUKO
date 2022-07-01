@@ -44,11 +44,6 @@ public class ShadowMesh : MonoBehaviour
     const int height = 6;
     const int width = 10;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void Initialize()
     {
@@ -119,40 +114,6 @@ public class ShadowMesh : MonoBehaviour
         mesh.RecalculateNormals();
         meshFilter.mesh = mesh;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    /*
-    //影の再設定
-    public void SetMesh(bool[,] view)
-    {
-        int loopNumber = 0;
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                if (view[i, j] == false)
-                {
-                    int[] subtriangles = new int[6];
-                    for (int n = 0; n < 6; n++)
-                    {
-                        subtriangles[n] = triangles[i, j, n];
-                    }
-                    //三角形設定
-                    mesh.SetTriangles(subtriangles, loopNumber);
-                }
-                loopNumber++;
-            }
-        }
-
-        //フィルターにメッシュを渡す
-        meshFilter.mesh = mesh;
-    }
-    */
 
     //マテリアル変更
     public void SetColor(bool[,] target,Material material)

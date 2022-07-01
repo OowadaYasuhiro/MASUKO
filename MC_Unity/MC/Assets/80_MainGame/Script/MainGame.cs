@@ -75,6 +75,10 @@ public partial class MainGame : MonoBehaviour
     internal bool character2skil3;
     //キャラクター２撤退
     internal bool character2goback;
+    //行動中キャラクター１を選択
+    internal bool character1;
+    //行動中キャラクター２を選択
+    internal bool character2;
     //キャラクター配置中
     bool beingCharacterDeploy;
 
@@ -111,6 +115,7 @@ public partial class MainGame : MonoBehaviour
         GeneratEnemy();
         GeneratPlayer();
         ChangeView();
+
     }
 
     // Update is called once per frame
@@ -123,10 +128,12 @@ public partial class MainGame : MonoBehaviour
                 break;
             case GameState.PreparationPhase:
                 GameInputCheck();
+                SlowCheck();
                 break;
             case GameState.GameRun:
 
                 GameInputCheck();
+                SlowCheck();
                 ChangeView();
                 WaveClearCheck();
                 break;
@@ -150,11 +157,16 @@ public partial class MainGame : MonoBehaviour
         GeneratEnemy();
     }
 
-    //スロウモード
+    //スロウモード(判定と切り替えにかかわる処理)
     void SlowCheck()
     {
-        if (slowMode) gameSpeed = 0.25f;
+        if (slowMode == true) gameSpeed = 0.25f;
         else gameSpeed = 1f;
+
+        if (beingCharacterDeploy == true)
+        {
+            CharacterDeployMode();
+        }
     }
 
     //ゲーム入力確認
@@ -203,7 +215,21 @@ public partial class MainGame : MonoBehaviour
     //キャラクターを配置
     void CharacterDeployMode()
     {
+        if (MasterInput.Touchended == true)
+        {
+            //キャラクターを設置
+            if (character1UI == true)
+            {
+                character1UI = false;
 
+            }
+            if (character2UI == true)
+            {
+                character2UI = false;
+
+            }
+            slowMode = false;
+        }
     }
 
 

@@ -12,7 +12,7 @@ public class MainGameSkillEvent : MainGameCharacterModel
     public IEnumerator DoSkillEvent(MainGame maingame, MainGameCharacterModel target, int time, int doTick, SkillEvent skillEvent )
     {
         int passedTime = 0;
-        POINT:
+        LOOPPOINT:
 
         if (passedTime >= doTick)
         {
@@ -29,6 +29,12 @@ public class MainGameSkillEvent : MainGameCharacterModel
         }
         else
         {
+            Loop:
+            if (maingame.gameSpeed == 0)
+            {
+                yield return new WaitForEndOfFrame();
+                goto Loop;
+            }
             int j = (int)(1f/maingame.gameSpeed);
             for(int i = 0; i < j; i++)
             {
@@ -39,7 +45,7 @@ public class MainGameSkillEvent : MainGameCharacterModel
 
         if (time >= 0)
         {
-            goto POINT;
+            goto LOOPPOINT;
         }
 
         Destroy(this);
