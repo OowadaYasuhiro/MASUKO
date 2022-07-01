@@ -17,7 +17,6 @@ public class Master : SingletonMonoBehaviour<Master>
 
     private new void Awake()
     {
-        Application.targetFrameRate = 60;
         saveManager.DetaLoad();
         SceneManager.sceneUnloaded += OnSceneUnloaded;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().Initialize();
@@ -31,7 +30,7 @@ public class Master : SingletonMonoBehaviour<Master>
     // Start is called before the first frame update
     void Start()
     {
-        
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
