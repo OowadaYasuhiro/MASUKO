@@ -6,6 +6,8 @@ public class MainGameCharacterModel : MainGameCharacterState
 {
     //名前(名前で中身の有無を確認)
     protected string Charactername = "";
+    //ステージに出ているかどうか
+    internal bool displaying;
     //向き
     internal bool directionRight;
     //座標

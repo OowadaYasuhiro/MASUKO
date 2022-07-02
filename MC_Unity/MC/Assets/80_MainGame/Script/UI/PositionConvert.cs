@@ -25,7 +25,6 @@ public class PositionConvert : MonoBehaviour
     //
     const float correctionWidth = 0.1f;
 
-    /*
     //座標変換
     Vector2 VectorConvert(Vector2 positionData)
     {
@@ -35,24 +34,69 @@ public class PositionConvert : MonoBehaviour
         float posy0 = positionData.y / 1;
         float posy1 = posy0 + 1;
         float posyFew = positionData.y % 1;
-        float convertedposx0 = XConverter(posx1);
-
+        float convertedposx0 = XConverter(posx0, posy0);
+        float convertedposx1 = XConverter(posx1, posy0);
+        float convertedposy0 = YConverter(posy0);
+        float convertedposy1 = YConverter(posy1);
+        Vector2 returnValue = new Vector2();
+        returnValue.x = convertedposx0 + (convertedposx1 - convertedposx0) * posxFew;
+        returnValue.y = convertedposy0 + (convertedposy1 - convertedposy0) * posyFew;
+        return returnValue;
     }
 
-    Vector2 XConverter(float posx)
+    float XConverter(float posx,float posy)
     {
-        Vector2 returnValue;
+        float returnValue;
         if (posx >= 5)
         {
-
+            if (posx == 5)
+            {
+                returnValue = depth01 + (5f - posy) + correctionWidth * (5f - posy);
+            }
+            else
+            {
+                returnValue = depth01 + (5f - posy) + ((addWidth + correctionWidth * (5f - posy)) +(nextAdd * (5f - posy)) + (((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) - farstDown) * (posx - 6)));
+            }
+            
         }
         else
         {
-
+            if (posx == 4)
+            {
+                returnValue = -(depth01 + (5f - posy)) + correctionWidth * (5f - posy);
+            }
+            else
+            {
+                returnValue = depth01 + (5f - posy) - ((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) + (((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) - farstDown) * (3 - posx)));
+            }
         }
-
-
         return returnValue;
     } 
-    */
+
+    float YConverter(float posy)
+    {
+        float returnValue = 0;
+        switch (posy)
+        {
+            case 0:
+                returnValue = depth5;
+                break;
+            case 1:
+                returnValue = depth4;
+                break;
+            case 2:
+                returnValue = depth3;
+                break;
+            case 3:
+                returnValue = depth2;
+                break;
+            case 4:
+                returnValue = depth1;
+                break;
+            case 5:
+                returnValue = depth0;
+                break;
+        }
+        return returnValue;
+    }
 }
