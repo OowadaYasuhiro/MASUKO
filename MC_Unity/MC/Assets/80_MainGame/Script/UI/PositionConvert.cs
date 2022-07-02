@@ -14,21 +14,45 @@ public class PositionConvert : MonoBehaviour
     const float depth5 = -278;
 
     //横(±左右)
-    const float depth01 = 78;
-    const float depth02 = 233;
-    const float depth03 = 385;
-    const float depth04 = 537;
-    const float depth05 = 689;
+    const float depth01 = 79;
 
-    // Start is called before the first frame update
-    void Start()
+    //上がり幅初期値
+    const float addWidth = 154;
+    //
+    const float farstDown = 2;
+    //
+    const float nextAdd = 3;
+    //
+    const float correctionWidth = 0.1f;
+
+    /*
+    //座標変換
+    Vector2 VectorConvert(Vector2 positionData)
     {
-        
+        float posx0 = positionData.x / 1;
+        float posx1 = posx0 + 1;
+        float posxFew = positionData.x % 1;
+        float posy0 = positionData.y / 1;
+        float posy1 = posy0 + 1;
+        float posyFew = positionData.y % 1;
+        float convertedposx0 = XConverter(posx1);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    Vector2 XConverter(float posx)
     {
-        
-    }
+        Vector2 returnValue;
+        if (posx >= 5)
+        {
+
+        }
+        else
+        {
+
+        }
+
+
+        return returnValue;
+    } 
+    */
 }
