@@ -20,8 +20,6 @@ public class FormationDeta
 
     public Artifact[] artifacts;
 
-    public RecoveryOfBelongingsScreen_Deta data = new RecoveryOfBelongingsScreen_Deta();
-
     public void SetSelectCharacter1(Charactor? character)
     {
         this.selectcharactor1 = character;
@@ -186,128 +184,6 @@ public struct Charactor
         def = 0;
         passiveSkillName = "void";
         passiveSkillEffect = "void";
-    }
-
-    public string GetName()
-    {
-        return this.name;
-    }
-
-    public int GetLevel()
-    {
-        return this.level;
-    }
-    public void SetLevel(int value)
-    {
-        this.level = value;
-    }
-
-    public int GetCredibility()
-    {
-        return this.credibility;
-    }
-    public void SetCredibility(int value)
-    {
-        this.credibility = value;
-    }
-
-    public int GetSkill1Level()
-    {
-        return this.skill1level;
-    }
-    public void SetSkillLevel(int value)
-    {
-        this.skill1level = value;
-    }
-
-    public int GetSkill2Level()
-    {
-        return this.skill2level;
-    }
-    public void SetSkill2Level(int value)
-    {
-        this.skill2level = value;
-    }
-
-    public int GetSkill3Level()
-    {
-        return this.skill3level;
-    }
-    public void SetSkill3Level(int value)
-    {
-        this.skill3level = value;
-    }
-
-    public int GetUltLevel()
-    {
-        return this.ultlevel;
-    }
-    public void SetUltLevel(int value)
-    {
-        this.ultlevel = value;
-    }
-
-    public int GetPassiveSkillLevel()
-    {
-        return this.passiveskilllevel;
-    }
-    public void SetPassiveSkillLevel(int value)
-    {
-        this.passiveskilllevel = value;
-    }
-
-    public int GetPotentialflowering()
-    {
-        return this.potentialflowering;
-    }
-    public void SetPotentialflowering(int value)
-    {
-        this.potentialflowering = value;
-    }
-
-    public int GetHp()
-    {
-        return this.hp;
-    }
-    public void SetHp(int value)
-    {
-        this.hp = value;
-    }
-
-    public int GetAtk()
-    {
-        return this.atk;
-    }
-    public void SetAtk(int value)
-    {
-        this.atk = value;
-    }
-
-    public int GetDef()
-    {
-        return this.def;
-    }
-    public void SetDef(int value)
-    {
-        this.def = value;
-    }
-
-    public string GetPassiveSkillName()
-    {
-        return this.passiveSkillName;
-    }
-    public void SetPassiveSkillName(string name)
-    {
-        this.passiveSkillName = name;
-    }
-
-    public string GetPassiveSkillEffect()
-    {
-        return this.passiveSkillEffect;
-    }
-    public void SetPassiveSkillEffect(string text)
-    {
-        this.passiveSkillEffect = text;
     }
 }
 

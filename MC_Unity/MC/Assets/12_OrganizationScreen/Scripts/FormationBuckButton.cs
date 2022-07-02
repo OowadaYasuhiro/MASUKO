@@ -3,40 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FormationBuckButton : MonoBehaviour
+namespace Formation
 {
-    /// <summary>
-    /// ホームシーンへ戻るボタンの処理
-    /// </summary>
-
-    //todo: ホームシーンにつなげる
-    //OnClick用メソッド
-    public void OnClickBuckButton()
+    public class FormationBuckButton : MonoBehaviour
     {
-        //現在セットされているキャラクターを保存
-        switch (OrganizationScreen_Deta.leftCharacterNum)
+        public void OnClickBuck()
         {
-            case 0:
-                Master.playerdeta.NowSelectCharactor = OrganizationScreen_Deta.CharacterName.ghost.ToString();
-                break;
-            case 1:
-                Master.playerdeta.NowSelectCharactor = OrganizationScreen_Deta.CharacterName.zasikiwarasi.ToString();
-                break;
-            case 2:
-                Master.playerdeta.NowSelectCharactor = OrganizationScreen_Deta.CharacterName.ogre.ToString();
-                break;
-            case 3:
-                Master.playerdeta.NowSelectCharactor = OrganizationScreen_Deta.CharacterName.poltergeist.ToString();
-                break;
-            case 4:
-                Master.playerdeta.NowSelectCharactor = OrganizationScreen_Deta.CharacterName.demon.ToString();
-                break;
-            default:
-                Debug.LogError("Illegal Value");
-                break;
+            Load_Deta.Nextscenename = "HomeScene";
+            SceneManager.LoadScene("Yanai_TestScene");
         }
-        
-        Load_Deta.Nextscenename = "HomeScene";
-        SceneManager.LoadScene("Yanai_TestScene");
     }
 }
