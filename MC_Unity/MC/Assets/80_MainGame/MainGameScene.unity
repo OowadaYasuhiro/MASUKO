@@ -2876,6 +2876,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f50308c28e54e429a8a703551651af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Character1: {fileID: 1204500400}
+  Character2: {fileID: 502812840}
+  Character1UI: {fileID: 1662951679}
+  Character1Skill1: {fileID: 779089704}
+  Character1Skill2: {fileID: 50561071}
+  Character1Skill3: {fileID: 1655149705}
+  Character2UI: {fileID: 1530146363}
+  Character2Skill1: {fileID: 1522436944}
+  Character2Skill2: {fileID: 178234469}
+  Character2Skill3: {fileID: 565455331}
+  Pause: {fileID: 663026525}
 --- !u!1 &685366603
 GameObject:
   m_ObjectHideFlags: 0

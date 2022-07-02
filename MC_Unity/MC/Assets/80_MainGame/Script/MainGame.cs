@@ -15,6 +15,9 @@ public partial class MainGame : MonoBehaviour
     //マスターオブジェクト
     GameObject master;
 
+    //ボタンマネージャー
+    ButtonManager buttonManager;
+
     //ステージ
     string stage;
 
@@ -42,6 +45,9 @@ public partial class MainGame : MonoBehaviour
 
     //現在のウェーブ
     int waveNumber;
+
+    //キャラクターが配置された
+    bool onStageCharacter;
 
     //ゲーム内時間軸
     internal float gameSpeed { get; private set;}
@@ -97,7 +103,7 @@ public partial class MainGame : MonoBehaviour
     //初期化
     void Start()
     {
-        gamestate = GameState.BeforeStart;
+        gamestate = GameState.PreparationPhase;
         gameSpeed = 1;
         master = GameObject.Find("MasterObject");
         StageSelect_Deta.selectStageNumber = Constant.main_ep1_1;
@@ -110,8 +116,10 @@ public partial class MainGame : MonoBehaviour
         mainGame_StageUI.SendMessage("SetObstacle", int.Parse(stage.Substring(1, 2)));
         waveNumber = 1;
         playerWin = false;
+        onStageCharacter = false;
         shadowMesh = GameObject.Find("ShadowObject").GetComponent<ShadowMesh>();
         shadowMesh.Initialize();
+        buttonManager = GetComponent<ButtonManager>();
         GeneratEnemy();
         GeneratPlayer();
         ChangeView();
@@ -129,11 +137,15 @@ public partial class MainGame : MonoBehaviour
             case GameState.PreparationPhase:
                 GameInputCheck();
                 SlowCheck();
+                GameUpData();
+                ChangeView();
+                if (onStageCharacter == true) Invoke("GameStateToGameRun",10f);
                 break;
             case GameState.GameRun:
 
                 GameInputCheck();
                 SlowCheck();
+                GameUpData();
                 ChangeView();
                 WaveClearCheck();
                 break;
@@ -157,16 +169,9 @@ public partial class MainGame : MonoBehaviour
         GeneratEnemy();
     }
 
-    //スロウモード(判定と切り替えにかかわる処理)
-    void SlowCheck()
+    void GameStateToGameRun()
     {
-        if (slowMode == true) gameSpeed = 0.25f;
-        else gameSpeed = 1f;
-
-        if (beingCharacterDeploy == true)
-        {
-            CharacterDeployMode();
-        }
+        gamestate = GameState.GameRun;
     }
 
     //ゲーム入力確認
@@ -183,15 +188,15 @@ public partial class MainGame : MonoBehaviour
         }
         if (character1skil1 == true)
         {
-
+            players[0].skill1 = true;
         }
         if (character1skil2 == true)
         {
-
+            players[0].skill2 = true;
         }
         if (character1skil3 == true)
         {
-
+            players[0].skill3 = true;
         }
         if (character2UI == true)
         {
@@ -200,15 +205,27 @@ public partial class MainGame : MonoBehaviour
         }
         if (character2skil1 == true)
         {
-
+            players[1].skill1 = true;
         }
         if (character2skil2 == true)
         {
-
+            players[1].skill2 = true;
         }
         if (character2skil3 == true)
         {
+            players[1].skill3 = true;
+        }
+    }
 
+    //スロウモード(判定と切り替えにかかわる処理)
+    void SlowCheck()
+    {
+        if (slowMode == true) gameSpeed = 0.25f;
+        else gameSpeed = 1f;
+
+        if (beingCharacterDeploy == true)
+        {
+            CharacterDeployMode();
         }
     }
 
@@ -218,20 +235,24 @@ public partial class MainGame : MonoBehaviour
         if (MasterInput.Touchended == true)
         {
             //キャラクターを設置
-            if (character1UI == true)
+            if (character1UI == true)//----------配置ができたら--------
             {
                 character1UI = false;
 
+                buttonManager.AllButtonEnable();
+                if (onStageCharacter == false) onStageCharacter = true;
             }
             if (character2UI == true)
             {
                 character2UI = false;
 
+                buttonManager.AllButtonEnable();
+                if (onStageCharacter == false) onStageCharacter = true;
             }
+            beingCharacterDeploy = false;
             slowMode = false;
         }
     }
-
 
     //ウェーブが終わったか判定
     void WaveClearCheck()
@@ -250,7 +271,12 @@ public partial class MainGame : MonoBehaviour
             ChengeWave();
         }
     }
-    
+
+    //ゲーム内アップデート
+    void GameUpData()
+    {
+
+    }
 
     //セーブデータの情報からプレイヤーキャラクターを生成
     void GeneratPlayer()
