@@ -18,6 +18,10 @@ partial class MainGame : MonoBehaviour
             {
                 foreach (Player targetplayer in this.players)
                 {
+                    if (targetplayer.displaying == false)
+                    {
+                        continue;
+                    }
                     if (targetplayer.position.x >= (place.x - 0.5) && targetplayer.position.x < (place.x + 0.5))
                     {
                         if (targetplayer.position.y >= (place.y - 0.5) && targetplayer.position.y < (place.y + 0.5))
@@ -31,6 +35,10 @@ partial class MainGame : MonoBehaviour
             {
                 foreach (Enemy targetenemy in this.enemies)
                 {
+                    if (targetenemy.displaying == false)
+                    {
+                        continue;
+                    }
                     if (targetenemy.position.x >= (place.x - 0.5) && targetenemy.position.x < (place.x + 0.5))
                     {
                         if (targetenemy.position.y >= (place.y - 0.5) && targetenemy.position.y < (place.y + 0.5))
@@ -44,6 +52,10 @@ partial class MainGame : MonoBehaviour
             {
                 foreach (SummonsCharacter targetsummonsCharacter in this.summonsCharacter)
                 {
+                    if (targetsummonsCharacter.displaying == false)
+                    {
+                        continue;
+                    }
                     if (targetsummonsCharacter.position.x >= (place.x - 0.5) && targetsummonsCharacter.position.x < (place.x + 0.5))
                     {
                         if (targetsummonsCharacter.position.y >= (place.y - 0.5) && targetsummonsCharacter.position.y < (place.y + 0.5))
