@@ -35,9 +35,9 @@ public class ButtonManager : MonoBehaviour
     Button pause;
 
     Button[] buttons;
-    Button[] activedButtons = new Button[0];
+    Button[] activedButtons = new Button[11];
 
-    string[] buttoEnableStack = new string[0];
+    List<string> enableButtonStack = new List<string>(0);
 
     // Start is called before the first frame update
     void Start()
@@ -70,12 +70,13 @@ public class ButtonManager : MonoBehaviour
             AllButtonDisable();
             lateIsPush = true;
         }
-        if (buttoEnableStack.Length > 0)
+        if (enableButtonStack.Count > 0)
         {
-            foreach (string name in buttoEnableStack)
+            foreach (string name in enableButtonStack)
             {
                 ButtoEnableByName(name);
             }
+            enableButtonStack = new List<string>(0);
         }
     }
 
@@ -107,18 +108,18 @@ public class ButtonManager : MonoBehaviour
         else
         {
             //ボタン全体が無効の時後回しにする
-            buttoEnableStack[buttoEnableStack.Length] = name;
+            enableButtonStack.Add(name);
         }
     }
 
     //アクティブなボタンを無効にする
     void AllButtonDisable()
     {
-        foreach (Button button in buttons)
+        for (int i = 0; i < 11; i++)
         {
-            if (button.interactable == true)
+            if (buttons[i].interactable == true)
             {
-                activedButtons[activedButtons.Length] = button;
+                activedButtons[i] = buttons[i];
             }
         }
         foreach (Button button in activedButtons)
@@ -136,7 +137,7 @@ public class ButtonManager : MonoBehaviour
         {
             button.interactable = true;
         }
-        activedButtons = new Button[0];
+        activedButtons = new Button[11];
     }
 
     public void onCharacter1UI()

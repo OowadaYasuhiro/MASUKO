@@ -108,7 +108,9 @@ public partial class MainGame : MonoBehaviour
         master = GameObject.Find("MasterObject");
         StageSelect_Deta.selectStageNumber = Constant.main_ep1_1;
         stage = StageSelect_Deta.selectStageNumber;
-        
+        character1goback = true;
+        character2goback = true;
+
         difficulty = StageSelect_Deta.selectDifficulty;
         mainGame_StageDeta = new MainGame_StageDeta(stage);
         mainGame_StageUI = GetComponent<MainGame_StageUI>();
