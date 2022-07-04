@@ -7,8 +7,8 @@ public class OrganizationScreen_Deta
     public static bool isLeftCharacter = true;
     public static int armorNum;
 
-    public static int leftCharacterNum = 0;
-    public static int rightCharacterNum = 1;
+    public static int leftCharacterNum;
+    public static int rightCharacterNum;
 
     public Charactor demon = new Charactor("悪魔",1,0,1,1,1,1,1,0,450,140,60,"悪魔のパッシブ","通常攻撃に自身の\n攻撃力3%の追加の\nダメージを与える\n敵にスキルを当てると\n最大3のスタック獲得");
     public Charactor poltergeist = new Charactor("ポルターガイスト",1,0,1,1,1,1,1,0,520,110,75,"ポルターのパッシブ","自身の配置で\n味方の攻撃力を自身の\n攻撃力の5%上昇する");

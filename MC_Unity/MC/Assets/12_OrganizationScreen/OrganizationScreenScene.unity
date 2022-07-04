@@ -285,7 +285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 62337788}
         m_MethodName: OnClickCharacter
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba08ea2aefe6014daefa1d6e28f884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 0
 --- !u!1 &87929375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1139,7 @@ GameObject:
   - component: {fileID: 466757008}
   - component: {fileID: 466757007}
   - component: {fileID: 466757006}
+  - component: {fileID: 466757009}
   m_Layer: 5
   m_Name: Armor2-Button
   m_TagString: Untagged
@@ -1208,13 +1210,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 466757009}
         m_MethodName: OnClickArmor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1256,6 +1258,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466757004}
   m_CullTransparentMesh: 0
+--- !u!114 &466757009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466757004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54e5d3fa73014b48b65513e11ab81ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467416497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1440,7 @@ GameObject:
   - component: {fileID: 535787463}
   - component: {fileID: 535787462}
   - component: {fileID: 535787461}
+  - component: {fileID: 535787464}
   m_Layer: 5
   m_Name: Armor3-Button
   m_TagString: Untagged
@@ -1496,7 +1511,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 535787464}
         m_MethodName: OnClickArmor
         m_Mode: 3
         m_Arguments:
@@ -1544,6 +1559,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535787459}
   m_CullTransparentMesh: 0
+--- !u!114 &535787464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535787459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54e5d3fa73014b48b65513e11ab81ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &592180873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,6 +2354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939695353}
   - component: {fileID: 939695352}
+  - component: {fileID: 939695354}
   m_Layer: 0
   m_Name: UIDirector
   m_TagString: Untagged
@@ -2368,6 +2396,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939695354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939695351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabb01cdbdf45b64e96cbe9c5b153a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &948244200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,7 +2999,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1129124640}
         m_MethodName: OnClickCharacter
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3017,6 +3057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba08ea2aefe6014daefa1d6e28f884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 2
 --- !u!1 &1145457837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,7 +3144,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1145457842}
         m_MethodName: OnClickCharacter
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3161,6 +3202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba08ea2aefe6014daefa1d6e28f884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 4
 --- !u!1 &1172434864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,7 +4120,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1350122231}
         m_MethodName: OnClickCharacter
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4136,6 +4178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba08ea2aefe6014daefa1d6e28f884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 3
 --- !u!1 &1357281286
 GameObject:
   m_ObjectHideFlags: 0
@@ -4712,6 +4755,7 @@ GameObject:
   - component: {fileID: 1572876465}
   - component: {fileID: 1572876464}
   - component: {fileID: 1572876463}
+  - component: {fileID: 1572876466}
   m_Layer: 5
   m_Name: Armor1-Button
   m_TagString: Untagged
@@ -4782,7 +4826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1572876466}
         m_MethodName: OnClickArmor
         m_Mode: 3
         m_Arguments:
@@ -4830,6 +4874,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572876461}
   m_CullTransparentMesh: 0
+--- !u!114 &1572876466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572876461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54e5d3fa73014b48b65513e11ab81ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1636177549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5063,7 +5119,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1662662600}
         m_MethodName: OnClickCharacter
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5121,6 +5177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba08ea2aefe6014daefa1d6e28f884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterNumber: 1
 --- !u!1 &1664725494
 GameObject:
   m_ObjectHideFlags: 0
@@ -5678,6 +5735,7 @@ GameObject:
   - component: {fileID: 1781454204}
   - component: {fileID: 1781454203}
   - component: {fileID: 1781454202}
+  - component: {fileID: 1781454205}
   m_Layer: 5
   m_Name: Armor1-Button
   m_TagString: Untagged
@@ -5748,13 +5806,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1781454205}
         m_MethodName: OnClickArmor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5796,6 +5854,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781454200}
   m_CullTransparentMesh: 0
+--- !u!114 &1781454205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781454200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54e5d3fa73014b48b65513e11ab81ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1815705077
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,6 +6178,7 @@ GameObject:
   - component: {fileID: 1996218926}
   - component: {fileID: 1996218925}
   - component: {fileID: 1996218924}
+  - component: {fileID: 1996218927}
   m_Layer: 5
   m_Name: Armor2-Button
   m_TagString: Untagged
@@ -6178,7 +6249,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1996218927}
         m_MethodName: OnClickArmor
         m_Mode: 3
         m_Arguments:
@@ -6226,6 +6297,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996218922}
   m_CullTransparentMesh: 0
+--- !u!114 &1996218927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996218922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54e5d3fa73014b48b65513e11ab81ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2011241290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6394,6 +6477,7 @@ GameObject:
   - component: {fileID: 2067598479}
   - component: {fileID: 2067598478}
   - component: {fileID: 2067598477}
+  - component: {fileID: 2067598480}
   m_Layer: 5
   m_Name: Armor3-Button
   m_TagString: Untagged
@@ -6464,13 +6548,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2067598480}
         m_MethodName: OnClickArmor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6512,6 +6596,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067598475}
   m_CullTransparentMesh: 0
+--- !u!114 &2067598480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067598475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54e5d3fa73014b48b65513e11ab81ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076254211
 GameObject:
   m_ObjectHideFlags: 0

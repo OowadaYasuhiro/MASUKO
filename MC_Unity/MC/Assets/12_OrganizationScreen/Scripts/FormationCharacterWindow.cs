@@ -23,6 +23,7 @@ namespace Formation
             if (Master.formationdeta.selectcharactor1 != null)
             {
                 this.leftCharacter = (Charactor)Master.formationdeta.selectcharactor1;
+
             }
             if (Master.formationdeta.selectcharactor2 != null)
             {
@@ -84,7 +85,6 @@ namespace Formation
 
             DrawCharacter(rightCharacter, /*isLeft=*/ false);
         }
-
         private void DrawCharacter(Charactor chara, bool isLeft)
         {
             Image charaImage = isLeft ? charaWindowLeft.transform.GetChild(7).GetComponent<Image>() : charaWindowRight.transform.GetChild(7).GetComponent<Image>();
@@ -119,7 +119,6 @@ namespace Formation
                 return;
             }
         }
-
         private void DrawSynagy()
         {
             string skillText = "";
