@@ -5,7 +5,7 @@ using static Constant;
 
 partial class MainGame : MonoBehaviour
 {
-    List<MainGameCharacterModel> subjectList;
+    List<MainGameCharacterModel> subjectList = new List<MainGameCharacterModel>();
     //範囲内の対象を取得
     //検索対象の選択が必要
     public MainGameCharacterModel[] SearchCharacter(Vector2[] area,bool player,bool enemy,bool summonsCharacter)
