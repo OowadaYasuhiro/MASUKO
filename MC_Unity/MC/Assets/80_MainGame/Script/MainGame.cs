@@ -310,6 +310,18 @@ public partial class MainGame : MonoBehaviour
     //Viewの変更
     void ChangeView()
     {
+        //影のリセット
+        bool[,] defaultShadow = new bool[10,6];
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                defaultShadow[i,j] = true;
+            }
+        }
+
+        shadowMesh.SetColor(defaultShadow, shadow);
+
         //障害物を避けて影を生成
         mainGame_StageDeta.view.viewArray = mainGame_StageDeta.GetMap();
 
@@ -414,6 +426,28 @@ public partial class MainGame : MonoBehaviour
 
         //表示
         shadowMesh.SetColor(mainGame_StageDeta.view.viewArray,voidmaterial);
+
+        if (beingCharacterDeploy == true)
+        {
+            bool[,] canDeployGlid = new bool[10, 6];
+            //障害物とキャラクターを避ける
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    canDeployGlid[i, j] = !mainGame_StageDeta.GetMap()[i, j];
+                    Vector2[] targetPos = new Vector2[] { new Vector2(i, j) };
+                    if (SearchCharacter(targetPos, true, true, true).Length > 0)
+                    {
+                        canDeployGlid[i, j] = false;
+                    }
+                }
+            }
+
+            //表示
+            shadowMesh.SetColor(canDeployGlid, deployable);
+
+        }
     }
 
     //メインゲーム終了
