@@ -49,6 +49,9 @@ public partial class MainGame : MonoBehaviour
     //キャラクターが配置された
     bool onStageCharacter;
 
+    //キャラクターを配置可能
+    bool canDeploy;
+
     //ゲーム内時間軸
     internal float gameSpeed { get; private set;}
     float timeLine;
@@ -110,6 +113,7 @@ public partial class MainGame : MonoBehaviour
         stage = StageSelect_Deta.selectStageNumber;
         character1goback = true;
         character2goback = true;
+        canDeploy = false;
 
         difficulty = StageSelect_Deta.selectDifficulty;
         mainGame_StageDeta = new MainGame_StageDeta(stage);
@@ -122,6 +126,7 @@ public partial class MainGame : MonoBehaviour
         shadowMesh = GameObject.Find("ShadowObject").GetComponent<ShadowMesh>();
         shadowMesh.Initialize();
         buttonManager = GetComponent<ButtonManager>();
+        ButtonSetting();
         GeneratEnemy();
         GeneratPlayer();
         ChangeView();
@@ -277,7 +282,57 @@ public partial class MainGame : MonoBehaviour
     //ゲーム内アップデート
     void GameUpData()
     {
-
+        //fast
+        foreach(Player player in players)
+        {
+            player.FastUpDate();
+        }
+        foreach(Enemy enemy in enemies)
+        {
+            enemy.FastUpDate();
+        }
+        foreach(SummonsCharacter summonsCharacter in this.summonsCharacter)
+        {
+            summonsCharacter.FastUpDate();
+        }
+        foreach(SummonsObject summonsObject in this.summonsobject)
+        {
+            summonsObject.FastUpDate();
+        }
+        //nomal
+        foreach (Player player in players)
+        {
+            player.UpDate();
+        }
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.UpDate();
+        }
+        foreach (SummonsCharacter summonsCharacter in this.summonsCharacter)
+        {
+            summonsCharacter.UpDate();
+        }
+        foreach (SummonsObject summonsObject in this.summonsobject)
+        {
+            summonsObject.UpDate();
+        }
+        //late
+        foreach (Player player in players)
+        {
+            player.LateUpDate();
+        }
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.LateUpDate();
+        }
+        foreach (SummonsCharacter summonsCharacter in this.summonsCharacter)
+        {
+            summonsCharacter.LateUpDate();
+        }
+        foreach (SummonsObject summonsObject in this.summonsobject)
+        {
+            summonsObject.LateUpDate();
+        }
     }
 
     //セーブデータの情報からプレイヤーキャラクターを生成
@@ -304,6 +359,38 @@ public partial class MainGame : MonoBehaviour
             {
                 //ありえない
             }
+        }
+    }
+
+    //ボタン初期設定
+    void ButtonSetting()
+    {
+        bool player1 = false;
+        bool player2 = false;
+        foreach (Player p in players)
+        {
+            if (p.myNumber == 1)
+            {
+                player1 = true;
+            }
+            if (p.myNumber == 2)
+            {
+                player2 = true;
+            }
+        }
+        if (player1 == false)
+        {
+            buttonManager.ButtonDisableByName("chara1UI");
+            buttonManager.ButtonDisableByName("chara1Skill1");
+            buttonManager.ButtonDisableByName("chara1Skill2");
+            buttonManager.ButtonDisableByName("chara1Skill3");
+        }
+        if (player2 == false)
+        {
+            buttonManager.ButtonDisableByName("chara2UI");
+            buttonManager.ButtonDisableByName("chara2Skill1");
+            buttonManager.ButtonDisableByName("chara2Skill2");
+            buttonManager.ButtonDisableByName("chara2Skill3");
         }
     }
 
@@ -429,13 +516,14 @@ public partial class MainGame : MonoBehaviour
 
         if (beingCharacterDeploy == true)
         {
+            mainGame_StageDeta = new MainGame_StageDeta(stage);
             bool[,] canDeployGlid = new bool[10, 6];
             //障害物とキャラクターを避ける
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    canDeployGlid[i, j] = !mainGame_StageDeta.GetMap()[i, j];
+                    canDeployGlid[i,j] = !mainGame_StageDeta.GetMap()[i,j];
                     Vector2[] targetPos = new Vector2[] { new Vector2(i, j) };
                     if (SearchCharacter(targetPos, true, true, true).Length > 0)
                     {
@@ -443,9 +531,12 @@ public partial class MainGame : MonoBehaviour
                     }
                 }
             }
-
+            canDeployGlid[(int)mainGame_StageDeta.enemy1_target_object.x, (int)mainGame_StageDeta.enemy1_target_object.y] = false;
+            canDeployGlid[(int)mainGame_StageDeta.enemy2_target_object.x, (int)mainGame_StageDeta.enemy2_target_object.y] = false;
             //表示
             shadowMesh.SetColor(canDeployGlid, deployable);
+
+
 
         }
     }

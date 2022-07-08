@@ -52,7 +52,7 @@ partial class MainGame : MonoBehaviour
             {
                 foreach (SummonsCharacter targetsummonsCharacter in this.summonsCharacter)
                 {
-                    if (targetsummonsCharacter.displaying == false)
+                    if (targetsummonsCharacter == null || targetsummonsCharacter.displaying == false)
                     {
                         continue;
                     }
