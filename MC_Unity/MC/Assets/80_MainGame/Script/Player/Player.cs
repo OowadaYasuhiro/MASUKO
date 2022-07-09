@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class Player : MainGameCharacterModel
 {
     //自分の番号
-    int myNumber;
+    internal int myNumber;
     //スキル
     //使用されたかどうか
     internal bool skill1;
@@ -78,6 +78,7 @@ public partial class Player : MainGameCharacterModel
     {
         charactorState = CharacterState.Resting;
         charactorAnimState = CharacterAnimState.Wait;
+        goback = true;
         skill1Cool = true;
         skill2Cool = true;
         skill3Cool = true;
