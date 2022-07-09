@@ -11,14 +11,10 @@
     protected int zyuGekiResistance;
     protected int zyuRyokuResistance;
 
-    /*protected MainGameCharactorDamageModel(int maxHp, int physicsDamageResistance, int zyuGekiResistance, int zyuRyokuResistance)
+    public MainGameCharacterDamageModel() : base()
     {
-        hp = maxHp;
-        this.maxHp = maxHp;
-        this.physicsDamageResistance = physicsDamageResistance;
-        this.zyuGekiResistance = zyuGekiResistance;
-        this.zyuRyokuResistance = zyuRyokuResistance;
-    }*/
+        alive = true;
+    }
 
     internal void AddDamage(Damage damage)
     {

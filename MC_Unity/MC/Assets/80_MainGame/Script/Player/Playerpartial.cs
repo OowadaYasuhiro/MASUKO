@@ -344,6 +344,40 @@ public partial class Player
         }
     }
 
+    void SkillButtonEnable()
+    {
+        if (myNumber == 1)
+        {
+            if (skill1Cool == true)
+            {
+                mainGame.buttonManager.ButtoEnableByName("Character1Skill1");
+            }
+            if (skill2Cool == true)
+            {
+                mainGame.buttonManager.ButtoEnableByName("Character1Skill2");
+            }
+            if (skill3Cool == true)
+            {
+                mainGame.buttonManager.ButtoEnableByName("Character1Skill3");
+            }
+        }
+        if (myNumber == 2)
+        {
+            if (skill1Cool == true)
+            {
+                mainGame.buttonManager.ButtoEnableByName("Character2Skill1");
+            }
+            if (skill2Cool == true)
+            {
+                mainGame.buttonManager.ButtoEnableByName("Character2Skill2");
+            }
+            if (skill3Cool == true)
+            {
+                mainGame.buttonManager.ButtoEnableByName("Character2Skill3");
+            }
+        }
+    }
+
     void skillCoolTimeCounter()
     {
         //クールタイムが残っている

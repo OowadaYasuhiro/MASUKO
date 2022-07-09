@@ -100,7 +100,9 @@ public class ButtonManager : MonoBehaviour
         {
             foreach (Button button in buttons)
             {
-                if (button.ToString().Equals(name) == true)
+                string buttonName = button.ToString();
+                buttonName = buttonName.Replace(" (UnityEngine.UI.Button)", "");
+                if (buttonName.Equals(name) == true)
                 {
                     button.interactable = true;
                 }
@@ -151,50 +153,50 @@ public class ButtonManager : MonoBehaviour
     {
         isPush = true;
         mainGame.character1UI = true;
-        ButtonDisableByName("Chara1UI");
+        ButtonDisableByName("Character1UI");
     }
 
     public void onCharacter1Skill1()
     {
         mainGame.character1skil1 = true;
-        ButtonDisableByName("Chara1Skill1");
+        ButtonDisableByName("Character1Skill1");
     }
 
     public void onCharacter1Skill2()
     {
         mainGame.character1skil2 = true;
-        ButtonDisableByName("Chara1Skill2");
+        ButtonDisableByName("Character1Skill2");
     }
 
     public void onCharacter1Skill3()
     {
         mainGame.character1skil3 = true;
-        ButtonDisableByName("Chara1Skill3");
+        ButtonDisableByName("Character1Skill3");
     }
 
     public void onCharacter2UI()
     {
         isPush = true;
         mainGame.character2UI = true;
-        ButtonDisableByName("Chara2UI");
+        ButtonDisableByName("Character2UI");
     }
 
     public void onCharacter2Skill1()
     {
         mainGame.character2skil1 = true;
-        ButtonDisableByName("Chara2Skill1");
+        ButtonDisableByName("Character2Skill1");
     }
 
     public void onCharacter2Skill2()
     {
         mainGame.character2skil2 = true;
-        ButtonDisableByName("Chara2Skill2");
+        ButtonDisableByName("Character2Skill2");
     }
 
     public void onCharacter2Skill3()
     {
         mainGame.character2skil3 = true;
-        ButtonDisableByName("Chara2Skill3");
+        ButtonDisableByName("Character2Skill3");
     }
 
     public void onPause()
@@ -207,13 +209,13 @@ public class ButtonManager : MonoBehaviour
     {
         isPush = true;
         mainGame.character1 = true;
-        ButtonDisableByName("Chara1");
+        ButtonDisableByName("Character1");
     }
 
     public void onCharacter2()
     {
         isPush = true;
         mainGame.character2 = true;
-        ButtonDisableByName("Chara2");
+        ButtonDisableByName("Character2");
     }
 }
