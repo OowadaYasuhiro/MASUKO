@@ -39,8 +39,7 @@ public class ButtonManager : MonoBehaviour
 
     List<string> enableButtonStack = new List<string>(0);
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
         mainGame = GetComponent<MainGame>();
 
@@ -85,7 +84,9 @@ public class ButtonManager : MonoBehaviour
     {
         foreach (Button button in buttons)
         {
-            if (button.ToString().Equals(name) == true)
+            string buttonName = button.ToString();
+            buttonName = buttonName.Replace(" (UnityEngine.UI.Button)","");
+            if (buttonName.Equals(name) == true)
             {
                 button.interactable = false;
             }
@@ -124,7 +125,10 @@ public class ButtonManager : MonoBehaviour
         }
         foreach (Button button in activedButtons)
         {
-            button.interactable = false;
+            if (button != null)
+            {
+                button.interactable = false;
+            }
         }
     }
 
@@ -135,7 +139,10 @@ public class ButtonManager : MonoBehaviour
         lateIsPush = false;
         foreach (Button button in activedButtons)
         {
-            button.interactable = true;
+            if (button != null)
+            {
+                button.interactable = true;
+            }
         }
         activedButtons = new Button[11];
     }

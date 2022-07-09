@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 50561073}
   - component: {fileID: 50561076}
   m_Layer: 5
-  m_Name: Skill (2)
+  m_Name: Character1Skill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -977,7 +977,7 @@ GameObject:
   - component: {fileID: 178234471}
   - component: {fileID: 178234474}
   m_Layer: 5
-  m_Name: Skill (5)
+  m_Name: Character2Skill2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2293,7 +2293,7 @@ GameObject:
   - component: {fileID: 565455333}
   - component: {fileID: 565455336}
   m_Layer: 5
-  m_Name: Skill (6)
+  m_Name: Character2Skill3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2745,7 +2745,7 @@ GameObject:
   - component: {fileID: 663026527}
   - component: {fileID: 663026530}
   m_Layer: 5
-  m_Name: PauseButton
+  m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3168,7 +3168,7 @@ GameObject:
   - component: {fileID: 779089706}
   - component: {fileID: 779089709}
   m_Layer: 5
-  m_Name: Skill (1)
+  m_Name: Character1Skill1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5247,7 +5247,7 @@ GameObject:
   - component: {fileID: 1522436946}
   - component: {fileID: 1522436949}
   m_Layer: 5
-  m_Name: Skill (4)
+  m_Name: Character2Skill1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5395,7 +5395,7 @@ GameObject:
   - component: {fileID: 1530146365}
   - component: {fileID: 1530146368}
   m_Layer: 5
-  m_Name: Charactor2
+  m_Name: Character2UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6007,7 +6007,7 @@ GameObject:
   - component: {fileID: 1655149707}
   - component: {fileID: 1655149710}
   m_Layer: 5
-  m_Name: Skill (3)
+  m_Name: Character1Skill3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6155,7 +6155,7 @@ GameObject:
   - component: {fileID: 1662951681}
   - component: {fileID: 1662951684}
   m_Layer: 5
-  m_Name: Charactor1
+  m_Name: Character1UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

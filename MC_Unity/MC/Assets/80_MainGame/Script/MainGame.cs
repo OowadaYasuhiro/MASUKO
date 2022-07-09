@@ -103,6 +103,9 @@ public partial class MainGame : MonoBehaviour
     //召喚
     internal SummonsObject[] summonsobject = new SummonsObject[8];
 
+    //カーソルの位置
+    StageGridUI stageGridUI;
+
     //初期化
     void Start()
     {
@@ -126,9 +129,14 @@ public partial class MainGame : MonoBehaviour
         shadowMesh = GameObject.Find("ShadowObject").GetComponent<ShadowMesh>();
         shadowMesh.Initialize();
         buttonManager = GetComponent<ButtonManager>();
-        ButtonSetting();
+        buttonManager.Initialize();
+        stageGridUI = GameObject.Find("UICamera").GetComponent<StageGridUI>();
+
+        /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Constant.Daemon));
+
         GeneratEnemy();
         GeneratPlayer();
+        ButtonSetting();
         ChangeView();
 
     }
@@ -241,15 +249,31 @@ public partial class MainGame : MonoBehaviour
     {
         if (MasterInput.Touchended == true)
         {
+            mainGame_StageDeta = new MainGame_StageDeta(stage);
+            bool[,] canDeployGlid = new bool[10, 6];
+            //障害物とキャラクターを避ける
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    canDeployGlid[i, j] = !mainGame_StageDeta.GetMap()[i, j];
+                    Vector2[] targetPos = new Vector2[] { new Vector2(i, j) };
+                    if (SearchCharacter(targetPos, true, true, true).Length > 0)
+                    {
+                        canDeployGlid[i, j] = false;
+                    }
+                }
+            }
+
             //キャラクターを設置
-            if (character1UI == true)//----------配置ができたら--------
+            if (character1UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
             {
                 character1UI = false;
 
                 buttonManager.AllButtonEnable();
                 if (onStageCharacter == false) onStageCharacter = true;
             }
-            if (character2UI == true)
+            if (character2UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
             {
                 character2UI = false;
 
@@ -293,11 +317,17 @@ public partial class MainGame : MonoBehaviour
         }
         foreach(SummonsCharacter summonsCharacter in this.summonsCharacter)
         {
-            summonsCharacter.FastUpDate();
+            if (summonsCharacter != null)
+            {
+                summonsCharacter.FastUpDate();
+            }
         }
         foreach(SummonsObject summonsObject in this.summonsobject)
         {
-            summonsObject.FastUpDate();
+            if (summonsObject != null)
+            {
+                summonsObject.FastUpDate();
+            }
         }
         //nomal
         foreach (Player player in players)
@@ -310,11 +340,17 @@ public partial class MainGame : MonoBehaviour
         }
         foreach (SummonsCharacter summonsCharacter in this.summonsCharacter)
         {
-            summonsCharacter.UpDate();
+            if (summonsCharacter != null)
+            {
+                summonsCharacter.UpDate();
+            }
         }
         foreach (SummonsObject summonsObject in this.summonsobject)
         {
-            summonsObject.UpDate();
+            if (summonsObject != null)
+            {
+                summonsObject.UpDate();
+            }
         }
         //late
         foreach (Player player in players)
@@ -327,11 +363,17 @@ public partial class MainGame : MonoBehaviour
         }
         foreach (SummonsCharacter summonsCharacter in this.summonsCharacter)
         {
-            summonsCharacter.LateUpDate();
+            if (summonsCharacter != null)
+            {
+                summonsCharacter.LateUpDate();
+            }
         }
         foreach (SummonsObject summonsObject in this.summonsobject)
         {
-            summonsObject.LateUpDate();
+            if (summonsObject != null)
+            {
+                summonsObject.LateUpDate();
+            }
         }
     }
 
@@ -380,17 +422,17 @@ public partial class MainGame : MonoBehaviour
         }
         if (player1 == false)
         {
-            buttonManager.ButtonDisableByName("chara1UI");
-            buttonManager.ButtonDisableByName("chara1Skill1");
-            buttonManager.ButtonDisableByName("chara1Skill2");
-            buttonManager.ButtonDisableByName("chara1Skill3");
+            buttonManager.ButtonDisableByName("Character1UI");
+            buttonManager.ButtonDisableByName("Character1Skill1");
+            buttonManager.ButtonDisableByName("Character1Skill2");
+            buttonManager.ButtonDisableByName("Character1Skill3");
         }
         if (player2 == false)
         {
-            buttonManager.ButtonDisableByName("chara2UI");
-            buttonManager.ButtonDisableByName("chara2Skill1");
-            buttonManager.ButtonDisableByName("chara2Skill2");
-            buttonManager.ButtonDisableByName("chara2Skill3");
+            buttonManager.ButtonDisableByName("Character2UI");
+            buttonManager.ButtonDisableByName("Character2Skill1");
+            buttonManager.ButtonDisableByName("Character2Skill2");
+            buttonManager.ButtonDisableByName("Character2Skill3");
         }
     }
 
