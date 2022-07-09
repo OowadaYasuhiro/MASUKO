@@ -16,7 +16,7 @@ public partial class MainGame : MonoBehaviour
     GameObject master;
 
     //ボタンマネージャー
-    ButtonManager buttonManager;
+    internal ButtonManager buttonManager;
 
     //ステージ
     string stage;

@@ -35,6 +35,11 @@ public class MainGameCharacterModel : MainGameCharacterState
     //スキルイベント
     protected SkillEvent skillEvent;
 
+    public MainGameCharacterModel() : base()
+    {
+        ;
+    }
+
     //名前取得
     internal string GetName()
     {

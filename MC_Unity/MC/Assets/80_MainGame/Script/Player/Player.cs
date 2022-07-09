@@ -68,7 +68,7 @@ public partial class Player : MainGameCharacterModel
     //MainGameのアドレス
     MainGame mainGame;
 
-    public Player(MainGame mainGame, int number)
+    public Player(MainGame mainGame, int number) : base ()
     {
         this.mainGame = mainGame;
         Setting(number);
@@ -89,9 +89,12 @@ public partial class Player : MainGameCharacterModel
     {
         //クールタイム管理
         skillCoolTimeCounter();
+        //スキルボタン表示
+        SkillButtonEnable();
         //スキルが使用されてクールダウンが完了していたら
         if (skill1 == true && skill1Cool == true)
         {
+            Debug.Log("すきる");
             skillEvent1();
             skill1Stack = 0;
             skill1Cool = false;

@@ -1,5 +1,11 @@
 ﻿public class MainGameCharacterState : MainGameCharacterDamageModel
 {
+
+    public MainGameCharacterState() : base()
+    {
+        ;
+    }
+
     internal enum CharacterState
     {
         //出撃可能
