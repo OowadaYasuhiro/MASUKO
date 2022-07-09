@@ -265,21 +265,26 @@ public partial class MainGame : MonoBehaviour
                 }
             }
 
-            //キャラクターを設置
-            if (character1UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
+            if (stageGridUI.selectGrid != new Vector2Int(-1, -1))
             {
-                character1UI = false;
+                //キャラクターを設置
+                if (character1UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
+                {
 
-                buttonManager.AllButtonEnable();
-                if (onStageCharacter == false) onStageCharacter = true;
-            }
-            if (character2UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
-            {
-                character2UI = false;
 
-                buttonManager.AllButtonEnable();
-                if (onStageCharacter == false) onStageCharacter = true;
+                    if (onStageCharacter == false) onStageCharacter = true;
+                }
+                if (character2UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
+                {
+
+
+                    if (onStageCharacter == false) onStageCharacter = true;
+                }
             }
+
+            character1UI = false;
+            character2UI = false;
+            buttonManager.AllButtonEnable();
             beingCharacterDeploy = false;
             slowMode = false;
         }
@@ -480,7 +485,7 @@ public partial class MainGame : MonoBehaviour
 
         for (int i = 0; i < enemies.Length; i++)
         {
-            if (enemies[i].GetName() == "")
+            if (enemies[i] == null || enemies[i].GetName() == "")
             {
                 goto EnemyViewExit;
             }
