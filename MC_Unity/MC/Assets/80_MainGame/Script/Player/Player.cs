@@ -134,8 +134,11 @@ public partial class Player : MainGameCharacterModel
     public void UpDate()
     {
         //スキルの反映とリセット
-        skillEvent();
-        ReMoveAllEvents();
+        if (skillEvent != null)
+        {
+            skillEvent();
+            ReMoveAllEvents();
+        }
         //パッシブスキル
         passiveSkill();
         switch (charactorState)
