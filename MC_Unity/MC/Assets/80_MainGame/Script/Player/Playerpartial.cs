@@ -31,6 +31,58 @@ public partial class Player
         switch (Charactername)
         {
             case Daemon:
+                //攻撃範囲
+                if (Master.playerdeta.DaemonbreakingThrough2 == true)
+                {
+                    attackRange = new Vector2[]
+                    {
+                        new Vector2(0,0),
+                        new Vector2(0,1),
+                        new Vector2(0,-1),
+                        new Vector2(1,0),
+                        new Vector2(1,1),
+                        new Vector2(1,-1),
+                        new Vector2(-1,0),
+                        new Vector2(-1,1),
+                        new Vector2(-1,-1),
+                        new Vector2(0,2),
+                        new Vector2(0,-2),
+                        new Vector2(2,0),
+                        new Vector2(-2,0)
+                    };
+                }
+                else if (Master.playerdeta.DaemonbreakingThrough1 == true)
+                {
+                    attackRange = new Vector2[]
+                    {
+                        new Vector2(0,0),
+                        new Vector2(0,1),
+                        new Vector2(0,-1),
+                        new Vector2(1,0),
+                        new Vector2(1,1),
+                        new Vector2(1,-1),
+                        new Vector2(-1,0),
+                        new Vector2(-1,1),
+                        new Vector2(-1,-1),
+                        new Vector2(0,2),
+                        new Vector2(0,-2),
+                    };
+                }
+                else
+                {
+                    attackRange = new Vector2[]
+                    {
+                        new Vector2(0,0),
+                        new Vector2(0,1),
+                        new Vector2(0,-1),
+                        new Vector2(1,0),
+                        new Vector2(1,1),
+                        new Vector2(1,-1),
+                        new Vector2(-1,0),
+                        new Vector2(-1,1),
+                        new Vector2(-1,-1)
+                    };
+                }
                 //最大スタック数設定
                 maxSkill1Stack = 1;
                 skill1Stack = maxSkill1Stack;
@@ -162,7 +214,15 @@ public partial class Player
                     }
                     Skip2:
                     SkillEvent ObjectSkillEvent = ObjectSkill;
-                    mainGame.summonsobject[mainGame.summonsobject.Length] = new SummonsObject(mainGame,ObjectSkillEvent);
+                    for (int i = 0; i < mainGame.summonsobject.Length; i++)
+                    {
+                        if (mainGame.summonsobject[i] != null)
+                        {
+                            mainGame.summonsobject[i] = gameObject.AddComponent<SummonsObject>();
+                            mainGame.summonsobject[i].Initialized(mainGame,ObjectSkillEvent);
+                            break;
+                        }   
+                    }
                 }
                 //最大スタック数設定
                 maxSkill3Stack = 3;
@@ -346,17 +406,18 @@ public partial class Player
 
     void SkillButtonEnable()
     {
+
         if (myNumber == 1)
         {
-            if (skill1Cool == true)
+            if (skill1Cool == true && lateSkill1Cool == false)
             {
                 mainGame.buttonManager.ButtoEnableByName("Character1Skill1");
             }
-            if (skill2Cool == true)
+            if (skill2Cool == true && lateSkill2Cool == false)
             {
                 mainGame.buttonManager.ButtoEnableByName("Character1Skill2");
             }
-            if (skill3Cool == true)
+            if (skill3Cool == true && lateSkill3Cool == false)
             {
                 mainGame.buttonManager.ButtoEnableByName("Character1Skill3");
             }
@@ -376,6 +437,9 @@ public partial class Player
                 mainGame.buttonManager.ButtoEnableByName("Character2Skill3");
             }
         }
+        lateSkill1Cool = skill1Cool;
+        lateSkill2Cool = skill2Cool;
+        lateSkill3Cool = skill3Cool;
     }
 
     void skillCoolTimeCounter()

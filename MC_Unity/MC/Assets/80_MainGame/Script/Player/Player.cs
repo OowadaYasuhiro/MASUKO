@@ -27,6 +27,9 @@ public partial class Player : MainGameCharacterModel
     internal bool skill1Cool;
     internal bool skill2Cool;
     internal bool skill3Cool;
+    bool lateSkill1Cool;
+    bool lateSkill2Cool;
+    bool lateSkill3Cool;
     //スキルのスタック(合計数)
     int skill1Stack;
     int skill2Stack;
@@ -58,7 +61,7 @@ public partial class Player : MainGameCharacterModel
     int maxPassiveStack;
 
     //撤退
-    public bool goback;
+    internal bool goback;
 
     //遺物
     Artifact artifact1;
@@ -68,7 +71,7 @@ public partial class Player : MainGameCharacterModel
     //MainGameのアドレス
     MainGame mainGame;
 
-    public Player(MainGame mainGame, int number) : base ()
+    internal void Initialized(MainGame mainGame, int number)
     {
         this.mainGame = mainGame;
         Setting(number);
@@ -76,12 +79,15 @@ public partial class Player : MainGameCharacterModel
 
     private void Start()
     {
-        charactorState = CharacterState.Resting;
+        charactorState = CharacterState.Standby;
         charactorAnimState = CharacterAnimState.Wait;
         goback = true;
         skill1Cool = true;
         skill2Cool = true;
         skill3Cool = true;
+        lateSkill1Cool = true;
+        lateSkill2Cool = true;
+        lateSkill3Cool = true;
     }
 
     //情報収集
@@ -94,20 +100,22 @@ public partial class Player : MainGameCharacterModel
         //スキルが使用されてクールダウンが完了していたら
         if (skill1 == true && skill1Cool == true)
         {
-            Debug.Log("すきる");
             skillEvent1();
+            skill1CoolTime = skill1CoolDown;
             skill1Stack = 0;
             skill1Cool = false;
         }
-        if (skill2 == true && skill1Cool == true)
+        if (skill2 == true && skill2Cool == true)
         {
             skillEvent2();
+            skill2CoolTime = skill2CoolDown;
             skill2Stack = 0;
             skill2Cool = false;
         }
-        if (skill3 == true && skill1Cool == true)
+        if (skill3 == true && skill3Cool == true)
         {
             skillEvent3();
+            skill3CoolTime = skill3CoolDown;
             skill3Stack = 0;
             skill3Cool = false;
         }
@@ -143,7 +151,10 @@ public partial class Player : MainGameCharacterModel
             ReMoveAllEvents();
         }
         //パッシブスキル
-        passiveSkill();
+        if (passiveSkill != null)
+        {
+            passiveSkill();
+        }
         switch (charactorState)
         {
             case CharacterState.Fight:
@@ -158,6 +169,19 @@ public partial class Player : MainGameCharacterModel
     //結果
     public void LateUpDate()
     {
+        if (charactorState == CharacterState.Standby || charactorState == CharacterState.Resting)
+        {
+            goback = true;
+        }
         
+        /******************アニメーション*******************/
+    }
+
+    //配置
+    internal void Deploy(Vector2 targetPosition)
+    {
+        charactorState = CharacterState.Wait;
+        goback = false;
+        position = targetPosition;
     }
 }

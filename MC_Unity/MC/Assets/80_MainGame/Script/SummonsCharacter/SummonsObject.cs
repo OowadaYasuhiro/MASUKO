@@ -16,7 +16,7 @@ public class SummonsObject : MainGameCharacterModel
     SkillEvent skill;
 
     //DaemonSkill2,
-    public SummonsObject(MainGame mainGame, SkillEvent skillEvent)
+    internal void Initialized(MainGame mainGame, SkillEvent skillEvent)
     {
         this.mainGame = mainGame;
         skill = skillEvent;

@@ -3,7 +3,7 @@
 public class MainGameCharacterTag : MonoBehaviour
 {
 
-    public MainGameCharacterTag() : base ()
+    public MainGameCharacterTag() : base()
     {
         ;
     }
