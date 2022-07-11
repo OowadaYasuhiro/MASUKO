@@ -96,6 +96,8 @@ public partial class MainGame : MonoBehaviour
 
     //プレイヤー
     Player[] players;
+    internal Vector2 player1pos;
+    internal Vector2 player2pos;
 
     //召喚
     internal SummonsCharacter[] summonsCharacter = new SummonsCharacter[8];
@@ -132,7 +134,7 @@ public partial class MainGame : MonoBehaviour
         buttonManager.Initialize();
         stageGridUI = GameObject.Find("UICamera").GetComponent<StageGridUI>();
 
-        /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Constant.Daemon));
+        /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Daemon));
 
         GeneratEnemy();
         GeneratPlayer();
@@ -270,14 +272,12 @@ public partial class MainGame : MonoBehaviour
                 //キャラクターを設置
                 if (character1UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
                 {
-
-
+                    players[0].Deploy(stageGridUI.selectGrid);
                     if (onStageCharacter == false) onStageCharacter = true;
                 }
                 if (character2UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
                 {
-
-
+                    players[1].Deploy(stageGridUI.selectGrid);
                     if (onStageCharacter == false) onStageCharacter = true;
                 }
             }
@@ -389,18 +389,22 @@ public partial class MainGame : MonoBehaviour
         {
             if (Master.formationdeta.GetCharactor2() != null)
             {
-                players = new Player[] { new Player(this, 1),new Player(this, 2) };
+                players = new Player[] { gameObject.AddComponent<Player>(), gameObject.AddComponent<Player>() };
+                players[0].Initialized(this,1);
+                players[1].Initialized(this,2);
             }
             else
             {
-                players = new Player[] { new Player(this, 1) };
+                players = new Player[] { gameObject.AddComponent<Player>() };
+                players[0].Initialized(this, 1);
             }
         }
         else
         {
             if (Master.formationdeta.GetCharactor2() != null)
             {
-                players = new Player[] { new Player(this, 2) };
+                players = new Player[] { gameObject.AddComponent<Player>() };
+                players[0].Initialized(this, 2);
             }
             else
             {
