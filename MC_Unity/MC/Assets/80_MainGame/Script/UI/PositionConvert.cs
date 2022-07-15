@@ -26,7 +26,7 @@ public class PositionConvert : MonoBehaviour
     const float correctionWidth = 0.1f;
 
     //座標変換
-    internal Vector2 VectorConvert(Vector2 positionData)
+    static internal Vector2 VectorConvert(Vector2 positionData)
     {
         float posx0 = positionData.x / 1;
         float posx1 = posx0 + 1;
@@ -44,7 +44,7 @@ public class PositionConvert : MonoBehaviour
         return returnValue;
     }
 
-    float XConverter(float posx,float posy)
+    static float XConverter(float posx,float posy)
     {
         float returnValue;
         if (posx >= 5)
@@ -67,13 +67,13 @@ public class PositionConvert : MonoBehaviour
             }
             else
             {
-                returnValue = depth01 + (5f - posy) - ((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) + (((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) - farstDown) * (3 - posx)));
+                returnValue = depth01 + (5f - posy) - ((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) + (((addWidth + correctionWidth * (5f - posy)) + (nextAdd * (5f - posy)) - farstDown) * (4 - posx)));
             }
         }
         return returnValue;
     } 
 
-    float YConverter(float posy)
+    static float YConverter(float posy)
     {
         float returnValue = 0;
         switch (posy)

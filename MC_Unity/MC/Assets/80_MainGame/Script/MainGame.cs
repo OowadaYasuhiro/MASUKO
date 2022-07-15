@@ -159,7 +159,7 @@ public partial class MainGame : MonoBehaviour
                 if (onStageCharacter == true) Invoke("GameStateToGameRun",10f);
                 break;
             case GameState.GameRun:
-
+                Debug.Log("ゲームスタート");
                 GameInputCheck();
                 SlowCheck();
                 GameUpData();
@@ -275,10 +275,31 @@ public partial class MainGame : MonoBehaviour
                     players[0].Deploy(stageGridUI.selectGrid);
                     if (onStageCharacter == false) onStageCharacter = true;
                 }
+                else if (character1UI == true)
+                {
+                    buttonManager.ButtoEnableByName("Character1UI");
+                }
                 if (character2UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
                 {
                     players[1].Deploy(stageGridUI.selectGrid);
                     if (onStageCharacter == false) onStageCharacter = true;
+                }
+                else if (character2UI == true)
+                {
+                    buttonManager.ButtoEnableByName("Character2UI");
+                }
+            }
+            else 
+            {
+                if (character1UI == true)
+                {
+                    buttonManager.ButtoEnableByName("Character1UI");
+
+                }
+                else
+                {
+                    buttonManager.ButtoEnableByName("Character2UI");
+
                 }
             }
 
@@ -429,19 +450,19 @@ public partial class MainGame : MonoBehaviour
                 player2 = true;
             }
         }
+        buttonManager.ButtonDisableByName("Character1Skill1");
+        buttonManager.ButtonDisableByName("Character1Skill2");
+        buttonManager.ButtonDisableByName("Character1Skill3");
+        buttonManager.ButtonDisableByName("Character2Skill1");
+        buttonManager.ButtonDisableByName("Character2Skill2");
+        buttonManager.ButtonDisableByName("Character2Skill3");
         if (player1 == false)
         {
             buttonManager.ButtonDisableByName("Character1UI");
-            buttonManager.ButtonDisableByName("Character1Skill1");
-            buttonManager.ButtonDisableByName("Character1Skill2");
-            buttonManager.ButtonDisableByName("Character1Skill3");
         }
         if (player2 == false)
         {
             buttonManager.ButtonDisableByName("Character2UI");
-            buttonManager.ButtonDisableByName("Character2Skill1");
-            buttonManager.ButtonDisableByName("Character2Skill2");
-            buttonManager.ButtonDisableByName("Character2Skill3");
         }
     }
 
@@ -474,14 +495,22 @@ public partial class MainGame : MonoBehaviour
             {
                 for (int j = 0; j < players[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(players[i].position.x + players[i].viewRange[i].x), (int)(players[i].position.y + players[i].viewRange[i].y)] = true;
+                    if ((int) (players[i].position.x + players[i].viewRange[j].x) > 9 || (int)(players[i].position.y + players[i].viewRange[j].y) > 5 || (int)(players[i].position.x + players[i].viewRange[j].x) < 0 || (int)(players[i].position.y + players[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(players[i].position.x + players[i].viewRange[j].x), (int)(players[i].position.y + players[i].viewRange[j].y)] = true;
                 }
             }
             else
             {
                 for (int j = 0; j < players[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(players[i].position.x + (players[i].viewRange[i].x * -1)), (int)(players[i].position.y + players[i].viewRange[i].y)] = true;
+                    if ((int)(players[i].position.x + players[i].viewRange[j].x * -1) > 9 || (int)(players[i].position.y + players[i].viewRange[j].y) > 5 || (int)(players[i].position.x + players[i].viewRange[j].x * -1) < 0 || (int)(players[i].position.y + players[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(players[i].position.x + (players[i].viewRange[j].x * -1)), (int)(players[i].position.y + players[i].viewRange[j].y)] = true;
                 }
             }
         }
@@ -497,14 +526,22 @@ public partial class MainGame : MonoBehaviour
             {
                 for (int j = 0; j < enemies[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(enemies[i].position.x + enemies[i].viewRange[i].x), (int)(enemies[i].position.y + enemies[i].viewRange[i].y)] = true;
+                    if ((int)(enemies[i].position.x + enemies[i].viewRange[j].x) > 9 || (int)(enemies[i].position.y + enemies[i].viewRange[j].y) > 5 || (int)(enemies[i].position.x + enemies[i].viewRange[j].x) < 0 || (int)(enemies[i].position.y + enemies[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(enemies[i].position.x + enemies[i].viewRange[j].x), (int)(enemies[i].position.y + enemies[i].viewRange[j].y)] = true;
                 }
             }
             else
             {
                 for (int j = 0; j < enemies[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(enemies[i].position.x + (enemies[i].viewRange[i].x * -1)), (int)(enemies[i].position.y + enemies[i].viewRange[i].y)] = true;
+                    if ((int)(enemies[i].position.x + enemies[i].viewRange[j].x * -1) > 9 || (int)(enemies[i].position.y + enemies[i].viewRange[j].y) > 5 || (int)(enemies[i].position.x + enemies[i].viewRange[j].x * -1) < 0 || (int)(enemies[i].position.y + enemies[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(enemies[i].position.x + (enemies[i].viewRange[j].x * -1)), (int)(enemies[i].position.y + enemies[i].viewRange[j].y)] = true;
                 }
             }
         }
@@ -520,14 +557,22 @@ public partial class MainGame : MonoBehaviour
             {
                 for (int j = 0; j < summonsCharacter[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[i].x), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[i].y)] = true;
+                    if ((int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x) > 9 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) > 5 || (int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x) < 0 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y)] = true;
                 }
             }
             else
             {
                 for (int j = 0; j < summonsCharacter[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + (summonsCharacter[i].viewRange[i].x * -1)), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[i].y)] = true;
+                    if ((int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x * -1) > 9 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) > 5 || (int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x * -1) < 0 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + (summonsCharacter[i].viewRange[j].x * -1)), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y)] = true;
                 }
             }
         }
@@ -543,14 +588,22 @@ public partial class MainGame : MonoBehaviour
             {
                 for (int j = 0; j < summonsobject[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + summonsobject[i].viewRange[i].x), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[i].y)] = true;
+                    if ((int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x) > 9 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) > 5 || (int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x) < 0 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y)] = true;
                 }
             }
             else
             {
                 for (int j = 0; j < summonsobject[i].viewRange.Length; j++)
                 {
-                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + (summonsobject[i].viewRange[i].x * -1)), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[i].y)] = true;
+                    if ((int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x * -1) > 9 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) > 5 || (int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x * -1) < 0 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) < 0)
+                    {
+                        continue;
+                    }
+                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + (summonsobject[i].viewRange[j].x * -1)), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y)] = true;
                 }
             }
         }

@@ -5,6 +5,9 @@ using UnityEngine.UIElements;
 
 public partial class Enemy : MainGameCharacterModel
 {
+    //自分の番号
+    internal int myNumber;
+
     //戦闘時間
     const int maxFightTime = 600;
     int fightTime;
@@ -23,13 +26,25 @@ public partial class Enemy : MainGameCharacterModel
     //最後の移動状態
     CharacterState lastRunType;
 
+    //表示クラス
+    CharacterManager characterManager;
 
-    public Enemy( MainGame mainGame, string difficulty, string name)
+    public Enemy( MainGame mainGame, string difficulty, string name, int number)
     {
+        myNumber = number;
         this.mainGame = mainGame;
+        if (myNumber == 1)
+        {
+            position = mainGame.mainGame_StageDeta.enemy1_spawn_position;
+        }
+        else
+        {
+            position = mainGame.mainGame_StageDeta.enemy2_spawn_position;
+        }
         this.Charactername = name;
         Setting(difficulty);
         directionRight = true;
+        characterManager = mainGame.GetComponent<CharacterManager>();
     }
 
     private void Start()
@@ -87,12 +102,20 @@ public partial class Enemy : MainGameCharacterModel
                     fightThrough = true;
                 }
                 break;
+            case CharacterState.Run:
+
+                Move(mainGame.gameSpeed);
+                break;
+            case CharacterState.RunAway:
+
+                Move(mainGame.gameSpeed);
+                break;
         }
     }
 
     //結果
     public void LateUpDate()
     {
-
+        characterManager.CharacterVisualization(position, false, myNumber);
     }
 }

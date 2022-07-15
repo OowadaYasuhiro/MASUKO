@@ -151,71 +151,104 @@ public class ButtonManager : MonoBehaviour
 
     public void onCharacter1UI()
     {
-        isPush = true;
-        mainGame.character1UI = true;
-        ButtonDisableByName("Character1UI");
+        if (chara1UI.interactable == true)
+        {
+            isPush = true;
+            mainGame.character1UI = true;
+            ButtonDisableByName("Character1UI");
+        }
     }
 
     public void onCharacter1Skill1()
     {
-        mainGame.character1skil1 = true;
-        ButtonDisableByName("Character1Skill1");
+        if (chara1Skill1.interactable == true)
+        {
+            mainGame.character1skil1 = true;
+            ButtonDisableByName("Character1Skill1");
+        }
     }
 
     public void onCharacter1Skill2()
     {
-        mainGame.character1skil2 = true;
-        ButtonDisableByName("Character1Skill2");
+        if (chara1Skill2.interactable == true)
+        {
+            mainGame.character1skil2 = true;
+            ButtonDisableByName("Character1Skill2");
+        }
     }
 
     public void onCharacter1Skill3()
     {
-        mainGame.character1skil3 = true;
-        ButtonDisableByName("Character1Skill3");
+        if (chara1Skill3.interactable == true)
+        {
+            mainGame.character1skil3 = true;
+            ButtonDisableByName("Character1Skill3");
+        }
     }
 
     public void onCharacter2UI()
     {
-        isPush = true;
-        mainGame.character2UI = true;
-        ButtonDisableByName("Character2UI");
+        if (chara2UI.interactable == true)
+        {
+            isPush = true;
+            mainGame.character2UI = true;
+            ButtonDisableByName("Character2UI");
+        }
     }
 
     public void onCharacter2Skill1()
     {
-        mainGame.character2skil1 = true;
-        ButtonDisableByName("Character2Skill1");
+        if (chara2Skill1.interactable == true)
+        {
+            mainGame.character2skil1 = true;
+            ButtonDisableByName("Character2Skill1");
+        }
     }
 
     public void onCharacter2Skill2()
     {
-        mainGame.character2skil2 = true;
-        ButtonDisableByName("Character2Skill2");
+        if (chara2Skill2.interactable == true)
+        {
+            mainGame.character2skil2 = true;
+            ButtonDisableByName("Character2Skill2");
+        } 
     }
 
     public void onCharacter2Skill3()
     {
-        mainGame.character2skil3 = true;
-        ButtonDisableByName("Character2Skill3");
+        if (chara2Skill3.interactable == true)
+        {
+            mainGame.character2skil3 = true;
+            ButtonDisableByName("Character2Skill3");
+        }
     }
 
     public void onPause()
     {
-        isPush = true;
-        mainGame.pause = true;
+        if (pause.interactable == true)
+        {
+            isPush = true;
+            mainGame.pause = true;
+        }
     }
 
     public void onCharacter1()
     {
-        isPush = true;
-        mainGame.character1 = true;
-        ButtonDisableByName("Character1");
+        if (chara1.interactable == true)
+        {
+            isPush = true;
+            mainGame.character1 = true;
+            ButtonDisableByName("Character1");
+        }
     }
 
     public void onCharacter2()
     {
-        isPush = true;
-        mainGame.character2 = true;
-        ButtonDisableByName("Character2");
+        if (chara2.interactable == true)
+        {
+            isPush = true;
+            mainGame.character2 = true;
+            ButtonDisableByName("Character2");
+        }
     }
 }

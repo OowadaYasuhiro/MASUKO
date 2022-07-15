@@ -86,15 +86,15 @@ partial class MainGame : MonoBehaviour
                 {
                     case 1:
                         enemies = null;
-                        enemies = new Enemy[1] {new Enemy(this, difficulty, Tuyogarisyounen)};
+                        enemies = new Enemy[1] {new Enemy(this, difficulty, Tuyogarisyounen,1)};
                         break;
                     case 2:
                         enemies = null;
-                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen), new Enemy(this, difficulty, Tuyogarisyounen) };
+                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen,1), new Enemy(this, difficulty, Tuyogarisyounen,2) };
                         break;
                     case 3:
                         enemies = null;
-                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen), new Enemy(this, difficulty, Namaikinasyouzyo) };
+                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen,1), new Enemy(this, difficulty, Namaikinasyouzyo,2) };
                         break;
                 }
                 break;
