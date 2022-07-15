@@ -71,10 +71,17 @@ public partial class Player : MainGameCharacterModel
     //MainGameのアドレス
     MainGame mainGame;
 
+    //表示クラス
+    CharacterManager characterManager;
+
+    //待機座標
+    Vector2 outPosition = new Vector2(-1,-1);
+
     internal void Initialized(MainGame mainGame, int number)
     {
         this.mainGame = mainGame;
         Setting(number);
+        characterManager = mainGame.GetComponent<CharacterManager>();
     }
 
     private void Start()
@@ -88,6 +95,7 @@ public partial class Player : MainGameCharacterModel
         lateSkill1Cool = true;
         lateSkill2Cool = true;
         lateSkill3Cool = true;
+        directionRight = false;
     }
 
     //情報収集
@@ -172,9 +180,12 @@ public partial class Player : MainGameCharacterModel
         if (charactorState == CharacterState.Standby || charactorState == CharacterState.Resting)
         {
             goback = true;
+            position = outPosition;
         }
         
         /******************アニメーション*******************/
+        Debug.Log("PlayerPosition" + position);
+        characterManager.CharacterVisualization(position,true,myNumber);
     }
 
     //配置

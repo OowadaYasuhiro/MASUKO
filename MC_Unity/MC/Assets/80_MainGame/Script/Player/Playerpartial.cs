@@ -31,6 +31,23 @@ public partial class Player
         switch (Charactername)
         {
             case Daemon:
+                //視野範囲
+                viewRange = new Vector2[]
+                {
+                    new Vector2(0,0),
+                    new Vector2(0,1),
+                    new Vector2(0,-1),
+                    new Vector2(1,0),
+                    new Vector2(1,1),
+                    new Vector2(1,-1),
+                    new Vector2(-1,0),
+                    new Vector2(-1,1),
+                    new Vector2(-1,-1),
+                    new Vector2(0,2),
+                    new Vector2(0,-2),
+                    new Vector2(2,0),
+                    new Vector2(-2,0)
+                };
                 //攻撃範囲
                 if (Master.playerdeta.DaemonbreakingThrough2 == true)
                 {
