@@ -41,7 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/90_Story/StoryScene.unity
     guid: e3b9c121f7b493d45914295e02977fd7
-  - enabled: 1
+  - enabled: 0
     path: Assets/60_Title/TitleScene.unity
     guid: 4e51bda4a489c7a46ab33b046e02b95e
   - enabled: 0

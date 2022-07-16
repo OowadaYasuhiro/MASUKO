@@ -180,6 +180,7 @@ public class levelup : MonoBehaviour
                                 LAtk.text = $"{hairetu.GhostAtk[Master.playerdeta.GhostLevel]}";
                                 LDef.text = $"{hairetu.GhostDef[Master.playerdeta.GhostLevel]}";
                                 Master.playerdeta.GhostLevel = nowlevel;
+                                PlayerPrefs.SetString("GhostLv", nowlevel.ToString("00"));
                             break;
                         }
                     case "Zashiki_warashi": {
@@ -187,28 +188,32 @@ public class levelup : MonoBehaviour
                                 LAtk.text = $"{hairetu.ZasikiAtk[Master.playerdeta.Zashiki_warashiLevel]}";
                                 LDef.text = $"{hairetu.ZasikiDef[Master.playerdeta.Zashiki_warashiLevel]}";
                                 Master.playerdeta.Zashiki_warashiLevel = nowlevel;
-                            break;
+                                PlayerPrefs.SetString("Zashiki_warashiLv", nowlevel.ToString("00"));
+                                break;
                         }
                     case "Gore": {
                                 LHP.text = $"{hairetu.GoreHP[Master.playerdeta.GoreLevel]}";
                                 LAtk.text = $"{hairetu.GoreAtk[Master.playerdeta.GoreLevel]}";
                                 LDef.text = $"{hairetu.GoreDef[Master.playerdeta.GoreLevel]}";
                                 Master.playerdeta.GoreLevel = nowlevel;
-                            break;
+                                PlayerPrefs.SetString("GoreLv", nowlevel.ToString("00"));
+                                break;
                         }
                     case "Poltergeist": {
                                 LHP.text = $"{hairetu.PorutaHP[Master.playerdeta.PoltergeistLevel]}";
                                 LAtk.text = $"{hairetu.PorutaAtk[Master.playerdeta.PoltergeistLevel]}";
                                 LDef.text = $"{hairetu.PorutaDef[Master.playerdeta.PoltergeistLevel]}";
                                 Master.playerdeta.PoltergeistLevel = nowlevel;
-                            break;
+                                PlayerPrefs.SetString("PoltergeistLv", nowlevel.ToString("00"));
+                                break;
                         }
                     case "Daemon": {
                                 LHP.text = $"{hairetu.DEmonHP[Master.playerdeta.DaemonLevel]}";
                                 LAtk.text = $"{hairetu.DEmonAtk[Master.playerdeta.DaemonLevel]}";
                                 LDef.text = $"{hairetu.DEmonDef[Master.playerdeta.DaemonLevel]}";
                                 Master.playerdeta.DaemonLevel = nowlevel;
-                            break;
+                                PlayerPrefs.SetString("DaemonLv", nowlevel.ToString("00"));
+                                break;
                         }
                 }
                    syokiti();
