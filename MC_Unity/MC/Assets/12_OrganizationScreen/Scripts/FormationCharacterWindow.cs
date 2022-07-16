@@ -14,9 +14,20 @@ namespace Formation
         private GameObject charaWindowRight;
         [SerializeField]
         private Sprite[] charaImages;
+        [SerializeField]
+        private Sprite[] crownImages;
+        [SerializeField]
+        private Sprite[] bangleImages;
+        [SerializeField]
+        private Sprite[] ringImages;
 
         private Charactor leftCharacter;
         private Charactor rightCharacter;
+
+        private int bonusLeftATK = 0;
+        private int bonusRightATK = 0;
+        private int bonusLeftDEF = 0;
+        private int bonusRightDEF = 0;
 
         private void Start()
         {
@@ -30,9 +41,16 @@ namespace Formation
                 this.rightCharacter = (Charactor)Master.formationdeta.selectcharactor2;
             }
 
+            AddArifactsStatus();
             DrawLeftWindow();
             DrawRightWindow();
             DrawSynagy();
+            DrawCrownImage(Master.formationdeta.charactor1Artifacts[0], charaWindowLeft.transform.GetChild(14));
+            DrawCrownImage(Master.formationdeta.charactor2Artifacts[0], charaWindowRight.transform.GetChild(14));
+            DrawBangleImage(Master.formationdeta.charactor1Artifacts[1], charaWindowLeft.transform.GetChild(15));
+            DrawBangleImage(Master.formationdeta.charactor2Artifacts[1], charaWindowRight.transform.GetChild(15));
+            DrawRingImage(Master.formationdeta.charactor1Artifacts[2], charaWindowLeft.transform.GetChild(16));
+            DrawRingImage(Master.formationdeta.charactor2Artifacts[2], charaWindowRight.transform.GetChild(16));
         }
 
         private void DrawLeftWindow()
@@ -53,8 +71,8 @@ namespace Formation
             level.text = leftCharacter.level.ToString();
             name.text = leftCharacter.name;
             hp.text = leftCharacter.hp.ToString();
-            atk.text = leftCharacter.atk.ToString();
-            def.text = leftCharacter.def.ToString();
+            atk.text = (leftCharacter.atk + bonusLeftATK).ToString();
+            def.text = (leftCharacter.def + bonusLeftDEF).ToString();
             skillname.text = leftCharacter.passiveSkillName;
             skilleffect.text = leftCharacter.passiveSkillEffect;
 
@@ -78,8 +96,8 @@ namespace Formation
             level.text = rightCharacter.level.ToString();
             name.text = rightCharacter.name;
             hp.text = rightCharacter.hp.ToString();
-            atk.text = rightCharacter.atk.ToString();
-            def.text = rightCharacter.def.ToString();
+            atk.text = (rightCharacter.atk + bonusRightATK).ToString();
+            def.text = (rightCharacter.def + bonusRightDEF).ToString();
             skillname.text = rightCharacter.passiveSkillName;
             skilleffect.text = rightCharacter.passiveSkillEffect;
 
@@ -173,6 +191,178 @@ namespace Formation
 
             leftSynagy.text = skillText;
             rightSynagy.text = skillText;
+        }
+        private void AddArifactsStatus()
+        {
+            if (Master.formationdeta.charactor1Artifacts[0].name == "Onnnenの冠" &&
+                Master.formationdeta.charactor1Artifacts[1].name == "Onnnenの腕輪" &&
+                Master.formationdeta.charactor1Artifacts[2].name == "Onnnenの指輪")
+            {
+                bonusLeftATK = 5;
+            }
+            else
+            {
+                bonusLeftATK = 0;
+            }
+
+            if (Master.formationdeta.charactor2Artifacts[0].name == "Onnnenの冠" &&
+                Master.formationdeta.charactor2Artifacts[1].name == "Onnnenの腕輪" &&
+                Master.formationdeta.charactor2Artifacts[2].name == "Onnnenの指輪")
+            {
+                bonusRightATK = 5;
+            }
+            else
+            {
+                bonusRightATK = 0;
+            }
+
+            if (Master.formationdeta.charactor1Artifacts[0].name == "Yujyouの冠" &&
+                Master.formationdeta.charactor1Artifacts[1].name == "Yujyouの腕輪" &&
+                Master.formationdeta.charactor1Artifacts[2].name == "Yujyouの指輪")
+            {
+                bonusLeftDEF = 13;
+            }
+            else
+            {
+                bonusLeftDEF = 0;
+            }
+
+            if (Master.formationdeta.charactor2Artifacts[0].name == "Yujyouの冠" &&
+                Master.formationdeta.charactor2Artifacts[1].name == "Yujyouの腕輪" &&
+                Master.formationdeta.charactor2Artifacts[2].name == "Yujyouの指輪")
+            {
+                bonusRightDEF = 13;
+            }
+            else
+            {
+                bonusRightDEF = 0;
+            }
+
+            if (Master.formationdeta.charactor1Artifacts[0].name != "noname")
+            {
+                bonusLeftATK += Master.formationdeta.charactor1Artifacts[0].addValue;
+            }
+            if (Master.formationdeta.charactor1Artifacts[1].name != "noname")
+            {
+                bonusLeftATK += Master.formationdeta.charactor1Artifacts[1].addValue;
+            }
+            if (Master.formationdeta.charactor1Artifacts[2].name != "noname")
+            {
+                bonusLeftATK += Master.formationdeta.charactor1Artifacts[2].addValue;
+            }
+
+            if (Master.formationdeta.charactor2Artifacts[0].name != "noname")
+            {
+                bonusRightATK += Master.formationdeta.charactor2Artifacts[0].addValue;
+            }
+            if (Master.formationdeta.charactor2Artifacts[1].name != "noname")
+            {
+                bonusRightATK += Master.formationdeta.charactor2Artifacts[1].addValue;
+            }
+            if (Master.formationdeta.charactor2Artifacts[2].name != "noname")
+            {
+                bonusRightATK += Master.formationdeta.charactor2Artifacts[2].addValue;
+            }
+        }
+
+        private void DrawCrownImage(Artifact artifact,Transform buttonPos)
+        {
+            switch (artifact.name)
+            {
+                case "Huaの冠":
+                    buttonPos.GetComponent<Image>().sprite = crownImages[0];
+                    break;
+                case "Onnnenの冠":
+                    buttonPos.GetComponent<Image>().sprite = crownImages[1];
+                    break;
+                case "Rekisenの冠":
+                    buttonPos.GetComponent<Image>().sprite = crownImages[2];
+                    break;
+                case "Yujyouの冠":
+                    buttonPos.GetComponent<Image>().sprite = crownImages[3];
+                    break;
+                case "Akatukiの冠":
+                    buttonPos.GetComponent<Image>().sprite = crownImages[4];
+                    break;
+                default:
+                    Debug.Log("?");
+                    break;
+            }
+
+            if(artifact.name != "noname")
+            {
+                buttonPos.GetComponentInChildren<Text>().text = "Lv" + artifact.level;
+            }
+            else
+            {
+                buttonPos.GetComponentInChildren<Text>().text = "";
+            }
+        }
+        private void DrawBangleImage(Artifact artifact, Transform buttonPos)
+        {
+            switch (artifact.name)
+            {
+                case "Huaの腕輪":
+                    buttonPos.GetComponent<Image>().sprite = bangleImages[0];
+                    break;
+                case "Onnnenの腕輪":
+                    buttonPos.GetComponent<Image>().sprite = bangleImages[1];
+                    break;
+                case "Rekisenの腕輪":
+                    buttonPos.GetComponent<Image>().sprite = bangleImages[2];
+                    break;
+                case "Yujyouの腕輪":
+                    buttonPos.GetComponent<Image>().sprite = bangleImages[3];
+                    break;
+                case "Akatukiの腕輪":
+                    buttonPos.GetComponent<Image>().sprite = bangleImages[4];
+                    break;
+                default:
+                    Debug.Log("?");
+                    break;
+            }
+
+            if (artifact.name != "noname")
+            {
+                buttonPos.GetComponentInChildren<Text>().text = "Lv" + artifact.level;
+            }
+            else
+            {
+                buttonPos.GetComponentInChildren<Text>().text = "";
+            }
+        }
+        private void DrawRingImage(Artifact artifact, Transform buttonPos)
+        {
+            switch (artifact.name)
+            {
+                case "Huaの指輪":
+                    buttonPos.GetComponent<Image>().sprite = ringImages[0];
+                    break;
+                case "Onnnenの指輪":
+                    buttonPos.GetComponent<Image>().sprite = ringImages[1];
+                    break;
+                case "Rekisenの指輪":
+                    buttonPos.GetComponent<Image>().sprite = ringImages[2];
+                    break;
+                case "Yujyouの指輪":
+                    buttonPos.GetComponent<Image>().sprite = ringImages[3];
+                    break;
+                case "Akatukiの指輪":
+                    buttonPos.GetComponent<Image>().sprite = ringImages[4];
+                    break;
+                default:
+                    Debug.Log("?");
+                    break;
+            }
+
+            if (artifact.name != "noname")
+            {
+                buttonPos.GetComponentInChildren<Text>().text = "Lv" + artifact.level;
+            }
+            else
+            {
+                buttonPos.GetComponentInChildren<Text>().text = "";
+            }
         }
     }
 }

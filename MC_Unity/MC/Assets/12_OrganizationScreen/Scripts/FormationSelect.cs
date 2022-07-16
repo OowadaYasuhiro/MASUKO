@@ -57,23 +57,23 @@ namespace Formation
             switch (characterNumber)
             {
                 case 0:
-                    chara = new Charactor("幽霊");
+                    chara = OrganizationScreen_Deta.ghost;
                     charaNum = 0;
                     break;
                 case 1:
-                    chara = new Charactor("座敷童");
+                    chara = OrganizationScreen_Deta.zasikiwarasi;
                     charaNum = 1;
                     break;
                 case 2:
-                    chara = new Charactor("鬼");
+                    chara = OrganizationScreen_Deta.ogre;
                     charaNum = 2;
                     break;
                 case 3:
-                    chara = new Charactor("ポルターガイスト");
+                    chara = OrganizationScreen_Deta.poltergeist;
                     charaNum = 3;
                     break;
                 case 4:
-                    chara = new Charactor("悪魔");
+                    chara = OrganizationScreen_Deta.demon;
                     charaNum = 4;
                     break;
                 default:

@@ -80,6 +80,12 @@ public class FormationDeta
         PlayerPrefs.SetString("charactor2artifact2", charactor2artifact2);
         PlayerPrefs.SetString("charactor2artifact3", charactor2artifact3);
         PlayerPrefs.SetString("artifacts",JsonHelper.ToJson<Artifact>(artifacts));
+
+        PlayerPrefs.SetString("ghostLv", "1");
+        PlayerPrefs.SetString("zasikiwarasiLv", "1");
+        PlayerPrefs.SetString("orgaLv", "1");
+        PlayerPrefs.SetString("poltergeistLv", "1");
+        PlayerPrefs.SetString("demonLv", "1");
     }
 
     public  void Load()
