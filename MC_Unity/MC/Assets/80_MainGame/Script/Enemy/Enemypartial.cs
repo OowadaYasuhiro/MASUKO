@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Constant;
@@ -103,6 +104,128 @@ public partial class Enemy
                     case hard:
 
                         break;
+                }
+                break;
+        }
+
+        string sn = StageSelect_Deta.selectStageNumber;
+        int ep = int.Parse(sn.Substring(1,1));
+        switch (ep)
+        {
+            case 1:
+                if (myNumber == 1)
+                {
+                    targetPosition = new Vector2[]
+                    {
+                        new Vector2(0,4),
+                        new Vector2(1,4),
+                        new Vector2(2,4),
+                        new Vector2(3,4),
+                        new Vector2(4,4),
+                        new Vector2(5,4),
+                        new Vector2(6,4),
+                        new Vector2(7,4),
+                        new Vector2(8,4),
+                        new Vector2(9,4),
+                        new Vector2(8,4),
+                        new Vector2(7,4),
+                        new Vector2(6,4),
+                        new Vector2(5,4),
+                        new Vector2(4,4),
+                        new Vector2(3,4),
+                        new Vector2(2,4),
+                        new Vector2(1,4),
+                        new Vector2(0,4),
+                    };
+                }
+                else
+                {
+                    targetPosition = new Vector2[]
+                    {
+                        new Vector2(0,1),
+                        new Vector2(1,1),
+                        new Vector2(2,1),
+                        new Vector2(3,1),
+                        new Vector2(4,1),
+                        new Vector2(5,1),
+                        new Vector2(6,1),
+                        new Vector2(7,1),
+                        new Vector2(8,1),
+                        new Vector2(9,1),
+                        new Vector2(8,1),
+                        new Vector2(7,1),
+                        new Vector2(6,1),
+                        new Vector2(5,1),
+                        new Vector2(4,1),
+                        new Vector2(3,1),
+                        new Vector2(2,1),
+                        new Vector2(1,1),
+                        new Vector2(0,1),
+                    };
+                }
+                break;
+            case 2:
+                if (myNumber == 1)
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                else
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                break;
+            case 3:
+                if (myNumber == 1)
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                else
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                break;
+            case 4:
+                if (myNumber == 1)
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                else
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                break;
+            case 5:
+                if (myNumber == 1)
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
+                }
+                else
+                {
+                    targetPosition = new Vector2[]
+                    {
+
+                    };
                 }
                 break;
         }

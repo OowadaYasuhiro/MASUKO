@@ -9,8 +9,8 @@ using System;
 public partial class MainGame : MonoBehaviour
 {
     //ゲームステート
-    [HideInInspector]
-    public GameState gamestate;
+    internal GameState gamestate;
+    GameState lateGameState;
 
     //マスターオブジェクト
     GameObject master;
@@ -36,6 +36,12 @@ public partial class MainGame : MonoBehaviour
     Material deployable;
     [SerializeField]
     Material notAllowed;
+
+    //パネル
+    [SerializeField]
+    GameObject PausePanel;
+    [SerializeField]
+    GameObject RetirePanel;
 
     //難易度
     string difficulty;
@@ -99,6 +105,7 @@ public partial class MainGame : MonoBehaviour
     internal Vector2 player1pos;
     internal Vector2 player2pos;
 
+
     //召喚
     internal SummonsCharacter[] summonsCharacter = new SummonsCharacter[8];
 
@@ -133,6 +140,8 @@ public partial class MainGame : MonoBehaviour
         buttonManager = GetComponent<ButtonManager>();
         buttonManager.Initialize();
         stageGridUI = GameObject.Find("UICamera").GetComponent<StageGridUI>();
+        PausePanel.SetActive(false);
+        RetirePanel.SetActive(false);
 
         /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Daemon));
 
@@ -159,7 +168,6 @@ public partial class MainGame : MonoBehaviour
                 if (onStageCharacter == true) Invoke("GameStateToGameRun",10f);
                 break;
             case GameState.GameRun:
-                Debug.Log("ゲームスタート");
                 GameInputCheck();
                 SlowCheck();
                 GameUpData();
@@ -167,7 +175,7 @@ public partial class MainGame : MonoBehaviour
                 WaveClearCheck();
                 break;
             case GameState.Wait:
-
+                
                 break;
             case GameState.End:
 
@@ -189,6 +197,10 @@ public partial class MainGame : MonoBehaviour
     void GameStateToGameRun()
     {
         gamestate = GameState.GameRun;
+        foreach (Enemy enemy in enemies)
+        {
+            enemy.charactorState = MainGameCharacterState.CharacterState.Run;
+        }
     }
 
     //ゲーム入力確認
@@ -196,7 +208,10 @@ public partial class MainGame : MonoBehaviour
     {
         if (pause == true)
         {
+            if (gamestate == GameState.PreparationPhase) lateGameState = GameState.PreparationPhase;
+            if (gamestate == GameState.GameRun) lateGameState = GameState.GameRun;
             gamestate = GameState.Wait;
+            PausePanel.SetActive(true);
         }
         if (character1UI == true)
         {
@@ -232,6 +247,36 @@ public partial class MainGame : MonoBehaviour
         {
             players[1].skill3 = true;
         }
+    }
+
+    //ポーズ解除
+    public void Unpause()
+    {
+        pause = false;
+        gamestate = lateGameState;
+        PausePanel.SetActive(false);
+        buttonManager.AllButtonEnable();
+    }
+
+    //リタイヤ画面
+    public void OnRetirePanel()
+    {
+        PausePanel.SetActive(false);
+        RetirePanel.SetActive(true);
+    }
+
+    //リタイア拒否
+    public void NoRetire()
+    {
+        PausePanel.SetActive(true);
+        RetirePanel.SetActive(false);
+    }
+
+    //リタイア合意
+    public void OnRetire()
+    {
+        Load_Deta.Nextscenename = "StageSelectScene";
+        SceneManager.LoadScene("Yanai_TestScene");
     }
 
     //スロウモード(判定と切り替えにかかわる処理)
@@ -273,6 +318,9 @@ public partial class MainGame : MonoBehaviour
                 if (character1UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
                 {
                     players[0].Deploy(stageGridUI.selectGrid);
+                    buttonManager.ButtoEnableByName("Character1Skill1");
+                    buttonManager.ButtoEnableByName("Character1Skill2");
+                    buttonManager.ButtoEnableByName("Character1Skill3");
                     if (onStageCharacter == false) onStageCharacter = true;
                 }
                 else if (character1UI == true)
@@ -282,6 +330,9 @@ public partial class MainGame : MonoBehaviour
                 if (character2UI == true && canDeployGlid[stageGridUI.selectGrid.x, stageGridUI.selectGrid.y] == true)
                 {
                     players[1].Deploy(stageGridUI.selectGrid);
+                    buttonManager.ButtoEnableByName("Character2Skill1");
+                    buttonManager.ButtoEnableByName("Character2Skill2");
+                    buttonManager.ButtoEnableByName("Character2Skill3");
                     if (onStageCharacter == false) onStageCharacter = true;
                 }
                 else if (character2UI == true)

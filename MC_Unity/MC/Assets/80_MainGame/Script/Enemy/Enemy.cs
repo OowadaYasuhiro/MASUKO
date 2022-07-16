@@ -29,7 +29,7 @@ public partial class Enemy : MainGameCharacterModel
     //表示クラス
     CharacterManager characterManager;
 
-    public Enemy( MainGame mainGame, string difficulty, string name, int number)
+    internal void Initialized(MainGame mainGame, string difficulty, string name, int number)
     {
         myNumber = number;
         this.mainGame = mainGame;
