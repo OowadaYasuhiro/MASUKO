@@ -117,5 +117,6 @@ public partial class Enemy : MainGameCharacterModel
     public void LateUpDate()
     {
         characterManager.CharacterVisualization(position, false, myNumber);
+        Debug.Log(position.x);
     }
 }
