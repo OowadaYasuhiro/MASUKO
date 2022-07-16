@@ -86,15 +86,20 @@ partial class MainGame : MonoBehaviour
                 {
                     case 1:
                         enemies = null;
-                        enemies = new Enemy[1] {new Enemy(this, difficulty, Tuyogarisyounen,1)};
+                        enemies = new Enemy[1] { gameObject.AddComponent<Enemy>() };
+                        enemies[0].Initialized(this, difficulty, Tuyogarisyounen, 1);
                         break;
                     case 2:
                         enemies = null;
-                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen,1), new Enemy(this, difficulty, Tuyogarisyounen,2) };
+                        enemies = new Enemy[2] { gameObject.AddComponent<Enemy>(), gameObject.AddComponent<Enemy>() };
+                        enemies[0].Initialized(this, difficulty, Tuyogarisyounen, 1);
+                        enemies[1].Initialized(this, difficulty, Tuyogarisyounen, 2);
                         break;
                     case 3:
                         enemies = null;
-                        enemies = new Enemy[2] { new Enemy(this, difficulty, Tuyogarisyounen,1), new Enemy(this, difficulty, Namaikinasyouzyo,2) };
+                        enemies = new Enemy[2] { gameObject.AddComponent<Enemy>(), gameObject.AddComponent<Enemy>() };
+                        enemies[0].Initialized(this, difficulty, Tuyogarisyounen, 1);
+                        enemies[1].Initialized(this, difficulty, Namaikinasyouzyo, 2);
                         break;
                 }
                 break;
