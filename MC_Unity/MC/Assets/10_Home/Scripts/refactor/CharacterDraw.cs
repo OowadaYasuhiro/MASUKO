@@ -17,6 +17,7 @@ namespace HomeScene
         private string characterName;
         private string characterSpeech;
         private Sprite characterImage;
+        private Charactor character;
 
         private CharacterDraw() { }
 
@@ -43,40 +44,45 @@ namespace HomeScene
 
         private void ReferenceCharacterData()
         {
-            if (Master.playerdeta.NowSelectCharactor == "Ghost")
+            if (Master.formationdeta.selectcharactor1 != null)
             {
-                this.characterName = "Ghost";
-                this.characterSpeech = HomeScene_Deta.ghostSpeechText;
-                this.characterImage = characterImages[0];
-                return;
-            }
-            if (Master.playerdeta.NowSelectCharactor == "Zasikiwarasi")
-            {
-                this.characterName = "Zasikiwarasi";
-                this.characterSpeech = HomeScene_Deta.zasikiwarasiSpeechText;
-                this.characterImage = characterImages[1];
-                return;
-            }
-            if (Master.playerdeta.NowSelectCharactor == "Oni")
-            {
-                this.characterName = "Oni";
-                this.characterSpeech = HomeScene_Deta.oniSpeechText;
-                this.characterImage = characterImages[2];
-                return;
-            }
-            if (Master.playerdeta.NowSelectCharactor == "PolterGeist")
-            {
-                this.characterName = "polterGeist";
-                this.characterSpeech = HomeScene_Deta.poltergeistSpeechText;
-                this.characterImage = characterImages[3];
-                return;
-            }
-            if (Master.playerdeta.NowSelectCharactor == "Demon")
-            {
-                this.characterName = "Demon";
-                this.characterSpeech = HomeScene_Deta.demonSpeechText;
-                this.characterImage = characterImages[4];
-                return;
+                character = (Charactor)Master.formationdeta.selectcharactor1;
+
+                if (character.name == "幽霊")
+                {
+                    this.characterName = "Ghost";
+                    this.characterSpeech = HomeScene_Deta.ghostSpeechText;
+                    this.characterImage = characterImages[0];
+                    return;
+                }
+                if (character.name == "座敷童")
+                {
+                    this.characterName = "Zasikiwarasi";
+                    this.characterSpeech = HomeScene_Deta.zasikiwarasiSpeechText;
+                    this.characterImage = characterImages[1];
+                    return;
+                }
+                if (character.name == "鬼")
+                {
+                    this.characterName = "Oni";
+                    this.characterSpeech = HomeScene_Deta.oniSpeechText;
+                    this.characterImage = characterImages[2];
+                    return;
+                }
+                if (character.name == "ポルターガイスト")
+                {
+                    this.characterName = "polterGeist";
+                    this.characterSpeech = HomeScene_Deta.poltergeistSpeechText;
+                    this.characterImage = characterImages[3];
+                    return;
+                }
+                if (character.name == "悪魔")
+                {
+                    this.characterName = "Demon";
+                    this.characterSpeech = HomeScene_Deta.demonSpeechText;
+                    this.characterImage = characterImages[4];
+                    return;
+                }
             }
         }
 
