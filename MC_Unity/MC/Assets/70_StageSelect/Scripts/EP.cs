@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EP : MonoBehaviour
@@ -111,6 +112,21 @@ public class EP : MonoBehaviour
         for (int i = 0; i < ep.Length; i++)
         {
             ep[i] = 0;
+        }
+
+        if (MainGame_Data.clear == true)
+        {
+            int ss_num = sNumber * 20 + (SelectOn_num - 1) * 4 + (SelectStagestageB_num_num - 1);
+            ep[ss_num] += 1;
+            if (ep[ss_num] == 1)
+            {
+                stage_num[sNumber]++;
+            }
+            if (stage_num[sNumber] % 5 == 0)
+            {
+                lstage_num[lsNumber]++;
+                stage_num[sNumber] = 1;
+            }
         }
     }
 
@@ -689,10 +705,65 @@ public class EP : MonoBehaviour
     //ステージクリアの合計を計測
     public void SS()
     {
-        int ss_num = sNumber * 20 + (SelectOn_num - 1) * 4 + (SelectStagestageB_num_num - 1);
         switch (sNumber)
         {
             case 0:
+                switch (SelectOn_num)
+                {
+                    case 1:
+                        switch (SelectStagestageB_num_num)
+                        {
+                            case 1:
+                                if (difficulty_num == 1)
+                                {
+                                    StageSelect_Deta.selectDifficulty = Constant.easy;
+                                }
+                                if (difficulty_num == 2)
+                                {
+                                    StageSelect_Deta.selectDifficulty = Constant.normal;
+                                }
+                                if (difficulty_num == 3)
+                                {
+                                    StageSelect_Deta.selectDifficulty = Constant.hard;
+                                }
+                                StageSelect_Deta.selectStageNumber = Constant.main_ep1_1;
+                                break;
+                            case 2:
+
+                                break;
+                            case 3:
+
+                                break;
+                            case 4:
+                                
+                                break;
+                        }
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        switch (SelectStagestageB_num_num)
+                        {
+                            case 1:
+
+                                break;
+                            case 2:
+
+                                break;
+                            case 3:
+
+                                break;
+                            case 4:
+                                
+                                break;
+                        }
+                        break;
+                }
+                break;
             case 1:
             case 2:
                 switch (SelectOn_num)
@@ -708,25 +779,18 @@ public class EP : MonoBehaviour
                             case 2:
                             case 3:
                             case 4:
-                                ep[ss_num] += 1;
-                                if (ep[ss_num] == 1)
-                                {
-                                    stage_num[sNumber]++;
-                                }
+                                
                                 break;
                         }
                         break;
                 }
                 break;
         }
-        if (stage_num[sNumber] % 5 == 0)
-        {
-            lstage_num[lsNumber]++;
-            stage_num[sNumber] = 1;
-        }
         Debug.Log(SelectOn);
         Debug.Log(SelectStagestageB);
         Debug.Log(Difdifficulty);
+        Load_Deta.Nextscenename = "MainGameScene";
+        SceneManager.LoadScene("Yanai_TestScene");
     }
 
     public void FCSText()
