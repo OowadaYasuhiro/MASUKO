@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGeme_Deta 
+public class MainGame_Data
 {
     public static bool clear;
 }

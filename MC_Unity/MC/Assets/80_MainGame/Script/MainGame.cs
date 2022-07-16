@@ -9,8 +9,8 @@ using System;
 public partial class MainGame : MonoBehaviour
 {
     //ゲームステート
-    [HideInInspector]
-    public GameState gamestate;
+    internal GameState gamestate;
+    GameState lateGameState;
 
     //マスターオブジェクト
     GameObject master;
@@ -36,6 +36,12 @@ public partial class MainGame : MonoBehaviour
     Material deployable;
     [SerializeField]
     Material notAllowed;
+
+    //パネル
+    [SerializeField]
+    GameObject PausePanel;
+    [SerializeField]
+    GameObject RetirePanel;
 
     //難易度
     string difficulty;
@@ -134,6 +140,8 @@ public partial class MainGame : MonoBehaviour
         buttonManager = GetComponent<ButtonManager>();
         buttonManager.Initialize();
         stageGridUI = GameObject.Find("UICamera").GetComponent<StageGridUI>();
+        PausePanel.SetActive(false);
+        RetirePanel.SetActive(false);
 
         /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Daemon));
 
@@ -167,7 +175,7 @@ public partial class MainGame : MonoBehaviour
                 WaveClearCheck();
                 break;
             case GameState.Wait:
-
+                
                 break;
             case GameState.End:
 
@@ -200,7 +208,10 @@ public partial class MainGame : MonoBehaviour
     {
         if (pause == true)
         {
+            if (gamestate == GameState.PreparationPhase) lateGameState = GameState.PreparationPhase;
+            if (gamestate == GameState.GameRun) lateGameState = GameState.GameRun;
             gamestate = GameState.Wait;
+            PausePanel.SetActive(true);
         }
         if (character1UI == true)
         {
@@ -236,6 +247,36 @@ public partial class MainGame : MonoBehaviour
         {
             players[1].skill3 = true;
         }
+    }
+
+    //ポーズ解除
+    public void Unpause()
+    {
+        pause = false;
+        gamestate = lateGameState;
+        PausePanel.SetActive(false);
+        buttonManager.AllButtonEnable();
+    }
+
+    //リタイヤ画面
+    public void OnRetirePanel()
+    {
+        PausePanel.SetActive(false);
+        RetirePanel.SetActive(true);
+    }
+
+    //リタイア拒否
+    public void NoRetire()
+    {
+        PausePanel.SetActive(true);
+        RetirePanel.SetActive(false);
+    }
+
+    //リタイア合意
+    public void OnRetire()
+    {
+        Load_Deta.Nextscenename = "StageSelectScene";
+        SceneManager.LoadScene("Yanai_TestScene");
     }
 
     //スロウモード(判定と切り替えにかかわる処理)

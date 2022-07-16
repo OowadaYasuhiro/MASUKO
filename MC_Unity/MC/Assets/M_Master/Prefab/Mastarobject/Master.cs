@@ -21,6 +21,8 @@ public class Master : SingletonMonoBehaviour<Master>
         saveManager.DetaLoad();
         SceneManager.sceneUnloaded += OnSceneUnloaded;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().Initialize();
+
+        MainGame_Data.clear = false;
     }
 
     private void OnSceneUnloaded(Scene current)
