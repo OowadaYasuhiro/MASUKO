@@ -40,6 +40,11 @@ public class MainGameCharacterModel : MainGameCharacterState
         ;
     }
 
+    private void Start()
+    {
+        arrow = new Vector2(1,0);
+    }
+
     //名前取得
     internal string GetName()
     {
@@ -56,16 +61,16 @@ public class MainGameCharacterModel : MainGameCharacterState
         }
         if (next == false)
         {
-            position += arrow * timeLine * moveSpeed;
+            position += arrow * timeLine * (moveSpeed/60);
             Vector2 compareArrow = targetPosition[moveTargetPointer] - position;
             if (!(arrow.Equals(compareArrow.normalized)) || position == targetPosition[moveTargetPointer])
             {
+                moveTargetPointer++;
                 position = targetPosition[moveTargetPointer];
                 if (position == targetObject)
                 {
                     charactorState = CharacterState.RunAway;
                 }
-                moveTargetPointer++;
                 next = true;
             }
         }

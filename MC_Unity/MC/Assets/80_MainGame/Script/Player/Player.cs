@@ -184,7 +184,6 @@ public partial class Player : MainGameCharacterModel
         }
         
         /******************アニメーション*******************/
-        Debug.Log("PlayerPosition" + position);
         characterManager.CharacterVisualization(position,true,myNumber);
     }
 
