@@ -77,6 +77,12 @@ public partial class Enemy : MainGameCharacterModel
                     charactorState = CharacterState.Fight;
                 }
                 break;
+            case CharacterState.Fight:
+                if (fightThrough == true)
+                {
+                    charactorState = lastRunType;
+                }
+                break;
         }
     }
 
@@ -117,6 +123,5 @@ public partial class Enemy : MainGameCharacterModel
     public void LateUpDate()
     {
         characterManager.CharacterVisualization(position, false, myNumber);
-        Debug.Log(position.x);
     }
 }

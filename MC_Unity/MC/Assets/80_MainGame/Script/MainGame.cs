@@ -383,6 +383,26 @@ public partial class MainGame : MonoBehaviour
     //ゲーム内アップデート
     void GameUpData()
     {
+        foreach(Player player in players)
+        {
+            player.findEnemy = false;
+            MainGameCharacterModel[] target = SearchCharacter(player.attackRange,false,true,false);
+            if (target.Length > 0)
+            {
+                player.targetEnemy = target;
+                player.findEnemy = true;
+            }
+        }
+        foreach(Enemy enemy in enemies)
+        {
+            enemy.findEnemy = false;
+            MainGameCharacterModel[] target = SearchCharacter(enemy.attackRange, true, false, false);
+            if (target.Length > 0)
+            {
+                enemy.targetEnemy = target;
+                enemy.findEnemy = true;
+            }
+        }
         //fast
         foreach(Player player in players)
         {

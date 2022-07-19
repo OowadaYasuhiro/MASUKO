@@ -54,14 +54,13 @@ public class MainGameCharacterModel : MainGameCharacterState
         {
             arrow = targetPosition[moveTargetPointer] - position;
             next = false;
-            Debug.Log(moveTargetPointer);
         }
         if (next == false)
         {
             float moveValue = (timeLine * moveSpeed * 0.016666f);
             position += arrow * moveValue;
             movedValue += moveValue;
-            /*if (movedValue > 1f)
+            if (movedValue > 1f)
             {
                 movedValue = 0;
                 position = targetPosition[moveTargetPointer];
@@ -71,7 +70,7 @@ public class MainGameCharacterModel : MainGameCharacterState
                 }
                 moveTargetPointer++;
                 next = true;
-            }*/
+            }
         }
     }
 
