@@ -39,7 +39,7 @@ public class PositionConvert : MonoBehaviour
         float convertedposy0 = YConverter(posy0);
         float convertedposy1 = YConverter(posy1);
         Vector2 returnValue = new Vector2();
-        returnValue.x = convertedposx0 + ((convertedposx1 - convertedposx0) * posxFew);
+        returnValue.x = convertedposx0 + ((convertedposx1 - convertedposx0) * (posxFew / 100f));
         returnValue.y = convertedposy0 + ((convertedposy1 - convertedposy0) * posyFew);
         return returnValue;
     }

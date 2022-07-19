@@ -137,13 +137,15 @@ public partial class Player : MainGameCharacterModel
             ultStack = 0;
         }
 
+        if (findEnemy == true)
+        {
+            charactorState = CharacterState.Fight;
+        }
+
         switch (charactorState)
         {
             case CharacterState.Resting:
                 
-                break;
-            case CharacterState.Fight:
-
                 break;
         }
 

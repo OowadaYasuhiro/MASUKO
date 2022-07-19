@@ -31,6 +31,34 @@ public partial class Player
         switch (Charactername)
         {
             case Daemon:
+                if (FDC.level > 90)
+                {
+                    baseAttackPower = 480;
+                }
+                else if(FDC.level > 50)
+                {
+                    baseAttackPower = 290;
+                }
+                else
+                {
+                    baseAttackPower = 140;
+                }
+                if (FDC.credibility >= 200)
+                {
+
+                }
+                else if (FDC.credibility >= 150)
+                {
+
+                }
+                else if (FDC.credibility >= 100)
+                {
+
+                }
+                else if (FDC.credibility >= 50)
+                {
+
+                }
                 //視野範囲
                 viewRange = new Vector2[]
                 {
