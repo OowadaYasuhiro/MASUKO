@@ -19,6 +19,8 @@ public partial class Enemy : MainGameCharacterModel
 
     //通常攻撃
     Damage damage;
+    int attackFrequency;
+    int attackCooldown;
 
     //MainGameのアドレス
     MainGame mainGame;
