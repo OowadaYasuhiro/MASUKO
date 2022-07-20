@@ -62,6 +62,12 @@ public partial class Player : MainGameCharacterModel
 
     //撤退
     internal bool goback;
+    internal int relocationFrame;
+
+    //攻撃
+    Damage damage;
+    int attackFrequency;
+    int attackCooldown;
 
     //遺物
     Artifact artifact1;
