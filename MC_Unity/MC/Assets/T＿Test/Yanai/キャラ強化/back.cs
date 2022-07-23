@@ -8,7 +8,7 @@ public class back : MonoBehaviour
     
     //ここに強化画面のキャラselectのsceneを入れる
     public void push() {
-        /*Load_Deta.Nextscenename = "";
-        SceneManager.LoadScene("Yanai_TestScene");*/
+        Load_Deta.Nextscenename = "HomeScene";
+        SceneManager.LoadScene("Yanai_TestScene");
     }
 }
