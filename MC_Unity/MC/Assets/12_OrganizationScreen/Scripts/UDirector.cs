@@ -35,11 +35,11 @@ namespace Formation
                 OrganizationScreen_Deta.rightCharacterNum = -1;
             }
 
-            charaSelect.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("ghostLv");
-            charaSelect.transform.GetChild(1).transform.GetChild(1).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("zasikiwarasiLv");
-            charaSelect.transform.GetChild(2).transform.GetChild(1).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("orgaLv");
-            charaSelect.transform.GetChild(3).transform.GetChild(1).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("poltergeistLv");
-            charaSelect.transform.GetChild(4).transform.GetChild(1).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("demonLv");
+            charaSelect.transform.GetChild(0).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("ghostLv");
+            charaSelect.transform.GetChild(1).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("zasikiwarasiLv");
+            charaSelect.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("orgaLv");
+            charaSelect.transform.GetChild(3).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("poltergeistLv");
+            charaSelect.transform.GetChild(4).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("demonLv");
         }
 
         private void SetCharacterNum(Charactor charactor, bool isleft)

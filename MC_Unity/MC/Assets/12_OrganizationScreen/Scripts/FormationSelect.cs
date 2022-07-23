@@ -17,12 +17,12 @@ namespace Formation
             {
                 if (this.characterNumber == OrganizationScreen_Deta.leftCharacterNum)
                 {
-                    this.gameObject.GetComponent<Image>().color = Color.gray;
+                    this.gameObject.transform.GetChild(0).GetComponent<Image>().color = Color.gray;
                     this.gameObject.GetComponent<Button>().enabled = false;
                 }
                 else if (this.characterNumber == OrganizationScreen_Deta.rightCharacterNum)
                 {
-                    this.gameObject.GetComponent<Image>().color = Color.gray;
+                    this.gameObject.transform.GetChild(0).GetComponent<Image>().color = Color.gray;
                     this.gameObject.GetComponent<Button>().enabled = false;
                 }
                 else
@@ -34,12 +34,12 @@ namespace Formation
             {
                 if (this.characterNumber == OrganizationScreen_Deta.rightCharacterNum)
                 {
-                    this.gameObject.GetComponent<Image>().color = Color.gray;
+                    this.gameObject.transform.GetChild(0).GetComponent<Image>().color = Color.gray;
                     this.gameObject.GetComponent<Button>().enabled = false;
                 }
                 else if (this.characterNumber == OrganizationScreen_Deta.leftCharacterNum)
                 {
-                    this.gameObject.GetComponent<Image>().color = Color.gray;
+                    this.gameObject.transform.GetChild(0).GetComponent<Image>().color = Color.gray;
                     this.gameObject.GetComponent<Button>().enabled = false;
                 }
                 else
@@ -92,6 +92,7 @@ namespace Formation
                 OrganizationScreen_Deta.rightCharacterNum = charaNum;
             }
 
+            OrganizationScreen_Deta.isCharaSelect = false;
             SceneManager.LoadScene("OrganizationScreenScene");
         }
     }

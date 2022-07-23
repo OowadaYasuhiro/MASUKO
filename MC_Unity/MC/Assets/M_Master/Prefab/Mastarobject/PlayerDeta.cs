@@ -398,9 +398,9 @@ public class PlayerDeta
         VoiceSoundvolume = 1f;
         mute = false;
         NowSelectCharactor = "Ghost";
-        MagaTamashi = 100000;
-        Zanryu_Sinen = 100000;
-        Coin = 1000000;
+        MagaTamashi = 0;
+        Zanryu_Sinen = 0;
+        Coin = 0;
         GhostUnLocked = true;
         GhostLevel = 1;
         DailyMission1 = false;

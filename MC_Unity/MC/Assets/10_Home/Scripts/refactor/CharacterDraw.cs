@@ -53,6 +53,8 @@ namespace HomeScene
                     this.characterName = "Ghost";
                     this.characterSpeech = HomeScene_Deta.ghostSpeechText;
                     this.characterImage = characterImages[0];
+                    this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
+                    this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1025.0f,760.0f);
                     return;
                 }
                 if (character.name == "座敷童")
@@ -60,6 +62,8 @@ namespace HomeScene
                     this.characterName = "Zasikiwarasi";
                     this.characterSpeech = HomeScene_Deta.zasikiwarasiSpeechText;
                     this.characterImage = characterImages[1];
+                    this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-390.48f, -0.0f);
+                    this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1760.0f, 950.0f);
                     return;
                 }
                 if (character.name == "鬼")
@@ -67,6 +71,8 @@ namespace HomeScene
                     this.characterName = "Oni";
                     this.characterSpeech = HomeScene_Deta.oniSpeechText;
                     this.characterImage = characterImages[2];
+                    this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
+                    this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1370.0f, 760.0f);
                     return;
                 }
                 if (character.name == "ポルターガイスト")
@@ -74,6 +80,8 @@ namespace HomeScene
                     this.characterName = "polterGeist";
                     this.characterSpeech = HomeScene_Deta.poltergeistSpeechText;
                     this.characterImage = characterImages[3];
+                    this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
+                    this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(970.0f, 630.0f);
                     return;
                 }
                 if (character.name == "悪魔")
@@ -81,6 +89,8 @@ namespace HomeScene
                     this.characterName = "Demon";
                     this.characterSpeech = HomeScene_Deta.demonSpeechText;
                     this.characterImage = characterImages[4];
+                    this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
+                    this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1370.0f, 760.0f);
                     return;
                 }
             }

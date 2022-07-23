@@ -16,6 +16,7 @@ namespace Formation
         public void OnClickChara(bool isLeft)
         {
             OrganizationScreen_Deta.isLeftCharacter = isLeft;
+            OrganizationScreen_Deta.isCharaSelect = true;
             leftWindow.SetActive(false);
             rightwindow.SetActive(false);
             selectwindow.SetActive(true);

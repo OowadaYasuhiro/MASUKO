@@ -16,7 +16,6 @@ public class CoinDetailMain : MonoBehaviour
     {
         //デバッグ用
         //this.gameObject.GetComponentInChildren<Text>().text = p.Coin.ToString();
-
         this.gameObject.GetComponentInChildren<Text>().text = Master.playerdeta.Coin.ToString();
     }
 

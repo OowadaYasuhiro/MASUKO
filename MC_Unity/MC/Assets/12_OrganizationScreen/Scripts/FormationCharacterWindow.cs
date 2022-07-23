@@ -28,6 +28,7 @@ namespace Formation
         private int bonusRightATK = 0;
         private int bonusLeftDEF = 0;
         private int bonusRightDEF = 0;
+        private int bonusHP = 0;
 
         private void Start()
         {
@@ -42,15 +43,15 @@ namespace Formation
             }
 
             AddArifactsStatus();
+            DrawSynagy();
             DrawLeftWindow();
             DrawRightWindow();
-            DrawSynagy();
-            DrawCrownImage(Master.formationdeta.charactor1Artifacts[0], charaWindowLeft.transform.GetChild(14));
-            DrawCrownImage(Master.formationdeta.charactor2Artifacts[0], charaWindowRight.transform.GetChild(14));
-            DrawBangleImage(Master.formationdeta.charactor1Artifacts[1], charaWindowLeft.transform.GetChild(15));
-            DrawBangleImage(Master.formationdeta.charactor2Artifacts[1], charaWindowRight.transform.GetChild(15));
-            DrawRingImage(Master.formationdeta.charactor1Artifacts[2], charaWindowLeft.transform.GetChild(16));
-            DrawRingImage(Master.formationdeta.charactor2Artifacts[2], charaWindowRight.transform.GetChild(16));
+            DrawCrownImage(Master.formationdeta.charactor1Artifacts[0], charaWindowLeft.transform.GetChild(20));
+            DrawCrownImage(Master.formationdeta.charactor2Artifacts[0], charaWindowRight.transform.GetChild(20));
+            DrawBangleImage(Master.formationdeta.charactor1Artifacts[1], charaWindowLeft.transform.GetChild(21));
+            DrawBangleImage(Master.formationdeta.charactor2Artifacts[1], charaWindowRight.transform.GetChild(21));
+            DrawRingImage(Master.formationdeta.charactor1Artifacts[2], charaWindowLeft.transform.GetChild(22));
+            DrawRingImage(Master.formationdeta.charactor2Artifacts[2], charaWindowRight.transform.GetChild(22));
         }
 
         private void DrawLeftWindow()
@@ -62,15 +63,15 @@ namespace Formation
 
             Text level = charaWindowLeft.transform.GetChild(4).GetComponent<Text>();
             Text name = charaWindowLeft.transform.GetChild(6).GetComponent<Text>();
-            Text hp = charaWindowLeft.transform.GetChild(8).GetComponent<Text>();
-            Text atk = charaWindowLeft.transform.GetChild(9).GetComponent<Text>();
-            Text def = charaWindowLeft.transform.GetChild(10).GetComponent<Text>();
-            Text skillname = charaWindowLeft.transform.GetChild(11).GetComponent<Text>();
-            Text skilleffect = charaWindowLeft.transform.GetChild(12).GetComponent<Text>();
+            Text hp = charaWindowLeft.transform.GetChild(10).GetComponent<Text>();
+            Text atk = charaWindowLeft.transform.GetChild(12).GetComponent<Text>();
+            Text def = charaWindowLeft.transform.GetChild(14).GetComponent<Text>();
+            Text skillname = charaWindowLeft.transform.GetChild(16).GetComponent<Text>();
+            Text skilleffect = charaWindowLeft.transform.GetChild(17).GetComponent<Text>();
 
             level.text = leftCharacter.level.ToString();
             name.text = leftCharacter.name;
-            hp.text = leftCharacter.hp.ToString();
+            hp.text = (leftCharacter.hp + bonusHP).ToString();
             atk.text = (leftCharacter.atk + bonusLeftATK).ToString();
             def.text = (leftCharacter.def + bonusLeftDEF).ToString();
             skillname.text = leftCharacter.passiveSkillName;
@@ -87,15 +88,15 @@ namespace Formation
 
             Text level = charaWindowRight.transform.GetChild(4).GetComponent<Text>();
             Text name = charaWindowRight.transform.GetChild(6).GetComponent<Text>();
-            Text hp = charaWindowRight.transform.GetChild(8).GetComponent<Text>();
-            Text atk = charaWindowRight.transform.GetChild(9).GetComponent<Text>();
-            Text def = charaWindowRight.transform.GetChild(10).GetComponent<Text>();
-            Text skillname = charaWindowRight.transform.GetChild(11).GetComponent<Text>();
-            Text skilleffect = charaWindowRight.transform.GetChild(12).GetComponent<Text>();
+            Text hp = charaWindowRight.transform.GetChild(10).GetComponent<Text>();
+            Text atk = charaWindowRight.transform.GetChild(12).GetComponent<Text>();
+            Text def = charaWindowRight.transform.GetChild(14).GetComponent<Text>();
+            Text skillname = charaWindowRight.transform.GetChild(16).GetComponent<Text>();
+            Text skilleffect = charaWindowRight.transform.GetChild(17).GetComponent<Text>();
 
             level.text = rightCharacter.level.ToString();
             name.text = rightCharacter.name;
-            hp.text = rightCharacter.hp.ToString();
+            hp.text = (rightCharacter.hp + bonusHP).ToString();
             atk.text = (rightCharacter.atk + bonusRightATK).ToString();
             def.text = (rightCharacter.def + bonusRightDEF).ToString();
             skillname.text = rightCharacter.passiveSkillName;
@@ -140,8 +141,8 @@ namespace Formation
         private void DrawSynagy()
         {
             string skillText = "";
-            Text leftSynagy = charaWindowLeft.transform.GetChild(13).GetComponent<Text>();
-            Text rightSynagy = charaWindowRight.transform.GetChild(13).GetComponent<Text>();
+            Text leftSynagy = charaWindowLeft.transform.GetChild(19).GetComponent<Text>();
+            Text rightSynagy = charaWindowRight.transform.GetChild(19).GetComponent<Text>();
 
             if (Master.formationdeta.selectcharactor1 == null || Master.formationdeta.selectcharactor2 == null)
             {
@@ -151,6 +152,8 @@ namespace Formation
             if ((leftCharacter.name == "幽霊" && rightCharacter.name == "座敷童") || (leftCharacter.name == "座敷童" && rightCharacter.name == "幽霊"))
             {
                 skillText = OrganizationScreen_Deta.synagySkills[0];
+                bonusLeftATK += 25;
+                bonusRightATK += 25;
             } 
             else if ((leftCharacter.name == "幽霊" && rightCharacter.name == "鬼") || (leftCharacter.name == "鬼" && rightCharacter.name == "幽霊"))
             {
@@ -179,6 +182,7 @@ namespace Formation
             else if ((leftCharacter.name == "鬼" && rightCharacter.name == "ポルターガイスト") || (leftCharacter.name == "ポルターガイスト" && rightCharacter.name == "鬼"))
             {
                 skillText = OrganizationScreen_Deta.synagySkills[7];
+                bonusHP += 100;
             }
             else if ((leftCharacter.name == "鬼" && rightCharacter.name == "悪魔") || (leftCharacter.name == "悪魔" && rightCharacter.name == "鬼"))
             {
@@ -187,6 +191,8 @@ namespace Formation
             else if ((leftCharacter.name == "ポルターガイスト" && rightCharacter.name == "悪魔") || (leftCharacter.name == "悪魔" && rightCharacter.name == "ポルターガイスト"))
             {
                 skillText = OrganizationScreen_Deta.synagySkills[9];
+                bonusLeftATK += 25;
+                bonusRightATK += 25;
             }
 
             leftSynagy.text = skillText;

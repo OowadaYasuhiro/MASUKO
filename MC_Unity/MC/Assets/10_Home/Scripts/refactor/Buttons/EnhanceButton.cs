@@ -7,7 +7,7 @@ public class EnhanceButton : MonoBehaviour
 {
     public void OnClickEnhance()
     {
-        Load_Deta.Nextscenename = "EnhancementScreenScene";
+        Load_Deta.Nextscenename = "Yanai_test2";
         SceneManager.LoadScene("Yanai_TestScene");
     }
 }
