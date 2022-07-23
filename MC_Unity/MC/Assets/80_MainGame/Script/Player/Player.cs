@@ -45,7 +45,9 @@ public partial class Player : MainGameCharacterModel
     //怨嗟内容
     SkillEvent ultSkillEvent;
     //所持怨念
-    int grudgeAmount;
+    float grudgeAmount;
+    //怨念増加比率
+    float grudgeAmountIncreasePercentage = 1;
     //消費怨念
     int ultCost;
     //怨嗟スタック(合計数)
@@ -63,6 +65,7 @@ public partial class Player : MainGameCharacterModel
     //撤退
     internal bool goback;
     internal int relocationFrame;
+    int relocationFrameValue;
 
     //攻撃
     Damage damage;
@@ -151,7 +154,11 @@ public partial class Player : MainGameCharacterModel
         switch (charactorState)
         {
             case CharacterState.Resting:
-                
+                relocationFrameValue++;
+                if (relocationFrameValue >= relocationFrame)
+                {
+                    charactorState = CharacterState.Standby;
+                }
                 break;
         }
 
@@ -201,5 +208,6 @@ public partial class Player : MainGameCharacterModel
         charactorState = CharacterState.Wait;
         goback = false;
         position = targetPosition;
+        displaying = true;
     }
 }

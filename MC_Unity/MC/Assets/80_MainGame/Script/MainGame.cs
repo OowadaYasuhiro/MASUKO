@@ -305,7 +305,7 @@ public partial class MainGame : MonoBehaviour
                 {
                     canDeployGlid[i, j] = !mainGame_StageDeta.GetMap()[i, j];
                     Vector2[] targetPos = new Vector2[] { new Vector2(i, j) };
-                    if (SearchCharacter(targetPos, true, true, true).Length > 0)
+                    if (SearchCharacter(new Vector2(0,0), targetPos, true, true, true).Length > 0)
                     {
                         canDeployGlid[i, j] = false;
                     }
@@ -386,7 +386,7 @@ public partial class MainGame : MonoBehaviour
         foreach(Player player in players)
         {
             player.findEnemy = false;
-            MainGameCharacterModel[] target = SearchCharacter(player.attackRange,false,true,false);
+            MainGameCharacterModel[] target = SearchCharacter(player.position,player.attackRange,false,true,false);
             if (target.Length > 0)
             {
                 player.targetEnemy = target;
@@ -396,7 +396,7 @@ public partial class MainGame : MonoBehaviour
         foreach(Enemy enemy in enemies)
         {
             enemy.findEnemy = false;
-            MainGameCharacterModel[] target = SearchCharacter(enemy.attackRange, true, false, false);
+            MainGameCharacterModel[] target = SearchCharacter(enemy.position,enemy.attackRange, true, false, false);
             if (target.Length > 0)
             {
                 enemy.targetEnemy = target;
@@ -689,6 +689,7 @@ public partial class MainGame : MonoBehaviour
         //表示
         shadowMesh.SetColor(mainGame_StageDeta.view.viewArray,voidmaterial);
 
+        //キャラクター配置モード
         if (beingCharacterDeploy == true)
         {
             mainGame_StageDeta = new MainGame_StageDeta(stage);
@@ -700,7 +701,7 @@ public partial class MainGame : MonoBehaviour
                 {
                     canDeployGlid[i,j] = !mainGame_StageDeta.GetMap()[i,j];
                     Vector2[] targetPos = new Vector2[] { new Vector2(i, j) };
-                    if (SearchCharacter(targetPos, true, true, true).Length > 0)
+                    if (SearchCharacter(new Vector2(0,0), targetPos, true, true, true).Length > 0)
                     {
                         canDeployGlid[i, j] = false;
                     }

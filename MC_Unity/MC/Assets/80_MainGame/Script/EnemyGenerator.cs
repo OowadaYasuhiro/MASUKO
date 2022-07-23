@@ -8,7 +8,7 @@ partial class MainGame : MonoBehaviour
     List<MainGameCharacterModel> subjectList = new List<MainGameCharacterModel>();
     //範囲内の対象を取得
     //検索対象の選択が必要
-    public MainGameCharacterModel[] SearchCharacter(Vector2[] area,bool player,bool enemy,bool summonsCharacter)
+    public MainGameCharacterModel[] SearchCharacter(Vector2 position, Vector2[] area,bool player,bool enemy,bool summonsCharacter)
     {
         subjectList.Clear();
         //受け取った座標を検索
@@ -22,9 +22,9 @@ partial class MainGame : MonoBehaviour
                     {
                         continue;
                     }
-                    if (targetplayer.position.x >= (place.x - 0.5) && targetplayer.position.x < (place.x + 0.5))
+                    if (targetplayer.position.x >= (position.x + place.x - 0.5) && targetplayer.position.x < (position.x + place.x + 0.5))
                     {
-                        if (targetplayer.position.y >= (place.y - 0.5) && targetplayer.position.y < (place.y + 0.5))
+                        if (targetplayer.position.y >= (position.y + place.y - 0.5) && targetplayer.position.y < (position.y + place.y + 0.5))
                         {
                             subjectList.Add(targetplayer);
                         }
@@ -39,9 +39,9 @@ partial class MainGame : MonoBehaviour
                     {
                         continue;
                     }
-                    if (targetenemy.position.x >= (place.x - 0.5) && targetenemy.position.x < (place.x + 0.5))
+                    if (targetenemy.position.x >= (position.x + place.x - 0.5) && targetenemy.position.x < (position.x + place.x + 0.5))
                     {
-                        if (targetenemy.position.y >= (place.y - 0.5) && targetenemy.position.y < (place.y + 0.5))
+                        if (targetenemy.position.y >= (position.y + place.y - 0.5) && targetenemy.position.y < (position.y + place.y + 0.5))
                         {
                             subjectList.Add(targetenemy);
                         }
@@ -56,9 +56,9 @@ partial class MainGame : MonoBehaviour
                     {
                         continue;
                     }
-                    if (targetsummonsCharacter.position.x >= (place.x - 0.5) && targetsummonsCharacter.position.x < (place.x + 0.5))
+                    if (targetsummonsCharacter.position.x >= (position.x + place.x - 0.5) && targetsummonsCharacter.position.x < (position.x + place.x + 0.5))
                     {
-                        if (targetsummonsCharacter.position.y >= (place.y - 0.5) && targetsummonsCharacter.position.y < (place.y + 0.5))
+                        if (targetsummonsCharacter.position.y >= (position.y + place.y - 0.5) && targetsummonsCharacter.position.y < (position.y + place.y + 0.5))
                         {
                             subjectList.Add(targetsummonsCharacter);
                         }
