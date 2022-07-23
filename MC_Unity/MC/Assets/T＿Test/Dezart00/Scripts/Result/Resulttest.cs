@@ -43,32 +43,32 @@ public class Resulttest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        switch (test1)
+        switch (Master.playerdeta.NowSelectCharactor)
         {
-            case 0:
-                commen.text = selectCharactorDaemonCommen[0];
-                character.sprite = characterUiSelectDaemon[0];
-                characterName.text = "NAME:" + characterNames[test1];
-                break;
-            case 1:
-                commen.text = selectCharactorPoltergeistCommen[0];
-                character.sprite = characterUiSelectPoltergeist[0];
-                characterName.text = "NAME:" + characterNames[test1];
-                break;
-            case 2:
-                commen.text = selectCharactorGoreCommen[0];
-                character.sprite = characterUiSelectGore[0];
-                characterName.text = "NAME:" + characterNames[test1];
-                break;
-            case 3:
-                commen.text = selectCharactorZashiki_warashiCommen[0];
-                character.sprite = characterUiSelectZashiki_warashi[0];
-                characterName.text = "NAME:" + characterNames[test1];
-                break;
-            case 4:
+            case "Ghost":
                 commen.text = selectCharactoGhostCommen[0];
                 character.sprite = characterUiSelectGhost[0];
-                characterName.text = "NAME:" + characterNames[test1];
+                characterName.text = "NAME:" + characterNames[0];
+                break;
+            case "Zashiki_warashi":
+                commen.text = selectCharactorZashiki_warashiCommen[0];
+                character.sprite = characterUiSelectZashiki_warashi[0];
+                characterName.text = "NAME:" + characterNames[0];
+                break;
+            case "Gore":
+                commen.text = selectCharactorGoreCommen[0];
+                character.sprite = characterUiSelectGore[0];
+                characterName.text = "NAME:" + characterNames[0];
+                break;
+            case "Poltergeist":
+                commen.text = selectCharactorPoltergeistCommen[0];
+                character.sprite = characterUiSelectPoltergeist[0];
+                characterName.text = "NAME:" + characterNames[0];
+                break;
+            case "Daemon":
+                commen.text = selectCharactorDaemonCommen[0];
+                character.sprite = characterUiSelectDaemon[0];
+                characterName.text = "NAME:" + characterNames[0];
                 break;
         }
     }

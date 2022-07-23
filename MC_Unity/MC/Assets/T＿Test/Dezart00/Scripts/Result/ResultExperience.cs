@@ -19,6 +19,9 @@ public class ResultExperience : MonoBehaviour
     public float Lv_num;
     [SerializeField]
     public Slider exSlider;
+    private float speed = 0.01f;
+    public Text TE_Lv;
+    public Text Lv_text;
 
     void Awake()
     {
@@ -34,32 +37,59 @@ public class ResultExperience : MonoBehaviour
         //スライダーの最大値の設定
         exSlider.maxValue = Lv_num * 1000;
 
-        //スライダーの現在値の設定
-        exSlider.value = TotalExperience;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         { //Down
-            TotalExperience += 10f;
-            if (Lv_num * 1000 == TotalExperience)
-            {
-                Lv_num += 1;
-                TotalExperience -= TotalExperience;
-            }
-            //スライダーの現在値の設定
-            exSlider.value = TotalExperience;
+            StartCoroutine(ScoreAnimation(TotalExperience, TotalExperience + 200f, 1f));
         }
-        Text TE_Lv = TextTotalExperience.GetComponent<Text>();
-        TE_Lv.text = TotalExperience + "/" + Lv_num * 1000;
-        Text Lv_text = TextLvel.GetComponent<Text>();
+        if (/*Master.playerdeta.PlayerExperience*/ Lv_num * 1000 == TotalExperience)
+        {
+            Lv_num += 1;
+            TotalExperience = 0;
+        }
+        //スライダーの現在値の設定
+        exSlider.value = TotalExperience;
+        TE_Lv.text = TotalExperience + "/" + /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000;
         Lv_text.text = Lv_num + "";
         //スライダーの最大値の設定
         exSlider.maxValue = Lv_num * 1000;
 
         //Text Item_text = Item_object.GetComponent<Text>();
         //Item_text.text = "×" + Item_num;
+    }
+    // スコアをアニメーションさせる
+    private IEnumerator ScoreAnimation(float startScore, float endScore, float duration)
+    {
+        // 開始時間
+        float startTime = Time.time;
+
+        // 終了時間
+        float endTime = startTime + duration;
+
+        do
+        {
+            // 現在の時間の割合
+            float timeRate = (Time.time - startTime) / duration;
+
+            // 数値を更新
+            float updateValue = (float)((endScore - startScore) * timeRate + startScore);
+
+            // テキストの更新
+            TE_Lv.text = updateValue.ToString("f0") + "/" + /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000; // （"f0" の "0" は、小数点以下の桁数指定）
+
+            //スライダーの現在値の設定
+            exSlider.value = updateValue;
+            // 1フレーム待つ
+            yield return null;
+
+        } while (Time.time < endTime);
+
+        // 最終的な着地のスコア
+        TotalExperience = endScore;
+        TE_Lv.text = TotalExperience.ToString();
     }
 }
