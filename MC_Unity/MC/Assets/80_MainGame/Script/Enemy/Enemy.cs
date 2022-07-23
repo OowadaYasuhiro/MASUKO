@@ -20,7 +20,7 @@ public partial class Enemy : MainGameCharacterModel
     //通常攻撃
     Damage damage;
     int attackFrequency;
-    int attackCooldown;
+    int attackCooldown = 0;
 
     //MainGameのアドレス
     MainGame mainGame;
@@ -47,7 +47,11 @@ public partial class Enemy : MainGameCharacterModel
         Setting(difficulty);
         directionRight = true;
         characterManager = mainGame.GetComponent<CharacterManager>();
-        maxThroughTime = (int)(moveSpeed * 70f);
+        maxThroughTime = (int)(moveSpeed * 180f);
+        damage = new Damage(Damage.physicsDamage, baseAttackPower);
+        damage.type = Damage.physicsDamage;
+        damage.value = baseAttackPower;
+        
     }
 
     private void Start()
@@ -76,19 +80,11 @@ public partial class Enemy : MainGameCharacterModel
                 break;
             case CharacterState.Run:
                 lastRunType = CharacterState.Run;
-                //攻撃範囲に敵がいて戦闘無視状態で無い場合
-                if (findEnemy == true && fightThrough == false)
-                {
-                    charactorState = CharacterState.Fight;
-                }
+                
                 break;
             case CharacterState.RunAway:
                 lastRunType = CharacterState.RunAway;
-                //攻撃範囲に敵がいて戦闘無視状態で無い場合
-                if (findEnemy == true && fightThrough == false)
-                {
-                    charactorState = CharacterState.Fight;
-                }
+                
                 break;
             case CharacterState.Fight:
                 if (fightThrough == true)
@@ -110,11 +106,34 @@ public partial class Enemy : MainGameCharacterModel
         }
         switch (charactorState)
         {
-            case CharacterState.Fight:
-                foreach (MainGameCharacterModel target in targetEnemy)
+            case CharacterState.Run:
+
+                Move(mainGame.gameSpeed);
+                //攻撃範囲に敵がいて戦闘無視状態で無い場合
+                if (findEnemy == true && fightThrough == false)
                 {
-                    damage = new Damage(Damage.physicsDamage,baseAttackPower);
-                    target.AddDamage(damage);
+                    charactorState = CharacterState.Fight;
+                }
+                break;
+            case CharacterState.RunAway:
+
+                Move(mainGame.gameSpeed);
+                //攻撃範囲に敵がいて戦闘無視状態で無い場合
+                if (findEnemy == true && fightThrough == false)
+                {
+                    charactorState = CharacterState.Fight;
+                }
+                break;
+            case CharacterState.Fight:
+                attackCooldown--;
+                if (attackCooldown <= 0)
+                {
+                    attackCooldown = attackFrequency;
+                    foreach (MainGameCharacterModel target in targetEnemy)
+                    {
+                        damage.value = baseAttackPower;
+                        target.AddDamage(damage);
+                    }
                 }
                 fightTime++;
                 if (fightTime >= maxFightTime)
@@ -122,20 +141,28 @@ public partial class Enemy : MainGameCharacterModel
                     fightThrough = true;
                 }
                 break;
-            case CharacterState.Run:
-
-                Move(mainGame.gameSpeed);
-                break;
-            case CharacterState.RunAway:
-
-                Move(mainGame.gameSpeed);
-                break;
         }
     }
 
     //結果
     public void LateUpDate()
     {
+        if (alive == false)
+        {
+            charactorState = CharacterState.Dead;
+        }
+        switch (charactorState)
+        {
+            case CharacterState.Wait:
+                charactorAnimState = CharacterAnimState.Wait;
+                break;
+            case CharacterState.Run:
+            case CharacterState.RunAway:
+                charactorAnimState = CharacterAnimState.Run;
+                break;
+        }
         characterManager.CharacterVisualization(position, false, myNumber);
+        characterManager.CharacterAnimation(false,myNumber,charactorAnimState);
+        characterManager.SetCharacterDirection(false,myNumber,directionRight);
     }
 }

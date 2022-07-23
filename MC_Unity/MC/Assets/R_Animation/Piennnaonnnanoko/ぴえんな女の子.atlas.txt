@@ -1,0 +1,153 @@
+ぴえんな女の子.png
+size:396,269
+filter:Linear,Linear
+pma:true
+L arm
+bounds:333,50,30,30
+offsets:1,2,33,33
+L arm circle
+bounds:2,2,13,11
+offsets:1,2,15,14
+L eyebrow
+bounds:388,178,17,5
+offsets:1,1,19,7
+rotate:90
+L hand
+bounds:110,2,52,31
+offsets:1,1,54,33
+L leg
+bounds:281,82,28,54
+offsets:1,2,30,88
+rotate:90
+L leg circle
+bounds:345,2,15,16
+offsets:1,2,17,19
+L sidehair
+bounds:118,167,25,110
+rotate:90
+L toe
+bounds:219,2,35,26
+offsets:1,1,37,29
+rotate:90
+L up arm
+bounds:365,56,25,27
+offsets:1,2,28,31
+L up leg
+bounds:372,129,20,42
+offsets:1,1,23,45
+R arm
+bounds:276,16,36,32
+offsets:1,2,39,37
+R arm circle
+bounds:285,4,10,10
+offsets:3,2,15,14
+R close hand
+bounds:337,85,41,34
+offsets:1,2,44,38
+rotate:90
+R eyebrow
+bounds:110,36,15,10
+offsets:1,1,17,12
+R hand
+bounds:219,39,55,46
+offsets:2,1,59,48
+R leg
+bounds:276,50,30,55
+offsets:1,1,33,57
+rotate:90
+R leg circle
+bounds:362,2,15,16
+offsets:2,2,19,21
+R sidehair
+bounds:231,178,25,110
+rotate:90
+R toe
+bounds:247,3,34,27
+offsets:2,1,38,29
+rotate:90
+R up arm
+bounds:345,20,28,27
+offsets:2,3,31,32
+rotate:90
+R up leg
+bounds:343,173,22,43
+offsets:1,1,24,46
+rotate:90
+ase
+bounds:249,167,9,15
+offsets:1,1,11,17
+rotate:90
+ase２
+bounds:230,167,9,17
+offsets:2,1,12,19
+rotate:90
+back hair
+bounds:2,48,116,84
+offsets:1,1,118,86
+rotate:90
+belt
+bounds:207,28,27,10
+offsets:1,1,29,12
+rotate:90
+blue face
+bounds:231,205,111,62
+offsets:1,2,113,65
+body
+bounds:164,7,26,40
+offsets:1,2,28,44
+rotate:90
+collal
+bounds:373,107,17,20
+offsets:1,1,19,22
+cry eye
+bounds:131,112,86,53
+offsets:1,1,88,55
+ear
+bounds:314,15,29,33
+offsets:1,1,31,35
+eye
+bounds:131,57,86,53
+offsets:1,1,88,55
+hair１
+bounds:219,87,78,60
+rotate:90
+hair２
+bounds:88,48,41,116
+offsets:1,0,42,116
+hair３
+bounds:2,15,31,106
+offsets:1,0,32,106
+rotate:90
+head
+bounds:2,166,114,101
+offsets:1,1,116,103
+mouth
+bounds:276,2,12,7
+offsets:1,1,14,9
+rotate:90
+mouth cry
+bounds:365,50,6,4
+offsets:1,1,8,6
+mouth death
+bounds:17,5,15,8
+offsets:1,1,17,10
+mouth smile
+bounds:373,86,13,19
+offsets:1,1,15,21
+purple face
+bounds:118,194,111,73
+offsets:1,1,113,75
+skirt
+bounds:281,112,64,49
+offsets:0,0,64,50
+rotate:90
+smile eye
+bounds:131,35,74,20
+offsets:1,1,76,22
+tamasii
+bounds:332,128,38,43
+offsets:1,2,40,46
+white eye
+bounds:344,197,70,50
+offsets:1,1,72,52
+rotate:90

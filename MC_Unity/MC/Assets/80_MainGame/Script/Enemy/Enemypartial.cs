@@ -17,6 +17,7 @@ public partial class Enemy
                 physicsDamageResistance = 0;
                 zyuGekiResistance = 0;
                 zyuRyokuResistance = 0;
+                attackFrequency = 60;
                 switch (difficulty)
                 {
                     case easy:
@@ -137,6 +138,7 @@ public partial class Enemy
                         new Vector2(1,4),
                         new Vector2(0,4),
                     };
+                    targetObject = mainGame.mainGame_StageDeta.enemy1_target_object;
                 }
                 else
                 {
@@ -162,6 +164,7 @@ public partial class Enemy
                         new Vector2(1,1),
                         new Vector2(0,1),
                     };
+                    targetObject = mainGame.mainGame_StageDeta.enemy2_target_object;
                 }
                 break;
             case 2:

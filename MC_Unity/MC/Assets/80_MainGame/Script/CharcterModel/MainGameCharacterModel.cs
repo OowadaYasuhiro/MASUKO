@@ -67,14 +67,20 @@ public class MainGameCharacterModel : MainGameCharacterState
                 if (position == targetObject)
                 {
                     charactorState = CharacterState.RunAway;
+                    directionRight = false;
                 }
                 moveTargetPointer++;
+                if (targetPosition.Length <= moveTargetPointer)
+                {
+                    //回収
+                    moveTargetPointer--;
+                }
                 next = true;
             }
         }
     }
 
-    //ノックバック
+    /*//ノックバック
     protected void Knockback(bool[,] map)
     {
         if (map[(int)(targetPosition[moveTargetPointer - 1] + (-arrow)).x, (int)(targetPosition[moveTargetPointer - 1] + (-arrow)).y] == true)
@@ -88,7 +94,7 @@ public class MainGameCharacterModel : MainGameCharacterState
             position = targetPosition[moveTargetPointer - 1];
             next = false;
         }
-    }
+    }*/
 
     public void AddSkillEvent(SkillEvent skillEvent)
     {

@@ -1,0 +1,132 @@
+座敷童.png
+size:966,142
+filter:Linear,Linear
+pma:true
+L_arm
+bounds:532,50,50,90
+L_leg
+bounds:938,33,24,53
+offsets:1,1,26,55
+L_leg ring
+bounds:916,50,17,17
+offsets:1,1,19,19
+L_leg toe
+bounds:569,13,35,26
+offsets:1,1,37,28
+rotate:90
+L_obi
+bounds:657,2,49,79
+rotate:90
+L_side hair
+bounds:2,20,54,120
+L_side hair2
+bounds:584,52,26,88
+L_up arm
+bounds:287,2,23,22
+offsets:1,1,25,25
+L_up leg
+bounds:462,3,19,43
+offsets:1,1,21,45
+R_arm
+bounds:676,58,78,82
+R_leg
+bounds:818,5,25,54
+offsets:1,1,27,56
+R_leg ring
+bounds:916,31,17,17
+offsets:1,1,19,19
+R_leg toe
+bounds:427,4,33,27
+offsets:1,1,35,29
+R_obi
+bounds:781,61,49,79
+R_side hair2
+bounds:321,30,30,110
+offsets:0,0,30,111
+R_sidehair
+bounds:282,26,37,114
+R_up arm
+bounds:938,88,24,26
+offsets:2,1,27,28
+rotate:90
+R_up leg
+bounds:243,2,22,42
+offsets:1,1,24,44
+rotate:90
+anger eyebrow
+bounds:897,9,58,17
+offsets:1,1,60,19
+rotate:90
+back hair
+bounds:96,22,118,81
+offsets:1,1,120,83
+rotate:90
+body ring
+bounds:938,114,26,26
+offsets:1,1,28,28
+body1
+bounds:386,4,27,39
+offsets:1,19,29,59
+rotate:90
+body2
+bounds:461,48,69,92
+cry eye
+bounds:756,60,80,23
+offsets:1,1,83,25
+rotate:90
+cry eyebrow
+bounds:96,2,72,18
+offsets:1,1,74,20
+doll
+bounds:845,2,50,65
+offsets:1,1,52,67
+eye
+bounds:885,69,71,51
+offsets:1,1,73,53
+rotate:90
+eye のコピー
+bounds:832,69,71,51
+offsets:1,1,73,53
+rotate:90
+eyebrow
+bounds:170,2,71,18
+offsets:1,1,73,20
+face
+bounds:179,26,114,101
+offsets:1,1,116,103
+rotate:90
+front hair
+bounds:612,53,87,62
+rotate:90
+hair deco
+bounds:58,20,36,120
+hair1
+bounds:483,7,39,84
+rotate:90
+hair2
+bounds:353,33,107,106
+offsets:1,1,109,108
+rotate:90
+mouth1
+bounds:29,5,13,5
+offsets:1,1,15,8
+rotate:90
+mouth2
+bounds:36,12,6,6
+offsets:1,1,8,8
+mouth3
+bounds:2,2,16,12
+offsets:1,1,18,14
+rotate:90
+mouth4
+bounds:16,2,16,11
+offsets:1,1,18,13
+rotate:90
+obi
+bounds:597,16,58,34
+smile eye
+bounds:312,4,72,20
+offsets:1,1,74,22
+white eye
+bounds:738,2,78,54
+offsets:1,1,80,56

@@ -1,0 +1,175 @@
+SDぴえきん.png
+size:794,142
+filter:Linear,Linear
+pma:true
+L Sode
+bounds:699,70,27,31
+offsets:1,1,29,33
+rotate:90
+L arm
+bounds:759,42,29,30
+offsets:1,1,31,32
+L arm circle
+bounds:427,47,8,9
+offsets:1,1,10,11
+L back hear
+bounds:281,3,28,24
+offsets:2,1,31,26
+L back side
+bounds:766,122,14,18
+offsets:1,1,16,20
+L eyebrow1
+bounds:227,2,25,17
+offsets:1,2,28,21
+rotate:90
+L eyebrow2
+bounds:348,30,26,15
+offsets:2,1,30,18
+L hand
+bounds:592,10,52,31
+offsets:1,1,54,33
+rotate:90
+L leg
+bounds:348,47,46,93
+offsets:1,2,49,96
+L leg circle
+bounds:625,2,14,13
+offsets:1,1,16,15
+L toe
+bounds:707,107,33,26
+offsets:1,1,36,28
+rotate:90
+L up arm
+bounds:714,2,23,26
+offsets:2,1,26,28
+rotate:90
+L up leg
+bounds:130,4,20,42
+offsets:1,1,23,45
+rotate:90
+R arm circle
+bounds:415,47,10,9
+offsets:1,2,12,13
+R back hear
+bounds:765,78,29,26
+offsets:2,2,35,31
+rotate:90
+R back side
+bounds:174,4,15,20
+offsets:2,2,18,24
+R close hand
+bounds:671,99,41,34
+offsets:1,2,44,38
+rotate:90
+R eyebrow1
+bounds:742,2,27,14
+offsets:2,3,31,18
+rotate:90
+R eyebrow2
+bounds:656,4,28,11
+offsets:1,2,31,16
+R hand
+bounds:732,74,31,31
+offsets:2,1,35,33
+R leg
+bounds:563,7,27,55
+offsets:1,1,29,57
+R leg circle
+bounds:641,2,13,13
+offsets:1,1,15,15
+R open hand
+bounds:515,7,55,46
+offsets:2,1,59,48
+rotate:90
+R toe
+bounds:758,3,34,26
+offsets:1,1,36,28
+R up hand
+bounds:671,69,28,26
+offsets:2,2,32,30
+rotate:90
+R up leg
+bounds:433,2,23,43
+offsets:1,1,25,45
+Sode
+bounds:735,109,29,31
+offsets:1,1,31,33
+ase
+bounds:376,36,9,15
+offsets:1,1,11,17
+rotate:90
+ase2
+bounds:396,47,9,17
+offsets:2,1,12,19
+rotate:90
+back hear
+bounds:2,4,136,102
+offsets:1,1,138,104
+rotate:90
+blue face
+bounds:284,29,111,62
+offsets:1,2,113,65
+rotate:90
+body
+bounds:697,27,26,40
+offsets:1,1,28,42
+body circle
+bounds:106,2,22,22
+offsets:1,1,24,24
+cry eye
+bounds:396,58,82,54
+offsets:1,1,84,56
+rotate:90
+eye1
+bounds:618,69,71,51
+offsets:1,1,73,53
+rotate:90
+eye2
+bounds:452,62,78,50
+offsets:1,1,80,52
+rotate:90
+head
+bounds:106,26,114,101
+offsets:1,1,116,103
+rotate:90
+hear1
+bounds:504,64,76,74
+rotate:90
+hear2
+bounds:580,64,36,76
+hear3
+bounds:466,5,55,47
+offsets:0,1,55,48
+rotate:90
+hip
+bounds:725,31,37,32
+offsets:1,1,39,34
+rotate:90
+mouth 5
+bounds:686,8,26,7
+offsets:1,1,29,9
+mouth1
+bounds:458,41,6,6
+offsets:1,1,8,8
+mouth2
+bounds:437,49,27,7
+offsets:1,1,29,9
+mouth3
+bounds:246,3,33,24
+offsets:1,1,35,26
+mouth4
+bounds:191,5,34,19
+offsets:1,1,36,21
+purple face
+bounds:209,29,111,73
+offsets:1,1,113,75
+rotate:90
+smile eye
+bounds:311,4,80,23
+offsets:2,1,83,25
+tamasii
+bounds:393,2,38,43
+offsets:1,2,40,46
+white eye
+bounds:625,17,70,50
+offsets:1,1,72,52

@@ -78,6 +78,7 @@ public partial class Player
                     baseAttackPower += 10;
                     physicsDamageResistance += 10;
                 }
+                maxHp = hp;
                 //視野範囲
                 viewRange = new Vector2[]
                 {
@@ -377,7 +378,7 @@ public partial class Player
                 break;
             case Ghost:
                 //攻撃頻度
-                attackFrequency = 0;
+                attackFrequency = 60;
                 //再配置
                 relocationFrame = 0;
                 //レベルで変動するステータス
@@ -423,6 +424,7 @@ public partial class Player
                     baseAttackPower += 10;
                     physicsDamageResistance += 10;
                 }
+                maxHp = hp;
                 //視野範囲
                 viewRange = new Vector2[]
                 {
@@ -508,42 +510,43 @@ public partial class Player
                 skillEvent1 = GhostSkill1;
                 void GhostSkill1()
                 {
-                    //ステートをスタンに移行
-                    void EnemyStan()
-                    {
-                        charactorState = CharacterState.Stan;
-                    }
-                    SkillEvent Stan = EnemyStan;
-                    double damageMagnification = 0;
-                    switch (FDC.skill1level)
-                    {
-                        case 1:
-                            damageMagnification = 1.15;
-                            break;
-                        case 2:
-                            damageMagnification = 1.2;
-                            break;
-                        case 3:
-                            damageMagnification = 1.25;
-                            break;
-                        case 4:
-                            damageMagnification = 1.3;
-                            break;
-                        case 5:
-                            damageMagnification = 1.35;
-                            break;
-                    }
-                    //攻撃力のn%の物理ダメージ(要検討)
-                    void PlayerSkillAttack()
-                    {
-                        AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification)));
-                    }
-                    SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
                     MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
+                        Debug.Log(targetCharacter + "にskill1");
+                        //ステートをスタンに移行
+                        void EnemyStan()
+                        {
+                            targetCharacter.charactorState = CharacterState.Stan;
+                        }
+                        SkillEvent Stan = EnemyStan;
+                        double damageMagnification = 0;
+                        switch (FDC.skill1level)
+                        {
+                            case 1:
+                                damageMagnification = 1.15;
+                                break;
+                            case 2:
+                                damageMagnification = 1.2;
+                                break;
+                            case 3:
+                                damageMagnification = 1.25;
+                                break;
+                            case 4:
+                                damageMagnification = 1.3;
+                                break;
+                            case 5:
+                                damageMagnification = 1.35;
+                                break;
+                        }
+                        //攻撃力のn%の物理ダメージ(要検討)
+                        void PlayerSkillAttack()
+                        {
+                            targetCharacter.AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification)));
+                        }
+                        SkillEvent SkillAttack = PlayerSkillAttack;
                         StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 600, 1, Stan));
                         StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 600, attackFrequency, SkillAttack));
                     }
@@ -568,36 +571,36 @@ public partial class Player
                 skillEvent2 = GhostSkill2;
                 void GhostSkill2()
                 {
-                    double damageMagnification = 0;
-                    switch (FDC.skill1level)
-                    {
-                        case 1:
-                            damageMagnification = 1.3;
-                            break;
-                        case 2:
-                            damageMagnification = 1.5;
-                            break;
-                        case 3:
-                            damageMagnification = 1.7;
-                            break;
-                        case 4:
-                            damageMagnification = 1.9;
-                            break;
-                        case 5:
-                            damageMagnification = 2.1;
-                            break;
-                    }
-                    //攻撃力のn%の物理ダメージ(要検討)
-                    void PlayerSkillAttack()
-                    {
-                        AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification)));
-                    }
-                    SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
                     MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
+                        double damageMagnification = 0;
+                        switch (FDC.skill1level)
+                        {
+                            case 1:
+                                damageMagnification = 1.3;
+                                break;
+                            case 2:
+                                damageMagnification = 1.5;
+                                break;
+                            case 3:
+                                damageMagnification = 1.7;
+                                break;
+                            case 4:
+                                damageMagnification = 1.9;
+                                break;
+                            case 5:
+                                damageMagnification = 2.1;
+                                break;
+                        }
+                        //攻撃力のn%の物理ダメージ(要検討)
+                        void PlayerSkillAttack()
+                        {
+                            targetCharacter.AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification)));
+                        }
+                        SkillEvent SkillAttack = PlayerSkillAttack;
                         StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 0, 1, SkillAttack));
                     }
                 }
@@ -621,36 +624,36 @@ public partial class Player
                 skillEvent3 = GhostSkill3;
                 void GhostSkill3()
                 {
-                    double damageMagnification = 0;
-                    switch (FDC.skill1level)
-                    {
-                        case 1:
-                            damageMagnification = 0.05;
-                            break;
-                        case 2:
-                            damageMagnification = 0.07;
-                            break;
-                        case 3:
-                            damageMagnification = 0.09;
-                            break;
-                        case 4:
-                            damageMagnification = 0.11;
-                            break;
-                        case 5:
-                            damageMagnification = 0.13;
-                            break;
-                    }
-                    //攻撃力のn%の物理ダメージ(要検討)
-                    void PlayerSkillAttack()
-                    {
-                        AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification)));
-                    }
-                    SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
                     MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
+                        double damageMagnification = 0;
+                        switch (FDC.skill1level)
+                        {
+                            case 1:
+                                damageMagnification = 0.05;
+                                break;
+                            case 2:
+                                damageMagnification = 0.07;
+                                break;
+                            case 3:
+                                damageMagnification = 0.09;
+                                break;
+                            case 4:
+                                damageMagnification = 0.11;
+                                break;
+                            case 5:
+                                damageMagnification = 0.13;
+                                break;
+                        }
+                        //攻撃力のn%の物理ダメージ(要検討)
+                        void PlayerSkillAttack()
+                        {
+                            targetCharacter.AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification)));
+                        }
+                        SkillEvent SkillAttack = PlayerSkillAttack;
                         StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 300, attackFrequency, SkillAttack));
                     }
                 }
