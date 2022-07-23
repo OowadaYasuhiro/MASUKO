@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class volumeslide : MonoBehaviour
 {
-    [SerializeField]Slider masterSlider;
+    [SerializeField] Slider masterSlider;
     [SerializeField] Slider BGMSlider;
     [SerializeField] Slider voiceSlider;
+    [SerializeField] GameObject batu;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         Master.playerdeta.MasterSoundvolume =masterSlider.value;
         Master.playerdeta.BGMSoundvolume    = BGMSlider.value;
@@ -46,5 +47,9 @@ public class volumeslide : MonoBehaviour
     public void tiltel() {
         Load_Deta.Nextscenename = "titlescene";
         SceneManager.LoadScene("Yanai_TestScene");
+    }
+
+    public void baticlick() {
+        batu.SetActive(false);
     }
 }
