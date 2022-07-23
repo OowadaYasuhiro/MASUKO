@@ -200,7 +200,7 @@ public partial class Player
                     }
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
@@ -255,7 +255,7 @@ public partial class Player
                     void ObjectSkill()
                     {
                         //攻撃範囲内の敵を取得
-                        MainGameCharacterModel[] target = mainGame.SearchCharacter(new Vector2[] { new Vector2(0,0)}, false, true, false);
+                        MainGameCharacterModel[] target = mainGame.SearchCharacter(position, new Vector2[] { new Vector2(0,0)}, false, true, false);
                         //ターゲット全員に対しスキルを発動
                         foreach (MainGameCharacterModel targetCharacter in target)
                         {
@@ -275,7 +275,7 @@ public partial class Player
                     }
                 }
                 //最大スタック数設定
-                maxSkill3Stack = 3;
+                maxSkill3Stack = 1;
                 skill3Stack = maxSkill3Stack;
                 //クールダウン設定
                 switch (FDC.skill3level)
@@ -296,87 +296,22 @@ public partial class Player
                 void DaemonSkill3()
                 {
                     double damageMagnification = 0;
-                    switch (skill3Stack)
+                    switch (FDC.skill3level)
                     {
                         case 1:
-                            switch (FDC.skill3level)
-                            {
-                                case 1:
-                                    damageMagnification = 0.3;
-                                    break;
-                                case 2:
-                                    damageMagnification = 0.4;
-                                    break;
-                                case 3:
-                                    damageMagnification = 0.5;
-                                    break;
-                                case 4:
-                                    damageMagnification = 0.6;
-                                    break;
-                                case 5:
-                                    damageMagnification = 0.7;
-                                    break;
-                            }
+                            damageMagnification = 0.3;
                             break;
                         case 2:
-                            switch (FDC.skill3level)
-                            {
-                                case 1:
-                                    damageMagnification = 0.35;
-                                    break;
-                                case 2:
-                                    damageMagnification = 0.45;
-                                    break;
-                                case 3:
-                                    damageMagnification = 0.55;
-                                    break;
-                                case 4:
-                                    damageMagnification = 0.65;
-                                    break;
-                                case 5:
-                                    damageMagnification = 0.75;
-                                    break;
-                            }
+                            damageMagnification = 0.4;
                             break;
                         case 3:
-                            switch (FDC.skill3level)
-                            {
-                                case 1:
-                                    damageMagnification = 0.4;
-                                    break;
-                                case 2:
-                                    damageMagnification = 0.5;
-                                    break;
-                                case 3:
-                                    damageMagnification = 0.6;
-                                    break;
-                                case 4:
-                                    damageMagnification = 0.7;
-                                    break;
-                                case 5:
-                                    damageMagnification = 0.8;
-                                    break;
-                            }
+                            damageMagnification = 0.5;
                             break;
                         case 4:
-                            switch (FDC.skill3level)
-                            {
-                                case 1:
-                                    damageMagnification = 0.45;
-                                    break;
-                                case 2:
-                                    damageMagnification = 0.55;
-                                    break;
-                                case 3:
-                                    damageMagnification = 0.65;
-                                    break;
-                                case 4:
-                                    damageMagnification = 0.75;
-                                    break;
-                                case 5:
-                                    damageMagnification = 0.85;
-                                    break;
-                            }
+                            damageMagnification = 0.6;
+                            break;
+                        case 5:
+                            damageMagnification = 0.7;
                             break;
                     }
                     //攻撃力のn%の物理ダメージ(要検討)
@@ -386,7 +321,7 @@ public partial class Player
                     }
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
@@ -395,7 +330,7 @@ public partial class Player
                 }
                 //最大スタック数設定
                 maxUltStack = 4;
-                skill1Stack = maxSkill1Stack;
+                ultStack = maxUltStack;
                 switch (FDC.ultlevel)
                 {
                     case 1:
@@ -410,12 +345,12 @@ public partial class Player
                         ultCost = 40;
                         break;
                 }
-                ultSkillEvent = UltSkillEvent;
-                void UltSkillEvent()
+                ultSkillEvent = DaemonUltSkillEvent;
+                void DaemonUltSkillEvent()
                 {
 
                     //攻撃範囲内の敵を取得
-                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
@@ -425,8 +360,8 @@ public partial class Player
                 //最大スタック数設定
                 maxPassiveStack = 4;
                 passiveStack = 1;
-                passiveSkill = PassiveSkill;
-                void PassiveSkill()
+                passiveSkill = DaemonPassiveSkill;
+                void DaemonPassiveSkill()
                 {
                     resultingAttackPower = baseAttackPower + (int)(baseAttackPower * (0.03 * ultStack));
                 }
@@ -605,7 +540,7 @@ public partial class Player
                     }
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
@@ -659,7 +594,7 @@ public partial class Player
                     }
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
@@ -667,9 +602,8 @@ public partial class Player
                     }
                 }
                 //最大スタック数設定
-                maxSkill3Stack = 3;
+                maxSkill3Stack = 1;
                 skill3Stack = maxSkill3Stack;
-                //クールダウン設定
                 switch (FDC.skill3level)
                 {
                     case 1:
@@ -713,12 +647,99 @@ public partial class Player
                     }
                     SkillEvent SkillAttack = PlayerSkillAttack;
                     //攻撃範囲内の敵を取得
-                    MainGameCharacterModel[] target = mainGame.SearchCharacter(attackRange, false, true, false);
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position, attackRange, false, true, false);
                     //ターゲット全員に対しスキルを発動
                     foreach (MainGameCharacterModel targetCharacter in target)
                     {
                         StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 300, attackFrequency, SkillAttack));
                     }
+                }
+                //最大スタック数設定
+                maxUltStack = 1;
+                ultStack = maxUltStack;
+                switch (FDC.ultlevel)
+                {
+                    case 1:
+                    case 2:
+                        ultCost = 40;
+                        break;
+                    case 3:
+                    case 4:
+                        ultCost = 35;
+                        break;
+                    case 5:
+                        ultCost = 30;
+                        break;
+                }
+                ultSkillEvent = GhostUltSkillEvent;
+                void GhostUltSkillEvent()
+                {
+                    double damageMagnification1 = 0;
+                    switch (FDC.skill1level)
+                    {
+                        case 1:
+                            damageMagnification1 = 5;
+                            break;
+                        case 2:
+                            damageMagnification1 = 6;
+                            break;
+                        case 3:
+                            damageMagnification1 = 7;
+                            break;
+                        case 4:
+                            damageMagnification1 = 8;
+                            break;
+                        case 5:
+                            damageMagnification1 = 9;
+                            break;
+                    }
+                    //攻撃力のn%の物理ダメージ(要検討)
+                    void PlayerSkillAttack1()
+                    {
+                        AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification1)));
+                    }
+                    SkillEvent SkillAttack1 = PlayerSkillAttack1;
+                    double damageMagnification2 = 0;
+                    switch (FDC.skill1level)
+                    {
+                        case 1:
+                            damageMagnification2 = 0.10;
+                            break;
+                        case 2:
+                            damageMagnification2 = 0.15;
+                            break;
+                        case 3:
+                            damageMagnification2 = 0.20;
+                            break;
+                        case 4:
+                            damageMagnification2 = 0.25;
+                            break;
+                        case 5:
+                            damageMagnification2 = 0.30;
+                            break;
+                    }
+                    //攻撃力のn%の物理ダメージ(要検討)
+                    void PlayerSkillAttack2()
+                    {
+                        AddDamage(new Damage(Damage.physicsDamage, (int)(baseAttackPower * damageMagnification2)));
+                    }
+                    SkillEvent SkillAttack2 = PlayerSkillAttack2;
+                    //攻撃範囲内の敵を取得
+                    MainGameCharacterModel[] target = mainGame.SearchCharacter(position,attackRange, false, true, false);
+                    //ターゲット全員に対しスキルを発動
+                    foreach (MainGameCharacterModel targetCharacter in target)
+                    {
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 0, 1, SkillAttack1));
+                        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(mainGame, targetCharacter, 600, attackFrequency, SkillAttack2));
+                    }
+                }
+                //最大スタック数設定
+                maxPassiveStack = 4;
+                passiveStack = 1;
+                passiveSkill = GhostPassiveSkill;
+                void GhostPassiveSkill()
+                {
+                    grudgeAmountIncreasePercentage = 1.1f;
                 }
                 break;
         }

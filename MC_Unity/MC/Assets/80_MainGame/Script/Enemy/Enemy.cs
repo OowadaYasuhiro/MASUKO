@@ -15,7 +15,7 @@ public partial class Enemy : MainGameCharacterModel
     //戦闘無視時間
     bool fightThrough;
     int maxThroughTime;
-    int throughTime;
+    int throughTime = 0;
 
     //通常攻撃
     Damage damage;
@@ -47,17 +47,28 @@ public partial class Enemy : MainGameCharacterModel
         Setting(difficulty);
         directionRight = true;
         characterManager = mainGame.GetComponent<CharacterManager>();
+        maxThroughTime = (int)(moveSpeed * 70f);
     }
 
     private void Start()
     {
         charactorState = CharacterState.Standby;
         charactorAnimState = CharacterAnimState.Wait;
+        fightThrough = false;
+        displaying = true;
     }
 
     //情報収集
     public void FastUpDate()
     {
+        if (fightThrough == true)
+        {
+            throughTime++;
+            if(throughTime >= maxThroughTime)
+            {
+                fightThrough = false;
+            }
+        }
         switch (charactorState)
         {
             case CharacterState.Stan:
@@ -102,6 +113,7 @@ public partial class Enemy : MainGameCharacterModel
             case CharacterState.Fight:
                 foreach (MainGameCharacterModel target in targetEnemy)
                 {
+                    damage = new Damage(Damage.physicsDamage,baseAttackPower);
                     target.AddDamage(damage);
                 }
                 fightTime++;
