@@ -1,0 +1,165 @@
+恋するギャル.png
+size:904,142
+filter:Linear,Linear
+pma:true
+Eri
+bounds:116,2,21,13
+offsets:1,1,23,15
+L arm
+bounds:812,49,30,30
+offsets:1,2,33,33
+L arm circle
+bounds:2,2,9,9
+offsets:1,1,12,11
+L hand
+bounds:626,2,52,30
+offsets:1,2,54,33
+rotate:90
+L leg
+bounds:401,3,24,54
+offsets:1,2,26,57
+rotate:90
+L leg circle
+bounds:161,2,15,13
+offsets:1,2,17,16
+L sode
+bounds:246,2,22,23
+offsets:1,1,24,25
+rotate:90
+L toe
+bounds:812,6,38,29
+offsets:21,0,59,100
+rotate:90
+L up arm
+bounds:372,2,25,27
+offsets:1,2,28,31
+rotate:90
+L up leg
+bounds:296,4,20,43
+offsets:1,1,23,45
+rotate:90
+L-side hair
+bounds:488,32,36,108
+R Sode
+bounds:271,3,21,23
+offsets:2,2,24,26
+rotate:90
+R arm circleR arm circle
+bounds:178,4,11,11
+offsets:1,1,13,13
+R close hand
+bounds:557,2,36,33
+offsets:1,1,38,35
+R hand
+bounds:731,6,54,47
+offsets:2,1,58,50
+rotate:90
+R hand circleR arm circle
+bounds:606,37,17,16
+offsets:1,1,19,18
+rotate:90
+R leg
+bounds:457,2,26,54
+offsets:1,1,28,56
+rotate:90
+R leg circle
+bounds:887,124,15,16
+offsets:2,2,19,21
+R toe
+bounds:843,7,37,28
+offsets:1,1,38,29
+rotate:90
+R under hand
+bounds:595,2,33,29
+offsets:1,2,36,32
+rotate:90
+R up hand
+bounds:341,2,29,25
+offsets:1,2,31,28
+R up leg
+bounds:201,2,22,43
+offsets:1,1,25,46
+rotate:90
+R-side hair
+bounds:526,33,29,107
+back hair
+bounds:116,17,123,83
+offsets:1,1,125,85
+rotate:90
+blue face
+bounds:379,29,111,62
+offsets:1,2,113,65
+rotate:90
+body
+bounds:513,2,28,42
+offsets:1,1,30,44
+rotate:90
+body circle
+bounds:873,18,27,26
+offsets:1,2,29,30
+body2
+bounds:857,84,42,35
+offsets:0,0,42,36
+cry eye
+bounds:669,60,80,23
+offsets:2,1,83,25
+rotate:90
+cry eyebrow
+bounds:812,121,73,19
+offsets:1,1,75,21
+eye
+bounds:658,3,71,51
+offsets:1,1,73,53
+eyebrow
+bounds:750,63,77,16
+offsets:1,3,79,21
+rotate:90
+hair1
+bounds:857,46,36,39
+rotate:90
+hair2
+bounds:606,56,84,61
+offsets:0,0,84,62
+rotate:90
+hair3
+bounds:2,13,127,112
+rotate:90
+hair4
+bounds:557,37,47,103
+hair5
+bounds:443,30,43,110
+head
+bounds:201,26,114,101
+offsets:1,1,116,103
+rotate:90
+hip
+bounds:780,13,51,30
+rotate:90
+mouth
+bounds:31,5,16,6
+offsets:1,1,18,8
+mouth2
+bounds:139,2,20,13
+offsets:1,3,22,18
+mouth3
+bounds:13,3,16,8
+offsets:1,1,18,10
+mouth4
+bounds:49,5,16,6
+offsets:1,1,18,8
+purple face
+bounds:304,29,111,73
+offsets:1,1,113,75
+rotate:90
+smile eyesmile eye
+bounds:768,66,74,42
+offsets:1,1,77,44
+rotate:90
+tamasii
+bounds:812,81,38,43
+offsets:1,2,40,46
+rotate:90
+white eye
+bounds:694,62,78,54
+offsets:1,1,80,56
+rotate:90

@@ -1,0 +1,55 @@
+イモ 使うなら.png
+size:173,490
+filter:Linear,Linear
+pma:true
+L hane のコピー
+bounds:98,119,73,73
+offsets:1,1,75,75
+L hane のコピー 2
+bounds:125,7,44,44
+offsets:1,1,46,46
+R hane のコピー
+bounds:2,2,73,73
+offsets:1,1,75,75
+R hane のコピー 2
+bounds:77,5,46,46
+offsets:1,1,48,48
+レイヤー 10
+bounds:2,77,55,77
+offsets:1,2,57,80
+rotate:90
+レイヤー 11
+bounds:2,390,98,134
+offsets:1,1,100,136
+rotate:90
+レイヤー 12
+bounds:121,253,94,48
+offsets:1,1,96,50
+rotate:90
+レイヤー 13
+bounds:138,399,10,10
+offsets:2,2,13,14
+レイヤー 14
+bounds:2,274,114,117
+offsets:1,1,116,119
+rotate:90
+レイヤー 15
+bounds:81,53,74,64
+offsets:1,1,76,66
+レイヤー 21
+bounds:99,194,69,57
+offsets:1,1,71,59
+レイヤー 5
+bounds:121,349,39,49
+offsets:1,1,41,53
+rotate:90
+レイヤー 6
+bounds:2,211,95,61
+offsets:2,1,98,63
+レイヤー 7
+bounds:138,411,77,27
+offsets:1,1,80,31
+rotate:90
+レイヤー 8
+bounds:2,134,94,75
+offsets:2,1,97,77

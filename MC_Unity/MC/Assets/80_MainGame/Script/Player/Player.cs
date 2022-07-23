@@ -110,6 +110,7 @@ public partial class Player : MainGameCharacterModel
     //情報収集
     public void FastUpDate()
     {
+        resultingAttackPower = baseAttackPower;
         //クールタイム管理
         skillCoolTimeCounter();
         //スキルボタン表示
@@ -181,9 +182,14 @@ public partial class Player : MainGameCharacterModel
         switch (charactorState)
         {
             case CharacterState.Fight:
-                foreach (MainGameCharacterModel target in targetEnemy)
+                attackCooldown--;
+                if (attackCooldown <= 0)
                 {
-                    target.AddDamage(new Damage(Damage.physicsDamage, resultingAttackPower));
+                    attackCooldown = attackFrequency;
+                    foreach (MainGameCharacterModel target in targetEnemy)
+                    {
+                        target.AddDamage(new Damage(Damage.physicsDamage, resultingAttackPower));
+                    }
                 }
                 break;
         }
@@ -192,14 +198,22 @@ public partial class Player : MainGameCharacterModel
     //結果
     public void LateUpDate()
     {
+        if (alive == false)
+        {
+            charactorState = CharacterState.Dead;
+        }
+
         if (charactorState == CharacterState.Standby || charactorState == CharacterState.Resting)
         {
             goback = true;
             position = outPosition;
         }
+
+
         
         /******************アニメーション*******************/
         characterManager.CharacterVisualization(position,true,myNumber);
+        characterManager.SetCharacterHpSlider(myNumber,hp,maxHp);
     }
 
     //配置

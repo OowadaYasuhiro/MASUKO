@@ -1,0 +1,172 @@
+生意気少女.png
+size:411,269
+filter:Linear,Linear
+pma:true
+L Sode
+bounds:377,50,27,31
+offsets:1,1,29,33
+rotate:90
+L Uarm
+bounds:281,94,25,27
+offsets:1,2,28,31
+L Uleg
+bounds:387,155,20,43
+offsets:1,1,23,45
+L arm
+bounds:340,36,30,30
+offsets:1,2,33,33
+L arm circle
+bounds:372,39,8,9
+offsets:1,1,10,11
+L back side
+bounds:261,92,14,18
+offsets:1,1,16,20
+rotate:90
+L eyebrow1
+bounds:314,64,12,14
+offsets:1,1,14,16
+rotate:90
+L eyebrow2
+bounds:387,200,15,9
+offsets:1,1,17,11
+rotate:90
+L hand
+bounds:2,2,52,31
+offsets:1,1,54,33
+L leg
+bounds:314,9,24,53
+offsets:1,2,26,57
+L leg circle
+bounds:314,78,14,13
+offsets:1,1,16,15
+L sidetail
+bounds:211,157,23,110
+offsets:1,1,25,112
+L toe
+bounds:159,4,35,26
+offsets:1,1,37,29
+rotate:90
+R Sode
+bounds:377,79,29,31
+offsets:1,1,31,33
+rotate:90
+R Uarm
+bounds:340,6,28,28
+offsets:2,1,32,30
+R Uleg
+bounds:236,155,22,43
+offsets:1,1,25,46
+rotate:90
+R arm
+bounds:94,2,32,31
+offsets:2,2,37,36
+R arm circle
+bounds:398,239,10,10
+offsets:1,1,12,13
+R back side
+bounds:308,93,15,20
+offsets:2,2,18,24
+rotate:90
+R close hand
+bounds:330,68,41,45
+offsets:1,1,44,48
+rotate:90
+R eyebrow1
+bounds:398,251,16,11
+offsets:1,1,18,13
+rotate:90
+R eyebrow2
+bounds:370,20,14,12
+offsets:1,1,16,14
+rotate:90
+R leg
+bounds:281,123,26,55
+offsets:1,1,29,57
+R leg circle
+bounds:370,5,13,13
+offsets:1,1,15,15
+R open hand
+bounds:257,44,55,46
+offsets:2,1,59,48
+R sidetail
+bounds:137,41,25,112
+R toe
+bounds:232,6,34,27
+offsets:2,1,38,29
+rotate:90
+ase1
+bounds:283,2,9,15
+offsets:1,1,11,17
+ase2
+bounds:398,220,9,17
+offsets:2,1,12,19
+back hair
+bounds:2,151,116,84
+offsets:1,1,118,86
+rotate:90
+blue face
+bounds:125,155,112,84
+offsets:1,2,114,87
+rotate:90
+body
+bounds:381,110,28,43
+offsets:0,1,28,44
+body circle
+bounds:257,131,22,22
+offsets:1,1,24,24
+cry eye
+bounds:236,179,88,19
+offsets:2,2,91,22
+rotate:90
+ear
+bounds:128,2,29,33
+offsets:1,1,31,35
+eye
+bounds:257,180,87,50
+offsets:1,1,89,52
+rotate:90
+hair1
+bounds:105,37,30,114
+hair2
+bounds:88,153,35,114
+hair3
+bounds:309,163,76,52
+offsets:1,1,78,54
+head
+bounds:2,35,114,101
+offsets:1,1,116,103
+rotate:90
+hip
+bounds:56,2,36,31
+offsets:1,1,39,34
+mouth1
+bounds:294,2,15,9
+offsets:1,1,17,11
+rotate:90
+mouth2
+bounds:261,2,15,20
+offsets:1,1,17,22
+rotate:90
+mouth3
+bounds:398,202,16,9
+offsets:1,1,18,11
+rotate:90
+purple face
+bounds:164,42,111,91
+offsets:1,1,113,93
+rotate:90
+ribbon
+bounds:261,108,18,21
+offsets:1,1,20,23
+skirt
+bounds:261,19,50,23
+smile eye
+bounds:309,217,87,50
+offsets:1,1,89,52
+tamasii
+bounds:187,2,38,43
+offsets:1,2,40,46
+rotate:90
+white eye
+bounds:309,111,70,50
+offsets:1,1,72,52

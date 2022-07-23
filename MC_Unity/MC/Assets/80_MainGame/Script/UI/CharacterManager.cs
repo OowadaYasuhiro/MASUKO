@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
+using static MainGameCharacterState;
+using static Constant;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -21,12 +24,413 @@ public class CharacterManager : MonoBehaviour
     Vector2 outPosition = new Vector2(-1,-1);
     Vector2 outSide = new Vector2(20,0);
 
+    HpSlider player1HpSlider;
+    HpSlider player2HpSlider;
+
+    SkeletonAnimation player1Animation;
+    SkeletonAnimation player2Animation;
+    SkeletonAnimation enemy1Animation;
+    SkeletonAnimation enemy2Animation;
+
+    [SerializeField]
+    GameObject[] Player1Spine;
+    [SerializeField]
+    GameObject[] Player2Spine;
+    [SerializeField]
+    GameObject[] Enemy1Spine;
+    [SerializeField]
+    GameObject[] Enemy2Spine;
+
+    MainGame mainGame;
+
     private void Start()
     {
         player1Rect = Player1.GetComponent<RectTransform>();
         player2Rect = Player2.GetComponent<RectTransform>();
         enemy1Rect = Enemy1.GetComponent<RectTransform>();
         enemy2Rect = Enemy2.GetComponent<RectTransform>();
+        player1HpSlider = Player1.GetComponentInChildren<HpSlider>();
+        player2HpSlider = Player2.GetComponentInChildren<HpSlider>();
+        mainGame = GetComponent<MainGame>();
+        CharaReLoad();
+    }
+
+    internal void CharaReLoad()
+    {
+        for (int i = 0; i < Player1Spine.Length; i++)
+        {
+            Player1Spine[i].SetActive(false);
+            Player2Spine[i].SetActive(false);
+        }
+        for (int i = 0; i < Enemy1Spine.Length; i++)
+        {
+            Enemy1Spine[i].SetActive(false);
+            Enemy2Spine[i].SetActive(false);
+        }
+        for (int i = 0; i < mainGame.players.Length; i++)
+        {
+            switch (mainGame.players[i].GetName())
+            {
+                case Daemon:
+                    if (i == 0)
+                    {
+                        player1Animation = Player1Spine[0].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player1Spine.Length; j++)
+                        {
+                            if (j != 0)
+                            {
+                                Player1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        player2Animation = Player2Spine[0].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player2Spine.Length; j++)
+                        {
+                            if (j != 0)
+                            {
+                                Player2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Ghost:
+                    if (i == 0)
+                    {
+                        player1Animation = Player1Spine[1].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player1Spine.Length; j++)
+                        {
+                            if (j != 1)
+                            {
+                                Player1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        player2Animation = Player2Spine[1].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player2Spine.Length; j++)
+                        {
+                            if (j != 1)
+                            {
+                                Player2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Gore:
+                    if (i == 0)
+                    {
+                        player1Animation = Player1Spine[2].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player1Spine.Length; j++)
+                        {
+                            if (j != 2)
+                            {
+                                Player1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        player2Animation = Player2Spine[2].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player2Spine.Length; j++)
+                        {
+                            if (j != 2)
+                            {
+                                Player2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Poltergeist:
+                    if (i == 0)
+                    {
+                        player1Animation = Player1Spine[3].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player1Spine.Length; j++)
+                        {
+                            if (j != 3)
+                            {
+                                Player1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        player2Animation = Player2Spine[3].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player2Spine.Length; j++)
+                        {
+                            if (j != 3)
+                            {
+                                Player2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Zashiki_warashi:
+                    if (i == 0)
+                    {
+                        player1Animation = Player1Spine[4].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player1Spine.Length; j++)
+                        {
+                            if (j != 4)
+                            {
+                                Player1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        player2Animation = Player2Spine[4].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Player2Spine.Length; j++)
+                        {
+                            if (j != 4)
+                            {
+                                Player2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Player2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+        for (int i = 0; i < mainGame.enemies.Length; i++)
+        {
+            switch (mainGame.enemies[i].GetName())
+            {
+                case Koisurugyaru:
+                    if (i == 0)
+                    {
+                        enemy1Animation = Enemy1Spine[0].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy1Spine.Length; j++)
+                        {
+                            if (j != 0)
+                            {
+                                Enemy1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        enemy2Animation = Enemy2Spine[0].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy2Spine.Length; j++)
+                        {
+                            if (j != 0)
+                            {
+                                Enemy2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Kowamoteyanki:
+                    if (i == 0)
+                    {
+                        enemy1Animation = Enemy1Spine[1].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy1Spine.Length; j++)
+                        {
+                            if (j != 1)
+                            {
+                                Enemy1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        enemy2Animation = Enemy2Spine[1].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy2Spine.Length; j++)
+                        {
+                            if (j != 1)
+                            {
+                                Enemy2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Namaikinasyouzyo:
+                    if (i == 0)
+                    {
+                        enemy1Animation = Enemy1Spine[2].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy1Spine.Length; j++)
+                        {
+                            if (j != 2)
+                            {
+                                Enemy1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        enemy2Animation = Enemy2Spine[2].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy2Spine.Length; j++)
+                        {
+                            if (j != 2)
+                            {
+                                Enemy2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Piekin:
+                    if (i == 0)
+                    {
+                        enemy1Animation = Enemy1Spine[3].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy1Spine.Length; j++)
+                        {
+                            if (j != 3)
+                            {
+                                Enemy1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        enemy2Animation = Enemy2Spine[3].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy2Spine.Length; j++)
+                        {
+                            if (j != 3)
+                            {
+                                Enemy2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Piennnaonnnanoko:
+                    if (i == 0)
+                    {
+                        enemy1Animation = Enemy1Spine[4].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy1Spine.Length; j++)
+                        {
+                            if (j != 4)
+                            {
+                                Enemy1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        enemy2Animation = Enemy2Spine[4].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy2Spine.Length; j++)
+                        {
+                            if (j != 4)
+                            {
+                                Enemy2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+                case Tuyogarisyounen:
+                    if (i == 0)
+                    {
+                        enemy1Animation = Enemy1Spine[5].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy1Spine.Length; j++)
+                        {
+                            if (j != 5)
+                            {
+                                Enemy1Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy1Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        enemy2Animation = Enemy2Spine[5].GetComponent<SkeletonAnimation>();
+                        for (int j = 0; j < Enemy2Spine.Length; j++)
+                        {
+                            if (j != 5)
+                            {
+                                Enemy2Spine[j].SetActive(false);
+                            }
+                            else
+                            {
+                                Enemy2Spine[j].SetActive(true);
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
     }
 
     public void CharacterVisualization(Vector2 position,bool player,int number)
@@ -78,6 +482,111 @@ public class CharacterManager : MonoBehaviour
                 else
                 {
                     enemy2Rect.anchoredPosition = PositionConvert.VectorConvert(position);
+                }
+            }
+        }
+    }
+
+    internal void SetCharacterHpSlider(int number,int hp,int maxHp)
+    {
+        if (number == 1)
+        {
+            player1HpSlider.SetHpSlider(hp,maxHp);
+        }
+        else
+        {
+            player2HpSlider.SetHpSlider(hp, maxHp);
+        }
+    }
+
+    internal void CharacterAnimation(bool player,int number, CharacterAnimState characterAnimState)
+    {
+        if (player == true)
+        {
+            if (number == 1)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            if (number == 1)
+            {
+                switch (characterAnimState)
+                {
+                    case CharacterAnimState.Wait:
+                        enemy1Animation.AnimationName = "idring";
+                        enemy1Animation.timeScale = 1;
+                        break;
+                    case CharacterAnimState.Run:
+                        enemy1Animation.AnimationName = "walk";
+                        enemy1Animation.timeScale = 1.7f;
+                        break;
+                    case CharacterAnimState.Die:
+
+                        break;
+                }
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+    internal void SetCharacterDirection(bool player, int number,bool right)
+    {
+        if (player == true)
+        {
+            if (number == 1)
+            {
+                if (right == true)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                if (right == true)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+        }
+        else
+        {
+            if (number == 1)
+            {
+                if (right == true)
+                {
+                    enemy1Rect.localScale = new Vector3(1, 1, 1);
+                }
+                else
+                {
+                    enemy1Rect.localScale = new Vector3(-1, 1, 1);
+                }
+            }
+            else
+            {
+                if (right == true)
+                {
+
+                }
+                else
+                {
+
                 }
             }
         }

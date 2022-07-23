@@ -98,10 +98,10 @@ public partial class MainGame : MonoBehaviour
     bool beingCharacterDeploy;
 
     //敵
-    Enemy[] enemies;
+    internal Enemy[] enemies;
 
     //プレイヤー
-    Player[] players;
+    internal Player[] players;
     internal Vector2 player1pos;
     internal Vector2 player2pos;
 
@@ -143,7 +143,7 @@ public partial class MainGame : MonoBehaviour
         PausePanel.SetActive(false);
         RetirePanel.SetActive(false);
 
-        /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Daemon));
+        /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Ghost));
 
         GeneratEnemy();
         GeneratPlayer();

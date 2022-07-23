@@ -79,6 +79,7 @@ partial class MainGame : MonoBehaviour
     void GeneratEnemy()
     {
         string difficulty = StageSelect_Deta.selectDifficulty;
+        difficulty = easy;
         switch (stage)
         {
             case (main_ep1_1):

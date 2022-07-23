@@ -1,0 +1,177 @@
+強がり少年.png
+size:740,142
+filter:Linear,Linear
+pma:true
+L Sode
+bounds:695,109,27,31
+offsets:1,1,29,33
+L arm
+bounds:690,68,29,30
+offsets:1,1,31,32
+L arm circle
+bounds:664,99,8,9
+offsets:1,1,10,11
+rotate:90
+L back hear
+bounds:636,3,35,16
+offsets:1,1,37,18
+L back side
+bounds:673,6,14,18
+offsets:1,1,16,20
+L eyebrow
+bounds:219,2,25,17
+offsets:1,2,28,21
+rotate:90
+L hand
+bounds:471,4,52,31
+offsets:1,1,54,33
+rotate:90
+L leg
+bounds:340,47,46,93
+offsets:1,2,49,96
+L leg circle
+bounds:605,2,14,13
+offsets:1,1,16,15
+L shoes parts
+bounds:721,83,15,12
+offsets:1,2,18,16
+rotate:90
+L toe
+bounds:595,62,33,26
+offsets:1,1,36,28
+rotate:90
+L up arm
+bounds:708,40,23,26
+offsets:2,1,26,28
+L up leg
+bounds:122,4,20,42
+offsets:1,1,23,45
+rotate:90
+R arm circle
+bounds:548,62,10,9
+offsets:1,2,12,13
+rotate:90
+R back hear
+bounds:658,26,35,15
+offsets:1,2,38,19
+rotate:90
+R back side
+bounds:166,4,15,20
+offsets:2,2,18,24
+R close hand
+bounds:628,99,41,34
+offsets:1,2,44,38
+rotate:90
+R eyebrow
+bounds:724,113,27,14
+offsets:2,3,31,18
+rotate:90
+R hand
+bounds:414,3,55,46
+offsets:2,1,59,48
+R hand 2
+bounds:675,30,31,31
+offsets:2,1,35,33
+R leg
+bounds:504,5,27,55
+offsets:1,1,29,57
+R leg circle
+bounds:621,2,13,13
+offsets:1,1,15,15
+R shoes parts
+bounds:721,69,15,12
+offsets:1,2,18,16
+R toe
+bounds:662,63,34,26
+offsets:1,1,36,28
+rotate:90
+R up hand
+bounds:689,2,28,26
+offsets:2,2,32,30
+R up leg
+bounds:605,17,23,43
+offsets:1,1,25,45
+Sode
+bounds:664,109,29,31
+offsets:1,1,31,33
+ase
+bounds:578,63,9,15
+offsets:1,1,11,17
+rotate:90
+ase2
+bounds:559,63,9,17
+offsets:2,1,12,19
+rotate:90
+back hear
+bounds:2,4,136,94
+offsets:1,1,138,96
+rotate:90
+back hu-do
+bounds:340,33,23,12
+offsets:1,1,25,14
+blue face
+bounds:276,29,111,62
+offsets:1,2,113,65
+rotate:90
+body
+bounds:630,21,26,40
+offsets:1,1,28,42
+body circle
+bounds:98,2,22,22
+offsets:1,1,24,24
+cry eye
+bounds:440,58,82,54
+offsets:1,1,84,56
+rotate:90
+eye
+bounds:496,62,78,50
+offsets:1,1,80,52
+rotate:90
+head
+bounds:98,26,114,101
+offsets:1,1,116,103
+rotate:90
+hear1
+bounds:548,74,66,38
+offsets:1,1,68,40
+rotate:90
+hear2
+bounds:366,2,43,46
+offsets:1,1,45,48
+rotate:90
+hear3
+bounds:388,51,89,50
+offsets:1,1,91,52
+rotate:90
+hip
+bounds:623,63,37,32
+offsets:1,1,39,34
+hu-do
+bounds:273,3,24,9
+offsets:1,1,26,11
+rotate:90
+mouth
+bounds:675,100,27,7
+offsets:1,1,29,9
+mouth 5
+bounds:704,100,26,7
+offsets:1,1,29,9
+mouth2
+bounds:238,3,33,24
+offsets:1,1,35,26
+mouth4
+bounds:183,5,34,19
+offsets:1,1,36,21
+purple face
+bounds:201,29,111,73
+offsets:1,1,113,75
+rotate:90
+smile eye
+bounds:284,4,80,23
+offsets:2,1,83,25
+tamasii
+bounds:588,97,38,43
+offsets:1,2,40,46
+white eye
+bounds:533,10,70,50
+offsets:1,1,72,52
