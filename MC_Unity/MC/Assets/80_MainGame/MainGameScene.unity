@@ -12354,7 +12354,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: sibou
+  _animationName: kougeki
   loop: 1
   timeScale: 1
 --- !u!23 &2116251834

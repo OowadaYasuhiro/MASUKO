@@ -213,6 +213,7 @@ public partial class Player : MainGameCharacterModel
         
         /******************アニメーション*******************/
         characterManager.CharacterVisualization(position,true,myNumber);
+        characterManager.CharacterAnimation(true, myNumber, charactorAnimState, Charactername,takeDamage);
         characterManager.SetCharacterHpSlider(myNumber,hp,maxHp);
     }
 

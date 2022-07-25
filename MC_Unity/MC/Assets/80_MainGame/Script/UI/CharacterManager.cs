@@ -499,41 +499,106 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    internal void CharacterAnimation(bool player,int number, CharacterAnimState characterAnimState)
+    internal void CharacterAnimation(bool player,int number, CharacterAnimState characterAnimState,string name,bool takeDamage)
     {
-        if (player == true)
+        if (takeDamage == true)
         {
-            if (number == 1)
+            if (player == true)
             {
-
-            }
-            else
-            {
-
-            }
-        }
-        else
-        {
-            if (number == 1)
-            {
-                switch (characterAnimState)
+                if (number == 1)
                 {
-                    case CharacterAnimState.Wait:
-                        enemy1Animation.AnimationName = "idring";
-                        enemy1Animation.timeScale = 1;
-                        break;
-                    case CharacterAnimState.Run:
-                        enemy1Animation.AnimationName = "walk";
-                        enemy1Animation.timeScale = 1.7f;
-                        break;
-                    case CharacterAnimState.Die:
 
-                        break;
+                }
+                else
+                {
+
                 }
             }
             else
             {
+                if (number == 1)
+                {
 
+                }
+                else
+                {
+
+                }
+            }
+        }
+        else
+        {
+            if (player == true)
+            {
+                if (number == 1)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                if (number == 1)
+                {
+                    switch (characterAnimState)
+                    {
+                        case CharacterAnimState.Wait:
+                            if (name.Equals(Koisurugyaru) == true)
+                            {
+                                enemy1Animation.AnimationName = "taiki";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            else
+                            {
+                                enemy1Animation.AnimationName = "idring";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            break;
+                        case CharacterAnimState.Run:
+                            if (name.Equals(Namaikinasyouzyo) == true)
+                            {
+                                enemy1Animation.AnimationName = "waljk";
+                                enemy1Animation.timeScale = 1.7f;
+                            }
+                            else
+                            {
+                                enemy1Animation.AnimationName = "walk";
+                                enemy1Animation.timeScale = 1.7f;
+                            }
+                            break;
+                        case CharacterAnimState.Die:
+                            if (name.Equals(Koisurugyaru) == true)
+                            {
+                                enemy1Animation.AnimationName = "sibou";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            else
+                            {
+                                enemy1Animation.AnimationName = "dead";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            break;
+                        case CharacterAnimState.Fait:
+                            if (name.Equals(Koisurugyaru) == true)
+                            {
+                                enemy1Animation.AnimationName = "kyougeki";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            else
+                            {
+                                enemy1Animation.AnimationName = "attack";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+
+                }
             }
         }
     }

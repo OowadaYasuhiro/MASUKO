@@ -150,6 +150,7 @@ public partial class Enemy : MainGameCharacterModel
         if (alive == false)
         {
             charactorState = CharacterState.Dead;
+            charactorAnimState = CharacterAnimState.Die;
         }
         switch (charactorState)
         {
@@ -160,9 +161,12 @@ public partial class Enemy : MainGameCharacterModel
             case CharacterState.RunAway:
                 charactorAnimState = CharacterAnimState.Run;
                 break;
+            case CharacterState.Fight:
+                charactorAnimState = CharacterAnimState.Fait;
+                break;
         }
         characterManager.CharacterVisualization(position, false, myNumber);
-        characterManager.CharacterAnimation(false,myNumber,charactorAnimState);
+        characterManager.CharacterAnimation(false,myNumber,charactorAnimState,Charactername,takeDamage);
         characterManager.SetCharacterDirection(false,myNumber,directionRight);
     }
 }
