@@ -11,6 +11,9 @@
     protected int zyuGekiResistance;
     protected int zyuRyokuResistance;
 
+    //ダメージフラグ
+    protected bool takeDamage = false;
+
     public MainGameCharacterDamageModel() : base()
     {
         alive = true;
@@ -18,6 +21,7 @@
 
     internal void AddDamage(Damage damage)
     {
+        takeDamage =true;
         if (damage.type == Damage.physicsDamage)
         {
             double RPD = 1.0 - (double)physicsDamageResistance / 100.0;
