@@ -200,7 +200,7 @@ public partial class Player : MainGameCharacterModel
     {
         if (alive == false)
         {
-            charactorState = CharacterState.Dead;
+            charactorState = CharacterState.Recovery;
         }
 
         if (charactorState == CharacterState.Standby || charactorState == CharacterState.Resting)
@@ -209,6 +209,15 @@ public partial class Player : MainGameCharacterModel
             position = outPosition;
         }
 
+        switch (charactorState)
+        {
+            case CharacterState.Wait:
+                charactorAnimState = CharacterAnimState.Wait;
+                break;
+            case CharacterState.Fight:
+                charactorAnimState = CharacterAnimState.Fight;
+                break;
+        }
 
         
         /******************アニメーション*******************/
