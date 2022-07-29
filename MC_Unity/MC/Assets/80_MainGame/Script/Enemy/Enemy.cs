@@ -162,7 +162,7 @@ public partial class Enemy : MainGameCharacterModel
                 charactorAnimState = CharacterAnimState.Run;
                 break;
             case CharacterState.Fight:
-                charactorAnimState = CharacterAnimState.Fait;
+                charactorAnimState = CharacterAnimState.Fight;
                 break;
         }
         characterManager.CharacterVisualization(position, false, myNumber);

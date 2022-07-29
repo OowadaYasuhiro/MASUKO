@@ -34,7 +34,7 @@
     internal enum CharacterAnimState
     {
         Wait,
-        Fait,
+        Fight,
         Win,
         Lose,
         Walk,
