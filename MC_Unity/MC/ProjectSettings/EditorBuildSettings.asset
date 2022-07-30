@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: "Assets/T\uFF3FTest/Yanai/\u30BF\u30A4\u30C8\u30EB/titlescene.unity"
+    guid: e5354831484d5c640a4fcce0c4785ef1
+  - enabled: 1
     path: Assets/10_Home/HomeScene.unity
     guid: bfbc5d463cff04c49af66c40817d1aaf
   - enabled: 1
@@ -53,7 +56,4 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/T\uFF3FTest/Yanai/\u30AD\u30E3\u30E9\u5F37\u5316/yanai_test2.unity"
     guid: b5cee230900df4d479b7d7d5cf9e1cfb
-  - enabled: 1
-    path: "Assets/T\uFF3FTest/Yanai/\u30BF\u30A4\u30C8\u30EB/titlescene.unity"
-    guid: e5354831484d5c640a4fcce0c4785ef1
   m_configObjects: {}
