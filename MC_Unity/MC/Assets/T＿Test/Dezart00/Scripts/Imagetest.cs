@@ -19,29 +19,29 @@ public class Imagetest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Master.playerdeta.Stage1_1Mission1 == true)
         {
             text1.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Keypad4))
+        else if (Master.playerdeta.Stage1_1Mission1 == false)
         {
             text1.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad2))
+        if (Master.playerdeta.Stage1_1Mission2 == true)
         {
             text2.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Keypad5))
+        else if (Master.playerdeta.Stage1_1Mission2 == false)
         {
             text2.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad3))
+        if (Master.playerdeta.Stage1_1Mission3 == true)
         {
             text3.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Keypad6))
+        else if (Master.playerdeta.Stage1_1Mission3 == false)
         {
             text3.SetActive(false);
         }

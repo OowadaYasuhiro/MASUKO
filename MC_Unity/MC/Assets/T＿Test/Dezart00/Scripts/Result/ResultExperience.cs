@@ -30,8 +30,8 @@ public class ResultExperience : MonoBehaviour
     {
         /*TextLvel = null;
         TextTotalExperience = null;*/
-        TotalExperience = 800;
-        Lv_num = 1;
+        TotalExperience = 0;
+        Lv_num = Master.playerdeta.PlayerLevel;
     }
     // Start is called before the first frame update
     void Start()
@@ -51,14 +51,14 @@ public class ResultExperience : MonoBehaviour
         { //Down
             StartCoroutine(ScoreAnimation(TotalExperience, TotalExperience + 200f, 1f));
         }
-        if (/*Master.playerdeta.PlayerExperience*/ Lv_num * 1000 == TotalExperience || /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000 <= TotalExperience)
+        if (Master.playerdeta.PlayerExperience == TotalExperience)
         {
             Lv_num += 1;
             TotalExperience = 0;
         }
         //スライダーの現在値の設定
         exSlider.value = TotalExperience;
-        TE_Lv.text = TotalExperience + "/" + /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000;
+        TE_Lv.text = TotalExperience + "/" + Master.playerdeta.PlayerExperience;
         Lv_text.text = Lv_num + "";
         //スライダーの最大値の設定
         exSlider.maxValue = Lv_num * 1000;
@@ -88,7 +88,7 @@ public class ResultExperience : MonoBehaviour
             //updateValue = TotalExperience;
 
             // テキストの更新
-            TE_Lv.text = updateValue.ToString("f0") + "/" + /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000; // （"f0" の "0" は、小数点以下の桁数指定）
+            TE_Lv.text = updateValue.ToString("f0") + "/" + Master.playerdeta.PlayerExperience; // （"f0" の "0" は、小数点以下の桁数指定）
 
             //スライダーの現在値の設定
             exSlider.value = updateValue;

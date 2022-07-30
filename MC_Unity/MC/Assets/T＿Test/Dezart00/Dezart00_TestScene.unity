@@ -13757,7 +13757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "1-2 \u30DF\u30C3\u30B7\u30E7\u30F3(\u4EEE)"
+  m_Text: 1-1
 --- !u!224 &8641860072468800258
 RectTransform:
   m_ObjectHideFlags: 0
