@@ -9,6 +9,8 @@ namespace Formation
     {
         [SerializeField]
         private GameObject charaSelect;
+        [SerializeField]
+        private GameObject soundManager;
 
         private void Start()
         {
@@ -40,6 +42,15 @@ namespace Formation
             charaSelect.transform.GetChild(2).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("orgaLv");
             charaSelect.transform.GetChild(3).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("poltergeistLv");
             charaSelect.transform.GetChild(4).transform.GetChild(2).GetComponent<Text>().text = "Lv" + PlayerPrefs.GetString("demonLv");
+
+            soundManager.GetComponent<SoundManager>().Initialize();
+
+            soundManager.GetComponent<SoundManager>().PlayBgm(0);
+
+            if (OrganizationScreen_Deta.playVoiceNum != -1)
+            {
+                soundManager.GetComponent<SoundManager>().PlayVoice(OrganizationScreen_Deta.playVoiceNum);
+            }
         }
 
         private void SetCharacterNum(Charactor charactor, bool isleft)

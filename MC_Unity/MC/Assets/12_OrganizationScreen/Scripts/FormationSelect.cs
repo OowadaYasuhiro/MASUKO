@@ -11,6 +11,7 @@ namespace Formation
         [SerializeField]
         private int characterNumber;
 
+
         private void FixedUpdate()
         {
             if (OrganizationScreen_Deta.isLeftCharacter)
@@ -59,21 +60,26 @@ namespace Formation
                 case 0:
                     chara = OrganizationScreen_Deta.ghost;
                     charaNum = 0;
+                    OrganizationScreen_Deta.playVoiceNum = 0;
                     break;
                 case 1:
                     chara = OrganizationScreen_Deta.zasikiwarasi;
+                    OrganizationScreen_Deta.playVoiceNum = 1;
                     charaNum = 1;
                     break;
                 case 2:
                     chara = OrganizationScreen_Deta.ogre;
+                    OrganizationScreen_Deta.playVoiceNum = 2;
                     charaNum = 2;
                     break;
                 case 3:
                     chara = OrganizationScreen_Deta.poltergeist;
+                    OrganizationScreen_Deta.playVoiceNum = 3;
                     charaNum = 3;
                     break;
                 case 4:
                     chara = OrganizationScreen_Deta.demon;
+                    OrganizationScreen_Deta.playVoiceNum = 4;
                     charaNum = 4;
                     break;
                 default:

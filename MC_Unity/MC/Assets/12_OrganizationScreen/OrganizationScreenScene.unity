@@ -2641,6 +2641,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760366231}
   m_CullTransparentMesh: 0
+--- !u!1 &796724864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2071092653442830520, guid: e164fc47152b7624c8154f62d6f2197b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1533967212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &864499127
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charaSelect: {fileID: 87929375}
+  soundManager: {fileID: 796724864}
 --- !u!1 &948244200
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,6 +5864,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: bgm.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: bgm.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08054a5f60a0426469810b38c222c837, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c5c7770193442824ca9b032b97384344, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 90966b83489871943ab3456b9bbe397e, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5618d29a4c5dd7841abfe81780589d87, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 27adee8382504f6489e85ed9f89b37f6, type: 3}
+    - target: {fileID: 3427396414550958832, guid: e164fc47152b7624c8154f62d6f2197b,
+        type: 3}
+      propertyPath: voice.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 58bcc4352e0c84049b4dc9758ad6702d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e164fc47152b7624c8154f62d6f2197b, type: 3}
 --- !u!1 &1572876461

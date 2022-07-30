@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TapStart : MonoBehaviour
 {
-    [SerializeField] Animator Animation = null; 
+    AudioSource audioSource;
+    [SerializeField] Animator Animation = null;
+
     // Start is called before the first frame update
-   public void OnClick() {
-        Debug.Log("タップされた");
+    public void OnClick() {
         Animation.SetTrigger("Click");
         Invoke("Seni",3f);
     }

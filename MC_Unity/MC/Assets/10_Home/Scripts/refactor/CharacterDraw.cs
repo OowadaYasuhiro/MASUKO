@@ -14,6 +14,9 @@ namespace HomeScene
         [SerializeField]
         private bool isDebug = false;
 
+        [SerializeField]
+        private GameObject soundManager;
+
         private string characterName;
         private string characterSpeech;
         private Sprite characterImage;
@@ -50,7 +53,7 @@ namespace HomeScene
 
                 if (character.name == "幽霊")
                 {
-                    this.characterName = "Ghost";
+                    this.characterName = character.name;
                     this.characterImage = characterImages[0];
                     this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
                     this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1025.0f,760.0f);
@@ -58,7 +61,7 @@ namespace HomeScene
                 }
                 if (character.name == "座敷童")
                 {
-                    this.characterName = "Zasikiwarasi";
+                    this.characterName = character.name;
                     this.characterImage = characterImages[1];
                     this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-390.48f, -0.0f);
                     this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1760.0f, 950.0f);
@@ -66,7 +69,7 @@ namespace HomeScene
                 }
                 if (character.name == "鬼")
                 {
-                    this.characterName = "Oni";
+                    this.characterName = character.name;
                     this.characterImage = characterImages[2];
                     this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
                     this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1370.0f, 760.0f);
@@ -74,7 +77,7 @@ namespace HomeScene
                 }
                 if (character.name == "ポルターガイスト")
                 {
-                    this.characterName = "polterGeist";
+                    this.characterName = character.name;
                     this.characterImage = characterImages[3];
                     this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
                     this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(970.0f, 630.0f);
@@ -82,7 +85,7 @@ namespace HomeScene
                 }
                 if (character.name == "悪魔")
                 {
-                    this.characterName = "Demon";
+                    this.characterName = character.name;
                     this.characterImage = characterImages[4];
                     this.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(-360.48f, -75.0f);
                     this.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1370.0f, 760.0f);
@@ -112,27 +115,32 @@ namespace HomeScene
             if (character.name == "幽霊")
             {
                 characterSpeech = HomeScene_Deta.ghostSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum);
             }
             if (character.name == "座敷童")
             {
                 characterSpeech = HomeScene_Deta.zasikiwarasiSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 5);
             }
             if (character.name == "鬼")
             {
                 characterSpeech = HomeScene_Deta.oniSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 10);
             }
             if (character.name == "ポルターガイスト")
             {
                 characterSpeech = HomeScene_Deta.poltergeistSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 15);
             }
             if (character.name == "悪魔")
             {
                 characterSpeech = HomeScene_Deta.demonSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 20);
             }
 
             messageWindow.transform.GetChild(2).GetComponent<Text>().text = characterSpeech;
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(5.0f);
             messageWindow.SetActive(false);
             yield break;
         }
