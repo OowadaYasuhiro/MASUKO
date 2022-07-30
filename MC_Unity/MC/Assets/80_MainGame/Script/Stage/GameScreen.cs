@@ -8,6 +8,10 @@ public class GameScreen : MonoBehaviour
     [SerializeField]
     GameObject[] Obstacle;
 
+    //敵目標
+    [SerializeField]
+    GameObject[] EnemyTargetObject;
+
     internal void InitializeObstacle(bool[,] mapData)
     {
         for (int i = 0; i < 60; i++)
@@ -21,6 +25,23 @@ public class GameScreen : MonoBehaviour
             else
             {
                 Obstacle[i].SetActive(false);
+            }
+        }
+    }
+
+    internal void InitializeEnemyTargetObject(Vector2[] target)
+    {
+        for (int i = 0; i < 60; i++)
+        {
+            int x = i % 10;
+            int y = i / 10;
+            if (target[0] == new Vector2(x,y) || target[1] == new Vector2(x, y))
+            {
+                EnemyTargetObject[i].SetActive(true);
+            }
+            else
+            {
+                EnemyTargetObject[i].SetActive(false);
             }
         }
     }

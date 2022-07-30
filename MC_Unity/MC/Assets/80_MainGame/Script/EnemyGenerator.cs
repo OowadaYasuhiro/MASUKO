@@ -8,46 +8,87 @@ partial class MainGame : MonoBehaviour
     List<MainGameCharacterModel> subjectList = new List<MainGameCharacterModel>();
     //範囲内の対象を取得
     //検索対象の選択が必要
-    public MainGameCharacterModel[] SearchCharacter(Vector2 position, Vector2[] area,bool player,bool enemy,bool summonsCharacter)
+    public MainGameCharacterModel[] SearchCharacter(Vector2 position, Vector2[] area,bool player,bool enemy,bool right)
     {
         subjectList.Clear();
         //受け取った座標を検索
         foreach (Vector2 place in area)
         {
-            if (player == true)
+            if (right == true)
             {
-                foreach (Player targetplayer in this.players)
+                if (player == true)
                 {
-                    if (targetplayer.displaying == false)
+                    foreach (Player targetplayer in this.players)
                     {
-                        continue;
-                    }
-                    if (targetplayer.position.x >= (position.x + place.x - 0.5) && targetplayer.position.x < (position.x + place.x + 0.5))
-                    {
-                        if (targetplayer.position.y >= (position.y + place.y - 0.5) && targetplayer.position.y < (position.y + place.y + 0.5))
+                        if (targetplayer.displaying == false)
                         {
-                            subjectList.Add(targetplayer);
+                            continue;
+                        }
+                        if (targetplayer.position.x >= (position.x + place.x - 0.5) && targetplayer.position.x < (position.x + place.x + 0.5))
+                        {
+                            if (targetplayer.position.y >= (position.y + place.y - 0.5) && targetplayer.position.y < (position.y + place.y + 0.5))
+                            {
+                                subjectList.Add(targetplayer);
+                            }
+                        }
+                    }
+                }
+                if (enemy == true)
+                {
+                    foreach (Enemy targetenemy in this.enemies)
+                    {
+                        if (targetenemy.displaying == false)
+                        {
+                            continue;
+                        }
+                        if (targetenemy.position.x >= (position.x + place.x - 0.5) && targetenemy.position.x < (position.x + place.x + 0.5))
+                        {
+                            if (targetenemy.position.y >= (position.y + place.y - 0.5) && targetenemy.position.y < (position.y + place.y + 0.5))
+                            {
+                                subjectList.Add(targetenemy);
+                            }
                         }
                     }
                 }
             }
-            if (enemy == true)
+            else
             {
-                foreach (Enemy targetenemy in this.enemies)
+                if (player == true)
                 {
-                    if (targetenemy.displaying == false)
+                    foreach (Player targetplayer in this.players)
                     {
-                        continue;
-                    }
-                    if (targetenemy.position.x >= (position.x + place.x - 0.5) && targetenemy.position.x < (position.x + place.x + 0.5))
-                    {
-                        if (targetenemy.position.y >= (position.y + place.y - 0.5) && targetenemy.position.y < (position.y + place.y + 0.5))
+                        if (targetplayer.displaying == false)
                         {
-                            subjectList.Add(targetenemy);
+                            continue;
+                        }
+                        if (targetplayer.position.x >= (position.x - place.x - 0.5) && targetplayer.position.x < (position.x - place.x + 0.5))
+                        {
+                            if (targetplayer.position.y >= (position.y + place.y - 0.5) && targetplayer.position.y < (position.y + place.y + 0.5))
+                            {
+                                subjectList.Add(targetplayer);
+                            }
+                        }
+                    }
+                }
+                if (enemy == true)
+                {
+                    foreach (Enemy targetenemy in this.enemies)
+                    {
+                        if (targetenemy.displaying == false)
+                        {
+                            continue;
+                        }
+                        if (targetenemy.position.x >= (position.x - place.x - 0.5) && targetenemy.position.x < (position.x - place.x + 0.5))
+                        {
+                            if (targetenemy.position.y >= (position.y + place.y - 0.5) && targetenemy.position.y < (position.y + place.y + 0.5))
+                            {
+                                subjectList.Add(targetenemy);
+                            }
                         }
                     }
                 }
             }
+            
         }
         MainGameCharacterModel[] subject = new MainGameCharacterModel[subjectList.Count];
         for (int i = 0;i < subjectList.Count;i++)

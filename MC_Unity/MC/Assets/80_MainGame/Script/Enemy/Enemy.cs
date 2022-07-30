@@ -21,7 +21,7 @@ public partial class Enemy : MainGameCharacterModel
     Damage damage;
     int attackFrequency;
     int attackCooldown = 0;
-    float attackAnimationFrequency = 0.5f;
+    float attackAnimationFrequency = 0.3f;
 
     //MainGameのアドレス
     MainGame mainGame;
@@ -34,12 +34,6 @@ public partial class Enemy : MainGameCharacterModel
 
     //アニメーション用ディレイ
     bool animationSkip = false;
-
-    //プレイヤーが目の前にいるか
-    bool onCollisionPlayer = false;
-    const int withFightTime = 300;
-    int withFightCool = 0;
-    Vector2[] targetRange = new Vector2[] {new Vector2(0,0),new Vector2(1,0)};
 
     internal void Initialized(MainGame mainGame, string difficulty, string name, int number)
     {
@@ -57,11 +51,11 @@ public partial class Enemy : MainGameCharacterModel
         Setting(difficulty);
         directionRight = true;
         characterManager = mainGame.GetComponent<CharacterManager>();
-        maxThroughTime = (int)(moveSpeed * 180f);
+        maxThroughTime = (int)(moveSpeed * 200f);
         damage = new Damage(Damage.physicsDamage, baseAttackPower);
         damage.type = Damage.physicsDamage;
         damage.value = baseAttackPower;
-        
+        displaying = true;
     }
 
     private void Start()
@@ -69,94 +63,67 @@ public partial class Enemy : MainGameCharacterModel
         charactorState = CharacterState.Standby;
         charactorAnimState = CharacterAnimState.Wait;
         fightThrough = false;
-        displaying = true;
     }
 
     //情報収集
     public void FastUpDate()
     {
-        if (animationSkip == false)
+        switch (charactorState)
         {
-            if (fightThrough == true)
-            {
-                throughTime++;
-                if (throughTime >= maxThroughTime)
+            case CharacterState.RunAway:
+            case CharacterState.Run:
+                if (findEnemy == true && fightThrough == false)
                 {
-                    fightThrough = false;
+                    charactorState = CharacterState.Fight;
                 }
-            }
-            if (findEnemy == true && fightThrough == false)
-            {
-                charactorState = CharacterState.Fight;
-            }
-            if (mainGame.SearchCharacter(position, targetRange, true, false, false).Length > 0)
-            {
-                onCollisionPlayer = true;
-            }
-            else
-            {
-                onCollisionPlayer = false;
-            }
-            if (onCollisionPlayer == true)
-            {
-                withFightCool++;
-                if (withFightCool == withFightTime)
+                break;
+            case CharacterState.Fight:
+                if (fightThrough == true)
                 {
-                    onCollisionPlayer = false;
+                    charactorState = lastRunType;
                 }
-            }
+                break;
         }
     }
 
     //計算
     public void UpDate()
     {
-        if (animationSkip == false)
+        //スキルの反映とリセット
+        if (skillEvent != null)
         {
-            //スキルの反映とリセット
-            if (skillEvent != null)
-            {
-                skillEvent();
-                ReMoveAllEvents();
-            }
-            switch (charactorState)
-            {
-                case CharacterState.Run:
-                    if (onCollisionPlayer == true)
+            skillEvent();
+            ReMoveAllEvents();
+        }
+        switch (charactorState)
+        {
+            case CharacterState.Run:
+                
+                lastRunType = CharacterState.Run;
+                Move(mainGame.gameSpeed);
+                break;
+            case CharacterState.RunAway:
+                
+                lastRunType = CharacterState.RunAway;
+                Move(mainGame.gameSpeed);
+                break;
+            case CharacterState.Fight:
+                attackCooldown--;
+                if (attackCooldown <= 0)
+                {
+                    attackCooldown = attackFrequency;
+                    foreach (MainGameCharacterModel target in targetEnemy)
                     {
-                        goto case CharacterState.Fight;
+                        damage.value = baseAttackPower;
+                        target.AddDamage(damage);
                     }
-                    lastRunType = CharacterState.Run;
-                    Move(mainGame.gameSpeed);
-                    break;
-                case CharacterState.RunAway:
-                    if (onCollisionPlayer == true)
-                    {
-                        goto case CharacterState.Fight;
-                    }
-                    lastRunType = CharacterState.RunAway;
-                    Move(mainGame.gameSpeed);
-                    break;
-                case CharacterState.Fight:
-                    attackCooldown--;
-                    if (attackCooldown <= 0)
-                    {
-                        attackCooldown = attackFrequency;
-                        foreach (MainGameCharacterModel target in targetEnemy)
-                        {
-                            damage.value = baseAttackPower;
-                            target.AddDamage(damage);
-                        }
-                        animationSkip = true;
-                        Invoke("EndAnimationSkip", attackAnimationFrequency);
-                    }
-                    fightTime++;
-                    if (fightTime >= maxFightTime)
-                    {
-                        fightThrough = true;
-                    }
-                    break;
-            }
+                }
+                fightTime++;
+                if (fightTime >= maxFightTime)
+                {
+                    fightThrough = true;
+                }
+                break;
         }
     }
 
@@ -168,22 +135,41 @@ public partial class Enemy : MainGameCharacterModel
             charactorState = CharacterState.Dead;
             charactorAnimState = CharacterAnimState.Die;
         }
-        switch (charactorState)
+        if (animationSkip == false)
         {
-            case CharacterState.Wait:
-                charactorAnimState = CharacterAnimState.Wait;
-                break;
-            case CharacterState.Run:
-            case CharacterState.RunAway:
-                charactorAnimState = CharacterAnimState.Run;
-                break;
-            case CharacterState.Fight:
-                charactorAnimState = CharacterAnimState.Fight;
-                break;
+            switch (charactorState)
+            {
+                case CharacterState.Wait:
+                    charactorAnimState = CharacterAnimState.Wait;
+                    break;
+                case CharacterState.Run:
+                case CharacterState.RunAway:
+                    charactorAnimState = CharacterAnimState.Run;
+                    break;
+                case CharacterState.Fight:
+                    charactorAnimState = CharacterAnimState.Fight;
+                    animationSkip = true;
+                    Invoke(nameof(EndAnimationSkip), attackAnimationFrequency);
+                    break;
+                case CharacterState.Stan:
+                    charactorAnimState = CharacterAnimState.Stan;
+                    animationSkip = true;
+                    Invoke(nameof(EndAnimationSkip), attackAnimationFrequency);
+                    break;
+            }
         }
+
+        if (Goal == true)
+        {
+            mainGame.EnemyGoal();
+            charactorAnimState = CharacterAnimState.Win;
+        }
+
         characterManager.CharacterVisualization(position, false, myNumber);
         characterManager.CharacterAnimation(false,myNumber,charactorAnimState,Charactername,takeDamage);
         characterManager.SetCharacterDirection(false,myNumber,directionRight);
+        characterManager.SetCharacterHpSlider(myNumber, hp, maxHp, false);
+
     }
 
     void EndAnimationSkip()

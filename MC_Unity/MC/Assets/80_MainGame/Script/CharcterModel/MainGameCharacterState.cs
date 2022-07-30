@@ -35,6 +35,7 @@
     {
         Wait,
         Fight,
+        Stan,
         Win,
         Lose,
         Walk,
