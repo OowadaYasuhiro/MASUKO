@@ -142,7 +142,6 @@ public partial class MainGame : MonoBehaviour
         RetirePanel.SetActive(false);
         characterManager = GetComponent<CharacterManager>();
 
-        /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Ghost));
 
         GeneratEnemy();
         GeneratPlayer();
