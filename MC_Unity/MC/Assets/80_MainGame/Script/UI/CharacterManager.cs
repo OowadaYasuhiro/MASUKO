@@ -26,6 +26,8 @@ public class CharacterManager : MonoBehaviour
 
     HpSlider player1HpSlider;
     HpSlider player2HpSlider;
+    HpSlider enemy1HpSlider;
+    HpSlider enemy2HpSlider;
 
     SkeletonAnimation player1Animation;
     SkeletonAnimation player2Animation;
@@ -51,6 +53,8 @@ public class CharacterManager : MonoBehaviour
         enemy2Rect = Enemy2.GetComponent<RectTransform>();
         player1HpSlider = Player1.GetComponentInChildren<HpSlider>();
         player2HpSlider = Player2.GetComponentInChildren<HpSlider>();
+        enemy1HpSlider = Enemy1.GetComponentInChildren<HpSlider>();
+        enemy2HpSlider = Enemy2.GetComponentInChildren<HpSlider>();
         mainGame = GetComponent<MainGame>();
         CharaReLoad();
     }
@@ -487,15 +491,29 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    internal void SetCharacterHpSlider(int number,int hp,int maxHp)
+    internal void SetCharacterHpSlider(int number,int hp,int maxHp, bool player)
     {
-        if (number == 1)
+        if (player == true)
         {
-            player1HpSlider.SetHpSlider(hp,maxHp);
+            if (number == 1)
+            {
+                player1HpSlider.SetHpSlider(hp, maxHp);
+            }
+            else
+            {
+                player2HpSlider.SetHpSlider(hp, maxHp);
+            }
         }
         else
         {
-            player2HpSlider.SetHpSlider(hp, maxHp);
+            if (number == 1)
+            {
+                enemy1HpSlider.SetHpSlider(hp, maxHp);
+            }
+            else
+            {
+                enemy2HpSlider.SetHpSlider(hp, maxHp);
+            }
         }
     }
 
@@ -615,13 +633,12 @@ public class CharacterManager : MonoBehaviour
                             if (name.Equals(Koisurugyaru) == true)
                             {
                                 enemy1Animation.AnimationName = "sibou";
-                                enemy1Animation.timeScale = 1;
                             }
                             else
                             {
                                 enemy1Animation.AnimationName = "dead";
-                                enemy1Animation.timeScale = 1;
                             }
+                            Invoke(nameof(Enemy1DeadAnimationLock), 1.5f);
                             break;
                         case CharacterAnimState.Fight:
                             if (name.Equals(Koisurugyaru) == true)
@@ -632,6 +649,18 @@ public class CharacterManager : MonoBehaviour
                             else
                             {
                                 enemy1Animation.AnimationName = "attack";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            break;
+                        case CharacterAnimState.Stan:
+                            if (name.Equals(Koisurugyaru) == true)
+                            {
+                                enemy1Animation.AnimationName = "standing";
+                                enemy1Animation.timeScale = 1;
+                            }
+                            else
+                            {
+                                enemy1Animation.AnimationName = "touch down";
                                 enemy1Animation.timeScale = 1;
                             }
                             break;
@@ -669,13 +698,12 @@ public class CharacterManager : MonoBehaviour
                             if (name.Equals(Koisurugyaru) == true)
                             {
                                 enemy2Animation.AnimationName = "sibou";
-                                enemy2Animation.timeScale = 1;
                             }
                             else
                             {
                                 enemy2Animation.AnimationName = "dead";
-                                enemy2Animation.timeScale = 1;
                             }
+                            Invoke(nameof(Enemy2DeadAnimationLock), 1.5f);
                             break;
                         case CharacterAnimState.Fight:
                             if (name.Equals(Koisurugyaru) == true)
@@ -689,10 +717,34 @@ public class CharacterManager : MonoBehaviour
                                 enemy2Animation.timeScale = 1;
                             }
                             break;
+                        case CharacterAnimState.Stan:
+                            if (name.Equals(Koisurugyaru) == true)
+                            {
+                                enemy2Animation.AnimationName = "standing";
+                                enemy2Animation.timeScale = 1;
+                            }
+                            else
+                            {
+                                enemy2Animation.AnimationName = "touch down";
+                                enemy2Animation.timeScale = 1;
+                            }
+                            break;
                     }
                 }
             }
         }
+    }
+
+    void Enemy1DeadAnimationLock()
+    {
+        
+        enemy1Animation.timeScale = 0;
+        
+    }
+    void Enemy2DeadAnimationLock()
+    {
+        
+        enemy2Animation.timeScale = 0;
     }
 
     internal void SetCharacterDirection(bool player, int number,bool right)
@@ -703,22 +755,22 @@ public class CharacterManager : MonoBehaviour
             {
                 if (right == true)
                 {
-
+                    player1Rect.localScale = new Vector3(-1, 1, 1);
                 }
                 else
                 {
-
+                    player1Rect.localScale = new Vector3(-1, 1, 1);
                 }
             }
             else
             {
                 if (right == true)
                 {
-
+                    player2Rect.localScale = new Vector3(-1, 1, 1);
                 }
                 else
                 {
-
+                    player2Rect.localScale = new Vector3(-1, 1, 1);
                 }
             }
         }
@@ -739,11 +791,11 @@ public class CharacterManager : MonoBehaviour
             {
                 if (right == true)
                 {
-
+                    enemy2Rect.localScale = new Vector3(1, 1, 1);
                 }
                 else
                 {
-
+                    enemy2Rect.localScale = new Vector3(-1, 1, 1);
                 }
             }
         }
