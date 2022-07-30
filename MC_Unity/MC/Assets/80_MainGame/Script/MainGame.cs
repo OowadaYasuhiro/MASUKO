@@ -18,6 +18,9 @@ public partial class MainGame : MonoBehaviour
     //ボタンマネージャー
     internal ButtonManager buttonManager;
 
+    //キャラクターマネージャー
+    CharacterManager characterManager;
+
     //ステージ
     string stage;
 
@@ -54,6 +57,7 @@ public partial class MainGame : MonoBehaviour
 
     //キャラクターが配置された
     bool onStageCharacter;
+    bool lateOnStageCharacter;
 
     //キャラクターを配置可能
     bool canDeploy;
@@ -125,6 +129,7 @@ public partial class MainGame : MonoBehaviour
         mainGame_StageUI = GetComponent<MainGame_StageUI>();
         mainGame_StageUI.SendMessage("SetBackGround", int.Parse(stage.Substring(1,2)));
         mainGame_StageUI.SendMessage("SetObstacle", int.Parse(stage.Substring(1, 2)));
+        mainGame_StageUI.SendMessage("SetEnemyTargetObject");
         waveNumber = 1;
         playerWin = false;
         onStageCharacter = false;
@@ -135,6 +140,7 @@ public partial class MainGame : MonoBehaviour
         stageGridUI = GameObject.Find("UICamera").GetComponent<StageGridUI>();
         PausePanel.SetActive(false);
         RetirePanel.SetActive(false);
+        characterManager = GetComponent<CharacterManager>();
 
         /************デバック用*********/Master.formationdeta.SetSelectCharacter1(new Charactor(Ghost));
 
@@ -158,7 +164,8 @@ public partial class MainGame : MonoBehaviour
                 SlowCheck();
                 GameUpData();
                 ChangeView();
-                if (onStageCharacter == true) Invoke("GameStateToGameRun",10f);
+                if (onStageCharacter == true && onStageCharacter != lateOnStageCharacter) Invoke(nameof(GameStateToGameRun), 10f);
+                lateOnStageCharacter = onStageCharacter;
                 break;
             case GameState.GameRun:
                 GameInputCheck();
@@ -171,7 +178,8 @@ public partial class MainGame : MonoBehaviour
                 
                 break;
             case GameState.End:
-
+                //終了表示
+                Debug.Log("終了");
                 break;
             case GameState.Result:
 
@@ -183,8 +191,16 @@ public partial class MainGame : MonoBehaviour
     //ウェーブを次へ
     void ChengeWave()
     {
+        gamestate = GameState.PreparationPhase;
         waveNumber += 1;
+        onStageCharacter = true;
+        Invoke(nameof(EnemyReSpawn),2);
+    }
+
+    void EnemyReSpawn()
+    {
         GeneratEnemy();
+        characterManager.CharaReLoad();
     }
 
     void GameStateToGameRun()
@@ -358,18 +374,18 @@ public partial class MainGame : MonoBehaviour
     //ウェーブが終わったか判定
     void WaveClearCheck()
     {
-        bool allenemyalive = false;
-        foreach (var i in enemies)
+        int enemyValue = enemies.Length;
+        int value = 0;
+        foreach (Enemy e in enemies)
         {
-            if(i.alive == true)
+            if (e.alive == false)
             {
-                allenemyalive = true;
-                break;
+                value++;
+            } 
+            if (value == enemyValue)
+            {
+                ChengeWave();
             }
-        }
-        if (allenemyalive == false)
-        {
-            ChengeWave();
         }
     }
 
@@ -613,4 +629,9 @@ public partial class MainGame : MonoBehaviour
         SceneManager.LoadScene("Yanai_TestScene");
     }
 
+    public void EnemyGoal()
+    {
+        playerWin = false;
+        gamestate = GameState.End;
+    }
 }

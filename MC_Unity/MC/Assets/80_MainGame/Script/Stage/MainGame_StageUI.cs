@@ -53,4 +53,12 @@ public class MainGame_StageUI : MonoBehaviour
         bool[,] mapData = GetComponent<MainGame>().mainGame_StageDeta.GetMap();
         GameScreen.SendMessage("InitializeObstacle", mapData);
     }
+
+    internal void SetEnemyTargetObject()
+    {
+        Vector2[] target = new Vector2[2];
+        target[0] = GetComponent<MainGame>().mainGame_StageDeta.enemy1_target_object;
+        target[1] = GetComponent<MainGame>().mainGame_StageDeta.enemy2_target_object;
+        GameScreen.SendMessage("InitializeEnemyTargetObject", target);
+    }
 }

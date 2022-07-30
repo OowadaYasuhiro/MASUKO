@@ -21,7 +21,11 @@
 
     internal void AddDamage(Damage damage)
     {
-        takeDamage =true;
+        if (alive == true)
+        {
+            takeDamage = true;
+        }
+        Invoke(nameof(ExitTakeDamage), 0.5f);
         if (damage.type == Damage.physicsDamage)
         {
             double RPD = 1.0 - (double)physicsDamageResistance / 100.0;
@@ -37,5 +41,14 @@
             double RPD = 1.0 - (double)zyuRyokuResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
+        if (hp <= 0)
+        {
+            alive = false;
+        }
+    }
+
+    void ExitTakeDamage()
+    {
+        takeDamage = false;
     }
 }

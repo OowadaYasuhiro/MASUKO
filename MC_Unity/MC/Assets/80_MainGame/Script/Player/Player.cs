@@ -86,11 +86,15 @@ public partial class Player : MainGameCharacterModel
     //待機座標
     Vector2 outPosition = new Vector2(-1,-1);
 
+    //最後のステート状態
+    CharacterState lastStateType;
+
     internal void Initialized(MainGame mainGame, int number)
     {
         this.mainGame = mainGame;
         Setting(number);
         characterManager = mainGame.GetComponent<CharacterManager>();
+        lastStateType = charactorState;
     }
 
     private void Start()
@@ -150,6 +154,10 @@ public partial class Player : MainGameCharacterModel
         if (findEnemy == true)
         {
             charactorState = CharacterState.Fight;
+        }
+        else
+        {
+            charactorState = lastStateType;
         }
 
         switch (charactorState)
@@ -213,23 +221,24 @@ public partial class Player : MainGameCharacterModel
         {
             case CharacterState.Wait:
                 charactorAnimState = CharacterAnimState.Wait;
+                lastStateType = charactorState;
                 break;
             case CharacterState.Fight:
                 charactorAnimState = CharacterAnimState.Fight;
                 break;
         }
 
-        
-        /******************アニメーション*******************/
         characterManager.CharacterVisualization(position,true,myNumber);
         characterManager.CharacterAnimation(true, myNumber, charactorAnimState, Charactername,takeDamage);
-        characterManager.SetCharacterHpSlider(myNumber,hp,maxHp);
+        characterManager.SetCharacterDirection(true, myNumber, directionRight);
+        characterManager.SetCharacterHpSlider(myNumber,hp,maxHp,true);
     }
 
     //配置
     internal void Deploy(Vector2 targetPosition)
     {
         charactorState = CharacterState.Wait;
+        lastStateType = CharacterState.Wait;
         goback = false;
         position = targetPosition;
         displaying = true;

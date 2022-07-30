@@ -7,7 +7,7 @@ public class MainGameCharacterModel : MainGameCharacterState
     //名前(名前で中身の有無を確認)
     protected string Charactername = "";
     //ステージに出ているかどうか
-    internal bool displaying;
+    internal bool displaying = false;
     //向き
     internal bool directionRight;
     //座標
@@ -35,6 +35,8 @@ public class MainGameCharacterModel : MainGameCharacterState
     protected int resultingAttackPower;
     //スキルイベント
     protected SkillEvent skillEvent;
+    //ゴール
+    protected bool Goal;
 
     public MainGameCharacterModel() : base()
     {
@@ -72,7 +74,7 @@ public class MainGameCharacterModel : MainGameCharacterState
                 moveTargetPointer++;
                 if (targetPosition.Length <= moveTargetPointer)
                 {
-                    //回収
+                    Goal = true;
                     moveTargetPointer--;
                 }
                 next = true;
