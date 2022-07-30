@@ -21,6 +21,7 @@ public partial class Enemy : MainGameCharacterModel
     Damage damage;
     int attackFrequency;
     int attackCooldown = 0;
+    float attackAnimationFrequency = 0.5f;
 
     //MainGameのアドレス
     MainGame mainGame;
@@ -30,6 +31,15 @@ public partial class Enemy : MainGameCharacterModel
 
     //表示クラス
     CharacterManager characterManager;
+
+    //アニメーション用ディレイ
+    bool animationSkip = false;
+
+    //プレイヤーが目の前にいるか
+    bool onCollisionPlayer = false;
+    const int withFightTime = 300;
+    int withFightCool = 0;
+    Vector2[] targetRange = new Vector2[] {new Vector2(0,0),new Vector2(1,0)};
 
     internal void Initialized(MainGame mainGame, string difficulty, string name, int number)
     {
@@ -65,82 +75,88 @@ public partial class Enemy : MainGameCharacterModel
     //情報収集
     public void FastUpDate()
     {
-        if (fightThrough == true)
+        if (animationSkip == false)
         {
-            throughTime++;
-            if(throughTime >= maxThroughTime)
+            if (fightThrough == true)
             {
-                fightThrough = false;
-            }
-        }
-        switch (charactorState)
-        {
-            case CharacterState.Stan:
-                charactorState = lastRunType;
-                break;
-            case CharacterState.Run:
-                lastRunType = CharacterState.Run;
-                
-                break;
-            case CharacterState.RunAway:
-                lastRunType = CharacterState.RunAway;
-                
-                break;
-            case CharacterState.Fight:
-                if (fightThrough == true)
+                throughTime++;
+                if (throughTime >= maxThroughTime)
                 {
-                    charactorState = lastRunType;
+                    fightThrough = false;
                 }
-                break;
+            }
+            if (findEnemy == true && fightThrough == false)
+            {
+                charactorState = CharacterState.Fight;
+            }
+            if (mainGame.SearchCharacter(position, targetRange, true, false, false).Length > 0)
+            {
+                onCollisionPlayer = true;
+            }
+            else
+            {
+                onCollisionPlayer = false;
+            }
+            if (onCollisionPlayer == true)
+            {
+                withFightCool++;
+                if (withFightCool == withFightTime)
+                {
+                    onCollisionPlayer = false;
+                }
+            }
         }
     }
 
     //計算
     public void UpDate()
     {
-        //スキルの反映とリセット
-        if (skillEvent != null)
+        if (animationSkip == false)
         {
-            skillEvent();
-            ReMoveAllEvents();
-        }
-        switch (charactorState)
-        {
-            case CharacterState.Run:
-
-                Move(mainGame.gameSpeed);
-                //攻撃範囲に敵がいて戦闘無視状態で無い場合
-                if (findEnemy == true && fightThrough == false)
-                {
-                    charactorState = CharacterState.Fight;
-                }
-                break;
-            case CharacterState.RunAway:
-
-                Move(mainGame.gameSpeed);
-                //攻撃範囲に敵がいて戦闘無視状態で無い場合
-                if (findEnemy == true && fightThrough == false)
-                {
-                    charactorState = CharacterState.Fight;
-                }
-                break;
-            case CharacterState.Fight:
-                attackCooldown--;
-                if (attackCooldown <= 0)
-                {
-                    attackCooldown = attackFrequency;
-                    foreach (MainGameCharacterModel target in targetEnemy)
+            //スキルの反映とリセット
+            if (skillEvent != null)
+            {
+                skillEvent();
+                ReMoveAllEvents();
+            }
+            switch (charactorState)
+            {
+                case CharacterState.Run:
+                    if (onCollisionPlayer == true)
                     {
-                        damage.value = baseAttackPower;
-                        target.AddDamage(damage);
+                        goto case CharacterState.Fight;
                     }
-                }
-                fightTime++;
-                if (fightTime >= maxFightTime)
-                {
-                    fightThrough = true;
-                }
-                break;
+                    lastRunType = CharacterState.Run;
+                    Move(mainGame.gameSpeed);
+                    break;
+                case CharacterState.RunAway:
+                    if (onCollisionPlayer == true)
+                    {
+                        goto case CharacterState.Fight;
+                    }
+                    lastRunType = CharacterState.RunAway;
+                    Move(mainGame.gameSpeed);
+                    break;
+                case CharacterState.Fight:
+                    attackCooldown--;
+                    if (attackCooldown <= 0)
+                    {
+                        attackCooldown = attackFrequency;
+                        foreach (MainGameCharacterModel target in targetEnemy)
+                        {
+                            damage.value = baseAttackPower;
+                            target.AddDamage(damage);
+                        }
+                        animationSkip = true;
+                        Invoke("EndAnimationSkip", attackAnimationFrequency);
+                    }
+                    fightTime++;
+                    if (fightTime >= maxFightTime)
+                    {
+                        fightThrough = true;
+                    }
+                    break;
+            }
         }
     }
 
@@ -168,5 +184,10 @@ public partial class Enemy : MainGameCharacterModel
         characterManager.CharacterVisualization(position, false, myNumber);
         characterManager.CharacterAnimation(false,myNumber,charactorAnimState,Charactername,takeDamage);
         characterManager.SetCharacterDirection(false,myNumber,directionRight);
+    }
+
+    void EndAnimationSkip()
+    {
+        animationSkip = false;
     }
 }
