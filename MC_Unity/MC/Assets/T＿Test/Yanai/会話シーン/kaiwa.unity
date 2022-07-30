@@ -636,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &771016010
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1601,10 +1601,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 838.49994, y: 64}
+  scrollPos: {x: 838.5, y: 64}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 280
+  blockViewHeight: 405
   zoom: 1
   scrollViewRect:
     serializedVersion: 2
@@ -3255,7 +3255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 771016043}
+  selectedFlowchart: {fileID: 1634615900}
 --- !u!4 &1380460263
 Transform:
   m_ObjectHideFlags: 1
@@ -3452,13 +3452,14 @@ GameObject:
   - component: {fileID: 1634615923}
   - component: {fileID: 1634615924}
   - component: {fileID: 1634615925}
+  - component: {fileID: 1634615926}
   m_Layer: 0
   m_Name: Flowchart1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1634615900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3483,8 +3484,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 1634615902}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
@@ -3562,12 +3562,13 @@ MonoBehaviour:
   - {fileID: 1634615923}
   - {fileID: 1634615917}
   - {fileID: 1634615916}
+  - {fileID: 1634615926}
   - {fileID: 1634615914}
   - {fileID: 1634615913}
   - {fileID: 1634615912}
   - {fileID: 1634615911}
-  - {fileID: 1634615910}
   - {fileID: 1634615909}
+  - {fileID: 1634615910}
   - {fileID: 1634615908}
   - {fileID: 1634615906}
   - {fileID: 1634615924}
@@ -4187,6 +4188,36 @@ MonoBehaviour:
   orthoSizeTweenType: 4
   posTweenType: 4
   rotTweenType: 4
+--- !u!114 &1634615926
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634615899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 25
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 556578966}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: e918d2e884ad94748b99c95eaafa5698, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 1388104126}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!1 &1649734757
 GameObject:
   m_ObjectHideFlags: 0
