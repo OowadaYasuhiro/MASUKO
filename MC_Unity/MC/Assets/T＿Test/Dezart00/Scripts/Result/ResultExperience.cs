@@ -30,7 +30,7 @@ public class ResultExperience : MonoBehaviour
     {
         /*TextLvel = null;
         TextTotalExperience = null;*/
-        TotalExperience = 800;
+        TotalExperience = 0;
         Lv_num = 1;
     }
     // Start is called before the first frame update
