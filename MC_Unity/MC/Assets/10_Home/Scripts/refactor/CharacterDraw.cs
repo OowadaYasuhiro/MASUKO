@@ -14,6 +14,9 @@ namespace HomeScene
         [SerializeField]
         private bool isDebug = false;
 
+        [SerializeField]
+        private GameObject soundManager;
+
         private string characterName;
         private string characterSpeech;
         private Sprite characterImage;
@@ -112,27 +115,32 @@ namespace HomeScene
             if (character.name == "幽霊")
             {
                 characterSpeech = HomeScene_Deta.ghostSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum);
             }
             if (character.name == "座敷童")
             {
                 characterSpeech = HomeScene_Deta.zasikiwarasiSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 5);
             }
             if (character.name == "鬼")
             {
                 characterSpeech = HomeScene_Deta.oniSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 10);
             }
             if (character.name == "ポルターガイスト")
             {
                 characterSpeech = HomeScene_Deta.poltergeistSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 15);
             }
             if (character.name == "悪魔")
             {
                 characterSpeech = HomeScene_Deta.demonSpeechTexts[randomNum];
+                soundManager.GetComponent<SoundManager>().PlayVoice(randomNum + 20);
             }
 
             messageWindow.transform.GetChild(2).GetComponent<Text>().text = characterSpeech;
 
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(5.0f);
             messageWindow.SetActive(false);
             yield break;
         }
