@@ -629,13 +629,14 @@ GameObject:
   - component: {fileID: 771016010}
   - component: {fileID: 771016045}
   - component: {fileID: 771016046}
+  - component: {fileID: 771016025}
   m_Layer: 0
   m_Name: Flowchart1-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &771016010
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1065,6 +1066,31 @@ MonoBehaviour:
   move: 0
   shiftIntoPlace: 0
   waitUntilFinished: 0
+--- !u!114 &771016025
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771016009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 34
+  indentLevel: 0
+  duration: 1
+  fadeOut: 1
+  targetView: {fileID: 1649734758}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 80620172}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
 --- !u!114 &771016026
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1517,8 +1543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
-    y: 70
+    x: 66
+    y: 71
     width: 111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1528,6 +1554,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 771016045}
   commandList:
+  - {fileID: 771016025}
   - {fileID: 771016027}
   - {fileID: 771016041}
   - {fileID: 771016040}
@@ -1574,7 +1601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 837.5, y: 65}
+  scrollPos: {x: 838.49994, y: 64}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
@@ -1585,7 +1612,8 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 771016042}
   selectedCommands: []
   variables: []
   description: 
@@ -1905,13 +1933,14 @@ GameObject:
   - component: {fileID: 1080466467}
   - component: {fileID: 1080466492}
   - component: {fileID: 1080466471}
+  - component: {fileID: 1080466476}
   m_Layer: 0
   m_Name: Flowchart1-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1080466450
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2641,6 +2670,31 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1080466476
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080466449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 42
+  indentLevel: 0
+  duration: 1
+  fadeOut: 1
+  targetView: {fileID: 1649734758}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 80620172}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
 --- !u!114 &1080466477
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2981,6 +3035,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1080466488}
   commandList:
+  - {fileID: 1080466476}
   - {fileID: 1080466478}
   - {fileID: 1080466487}
   - {fileID: 1080466486}
@@ -3033,7 +3088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 214.5, y: 57}
+  scrollPos: {x: 837.5, y: 65}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -3430,8 +3485,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1634615902}
-  selectedCommands:
-  - {fileID: 1634615924}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -4424,6 +4478,7 @@ GameObject:
   - component: {fileID: 1986484792}
   - component: {fileID: 1986484791}
   - component: {fileID: 1986484789}
+  - component: {fileID: 1986484773}
   m_Layer: 0
   m_Name: Flowchart1-3
   m_TagString: Untagged
@@ -4431,6 +4486,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1986484773
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986484772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 27
+  indentLevel: 0
+  duration: 1
+  fadeOut: 1
+  targetView: {fileID: 1649734758}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 80620172}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
 --- !u!114 &1986484774
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4760,7 +4840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 67
+    x: 68
     y: 70
     width: 111
     height: 40
@@ -4771,6 +4851,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1986484785}
   commandList:
+  - {fileID: 1986484773}
   - {fileID: 1986484783}
   - {fileID: 1986484784}
   - {fileID: 1986484774}
@@ -4806,7 +4887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 837.5, y: 65}
+  scrollPos: {x: 836.5, y: 65}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 280
