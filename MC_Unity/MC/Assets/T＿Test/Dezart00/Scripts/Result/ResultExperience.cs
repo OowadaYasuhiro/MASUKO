@@ -9,6 +9,8 @@ public class ResultExperience : MonoBehaviour
     public GameObject TextLvel;
     [SerializeField]
     public GameObject TextTotalExperience;
+    [SerializeField]
+    public GameObject skipButton;
     /*[SerializeField]
     public GameObject Item_object = null;
     [SerializeField]
@@ -22,21 +24,24 @@ public class ResultExperience : MonoBehaviour
     private float speed = 0.01f;
     public Text TE_Lv;
     public Text Lv_text;
+    private bool skip;
 
     void Awake()
     {
         /*TextLvel = null;
         TextTotalExperience = null;*/
-        TotalExperience = 0;
+        TotalExperience = 800;
         Lv_num = 1;
     }
     // Start is called before the first frame update
     void Start()
     {
+        skip = false;
 
         //スライダーの最大値の設定
         exSlider.maxValue = Lv_num * 1000;
 
+        StartCoroutine(ScoreAnimation(TotalExperience, TotalExperience + 200f, 1f));
     }
 
     // Update is called once per frame
@@ -46,7 +51,7 @@ public class ResultExperience : MonoBehaviour
         { //Down
             StartCoroutine(ScoreAnimation(TotalExperience, TotalExperience + 200f, 1f));
         }
-        if (/*Master.playerdeta.PlayerExperience*/ Lv_num * 1000 == TotalExperience)
+        if (/*Master.playerdeta.PlayerExperience*/ Lv_num * 1000 == TotalExperience || /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000 <= TotalExperience)
         {
             Lv_num += 1;
             TotalExperience = 0;
@@ -61,9 +66,11 @@ public class ResultExperience : MonoBehaviour
         //Text Item_text = Item_object.GetComponent<Text>();
         //Item_text.text = "×" + Item_num;
     }
+
     // スコアをアニメーションさせる
     private IEnumerator ScoreAnimation(float startScore, float endScore, float duration)
     {
+
         // 開始時間
         float startTime = Time.time;
 
@@ -78,18 +85,37 @@ public class ResultExperience : MonoBehaviour
             // 数値を更新
             float updateValue = (float)((endScore - startScore) * timeRate + startScore);
 
+            //updateValue = TotalExperience;
+
             // テキストの更新
             TE_Lv.text = updateValue.ToString("f0") + "/" + /*Master.playerdeta.PlayerExperience*/ Lv_num * 1000; // （"f0" の "0" は、小数点以下の桁数指定）
 
             //スライダーの現在値の設定
             exSlider.value = updateValue;
+
+
+
+
             // 1フレーム待つ
             yield return null;
+
+            if (skip == true)
+            {
+                break;
+            }
 
         } while (Time.time < endTime);
 
         // 最終的な着地のスコア
         TotalExperience = endScore;
         TE_Lv.text = TotalExperience.ToString();
+        skipButton.SetActive(false);
+    }
+    
+    public void Skipbutton()
+    {
+        skip = true;
+        TotalExperience += 200;
+        skipButton.SetActive(false);
     }
 }

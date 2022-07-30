@@ -38,7 +38,11 @@ public class Resulttest : MonoBehaviour
     [SerializeField]
     public string[] characterNames = {"Daemon", "Poltergeis", "Gore", "Zashiki_warashi", "Ghost"};
     [SerializeField]
-    public int test1;
+    public string test1;
+
+    [SerializeField]
+    public SoundManager voice;
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,26 +53,31 @@ public class Resulttest : MonoBehaviour
                 commen.text = selectCharactoGhostCommen[0];
                 character.sprite = characterUiSelectGhost[0];
                 characterName.text = "NAME:" + characterNames[0];
+                voice.PlayVoice(0);
                 break;
             case "Zashiki_warashi":
                 commen.text = selectCharactorZashiki_warashiCommen[0];
                 character.sprite = characterUiSelectZashiki_warashi[0];
                 characterName.text = "NAME:" + characterNames[0];
+                voice.PlayVoice(4);
                 break;
             case "Gore":
                 commen.text = selectCharactorGoreCommen[0];
                 character.sprite = characterUiSelectGore[0];
                 characterName.text = "NAME:" + characterNames[0];
+                voice.PlayVoice(8);
                 break;
             case "Poltergeist":
                 commen.text = selectCharactorPoltergeistCommen[0];
                 character.sprite = characterUiSelectPoltergeist[0];
                 characterName.text = "NAME:" + characterNames[0];
+                voice.PlayVoice(12);
                 break;
             case "Daemon":
                 commen.text = selectCharactorDaemonCommen[0];
                 character.sprite = characterUiSelectDaemon[0];
                 characterName.text = "NAME:" + characterNames[0];
+                voice.PlayVoice(16);
                 break;
         }
     }
