@@ -105,13 +105,6 @@ public partial class MainGame : MonoBehaviour
     internal Vector2 player1pos;
     internal Vector2 player2pos;
 
-
-    //召喚
-    internal SummonsCharacter[] summonsCharacter = new SummonsCharacter[8];
-
-    //召喚
-    internal SummonsObject[] summonsobject = new SummonsObject[8];
-
     //カーソルの位置
     StageGridUI stageGridUI;
 
@@ -412,20 +405,6 @@ public partial class MainGame : MonoBehaviour
         {
             enemy.FastUpDate();
         }
-        foreach(SummonsCharacter summonsCharacter in this.summonsCharacter)
-        {
-            if (summonsCharacter != null)
-            {
-                summonsCharacter.FastUpDate();
-            }
-        }
-        foreach(SummonsObject summonsObject in this.summonsobject)
-        {
-            if (summonsObject != null)
-            {
-                summonsObject.FastUpDate();
-            }
-        }
         //nomal
         foreach (Player player in players)
         {
@@ -435,20 +414,6 @@ public partial class MainGame : MonoBehaviour
         {
             enemy.UpDate();
         }
-        foreach (SummonsCharacter summonsCharacter in this.summonsCharacter)
-        {
-            if (summonsCharacter != null)
-            {
-                summonsCharacter.UpDate();
-            }
-        }
-        foreach (SummonsObject summonsObject in this.summonsobject)
-        {
-            if (summonsObject != null)
-            {
-                summonsObject.UpDate();
-            }
-        }
         //late
         foreach (Player player in players)
         {
@@ -457,20 +422,6 @@ public partial class MainGame : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             enemy.LateUpDate();
-        }
-        foreach (SummonsCharacter summonsCharacter in this.summonsCharacter)
-        {
-            if (summonsCharacter != null)
-            {
-                summonsCharacter.LateUpDate();
-            }
-        }
-        foreach (SummonsObject summonsObject in this.summonsobject)
-        {
-            if (summonsObject != null)
-            {
-                summonsObject.LateUpDate();
-            }
         }
     }
 
@@ -617,68 +568,6 @@ public partial class MainGame : MonoBehaviour
             }
         }
         EnemyViewExit:
-
-        for (int i = 0; i < summonsCharacter.Length; i++)
-        {
-            if (summonsCharacter[i] == null || summonsCharacter[i].GetName() == "")
-            {
-                goto SummoncharacterViewExit;
-            }
-            if (summonsCharacter[i].directionRight == true)
-            {
-                for (int j = 0; j < summonsCharacter[i].viewRange.Length; j++)
-                {
-                    if ((int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x) > 9 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) > 5 || (int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x) < 0 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) < 0)
-                    {
-                        continue;
-                    }
-                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y)] = true;
-                }
-            }
-            else
-            {
-                for (int j = 0; j < summonsCharacter[i].viewRange.Length; j++)
-                {
-                    if ((int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x * -1) > 9 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) > 5 || (int)(summonsCharacter[i].position.x + summonsCharacter[i].viewRange[j].x * -1) < 0 || (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y) < 0)
-                    {
-                        continue;
-                    }
-                    mainGame_StageDeta.view.viewArray[(int)(summonsCharacter[i].position.x + (summonsCharacter[i].viewRange[j].x * -1)), (int)(summonsCharacter[i].position.y + summonsCharacter[i].viewRange[j].y)] = true;
-                }
-            }
-        }
-        SummoncharacterViewExit:
-
-        for (int i = 0; i < summonsobject.Length; i++)
-        {
-            if (summonsobject[i] == null || summonsobject[i].GetName() == "")
-            {
-                goto SummonObjectExitViewExit;
-            }
-            if (summonsobject[i].directionRight == true)
-            {
-                for (int j = 0; j < summonsobject[i].viewRange.Length; j++)
-                {
-                    if ((int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x) > 9 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) > 5 || (int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x) < 0 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) < 0)
-                    {
-                        continue;
-                    }
-                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y)] = true;
-                }
-            }
-            else
-            {
-                for (int j = 0; j < summonsobject[i].viewRange.Length; j++)
-                {
-                    if ((int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x * -1) > 9 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) > 5 || (int)(summonsobject[i].position.x + summonsobject[i].viewRange[j].x * -1) < 0 || (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y) < 0)
-                    {
-                        continue;
-                    }
-                    mainGame_StageDeta.view.viewArray[(int)(summonsobject[i].position.x + (summonsobject[i].viewRange[j].x * -1)), (int)(summonsobject[i].position.y + summonsobject[i].viewRange[j].y)] = true;
-                }
-            }
-        }
-        SummonObjectExitViewExit:
 
         //出現場所と目標を見えるように
         mainGame_StageDeta.view.viewArray[(int)mainGame_StageDeta.enemy1_spawn_position.x, (int)mainGame_StageDeta.enemy1_spawn_position.y] = true;

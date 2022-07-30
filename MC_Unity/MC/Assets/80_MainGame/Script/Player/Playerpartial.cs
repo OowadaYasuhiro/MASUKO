@@ -241,6 +241,7 @@ public partial class Player
                 skillEvent2 = DaemonSkill2;
                 void DaemonSkill2()
                 {
+                    /*
                     //ステートをスタンに移行
                     void EnemyStan()
                     {
@@ -274,6 +275,7 @@ public partial class Player
                             break;
                         }   
                     }
+                    */
                 }
                 //最大スタック数設定
                 maxSkill3Stack = 1;

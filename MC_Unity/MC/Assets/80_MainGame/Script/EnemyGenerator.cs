@@ -48,23 +48,6 @@ partial class MainGame : MonoBehaviour
                     }
                 }
             }
-            if (summonsCharacter == true)
-            {
-                foreach (SummonsCharacter targetsummonsCharacter in this.summonsCharacter)
-                {
-                    if (targetsummonsCharacter == null || targetsummonsCharacter.displaying == false)
-                    {
-                        continue;
-                    }
-                    if (targetsummonsCharacter.position.x >= (position.x + place.x - 0.5) && targetsummonsCharacter.position.x < (position.x + place.x + 0.5))
-                    {
-                        if (targetsummonsCharacter.position.y >= (position.y + place.y - 0.5) && targetsummonsCharacter.position.y < (position.y + place.y + 0.5))
-                        {
-                            subjectList.Add(targetsummonsCharacter);
-                        }
-                    }
-                }
-            }
         }
         MainGameCharacterModel[] subject = new MainGameCharacterModel[subjectList.Count];
         for (int i = 0;i < subjectList.Count;i++)
