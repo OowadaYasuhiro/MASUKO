@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Constant;
 
 public class FormationDeta
 {
@@ -134,10 +135,14 @@ public class FormationDeta
         {
             artifacts = JsonHelper.FromJson<Artifact>(PlayerPrefs.GetString("artifacts"));
         }
+
+        if (selectcharactor1 == null && selectcharactor2 == null)
+        {
+            //*******************************************************************************************うーん
+        }
     }
 }
 
-//[System.Serializable]
 public struct Charactor
 {
     public string name;
