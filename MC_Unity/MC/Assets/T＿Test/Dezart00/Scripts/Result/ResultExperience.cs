@@ -31,11 +31,11 @@ public class ResultExperience : MonoBehaviour
         /*TextLvel = null;
         TextTotalExperience = null;*/
         TotalExperience = 0;
-<<<<<<< HEAD
+//<<<<<<< HEAD
         Lv_num = Master.playerdeta.PlayerLevel;
-=======
-        Lv_num = 1;
->>>>>>> main
+//=======
+        //Lv_num = 1;
+//>>>>>>> main
     }
     // Start is called before the first frame update
     void Start()
