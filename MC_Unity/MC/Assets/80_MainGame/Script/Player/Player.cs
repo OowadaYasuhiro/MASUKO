@@ -5,16 +5,16 @@ using UnityEngine;
 public partial class Player : MainGameCharacterModel
 {
     //自分の番号
-    internal int myNumber;
+    public int myNumber;
     //スキル
     //使用されたかどうか
-    internal bool skill1;
-    internal bool skill2;
-    internal bool skill3;
+    public bool skill1;
+    public bool skill2;
+    public bool skill3;
     //スキルの内容
-    internal SkillEvent skillEvent1;
-    internal SkillEvent skillEvent2;
-    internal SkillEvent skillEvent3;
+    public SkillEvent skillEvent1;
+    public SkillEvent skillEvent2;
+    public SkillEvent skillEvent3;
     //クールダウン
     int skill1CoolDown;
     int skill2CoolDown;
@@ -24,9 +24,9 @@ public partial class Player : MainGameCharacterModel
     int skill2CoolTime;
     int skill3CoolTime;
     //使用可能か
-    internal bool skill1Cool;
-    internal bool skill2Cool;
-    internal bool skill3Cool;
+    public bool skill1Cool;
+    public bool skill2Cool;
+    public bool skill3Cool;
     bool lateSkill1Cool;
     bool lateSkill2Cool;
     bool lateSkill3Cool;
@@ -41,7 +41,7 @@ public partial class Player : MainGameCharacterModel
 
     //怨嗟
     //使用されたかどうか
-    internal bool ult;
+    public bool ult;
     //怨嗟内容
     SkillEvent ultSkillEvent;
     //所持怨念
@@ -63,8 +63,8 @@ public partial class Player : MainGameCharacterModel
     int maxPassiveStack;
 
     //撤退
-    internal bool goback;
-    internal int relocationFrame;
+    public bool goback;
+    public int relocationFrame;
     int relocationFrameValue;
 
     //攻撃
@@ -89,7 +89,7 @@ public partial class Player : MainGameCharacterModel
     //最後のステート状態
     CharacterState lastStateType;
 
-    internal void Initialized(MainGame mainGame, int number)
+    public void Initialized(MainGame mainGame, int number)
     {
         this.mainGame = mainGame;
         Setting(number);
@@ -235,7 +235,7 @@ public partial class Player : MainGameCharacterModel
     }
 
     //配置
-    internal void Deploy(Vector2 targetPosition)
+    public void Deploy(Vector2 targetPosition)
     {
         charactorState = CharacterState.Wait;
         lastStateType = CharacterState.Wait;

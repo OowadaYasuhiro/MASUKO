@@ -7,11 +7,11 @@ public class MainGameCharacterModel : MainGameCharacterState
     //名前(名前で中身の有無を確認)
     protected string Charactername = "";
     //ステージに出ているかどうか
-    internal bool displaying = false;
+    public bool displaying = false;
     //向き
-    internal bool directionRight;
+    public bool directionRight;
     //座標
-    internal Vector2 position;
+    public Vector2 position;
     //移動用
     protected Vector2[] targetPosition;
     protected Vector2 latePosition;
@@ -23,12 +23,12 @@ public class MainGameCharacterModel : MainGameCharacterState
     //移動速度
     protected float moveSpeed;
     //攻撃範囲
-    internal Vector2[] attackRange;
+    public Vector2[] attackRange;
     //視界範囲
-    internal Vector2[] viewRange;
+    public Vector2[] viewRange;
     //接敵
-    internal bool findEnemy;
-    internal MainGameCharacterModel[] targetEnemy;
+    public bool findEnemy;
+    public MainGameCharacterModel[] targetEnemy;
     //基本ステータス攻撃力
     protected int baseAttackPower;
     //攻撃力計算結果
@@ -44,7 +44,7 @@ public class MainGameCharacterModel : MainGameCharacterState
     }
 
     //名前取得
-    internal string GetName()
+    public string GetName()
     {
         return Charactername;
     }

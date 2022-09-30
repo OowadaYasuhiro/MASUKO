@@ -17,7 +17,7 @@ public class BackGorund : MonoBehaviour
     //ステージ5背景
     [SerializeField] public Sprite stage5BackGround;
 
-    internal void SetBackGround(int number)
+    public void SetBackGround(int number)
     {
         Image image = GetComponent<Image>();
         switch (number)

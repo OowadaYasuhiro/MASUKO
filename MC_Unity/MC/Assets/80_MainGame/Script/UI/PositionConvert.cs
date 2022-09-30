@@ -26,7 +26,7 @@ public class PositionConvert : MonoBehaviour
     const float correctionWidth = 0.1f;
 
     //座標変換
-    static internal Vector2 VectorConvert(Vector2 positionData)
+    static public Vector2 VectorConvert(Vector2 positionData)
     {
         float posx0 = positionData.x / 1;
         float posx1 = posx0 + 1;

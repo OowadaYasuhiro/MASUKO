@@ -138,7 +138,7 @@ public class FormationDeta
 
         if (selectcharactor1 == null && selectcharactor2 == null)
         {
-            //*******************************************************************************************うーん
+            selectcharactor1 = new Charactor("幽霊", 1, 0, 1, 1, 1, 1, 1, 0, 500, 120, 70, "幽霊のパッシブ", "スキルを使用したとき\n怨念の回収量が\n1.1倍になる");
         }
     }
 }

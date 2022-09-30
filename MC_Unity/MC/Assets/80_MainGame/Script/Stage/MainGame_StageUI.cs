@@ -25,12 +25,12 @@ public class MainGame_StageUI : MonoBehaviour
     [SerializeField] GameObject EP5GameScreen;
 
     //バックグラウンドをセット
-    internal void SetBackGround(int number)
+    public void SetBackGround(int number)
     {
         //BackGround.SendMessage("SetBackGround",number);
     }
 
-    internal void SetObstacle(int number)
+    public void SetObstacle(int number)
     {
         switch (number)
         {
@@ -54,7 +54,7 @@ public class MainGame_StageUI : MonoBehaviour
         GameScreen.SendMessage("InitializeObstacle", mapData);
     }
 
-    internal void SetEnemyTargetObject()
+    public void SetEnemyTargetObject()
     {
         Vector2[] target = new Vector2[2];
         target[0] = GetComponent<MainGame>().mainGame_StageDeta.enemy1_target_object;

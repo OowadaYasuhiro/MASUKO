@@ -59,7 +59,7 @@ public class CharacterManager : MonoBehaviour
         CharaReLoad();
     }
 
-    internal void CharaReLoad()
+    public void CharaReLoad()
     {
         for (int i = 0; i < Player1Spine.Length; i++)
         {
@@ -491,7 +491,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    internal void SetCharacterHpSlider(int number,int hp,int maxHp, bool player)
+    public void SetCharacterHpSlider(int number,int hp,int maxHp, bool player)
     {
         if (player == true)
         {
@@ -517,7 +517,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    internal void CharacterAnimation(bool player,int number, CharacterAnimState characterAnimState,string name,bool takeDamage)
+    public void CharacterAnimation(bool player,int number, CharacterAnimState characterAnimState,string name,bool takeDamage)
     {
         if (takeDamage == true)
         {
@@ -747,7 +747,7 @@ public class CharacterManager : MonoBehaviour
         enemy2Animation.timeScale = 0;
     }
 
-    internal void SetCharacterDirection(bool player, int number,bool right)
+    public void SetCharacterDirection(bool player, int number,bool right)
     {
         if (player == true)
         {
