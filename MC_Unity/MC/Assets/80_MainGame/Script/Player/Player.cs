@@ -62,6 +62,9 @@ public partial class Player : MainGameCharacterModel
     //最大スタック数
     int maxPassiveStack;
 
+    //遺物の効果
+    SkillEvent relicSkill;
+
     //撤退
     public bool goback;
     public int relocationFrame;
@@ -186,6 +189,10 @@ public partial class Player : MainGameCharacterModel
         if (passiveSkill != null)
         {
             passiveSkill();
+        }
+        if (relicSkill != null)
+        {
+            relicSkill();
         }
         switch (charactorState)
         {

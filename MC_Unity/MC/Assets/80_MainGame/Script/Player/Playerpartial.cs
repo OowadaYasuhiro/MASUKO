@@ -747,7 +747,243 @@ public partial class Player
                     grudgeAmountIncreasePercentage = 1.1f;
                 }
                 break;
-                switch (artifact1.)
+
+                List<Artifact> artifacts = new List<Artifact>();
+                artifacts.Add(artifact1);
+                artifacts.Add(artifact2);
+                artifacts.Add(artifact3);
+                string seriesName = "";
+                int seriesStack = 0;
+                foreach (Artifact artifact in artifacts)
+                {
+                    switch (artifact.name)
+                    {
+                        case Huanokan:
+                        case Onnnennokan:
+                            if (artifact.level >= 15)
+                            {
+                                resultingAttackPower += 12;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                resultingAttackPower += 8;
+                            }
+                            else
+                            {
+                                resultingAttackPower += 2;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Rekisennokan:
+                        case Yujyounokan:
+                            if (artifact.level >= 20)
+                            {
+                                resultingAttackPower += 26;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                resultingAttackPower += 15;
+                            }
+                            else
+                            {
+                                resultingAttackPower += 5;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Akatukinokan:
+                            if (artifact.level >= 25)
+                            {
+                                resultingAttackPower += 38;
+                            }
+                            else if (artifact.level >= 20)
+                            {
+                                resultingAttackPower += 32;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                resultingAttackPower += 23;
+                            }
+                            else
+                            {
+                                resultingAttackPower += 10;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Huanoudewa:
+                        case Onnnennoudewa:
+                            if (artifact.level >= 15)
+                            {
+                                physicsDamageResistance += 12;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                physicsDamageResistance += 8;
+                            }
+                            else
+                            {
+                                physicsDamageResistance += 2;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Rekisennoudewa:
+                        case Yujyounoudewa:
+                            if (artifact.level >= 20)
+                            {
+                                physicsDamageResistance += 26;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                physicsDamageResistance += 15;
+                            }
+                            else
+                            {
+                                physicsDamageResistance += 5;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Akatukinoudewa:
+                            if (artifact.level >= 25)
+                            {
+                                physicsDamageResistance += 38;
+                            }
+                            else if (artifact.level >= 20)
+                            {
+                                physicsDamageResistance += 32;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                physicsDamageResistance += 23;
+                            }
+                            else
+                            {
+                                physicsDamageResistance += 10;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Huanoyubiwa:
+                        case Onnnennoyubiwa:
+                            if (artifact.level >= 15)
+                            {
+                                hp = 45;
+                                maxHp = 45;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                hp = 35;
+                                maxHp = 35;
+                            }
+                            else
+                            {
+                                hp = 25;
+                                maxHp = 25;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Rekisennoyubiwa:
+                        case Yujyounoyubiwa:
+                            if (artifact.level >= 20)
+                            {
+                                hp = 58;
+                                maxHp = 58;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                hp = 48;
+                                maxHp = 48;
+                            }
+                            else
+                            {
+                                hp = 30;
+                                maxHp = 30;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        case Akatukinoyubiwa:
+                            if (artifact.level >= 25)
+                            {
+                                hp = 72;
+                                maxHp = 72;
+                            }
+                            else if (artifact.level >= 20)
+                            {
+                                hp = 63;
+                                maxHp = 63;
+                            }
+                            else if (artifact.level >= 10)
+                            {
+                                hp = 52;
+                                maxHp = 52;
+                            }
+                            else
+                            {
+                                hp = 35;
+                                maxHp = 35;
+                            }
+                            goto SeriesCheck;
+                            break;
+                        SeriesCheck:
+                            string tmpSeriesName = "";
+                            if (artifact.name.EndsWith("冠"))
+                            {
+                                tmpSeriesName = artifact.name.Substring(0, artifact.name.Length - 6);
+                            }
+                            if (artifact.name.EndsWith("腕輪"))
+                            {
+                                tmpSeriesName = artifact.name.Substring(0, artifact.name.Length - 8);
+                            }
+                            if (artifact.name.EndsWith("指輪"))
+                            {
+                                tmpSeriesName = artifact.name.Substring(0, artifact.name.Length - 9);
+                            }
+                            if (seriesName == "")
+                            {
+                                seriesName = tmpSeriesName;
+                            }
+                            else if (seriesName == tmpSeriesName)
+                            {
+                                seriesStack++;
+                                if (seriesStack == 2)
+                                {
+                                    switch (seriesName)
+                                    {
+                                        case "Hua":
+                                            relocationFrame -= 120;
+                                            break;
+                                        case "Onnnen":
+                                            resultingAttackPower += 5;
+                                            break;
+                                        case "Rekisen":
+                                            skill1CoolDown -= 60;
+                                            skill2CoolDown -= 60;
+                                            skill3CoolDown -= 60;
+                                            break;
+                                        case "Yujyou":
+                                            physicsDamageResistance += 13;
+                                            break;
+                                        case "Akatuki":
+                                            skill1CoolDown -= 60;
+                                            skill2CoolDown -= 60;
+                                            skill3CoolDown -= 60;
+                                            int useSkillCount = 0;
+                                            void bonusSeriesSkill()
+                                            {
+                                                if ((skill1 == true && skill1Cool == true) || (skill2 == true && skill2Cool == true) || (skill3 == true && skill3Cool == true))
+                                                {
+                                                    useSkillCount++;
+                                                    if (useSkillCount == 3)
+                                                    {
+                                                        resultingAttackPower = (int)(resultingAttackPower * 1.2);
+                                                    }
+                                                }
+                                            }
+                                            relicSkill = bonusSeriesSkill;
+                                            break;
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                }
         }
     }
 

@@ -5528,12 +5528,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0840a08b3540e994cabb229efefabf3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamestate: 0
+  buttonManager: {fileID: 0}
   shadow: {fileID: 2100000, guid: f7a8b56e2aa5aff45880b737215bc124, type: 2}
   voidmaterial: {fileID: 2100000, guid: 2c16e4a32abc69745aeea5b8cc1d3c86, type: 2}
   deployable: {fileID: 2100000, guid: ee0b4ee2a863c9e4ea17f6bdec9d5cde, type: 2}
   notAllowed: {fileID: 2100000, guid: 7e11f0e4be6d37642be28a336b7c447a, type: 2}
   PausePanel: {fileID: 1310446111}
   RetirePanel: {fileID: 42545662}
+  pause: 0
+  character1UI: 0
+  character1skil1: 0
+  character1skil2: 0
+  character1skil3: 0
+  character1goback: 0
+  character2UI: 0
+  character2skil1: 0
+  character2skil2: 0
+  character2skil3: 0
+  character2goback: 0
+  character1: 0
+  character2: 0
+  enemies: []
+  players: []
+  player1pos: {x: 0, y: 0}
+  player2pos: {x: 0, y: 0}
 --- !u!4 &673367608
 Transform:
   m_ObjectHideFlags: 0
@@ -17955,6 +17974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422945a69f00f1b449989576857b0c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectGrid: {x: 0, y: 0}
 --- !u!81 &5011940407415153018
 AudioListener:
   m_ObjectHideFlags: 0

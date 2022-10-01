@@ -90,4 +90,22 @@ public static class Constant
         Dead,
         Resting
     }
+
+    public const string Huanokan = "Huaの冠";
+    public const string Onnnennokan = "Onnnenの冠";
+    public const string Rekisennokan = "Rekisenの冠";
+    public const string Yujyounokan = "Yujyouの冠";
+    public const string Akatukinokan = "Akatukiの冠";
+
+    public const string Huanoudewa = "Huaの腕輪";
+    public const string Onnnennoudewa = "Onnnenの腕輪";
+    public const string Rekisennoudewa = "Rekisenの腕輪";
+    public const string Yujyounoudewa = "Yujyouの腕輪";
+    public const string Akatukinoudewa = "Akatukiの腕輪";
+
+    public const string Huanoyubiwa = "Huaの指輪";
+    public const string Onnnennoyubiwa = "Onnnenの指輪";
+    public const string Rekisennoyubiwa = "Rekisenの指輪";
+    public const string Yujyounoyubiwa = "Yujyouの指輪";
+    public const string Akatukinoyubiwa = "Akatukiの指輪";
 }
