@@ -12,14 +12,14 @@ public class ButtonManager : MonoBehaviour
      
     [SerializeField] GameObject Character1;
     [SerializeField] GameObject Character2;
-    [SerializeField] GameObject Character1UI;
-    [SerializeField] GameObject Character1Skill1;
-    [SerializeField] GameObject Character1Skill2;
-    [SerializeField] GameObject Character1Skill3;
-    [SerializeField] GameObject Character2UI;
-    [SerializeField] GameObject Character2Skill1;
-    [SerializeField] GameObject Character2Skill2;
-    [SerializeField] GameObject Character2Skill3;
+    [SerializeField] public GameObject Character1UI;
+    [SerializeField] public GameObject Character1Skill1;
+    [SerializeField] public GameObject Character1Skill2;
+    [SerializeField] public GameObject Character1Skill3;
+    [SerializeField] public GameObject Character2UI;
+    [SerializeField] public GameObject Character2Skill1;
+    [SerializeField] public GameObject Character2Skill2;
+    [SerializeField] public GameObject Character2Skill3;
     [SerializeField] GameObject Pause;
 
     Button chara1;

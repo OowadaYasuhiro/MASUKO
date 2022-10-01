@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Spine.Unity;
 using static MainGameCharacterState;
 using static Constant;
@@ -43,7 +44,30 @@ public class CharacterManager : MonoBehaviour
     [SerializeField]
     GameObject[] Enemy2Spine;
 
+    [SerializeField]
+    Sprite DeamonSprite;
+    [SerializeField]
+    Sprite GhostSprite;
+    [SerializeField]
+    Sprite GoreSprite;
+    [SerializeField]
+    Sprite PoltergeistSprite;
+    [SerializeField]
+    Sprite Zashiki_warashiSprite;
+    /*
+    [SerializeField]
+    Sprite healSprite;
+    [SerializeField]
+    Sprite healSprite;
+    [SerializeField]
+    Sprite healSprite;
+    [SerializeField]
+    Sprite healSprite;
+    [SerializeField]
+    Sprite healSprite;
+    */
     MainGame mainGame;
+    ButtonManager buttonManager;
 
     private void Start()
     {
@@ -56,6 +80,7 @@ public class CharacterManager : MonoBehaviour
         enemy1HpSlider = Enemy1.GetComponentInChildren<HpSlider>();
         enemy2HpSlider = Enemy2.GetComponentInChildren<HpSlider>();
         mainGame = GetComponent<MainGame>();
+        buttonManager = GetComponent<ButtonManager>();
         CharaReLoad();
     }
 
@@ -90,6 +115,7 @@ public class CharacterManager : MonoBehaviour
                                 Player1Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character1UI.GetComponent<Image>().sprite = DeamonSprite;
                     }
                     else
                     {
@@ -105,6 +131,7 @@ public class CharacterManager : MonoBehaviour
                                 Player2Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character2UI.GetComponent<Image>().sprite = DeamonSprite;
                     }
                     break;
                 case Ghost:
@@ -122,6 +149,7 @@ public class CharacterManager : MonoBehaviour
                                 Player1Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character1UI.GetComponent<Image>().sprite = GhostSprite;
                     }
                     else
                     {
@@ -137,6 +165,7 @@ public class CharacterManager : MonoBehaviour
                                 Player2Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character2UI.GetComponent<Image>().sprite = GhostSprite;
                     }
                     break;
                 case Gore:
@@ -154,6 +183,7 @@ public class CharacterManager : MonoBehaviour
                                 Player1Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character1UI.GetComponent<Image>().sprite = GoreSprite;
                     }
                     else
                     {
@@ -169,6 +199,7 @@ public class CharacterManager : MonoBehaviour
                                 Player2Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character2UI.GetComponent<Image>().sprite = GoreSprite;
                     }
                     break;
                 case Poltergeist:
@@ -186,6 +217,7 @@ public class CharacterManager : MonoBehaviour
                                 Player1Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character1UI.GetComponent<Image>().sprite = PoltergeistSprite;
                     }
                     else
                     {
@@ -201,6 +233,7 @@ public class CharacterManager : MonoBehaviour
                                 Player2Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character2UI.GetComponent<Image>().sprite = PoltergeistSprite;
                     }
                     break;
                 case Zashiki_warashi:
@@ -218,6 +251,7 @@ public class CharacterManager : MonoBehaviour
                                 Player1Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character1UI.GetComponent<Image>().sprite = Zashiki_warashiSprite;
                     }
                     else
                     {
@@ -233,6 +267,7 @@ public class CharacterManager : MonoBehaviour
                                 Player2Spine[j].SetActive(true);
                             }
                         }
+                        buttonManager.Character2UI.GetComponent<Image>().sprite = Zashiki_warashiSprite;
                     }
                     break;
             }

@@ -5667,6 +5667,16 @@ MonoBehaviour:
   - {fileID: 1355197676}
   - {fileID: 1358835042}
   - {fileID: 1830145958}
+  DeamonSprite: {fileID: 8148851448842989553, guid: 4c14c4a37c565cf4886640327ddf6dc4,
+    type: 3}
+  GhostSprite: {fileID: 2341687815814081169, guid: 4fdbf87ec44a29443b35b66fe17bc070,
+    type: 3}
+  GoreSprite: {fileID: -7913747911457957762, guid: 971e84ca1113f8b40accb786f221f533,
+    type: 3}
+  PoltergeistSprite: {fileID: -6502953220489751509, guid: 79dc40de85c6c2749a0bb85cfc762f8a,
+    type: 3}
+  Zashiki_warashiSprite: {fileID: 9032961435039203987, guid: e117838d80775c241830de62e2f3e78f,
+    type: 3}
 --- !u!1 &685366603
 GameObject:
   m_ObjectHideFlags: 0
