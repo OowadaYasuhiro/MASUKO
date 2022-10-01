@@ -12,7 +12,7 @@ public class GameScreen : MonoBehaviour
     [SerializeField]
     GameObject[] EnemyTargetObject;
 
-    internal void InitializeObstacle(bool[,] mapData)
+    public void InitializeObstacle(bool[,] mapData)
     {
         for (int i = 0; i < 60; i++)
         {
@@ -29,7 +29,7 @@ public class GameScreen : MonoBehaviour
         }
     }
 
-    internal void InitializeEnemyTargetObject(Vector2[] target)
+    public void InitializeEnemyTargetObject(Vector2[] target)
     {
         for (int i = 0; i < 60; i++)
         {

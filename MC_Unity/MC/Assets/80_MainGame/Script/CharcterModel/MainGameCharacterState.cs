@@ -6,7 +6,7 @@
         ;
     }
 
-    internal enum CharacterState
+    public enum CharacterState
     {
         //出撃可能
         Standby,
@@ -29,9 +29,9 @@
         //死亡
         Dead,
     }
-    internal CharacterState charactorState = new CharacterState();
+    public CharacterState charactorState = new CharacterState();
 
-    internal enum CharacterAnimState
+    public enum CharacterAnimState
     {
         Wait,
         Fight,
@@ -43,5 +43,5 @@
         Die,
         PickUp
     }
-    internal CharacterAnimState charactorAnimState = new CharacterAnimState();
+    public CharacterAnimState charactorAnimState = new CharacterAnimState();
 }

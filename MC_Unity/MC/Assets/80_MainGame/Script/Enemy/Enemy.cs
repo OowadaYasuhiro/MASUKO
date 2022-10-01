@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public partial class Enemy : MainGameCharacterModel
 {
     //自分の番号
-    internal int myNumber;
+    public int myNumber;
 
     //戦闘時間
     const int maxFightTime = 600;
@@ -35,7 +35,7 @@ public partial class Enemy : MainGameCharacterModel
     //アニメーション用ディレイ
     bool animationSkip = false;
 
-    internal void Initialized(MainGame mainGame, string difficulty, string name, int number)
+    public void Initialized(MainGame mainGame, string difficulty, string name, int number)
     {
         myNumber = number;
         this.mainGame = mainGame;

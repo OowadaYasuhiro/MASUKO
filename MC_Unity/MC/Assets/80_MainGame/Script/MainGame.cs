@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Constant;
 using UnityEngine.SceneManagement;
-using static System.Convert;
-using System;
 
 public partial class MainGame : MonoBehaviour
 {
     //ゲームステート
-    internal GameState gamestate;
+    public GameState gamestate;
     GameState lateGameState;
 
     //マスターオブジェクト
     GameObject master;
 
     //ボタンマネージャー
-    internal ButtonManager buttonManager;
+    public ButtonManager buttonManager;
 
     //キャラクターマネージャー
     CharacterManager characterManager;
@@ -50,7 +48,7 @@ public partial class MainGame : MonoBehaviour
     string difficulty;
 
     //ステージデータ
-    internal MainGame_StageDeta mainGame_StageDeta;
+    public MainGame_StageDeta mainGame_StageDeta;
 
     //現在のウェーブ
     int waveNumber;
@@ -63,7 +61,7 @@ public partial class MainGame : MonoBehaviour
     bool canDeploy;
 
     //ゲーム内時間軸
-    internal float gameSpeed { get; private set;}
+    public float gameSpeed { get; private set;}
     float timeLine;
 
     //勝敗
@@ -71,43 +69,43 @@ public partial class MainGame : MonoBehaviour
 
     //**イベント**
     //一時停止
-    internal bool pause;
+    public bool pause;
     //スロウモード
     bool slowMode;
     //キャラクター１を選択
-    internal bool character1UI;
+    public bool character1UI;
     //キャラクター１スキル１
-    internal bool character1skil1;
+    public bool character1skil1;
     //キャラクター１スキル２
-    internal bool character1skil2;
+    public bool character1skil2;
     //キャラクター１スキル３
-    internal bool character1skil3;
+    public bool character1skil3;
     //キャラクター１撤退
-    internal bool character1goback;
+    public bool character1goback;
     //キャラクター２を選択
-    internal bool character2UI;
+    public bool character2UI;
     //キャラクター２スキル１
-    internal bool character2skil1;
+    public bool character2skil1;
     //キャラクター２スキル２
-    internal bool character2skil2;
+    public bool character2skil2;
     //キャラクター２スキル３
-    internal bool character2skil3;
+    public bool character2skil3;
     //キャラクター２撤退
-    internal bool character2goback;
+    public bool character2goback;
     //行動中キャラクター１を選択
-    internal bool character1;
+    public bool character1;
     //行動中キャラクター２を選択
-    internal bool character2;
+    public bool character2;
     //キャラクター配置中
     bool beingCharacterDeploy;
 
     //敵
-    internal Enemy[] enemies;
+    public Enemy[] enemies;
 
     //プレイヤー
-    internal Player[] players;
-    internal Vector2 player1pos;
-    internal Vector2 player2pos;
+    public Player[] players;
+    public Vector2 player1pos;
+    public Vector2 player2pos;
 
     //カーソルの位置
     StageGridUI stageGridUI;

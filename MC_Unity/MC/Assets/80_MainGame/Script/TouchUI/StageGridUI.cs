@@ -12,7 +12,7 @@ public class StageGridUI : MonoBehaviour
     readonly Vector2 downRight = new Vector2(853f, -342f);
 
     //カーソル位置のグリッド　(-1,-1)を範囲外とする
-    internal Vector2Int selectGrid;
+    public Vector2Int selectGrid;
 
     //グリッドの横線
     const float depth0 = 360;

@@ -80,7 +80,7 @@ public class ButtonManager : MonoBehaviour
     }
 
     //指定したボタンを無効にする
-    internal void ButtonDisableByName(string name)
+    public void ButtonDisableByName(string name)
     {
         foreach (Button button in buttons)
         {
@@ -94,7 +94,7 @@ public class ButtonManager : MonoBehaviour
     }
 
     //指定したボタンを有効にする
-    internal void ButtoEnableByName(string name)
+    public void ButtoEnableByName(string name)
     {
         if (isPush == false)
         {
@@ -135,7 +135,7 @@ public class ButtonManager : MonoBehaviour
     }
 
     //無効にしたボタンを有効にする
-    internal void AllButtonEnable()
+    public void AllButtonEnable()
     {
         isPush = false;
         lateIsPush = false;

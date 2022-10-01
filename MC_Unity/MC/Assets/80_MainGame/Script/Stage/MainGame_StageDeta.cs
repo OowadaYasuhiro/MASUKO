@@ -8,14 +8,14 @@ public class MainGame_StageDeta
     //壁
     bool[,] map_grids_wall = new bool[10,6];
     //敵出現場所
-    internal Vector2 enemy1_spawn_position;
-    internal Vector2 enemy2_spawn_position;
+    public Vector2 enemy1_spawn_position;
+    public Vector2 enemy2_spawn_position;
     //敵の目標
-    internal Vector2 enemy1_target_object;
-    internal Vector2 enemy2_target_object;
+    public Vector2 enemy1_target_object;
+    public Vector2 enemy2_target_object;
     
     //視界
-    internal View view = new View();
+    public View view = new View();
 
     //ステージ生成
     public MainGame_StageDeta(string stage)
@@ -125,7 +125,7 @@ public class MainGame_StageDeta
         }
     }
 
-    internal bool[,] GetMap()
+    public bool[,] GetMap()
     {
         return map_grids_wall;
     }

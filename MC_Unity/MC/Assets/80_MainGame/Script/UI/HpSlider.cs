@@ -13,7 +13,7 @@ public class HpSlider : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    internal void SetHpSlider(int hp,int maxHp)
+    public void SetHpSlider(int hp,int maxHp)
     {
         value = (float)hp / maxHp;
         slider.value = value;

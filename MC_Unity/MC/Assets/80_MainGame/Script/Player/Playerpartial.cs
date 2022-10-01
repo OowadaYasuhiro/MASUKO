@@ -747,6 +747,7 @@ public partial class Player
                     grudgeAmountIncreasePercentage = 1.1f;
                 }
                 break;
+                switch (artifact1.)
         }
     }
 

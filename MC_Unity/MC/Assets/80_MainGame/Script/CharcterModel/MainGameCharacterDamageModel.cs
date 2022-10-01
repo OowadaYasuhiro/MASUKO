@@ -1,7 +1,7 @@
 ﻿public class MainGameCharacterDamageModel : MainGameCharacterTag
 {
     //生死
-    internal bool alive { get; set; }
+    public bool alive { get; set; }
 
     //体力
     protected int hp;
@@ -19,7 +19,7 @@
         alive = true;
     }
 
-    internal void AddDamage(Damage damage)
+    public void AddDamage(Damage damage)
     {
         if (alive == true)
         {
