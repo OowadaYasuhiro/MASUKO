@@ -30,13 +30,13 @@ public class MainGameCharacterModel : MainGameCharacterState
     public bool findEnemy;
     public MainGameCharacterModel[] targetEnemy;
     //基本ステータス攻撃力
-    protected int baseAttackPower;
+    public int baseAttackPower;
     //攻撃力計算結果
     protected int resultingAttackPower;
     //スキルイベント
     protected SkillEvent skillEvent;
     //ゴール
-    protected bool Goal;
+    protected bool goal;
 
     public MainGameCharacterModel() : base()
     {
@@ -74,7 +74,7 @@ public class MainGameCharacterModel : MainGameCharacterState
                 moveTargetPointer++;
                 if (targetPosition.Length <= moveTargetPointer)
                 {
-                    Goal = true;
+                    goal = true;
                     moveTargetPointer--;
                 }
                 next = true;

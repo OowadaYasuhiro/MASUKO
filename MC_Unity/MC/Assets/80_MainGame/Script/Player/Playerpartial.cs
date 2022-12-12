@@ -9,25 +9,6 @@ public partial class Player
     //コンストラクターから呼び出し、フィールドの情報を埋めていく
     void Setting(int number)
     {
-        myNumber = number;
-        player = true;
-        Charactor FDC = new Charactor();
-        if (number == 1)
-        {
-            FDC = (Charactor)Master.formationdeta.selectcharactor1;
-            artifact1 = Master.formationdeta.charactor1Artifacts[0];
-            artifact2 = Master.formationdeta.charactor1Artifacts[1];
-            artifact3 = Master.formationdeta.charactor1Artifacts[2];
-        }
-        if (number == 2)
-        {
-            FDC = (Charactor)Master.formationdeta.selectcharactor2;
-            artifact1 = Master.formationdeta.charactor2Artifacts[0];
-            artifact2 = Master.formationdeta.charactor2Artifacts[1];
-            artifact3 = Master.formationdeta.charactor2Artifacts[2];
-        }
-        Charactername = FDC.name;
-
         switch (Charactername)
         {
             case Daemon:
@@ -1023,52 +1004,6 @@ public partial class Player
         lateSkill1Cool = skill1Cool;
         lateSkill2Cool = skill2Cool;
         lateSkill3Cool = skill3Cool;
-    }
-
-    void skillCoolTimeCounter()
-    {
-        //クールタイムが残っている
-        if (skill1CoolTime > 0)
-        {
-            skill1CoolTime--;
-            //クールダウン完了
-            if (skill1CoolTime == 0)
-            {
-                skill1Cool = true;
-                skill1Stack++;
-                //まだスタック可能
-                if (skill1Stack < maxSkill1Stack)
-                {
-                    skill1CoolTime = skill1CoolDown;
-                }
-            }
-        }
-        if (skill2CoolTime > 0)
-        {
-            skill2CoolTime--;
-            if (skill2CoolTime == 0)
-            {
-                skill2Cool = true;
-                skill2Stack++;
-                if (skill2Stack < maxSkill2Stack)
-                {
-                    skill2CoolTime = skill2CoolDown;
-                }
-            }
-        }
-        if (skill3CoolTime > 0)
-        {
-            skill3CoolTime--;
-            if (skill3CoolTime == 0)
-            {
-                skill3Cool = true;
-                skill3Stack++;
-                if (skill3Stack < maxSkill3Stack)
-                {
-                    skill3CoolTime = skill3CoolDown;
-                }
-            }
-        }
     }
 
     void UltStackCounter()

@@ -7,37 +7,7 @@ public partial class Player : MainGameCharacterModel
     //自分の番号
     public int myNumber;
     //スキル
-    //使用されたかどうか
-    public bool skill1;
-    public bool skill2;
-    public bool skill3;
-    //スキルの内容
-    public SkillEvent skillEvent1;
-    public SkillEvent skillEvent2;
-    public SkillEvent skillEvent3;
-    //クールダウン
-    int skill1CoolDown;
-    int skill2CoolDown;
-    int skill3CoolDown;
-    //クールタイム
-    int skill1CoolTime;
-    int skill2CoolTime;
-    int skill3CoolTime;
-    //使用可能か
-    public bool skill1Cool;
-    public bool skill2Cool;
-    public bool skill3Cool;
-    bool lateSkill1Cool;
-    bool lateSkill2Cool;
-    bool lateSkill3Cool;
-    //スキルのスタック(合計数)
-    int skill1Stack;
-    int skill2Stack;
-    int skill3Stack;
-    //最大スタック数
-    int maxSkill1Stack;
-    int maxSkill2Stack;
-    int maxSkill3Stack;
+    PlayerSkill[] m_playerSkill = new PlayerSkill[3];
 
     //怨嗟
     //使用されたかどうか
@@ -95,7 +65,29 @@ public partial class Player : MainGameCharacterModel
     public void Initialized(MainGame mainGame, int number)
     {
         this.mainGame = mainGame;
-        Setting(number);
+        for (int i = 0; i < m_playerSkill.Length; i++)
+        {
+            m_playerSkill[i].m_mainGame = mainGame;
+            m_playerSkill[i].m_player = this;
+        }
+        myNumber = number;
+        player = true;
+        Charactor FDC = new Charactor();
+        if (number == 1)
+        {
+            FDC = (Charactor)Master.formationdeta.selectcharactor1;
+            artifact1 = Master.formationdeta.charactor1Artifacts[0];
+            artifact2 = Master.formationdeta.charactor1Artifacts[1];
+            artifact3 = Master.formationdeta.charactor1Artifacts[2];
+        }
+        if (number == 2)
+        {
+            FDC = (Charactor)Master.formationdeta.selectcharactor2;
+            artifact1 = Master.formationdeta.charactor2Artifacts[0];
+            artifact2 = Master.formationdeta.charactor2Artifacts[1];
+            artifact3 = Master.formationdeta.charactor2Artifacts[2];
+        }
+        Charactername = FDC.name;
         characterManager = mainGame.GetComponent<CharacterManager>();
         lastStateType = charactorState;
     }
@@ -105,12 +97,11 @@ public partial class Player : MainGameCharacterModel
         charactorState = CharacterState.Standby;
         charactorAnimState = CharacterAnimState.Wait;
         goback = true;
-        skill1Cool = true;
-        skill2Cool = true;
-        skill3Cool = true;
-        lateSkill1Cool = true;
-        lateSkill2Cool = true;
-        lateSkill3Cool = true;
+        for (int i = 0; i < m_playerSkill.Length; i++)
+        {
+            m_playerSkill[i].m_skillEnabled = true;
+            m_playerSkill[i].m_lateSkillEnabled = true;
+        }
         directionRight = false;
     }
 
@@ -119,30 +110,21 @@ public partial class Player : MainGameCharacterModel
     {
         resultingAttackPower = baseAttackPower;
         //クールタイム管理
-        skillCoolTimeCounter();
+        for (int i = 0; i < m_playerSkill.Length; i++)
+        {
+            m_playerSkill[i].SkillCoolTimeCounter();
+        }
         //スキルボタン表示
         SkillButtonEnable();
-        //スキルが使用されてクールダウンが完了していたら
-        if (skill1 == true && skill1Cool == true)
+        for (int i = 0; i < m_playerSkill.Length; i++)
         {
-            skillEvent1();
-            skill1CoolTime = skill1CoolDown;
-            skill1Stack = 0;
-            skill1Cool = false;
-        }
-        if (skill2 == true && skill2Cool == true)
-        {
-            skillEvent2();
-            skill2CoolTime = skill2CoolDown;
-            skill2Stack = 0;
-            skill2Cool = false;
-        }
-        if (skill3 == true && skill3Cool == true)
-        {
-            skillEvent3();
-            skill3CoolTime = skill3CoolDown;
-            skill3Stack = 0;
-            skill3Cool = false;
+            if (m_playerSkill[i].m_skillActivating == true)
+            {
+                m_playerSkill[i].m_skillEvent();
+                m_playerSkill[i].m_skillCoolTime = m_playerSkill[i].m_skillCoolDown;
+                m_playerSkill[i].m_skillStack = 0;
+                m_playerSkill[i].m_skillActivating = false;
+            }
         }
 
         //怨嗟管理
