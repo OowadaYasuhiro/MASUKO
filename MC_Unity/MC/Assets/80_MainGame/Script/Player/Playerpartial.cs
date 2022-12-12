@@ -9,6 +9,7 @@ public partial class Player
     //コンストラクターから呼び出し、フィールドの情報を埋めていく
     void Setting(int number)
     {
+        /*
         switch (Charactername)
         {
             case Daemon:
@@ -222,7 +223,7 @@ public partial class Player
                 skillEvent2 = DaemonSkill2;
                 void DaemonSkill2()
                 {
-                    /*
+                    
                     //ステートをスタンに移行
                     void EnemyStan()
                     {
@@ -256,7 +257,7 @@ public partial class Player
                             break;
                         }   
                     }
-                    */
+                    
                 }
                 //最大スタック数設定
                 maxSkill3Stack = 1;
@@ -966,11 +967,12 @@ public partial class Player
                     }
                 }
         }
+                */
     }
 
     void SkillButtonEnable()
     {
-
+    /*
         if (myNumber == 1)
         {
             if (skill1Cool == true && lateSkill1Cool == false)
@@ -1004,6 +1006,7 @@ public partial class Player
         lateSkill1Cool = skill1Cool;
         lateSkill2Cool = skill2Cool;
         lateSkill3Cool = skill3Cool;
+         */
     }
 
     void UltStackCounter()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Constant;
 
 public partial class Enemy : MainGameCharacterModel
 {
@@ -52,8 +53,8 @@ public partial class Enemy : MainGameCharacterModel
         directionRight = true;
         characterManager = mainGame.GetComponent<CharacterManager>();
         maxThroughTime = (int)(moveSpeed * 200f);
-        damage = new Damage(Damage.physicsDamage, baseAttackPower);
-        damage.type = Damage.physicsDamage;
+        damage = new Damage(DamageType.physicsDamage, baseAttackPower);
+        damage.type = DamageType.physicsDamage;
         damage.value = baseAttackPower;
         displaying = true;
     }
@@ -159,7 +160,7 @@ public partial class Enemy : MainGameCharacterModel
             }
         }
 
-        if (Goal == true)
+        if (goal == true)
         {
             mainGame.EnemyGoal();
             charactorAnimState = CharacterAnimState.Win;

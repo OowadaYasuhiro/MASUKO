@@ -1,4 +1,6 @@
-﻿public class MainGameCharacterDamageModel : MainGameCharacterTag
+﻿using static Constant;
+
+public class MainGameCharacterDamageModel : MainGameCharacterTag
 {
     //生死
     public bool alive { get; set; }
@@ -26,17 +28,17 @@
             takeDamage = true;
         }
         Invoke(nameof(ExitTakeDamage), 0.5f);
-        if (damage.type == Damage.physicsDamage)
+        if (damage.type == DamageType.physicsDamage)
         {
             double RPD = 1.0 - (double)physicsDamageResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
-        if (damage.type == Damage.zyuGeki)
+        if (damage.type == DamageType.zyuGeki)
         {
             double RPD = 1.0 - (double)zyuGekiResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);
         }
-        if (damage.type == Damage.zyuRyoku)
+        if (damage.type == DamageType.zyuGeki)
         {
             double RPD = 1.0 - (double)zyuRyokuResistance / 100.0;
             hp -= (int)((double)damage.value * RPD);

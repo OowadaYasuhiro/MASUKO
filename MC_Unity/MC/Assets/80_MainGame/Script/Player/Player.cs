@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public partial class Player : MainGameCharacterModel
 {
     //自分の番号
     public int myNumber;
     //スキル
-    PlayerSkill[] m_playerSkill = new PlayerSkill[3];
+    public PlayerSkill[] m_playerSkill = new PlayerSkill[3];
 
     //怨嗟
     //使用されたかどうか
@@ -126,7 +127,6 @@ public partial class Player : MainGameCharacterModel
                 m_playerSkill[i].m_skillActivating = false;
             }
         }
-
         //怨嗟管理
         UltStackCounter();
         //怨嗟
@@ -185,7 +185,7 @@ public partial class Player : MainGameCharacterModel
                     attackCooldown = attackFrequency;
                     foreach (MainGameCharacterModel target in targetEnemy)
                     {
-                        target.AddDamage(new Damage(Damage.physicsDamage, resultingAttackPower));
+                        target.AddDamage(new Damage(DamageType.physicsDamage, resultingAttackPower));
                     }
                 }
                 break;

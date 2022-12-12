@@ -31,9 +31,13 @@ public static class Constant
     public const string hard = "hard";
 
     //ダメージ属性
-    public const string physicsDamage = "physicsDamage";
-    public const string zyuGeki = "zyuGeki";
-    public const string zyuRyoku = "zyuRyoku";
+    //ダメージ属性
+    public enum DamageType
+    {
+        physicsDamage,
+        zyuGeki,
+        zyuRyoku
+    }
 
     //ゲームステート
     public enum GameState

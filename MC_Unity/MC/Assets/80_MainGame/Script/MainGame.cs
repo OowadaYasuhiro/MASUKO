@@ -226,15 +226,15 @@ public partial class MainGame : MonoBehaviour
         }
         if (character1skil1 == true)
         {
-            players[0].skill1 = true;
+            players[0].m_playerSkill[0].m_skillActivating = true;
         }
         if (character1skil2 == true)
         {
-            players[0].skill2 = true;
+            players[0].m_playerSkill[1].m_skillActivating = true;
         }
         if (character1skil3 == true)
         {
-            players[0].skill3 = true;
+            players[0].m_playerSkill[2].m_skillActivating = true;
         }
         if (character2UI == true)
         {
@@ -243,15 +243,15 @@ public partial class MainGame : MonoBehaviour
         }
         if (character2skil1 == true)
         {
-            players[1].skill1 = true;
+            players[1].m_playerSkill[0].m_skillActivating = true;
         }
         if (character2skil2 == true)
         {
-            players[1].skill2 = true;
+            players[1].m_playerSkill[1].m_skillActivating = true;
         }
         if (character2skil3 == true)
         {
-            players[1].skill3 = true;
+            players[1].m_playerSkill[2].m_skillActivating = true;
         }
     }
 

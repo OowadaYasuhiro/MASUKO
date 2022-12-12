@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static MainGameCharacterState;
+using static Constant;
 
 public class PlayerSkill
 {
@@ -15,6 +16,8 @@ public class PlayerSkill
 
     int m_time;
     int m_doTick;
+
+    PlayerSkillData m_playerSkillData;
 
     public SkillEvent m_skillEvent;
 
@@ -38,35 +41,71 @@ public class PlayerSkill
         }
     }
 
-    void Skill(Vector2[] attackRange, bool attackTaype, bool stan, bool attack, double damageMagnification)
+    void Skill()
     {
         MainGameCharacterModel[] target;
-        if (attackTaype == true)
+        if (m_playerSkillData.m_originalAttackRange == true)
         {
-            target = m_mainGame.SearchCharacter(m_player.position, attackRange, false, true, false);
+            if (m_playerSkillData.m_type == PlayerSkillData.SkillTargetingType.Attack)
+            {
+                target = m_mainGame.SearchCharacter(m_player.position, m_playerSkillData.m_attackRange, false, true, false);
+            }
+            else
+            {
+                target = m_mainGame.SearchCharacter(m_player.position, m_playerSkillData.m_attackRange, true, false, false);
+            }
         }
         else
         {
-            target = m_mainGame.SearchCharacter(m_player.position, attackRange, true, false, false);
+            if (m_playerSkillData.m_type == PlayerSkillData.SkillTargetingType.Attack)
+            {
+                target = m_mainGame.SearchCharacter(m_player.position, m_player.attackRange, false, true, false);
+            }
+            else
+            {
+                target = m_mainGame.SearchCharacter(m_player.position, m_player.attackRange, true, false, false);
+            }
         }
+        
         
         foreach (MainGameCharacterModel targetCharacter in target)
         {
-            if (stan == true)
+            if (m_playerSkillData.m_stan == true)
+            {
+                
+            }
+            if (m_playerSkillData.m_attackData.Length > 0)
+            {
+                
+            }
+            void Stan()
             {
                 targetCharacter.charactorState = CharacterState.Stan;
             }
-            if (attack == true)
+            void PlayerSkillAttack(DamageType damageType, double damageMagnification)
             {
-                targetCharacter.AddDamage(new Damage(Damage.physicsDamage, (int)(m_player.baseAttackPower * damageMagnification)));
+                targetCharacter.AddDamage(new Damage(damageType, (int)(m_player.baseAttackPower * damageMagnification)));
+            }
+            void Healing()
+            {
+
+            }
+            void AddAttackSpeed()
+            {
+
+            }
+            void Summon()
+            {
+
+            }
+            void Buff()
+            {
+
+            }
+            void DeBuff()
+            {
+
             }
         }
-    }
-
-    void Stan()
-    {
-        //呼び出し時のターゲットの中身が正しいか
-        //foreachでいいのか
-        //dotickでの参照先は正しいか
     }
 }
