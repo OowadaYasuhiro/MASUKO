@@ -4,7 +4,7 @@ using UnityEngine;
 using static MainGameCharacterState;
 using static Constant;
 
-public class PlayerSkill
+public class PlayerSkill : MonoBehaviour
 {
     public bool m_skillActivating;
     public int m_skillCoolDown;
@@ -13,9 +13,6 @@ public class PlayerSkill
     public bool m_lateSkillEnabled;
     public int m_skillStack;
     int m_maxSkillStack;
-
-    int m_time;
-    int m_doTick;
 
     PlayerSkillData m_playerSkillData;
 
@@ -72,20 +69,24 @@ public class PlayerSkill
         {
             if (m_playerSkillData.m_stan == true)
             {
-                
+                StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(m_mainGame, targetCharacter, m_playerSkillData.m_stanTimeData.m_lifeFrame, m_playerSkillData.m_stanTimeData.m_doTick, Stan));
+                void Stan()
+                {
+                    targetCharacter.charactorState = CharacterState.Stan;
+                }
             }
             if (m_playerSkillData.m_attackData.Length > 0)
             {
-                
+                for (int i = 0; i < m_playerSkillData.m_attackData.Length; i++)
+                {
+                    StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(m_mainGame, targetCharacter, m_playerSkillData.m_attackData[i].m_timerData.m_lifeFrame, m_playerSkillData.m_attackData[i].m_timerData.m_doTick, PlayerSkillAttack));
+                    void PlayerSkillAttack()
+                    {
+                        targetCharacter.AddDamage(new Damage(m_playerSkillData.m_attackData[i].m_damageType, (int)(m_player.baseAttackPower * m_playerSkillData.m_attackData[i].m_damageMagnification)));
+                    }
+                }
             }
-            void Stan()
-            {
-                targetCharacter.charactorState = CharacterState.Stan;
-            }
-            void PlayerSkillAttack(DamageType damageType, double damageMagnification)
-            {
-                targetCharacter.AddDamage(new Damage(damageType, (int)(m_player.baseAttackPower * damageMagnification)));
-            }
+            
             void Healing()
             {
 

@@ -16,8 +16,10 @@ MonoBehaviour:
   m_attackRange: []
   m_type: 0
   m_stan: 0
+  m_stanTimeData:
+    m_lifeFrame: 0
+    m_doTick: 0
   m_attackData: []
-  m_addBuff: 0
   m_buffDatas: []
-  m_addDebuff: 0
   m_debuffDatas: []
+  m_summonObject: {fileID: 0}
