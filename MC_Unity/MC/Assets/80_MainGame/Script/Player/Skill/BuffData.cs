@@ -3,16 +3,13 @@
 [Serializable]
 public class BuffData
 {
-    public enum DebuffType
+    public enum BuffType
     {
-        Speed,
-        Defense,
-        Attack,
         Healing,
         AddAttackSpeed,
     }
 
-    public DebuffType m_debuffType;
+    public BuffType m_buffType;
     public int m_ratio;
     public TimerData m_timerData;
 }

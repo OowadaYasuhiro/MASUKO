@@ -9,9 +9,12 @@ using System.Runtime.CompilerServices;
 public class MainGameSkillEvent : MainGameCharacterModel
 {
     //何フレーム実行するか(0で1回)、何フレーム毎に実行するか(1で毎フレーム)、
-    public IEnumerator DoSkillEvent(MainGame maingame, MainGameCharacterModel target, int time, int doTick, SkillEvent skillEvent )
+    public IEnumerator DoSkillEvent(MainGameCharacterModel target, TimerData timerData, SkillEvent skillEvent )
     {
+        MainGame maingame = GameObject.Find("MainGame").GetComponent<MainGame>();
         int passedTime = 0;
+        int time = timerData.m_lifeFrame;
+        int doTick = timerData.m_doTick;
         LOOPPOINT:
 
         if (passedTime >= doTick)

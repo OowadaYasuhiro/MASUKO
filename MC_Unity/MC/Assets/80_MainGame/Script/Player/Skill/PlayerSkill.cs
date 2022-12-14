@@ -69,7 +69,7 @@ public class PlayerSkill : MonoBehaviour
         {
             if (m_playerSkillData.m_stan == true)
             {
-                StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(m_mainGame, targetCharacter, m_playerSkillData.m_stanTimeData.m_lifeFrame, m_playerSkillData.m_stanTimeData.m_doTick, Stan));
+                StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(targetCharacter, m_playerSkillData.m_stanTimeData, Stan));
                 void Stan()
                 {
                     targetCharacter.charactorState = CharacterState.Stan;
@@ -79,11 +79,7 @@ public class PlayerSkill : MonoBehaviour
             {
                 for (int i = 0; i < m_playerSkillData.m_attackData.Length; i++)
                 {
-                    StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(m_mainGame, targetCharacter, m_playerSkillData.m_attackData[i].m_timerData.m_lifeFrame, m_playerSkillData.m_attackData[i].m_timerData.m_doTick, PlayerSkillAttack));
-                    void PlayerSkillAttack()
-                    {
-                        targetCharacter.AddDamage(new Damage(m_playerSkillData.m_attackData[i].m_damageType, (int)(m_player.baseAttackPower * m_playerSkillData.m_attackData[i].m_damageMagnification)));
-                    }
+                    AttackSKill(targetCharacter, i);
                 }
             }
             
@@ -107,6 +103,20 @@ public class PlayerSkill : MonoBehaviour
             {
 
             }
+            void KnockBack()
+            {
+
+            }
+        }
+    }
+
+    void AttackSKill(MainGameCharacterModel targetCharacter, int loopNumber)
+    {
+        StartCoroutine(gameObject.AddComponent<MainGameSkillEvent>().DoSkillEvent(targetCharacter, m_playerSkillData.m_attackData[loopNumber].m_timerData, PlayerSkillAttack));
+        void PlayerSkillAttack()
+        {
+            Damage damage = new Damage(m_playerSkillData.m_attackData[loopNumber].m_damageType, (int)(m_player.baseAttackPower * m_playerSkillData.m_attackData[loopNumber].m_damageMagnification));
+            targetCharacter.AddDamage(damage);
         }
     }
 }
